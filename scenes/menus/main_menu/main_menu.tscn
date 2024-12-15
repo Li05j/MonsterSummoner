@@ -1,0 +1,76 @@
+[gd_scene load_steps=4 format=3 uid="uid://bs0hb43yigydd"]
+
+[ext_resource type="Script" path="res://scenes/menus/main_menu/main_menu.gd" id="1_hnupo"]
+[ext_resource type="Texture2D" uid="uid://xy8k70jj73lh" path="res://addons/Sprites/pixel-art-cloud-background [photoutils.com].png" id="1_xc1xa"]
+[ext_resource type="Theme" uid="uid://6shp5ck1tnja" path="res://addons/Themes/FlatUI4/kenneyUI.tres" id="2_da73p"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hnupo")
+
+[node name="Background" type="TextureRect" parent="."]
+self_modulate = Color(1, 1, 1, 0.196078)
+z_index = -5
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_xc1xa")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -108.0
+offset_right = 108.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme = ExtResource("2_da73p")
+theme_type_variation = &"GraphFrameTitleLabel"
+theme_override_font_sizes/font_size = 60
+text = "MONSTER SUMMONER"
+
+[node name="Buttons" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -166.5
+offset_top = -116.5
+offset_right = 166.5
+offset_bottom = 116.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 15
+
+[node name="StartGame" type="Button" parent="Buttons"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2_da73p")
+text = "START GAME"
+
+[node name="Help" type="Button" parent="Buttons"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2_da73p")
+text = "How To Play"
+
+[node name="Quit" type="Button" parent="Buttons"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2_da73p")
+text = "Quit"
+
+[connection signal="pressed" from="Buttons/StartGame" to="." method="_on_start_btn_pressed"]
+[connection signal="pressed" from="Buttons/Help" to="." method="_on_help_btn_pressed"]
+[connection signal="pressed" from="Buttons/Quit" to="." method="_on_quit_btn_pressed"]
