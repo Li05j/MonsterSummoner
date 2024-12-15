@@ -25,9 +25,15 @@ grow_vertical = 2
 texture = ExtResource("1_c0fus")
 
 [node name="Back" type="Button" parent="."]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -42.251
+offset_right = 220.324
+grow_vertical = 0
 size_flags_vertical = 3
 theme = ExtResource("3_1m42e")
-text = "START GAME"
+text = "Back to Main Menu"
 
 [connection signal="pressed" from="Back" to="." method="_on_back_btn_pressed"]

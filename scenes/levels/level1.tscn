@@ -1,3 +1,22 @@
-[gd_scene format=3 uid="uid://bgmuet1ygcwso"]
+[gd_scene load_steps=3 format=3 uid="uid://bgmuet1ygcwso"]
+
+[ext_resource type="Texture2D" uid="uid://xy8k70jj73lh" path="res://addons/Sprites/pixel-art-cloud-background [photoutils.com].png" id="1_k878v"]
+[ext_resource type="PackedScene" uid="uid://br8ea3ube8q8i" path="res://scenes/command_panel/monster/monster.tscn" id="2_l16lv"]
 
 [node name="Level1" type="Node2D"]
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Background" type="TextureRect" parent="UI"]
+z_index = -5
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -118.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_k878v")
+
+[node name="CommandPanel" type="CanvasLayer" parent="UI"]
+
+[node name="Monster" parent="UI/CommandPanel" instance=ExtResource("2_l16lv")]
