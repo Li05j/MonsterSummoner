@@ -1,5 +1,7 @@
 class_name MainMenu extends Control
 
+@onready var _buttons = $Buttons
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$Title.text = "MONSTER SUMMONER"
