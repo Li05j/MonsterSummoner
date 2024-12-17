@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://br8ea3ube8q8i"]
+[gd_scene load_steps=8 format=3 uid="uid://br8ea3ube8q8i"]
 
 [ext_resource type="Theme" uid="uid://bnhngmri4tfgr" path="res://addons/Themes/FlatUI4/kenneyUI-green.tres" id="1_gnueo"]
 [ext_resource type="Texture2D" uid="uid://dtdoxa1pck4mq" path="res://addons/Sprites/Goblin/goblin.png" id="2_2clx1"]
+[ext_resource type="Theme" uid="uid://6shp5ck1tnja" path="res://addons/Themes/FlatUI4/kenneyUI.tres" id="3_68wak"]
 [ext_resource type="Texture2D" uid="uid://bdaoovccsps1n" path="res://addons/Sprites/Slime/Slime Portrati.png" id="3_xp7dm"]
 [ext_resource type="Texture2D" uid="uid://cej1nshcbpd3d" path="res://addons/Sprites/Fireworm/fireworm.png" id="4_wck0a"]
 [ext_resource type="Texture2D" uid="uid://c1wcihr2i4tdn" path="res://addons/Sprites/Troll/Troll portarit.png" id="5_2783n"]
@@ -10,7 +11,7 @@
 bg_color = Color(0.729237, 0.484943, 0.624305, 1)
 shadow_size = 10
 
-[node name="Monster" type="CanvasLayer"]
+[node name="MonsterPanel" type="CanvasLayer"]
 
 [node name="Panel" type="Panel" parent="."]
 anchors_preset = -1
@@ -27,8 +28,8 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_bvh3a")
 [node name="Buttons" type="HBoxContainer" parent="Panel"]
 layout_mode = 1
 anchors_preset = -1
-anchor_top = 0.5
-anchor_bottom = 0.5
+anchor_top = 0.4
+anchor_bottom = 0.4
 offset_left = 20.0
 offset_top = -25.0
 offset_right = 260.0
@@ -50,6 +51,18 @@ offset_bottom = 185.0
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_2clx1")
 
+[node name="Label" type="Label" parent="Panel/Buttons/Unit1"]
+modulate = Color(1, 1, 1, 0.784314)
+layout_mode = 0
+offset_left = 37.0
+offset_top = -17.0
+offset_right = 53.0
+offset_bottom = 24.0
+theme = ExtResource("3_68wak")
+theme_type_variation = &"GraphFrameTitleLabel"
+theme_override_font_sizes/font_size = 36
+text = "1"
+
 [node name="Unit2" type="Button" parent="Panel/Buttons"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
@@ -64,6 +77,17 @@ offset_bottom = 20.796
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("3_xp7dm")
 
+[node name="Label" type="Label" parent="Panel/Buttons/Unit2"]
+modulate = Color(1, 1, 1, 0.784314)
+offset_left = 37.0
+offset_top = -17.0
+offset_right = 53.0
+offset_bottom = 24.0
+theme = ExtResource("3_68wak")
+theme_type_variation = &"GraphFrameTitleLabel"
+theme_override_font_sizes/font_size = 36
+text = "2"
+
 [node name="Unit3" type="Button" parent="Panel/Buttons"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
@@ -76,6 +100,17 @@ offset_right = 564.0
 offset_bottom = 440.0
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("4_wck0a")
+
+[node name="Label" type="Label" parent="Panel/Buttons/Unit3"]
+modulate = Color(1, 1, 1, 0.784314)
+offset_left = 37.0
+offset_top = -17.0
+offset_right = 53.0
+offset_bottom = 24.0
+theme = ExtResource("3_68wak")
+theme_type_variation = &"GraphFrameTitleLabel"
+theme_override_font_sizes/font_size = 36
+text = "3"
 
 [node name="Unit4" type="Button" parent="Panel/Buttons"]
 custom_minimum_size = Vector2(50, 50)
@@ -90,3 +125,14 @@ offset_right = 57.696
 offset_bottom = 53.796
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("5_2783n")
+
+[node name="Label" type="Label" parent="Panel/Buttons/Unit4"]
+modulate = Color(1, 1, 1, 0.784314)
+offset_left = 37.0
+offset_top = -17.0
+offset_right = 53.0
+offset_bottom = 24.0
+theme = ExtResource("3_68wak")
+theme_type_variation = &"GraphFrameTitleLabel"
+theme_override_font_sizes/font_size = 36
+text = "4"

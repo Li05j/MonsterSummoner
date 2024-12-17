@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://comfh2g0i6lwu" path="res://scenes/menus/pause_menu/pause_menu.tscn" id="1_chx42"]
 [ext_resource type="Texture2D" uid="uid://xy8k70jj73lh" path="res://addons/Sprites/pixel-art-cloud-background [photoutils.com].png" id="1_k878v"]
-[ext_resource type="PackedScene" uid="uid://br8ea3ube8q8i" path="res://scenes/command_panel/monster/monster.tscn" id="2_l16lv"]
+[ext_resource type="PackedScene" uid="uid://br8ea3ube8q8i" path="res://scenes/command_panel/monster/monster_panel.tscn" id="2_l16lv"]
 
 [node name="Level1" type="Node"]
 process_mode = 3
@@ -23,6 +23,4 @@ texture = ExtResource("1_k878v")
 [node name="PauseMenu" parent="UI" instance=ExtResource("1_chx42")]
 z_index = 5
 
-[node name="CommandPanel" type="CanvasLayer" parent="UI"]
-
-[node name="Monster" parent="UI/CommandPanel" instance=ExtResource("2_l16lv")]
+[node name="MonsterPanel" parent="UI" instance=ExtResource("2_l16lv")]
