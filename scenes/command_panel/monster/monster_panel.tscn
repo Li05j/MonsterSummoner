@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://br8ea3ube8q8i"]
+[gd_scene load_steps=12 format=3 uid="uid://br8ea3ube8q8i"]
 
 [ext_resource type="Script" path="res://scenes/command_panel/monster/monster_panel.gd" id="1_5qkhy"]
 [ext_resource type="Theme" uid="uid://bnhngmri4tfgr" path="res://addons/Themes/FlatUI4/kenneyUI-green.tres" id="1_gnueo"]
@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://dv3gow0me4kq6" path="res://addons/Icons/free-coin-icon-794-thumb.png" id="4_gcp50"]
 [ext_resource type="Texture2D" uid="uid://cej1nshcbpd3d" path="res://addons/Sprites/Fireworm/fireworm.png" id="4_wck0a"]
 [ext_resource type="Texture2D" uid="uid://c1wcihr2i4tdn" path="res://addons/Sprites/Troll/Troll portarit.png" id="5_2783n"]
+[ext_resource type="Texture2D" uid="uid://37sccet8d6dx" path="res://addons/Icons/pixel-art-mining-cart.png" id="9_bk6gg"]
+[ext_resource type="Texture2D" uid="uid://d2vh00freqpe2" path="res://addons/Icons/pixel-art-lab-icon.png" id="9_hme53"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bvh3a"]
 bg_color = Color(0.729237, 0.484943, 0.624305, 1)
@@ -28,7 +30,7 @@ grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_bvh3a")
 script = ExtResource("1_5qkhy")
 
-[node name="Buttons" type="HBoxContainer" parent="Panel"]
+[node name="UnitButtons" type="HBoxContainer" parent="Panel"]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.4
@@ -41,12 +43,12 @@ grow_vertical = 2
 scale = Vector2(1.2, 1.2)
 theme_override_constants/separation = 20
 
-[node name="Unit1" type="Button" parent="Panel/Buttons"]
+[node name="Unit1" type="Button" parent="Panel/UnitButtons"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 theme = ExtResource("1_gnueo")
 
-[node name="TextureRect" type="TextureRect" parent="Panel/Buttons/Unit1"]
+[node name="TextureRect" type="TextureRect" parent="Panel/UnitButtons/Unit1"]
 layout_mode = 0
 offset_left = 3.0
 offset_right = 188.0
@@ -54,7 +56,7 @@ offset_bottom = 185.0
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_2clx1")
 
-[node name="Label" type="Label" parent="Panel/Buttons/Unit1"]
+[node name="Label" type="Label" parent="Panel/UnitButtons/Unit1"]
 modulate = Color(1, 1, 1, 0.784314)
 layout_mode = 0
 offset_left = 37.0
@@ -66,7 +68,7 @@ theme_type_variation = &"GraphFrameTitleLabel"
 theme_override_font_sizes/font_size = 36
 text = "1"
 
-[node name="Cost" type="Label" parent="Panel/Buttons/Unit1"]
+[node name="Cost" type="Label" parent="Panel/UnitButtons/Unit1"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -83,7 +85,7 @@ text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="Panel/Buttons/Unit1/Cost"]
+[node name="TextureRect" type="TextureRect" parent="Panel/UnitButtons/Unit1/Cost"]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.5
@@ -96,12 +98,12 @@ grow_vertical = 2
 texture = ExtResource("4_gcp50")
 expand_mode = 2
 
-[node name="Unit2" type="Button" parent="Panel/Buttons"]
+[node name="Unit2" type="Button" parent="Panel/UnitButtons"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 theme = ExtResource("1_gnueo")
 
-[node name="TextureRect" type="TextureRect" parent="Panel/Buttons/Unit2"]
+[node name="TextureRect" type="TextureRect" parent="Panel/UnitButtons/Unit2"]
 layout_mode = 0
 offset_left = 4.696
 offset_top = -11.204
@@ -110,7 +112,7 @@ offset_bottom = 20.796
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("3_xp7dm")
 
-[node name="Label" type="Label" parent="Panel/Buttons/Unit2"]
+[node name="Label" type="Label" parent="Panel/UnitButtons/Unit2"]
 modulate = Color(1, 1, 1, 0.784314)
 layout_mode = 0
 offset_left = 37.0
@@ -122,7 +124,7 @@ theme_type_variation = &"GraphFrameTitleLabel"
 theme_override_font_sizes/font_size = 36
 text = "2"
 
-[node name="Cost" type="Label" parent="Panel/Buttons/Unit2"]
+[node name="Cost" type="Label" parent="Panel/UnitButtons/Unit2"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -139,7 +141,7 @@ text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="Panel/Buttons/Unit2/Cost"]
+[node name="TextureRect" type="TextureRect" parent="Panel/UnitButtons/Unit2/Cost"]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.5
@@ -152,12 +154,12 @@ grow_vertical = 2
 texture = ExtResource("4_gcp50")
 expand_mode = 2
 
-[node name="Unit3" type="Button" parent="Panel/Buttons"]
+[node name="Unit3" type="Button" parent="Panel/UnitButtons"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 theme = ExtResource("1_gnueo")
 
-[node name="TextureRect" type="TextureRect" parent="Panel/Buttons/Unit3"]
+[node name="TextureRect" type="TextureRect" parent="Panel/UnitButtons/Unit3"]
 layout_mode = 0
 offset_left = -2.0
 offset_right = 564.0
@@ -165,7 +167,7 @@ offset_bottom = 440.0
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("4_wck0a")
 
-[node name="Label" type="Label" parent="Panel/Buttons/Unit3"]
+[node name="Label" type="Label" parent="Panel/UnitButtons/Unit3"]
 modulate = Color(1, 1, 1, 0.784314)
 layout_mode = 0
 offset_left = 37.0
@@ -177,7 +179,7 @@ theme_type_variation = &"GraphFrameTitleLabel"
 theme_override_font_sizes/font_size = 36
 text = "3"
 
-[node name="Cost" type="Label" parent="Panel/Buttons/Unit3"]
+[node name="Cost" type="Label" parent="Panel/UnitButtons/Unit3"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -194,7 +196,7 @@ text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="Panel/Buttons/Unit3/Cost"]
+[node name="TextureRect" type="TextureRect" parent="Panel/UnitButtons/Unit3/Cost"]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.5
@@ -207,12 +209,12 @@ grow_vertical = 2
 texture = ExtResource("4_gcp50")
 expand_mode = 2
 
-[node name="Unit4" type="Button" parent="Panel/Buttons"]
+[node name="Unit4" type="Button" parent="Panel/UnitButtons"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 theme = ExtResource("1_gnueo")
 
-[node name="TextureRect" type="TextureRect" parent="Panel/Buttons/Unit4"]
+[node name="TextureRect" type="TextureRect" parent="Panel/UnitButtons/Unit4"]
 layout_mode = 0
 offset_left = 4.696
 offset_top = 4.79596
@@ -221,7 +223,7 @@ offset_bottom = 53.796
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("5_2783n")
 
-[node name="Label" type="Label" parent="Panel/Buttons/Unit4"]
+[node name="Label" type="Label" parent="Panel/UnitButtons/Unit4"]
 modulate = Color(1, 1, 1, 0.784314)
 layout_mode = 0
 offset_left = 37.0
@@ -233,7 +235,7 @@ theme_type_variation = &"GraphFrameTitleLabel"
 theme_override_font_sizes/font_size = 36
 text = "4"
 
-[node name="Cost" type="Label" parent="Panel/Buttons/Unit4"]
+[node name="Cost" type="Label" parent="Panel/UnitButtons/Unit4"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -250,7 +252,251 @@ text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="Panel/Buttons/Unit4/Cost"]
+[node name="TextureRect" type="TextureRect" parent="Panel/UnitButtons/Unit4/Cost"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -21.0
+offset_top = -10.0
+offset_right = -40.0
+offset_bottom = 10.0
+grow_vertical = 2
+texture = ExtResource("4_gcp50")
+expand_mode = 2
+
+[node name="BuildingButtons" type="HBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.045
+anchor_top = 0.4
+anchor_right = 1.045
+anchor_bottom = 0.4
+offset_left = -399.025
+offset_top = -25.0
+offset_right = -139.025
+offset_bottom = 25.0
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(1.2, 1.2)
+theme_override_constants/separation = 20
+alignment = 2
+
+[node name="Build4" type="Button" parent="Panel/BuildingButtons"]
+visible = false
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme = ExtResource("1_gnueo")
+
+[node name="TextureRect" type="TextureRect" parent="Panel/BuildingButtons/Build4"]
+layout_mode = 0
+offset_left = 3.0
+offset_right = 188.0
+offset_bottom = 185.0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_2clx1")
+
+[node name="Label" type="Label" parent="Panel/BuildingButtons/Build4"]
+modulate = Color(1, 1, 1, 0.784314)
+layout_mode = 0
+offset_left = 37.0
+offset_top = -17.0
+offset_right = 53.0
+offset_bottom = 24.0
+theme = ExtResource("3_68wak")
+theme_type_variation = &"GraphFrameTitleLabel"
+theme_override_font_sizes/font_size = 36
+text = "1"
+
+[node name="Cost" type="Label" parent="Panel/BuildingButtons/Build4"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.4
+anchor_right = 0.5
+anchor_bottom = 1.4
+offset_left = 7.0
+offset_top = -13.0
+offset_right = 5.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 11
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Panel/BuildingButtons/Build4/Cost"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -21.0
+offset_top = -10.0
+offset_right = -40.0
+offset_bottom = 10.0
+grow_vertical = 2
+texture = ExtResource("4_gcp50")
+expand_mode = 2
+
+[node name="Build3" type="Button" parent="Panel/BuildingButtons"]
+visible = false
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme = ExtResource("1_gnueo")
+
+[node name="TextureRect" type="TextureRect" parent="Panel/BuildingButtons/Build3"]
+layout_mode = 0
+offset_left = 4.696
+offset_top = -11.204
+offset_right = 32.696
+offset_bottom = 20.796
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_xp7dm")
+
+[node name="Label" type="Label" parent="Panel/BuildingButtons/Build3"]
+modulate = Color(1, 1, 1, 0.784314)
+layout_mode = 0
+offset_left = 37.0
+offset_top = -17.0
+offset_right = 53.0
+offset_bottom = 24.0
+theme = ExtResource("3_68wak")
+theme_type_variation = &"GraphFrameTitleLabel"
+theme_override_font_sizes/font_size = 36
+text = "2"
+
+[node name="Cost" type="Label" parent="Panel/BuildingButtons/Build3"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.4
+anchor_right = 0.5
+anchor_bottom = 1.4
+offset_left = 7.0
+offset_top = -13.0
+offset_right = 5.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 11
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Panel/BuildingButtons/Build3/Cost"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -21.0
+offset_top = -10.0
+offset_right = -40.0
+offset_bottom = 10.0
+grow_vertical = 2
+texture = ExtResource("4_gcp50")
+expand_mode = 2
+
+[node name="Build2" type="Button" parent="Panel/BuildingButtons"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme = ExtResource("1_gnueo")
+
+[node name="TextureRect" type="TextureRect" parent="Panel/BuildingButtons/Build2"]
+modulate = Color(0, 0.462745, 0.811765, 1)
+layout_mode = 0
+offset_left = -16.9209
+offset_top = -13.2534
+offset_right = 829.079
+offset_bottom = 711.747
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("9_hme53")
+
+[node name="Label" type="Label" parent="Panel/BuildingButtons/Build2"]
+modulate = Color(1, 1, 1, 0.784314)
+layout_mode = 0
+offset_left = 37.0
+offset_top = -17.0
+offset_right = 53.0
+offset_bottom = 24.0
+theme = ExtResource("3_68wak")
+theme_type_variation = &"GraphFrameTitleLabel"
+theme_override_font_sizes/font_size = 36
+text = "9"
+
+[node name="Cost" type="Label" parent="Panel/BuildingButtons/Build2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.4
+anchor_right = 0.5
+anchor_bottom = 1.4
+offset_left = 7.0
+offset_top = -13.0
+offset_right = 5.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 11
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Panel/BuildingButtons/Build2/Cost"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -21.0
+offset_top = -10.0
+offset_right = -40.0
+offset_bottom = 10.0
+grow_vertical = 2
+texture = ExtResource("4_gcp50")
+expand_mode = 2
+
+[node name="Build1" type="Button" parent="Panel/BuildingButtons"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme = ExtResource("1_gnueo")
+
+[node name="TextureRect" type="TextureRect" parent="Panel/BuildingButtons/Build1"]
+layout_mode = 0
+offset_left = 7.24661
+offset_top = 9.24664
+offset_right = 59.2466
+offset_bottom = 51.2466
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("9_bk6gg")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="Panel/BuildingButtons/Build1"]
+modulate = Color(1, 1, 1, 0.784314)
+layout_mode = 0
+offset_left = 37.0
+offset_top = -17.0
+offset_right = 53.0
+offset_bottom = 24.0
+theme = ExtResource("3_68wak")
+theme_type_variation = &"GraphFrameTitleLabel"
+theme_override_font_sizes/font_size = 36
+text = "0"
+
+[node name="Cost" type="Label" parent="Panel/BuildingButtons/Build1"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.4
+anchor_right = 0.5
+anchor_bottom = 1.4
+offset_left = 7.0
+offset_top = -13.0
+offset_right = 5.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 11
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Panel/BuildingButtons/Build1/Cost"]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.5
