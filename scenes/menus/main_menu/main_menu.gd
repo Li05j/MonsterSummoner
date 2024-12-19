@@ -8,6 +8,7 @@ func _ready() -> void:
 	#$Buttons/StartGame.grab_focus()
 
 func _on_start_btn_pressed() -> void:
+	LevelState.reset_level_state()
 	get_tree().change_scene_to_file(Paths.LEVELS + "level1.tscn")
 
 func _on_help_btn_pressed() -> void:

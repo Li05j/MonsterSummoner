@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://br8ea3ube8q8i"]
+[gd_scene load_steps=13 format=3 uid="uid://br8ea3ube8q8i"]
 
 [ext_resource type="Script" path="res://scenes/command_panel/monster/monster_panel.gd" id="1_5qkhy"]
 [ext_resource type="Theme" uid="uid://bnhngmri4tfgr" path="res://addons/Themes/FlatUI4/kenneyUI-green.tres" id="1_gnueo"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://c1wcihr2i4tdn" path="res://addons/Sprites/Troll/Troll portarit.png" id="5_2783n"]
 [ext_resource type="Texture2D" uid="uid://37sccet8d6dx" path="res://addons/Icons/pixel-art-mining-cart.png" id="9_bk6gg"]
 [ext_resource type="Texture2D" uid="uid://d2vh00freqpe2" path="res://addons/Icons/pixel-art-lab-icon.png" id="9_hme53"]
+[ext_resource type="Theme" uid="uid://h1f7iqhh7ycb" path="res://addons/Themes/FlatUI4/kenneyUI-yellow.tres" id="11_2trsw"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bvh3a"]
 bg_color = Color(0.729237, 0.484943, 0.624305, 1)
@@ -508,3 +509,56 @@ offset_bottom = 10.0
 grow_vertical = 2
 texture = ExtResource("4_gcp50")
 expand_mode = 2
+
+[node name="Panel" type="Panel" parent="Panel"]
+modulate = Color(1, 1, 1, 0.784314)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -155.5
+offset_top = -31.5
+offset_right = 155.5
+offset_bottom = 31.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PlayerGold" type="Label" parent="Panel/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -87.5
+offset_top = -9.0
+offset_right = 87.5
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("11_2trsw")
+theme_override_font_sizes/font_size = 20
+text = "Gold: 2500 (+40)"
+
+[node name="TextureRect" type="TextureRect" parent="Panel/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -193.5
+offset_top = -30.5
+offset_right = -122.5
+offset_bottom = 30.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_gcp50")
+expand_mode = 2
+
+[node name="GoldGenTimer" type="Timer" parent="Panel"]
+autostart = true
+
+[connection signal="timeout" from="Panel/GoldGenTimer" to="Panel" method="_on_gold_gen_timer_timeout"]

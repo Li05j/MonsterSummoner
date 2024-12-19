@@ -1,5 +1,8 @@
 class_name MonsterPanel extends Panel
 
+@onready var gold_gen_timer = $GoldGenTimer
+@onready var player_gold = $Panel/PlayerGold
+
 @onready var unit_buttons = $UnitButtons
 @onready var building_buttons = $BuildingButtons
 
@@ -15,20 +18,28 @@ class_name MonsterPanel extends Panel
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	init_unit_price()
-	init_building_price()
+	_init_unit_price()
+	_init_building_price()
+	_init_text_display()
 
-func init_unit_price() -> void:
+func _init_unit_price() -> void:
 	unit1.get_node("Cost").text = "500"
 	unit2.get_node("Cost").text = "20"
 	unit3.get_node("Cost").text = "400"
 	unit4.get_node("Cost").text = "9999"
 
-func init_building_price() -> void:
+func _init_building_price() -> void:
 	build1.get_node("Cost").text = "500"
 	build2.get_node("Cost").text = "20"
 	build3.get_node("Cost").text = "400"
 	build4.get_node("Cost").text = "9999"
+
+func _init_text_display() -> void:
+	player_gold.text = "GOLD: %d (+%d)" % [LevelState.player_gold, LevelState.player_gold_gen]
+
+func _on_gold_gen_timer_timeout() -> void:
+	LevelState.player_gold += LevelState.player_gold_gen
+	player_gold.text = "GOLD: %d (+%d)" % [LevelState.player_gold, LevelState.player_gold_gen]
 
 func update_units_price(change: int) -> void:
 	pass

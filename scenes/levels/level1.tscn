@@ -1,11 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://bgmuet1ygcwso"]
+[gd_scene load_steps=5 format=3 uid="uid://bgmuet1ygcwso"]
 
 [ext_resource type="PackedScene" uid="uid://comfh2g0i6lwu" path="res://scenes/menus/pause_menu/pause_menu.tscn" id="1_chx42"]
 [ext_resource type="Texture2D" uid="uid://xy8k70jj73lh" path="res://addons/Sprites/pixel-art-cloud-background [photoutils.com].png" id="1_k878v"]
+[ext_resource type="Script" path="res://scenes/levels/level_1.gd" id="1_katw6"]
 [ext_resource type="PackedScene" uid="uid://br8ea3ube8q8i" path="res://scenes/command_panel/monster/monster_panel.tscn" id="2_l16lv"]
 
 [node name="Level1" type="Node"]
-process_mode = 3
+script = ExtResource("1_katw6")
 
 [node name="UI" type="CanvasLayer" parent="."]
 layer = 10
