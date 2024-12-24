@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Paths="*res://data/globals/paths.gd"
 LevelState="*res://data/globals/level_state.gd"
+Types="*res://data/globals/types.gd"
 
 [display]
 

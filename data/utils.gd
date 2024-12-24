@@ -2,18 +2,18 @@ class_name Utils extends Resource
 
 static func time_to_min_sec_msec(time: float) -> Dictionary:
 	var time_without_dec: int = floor(time)
-	var min: int = floor(time_without_dec / 60)
-	var sec: int = time_without_dec % 60
-	var msec: int = snapped((time - time_without_dec) * 100, 0.01)
+	var mins: int = floor(time_without_dec / 60.0)
+	var secs: int = time_without_dec % 60
+	var msecs: int = snapped((time - time_without_dec) * 100, 0.01)
 	return {
-		"min": min,
-		"sec": sec,
-		"msec": msec,
+		"min": mins,
+		"sec": secs,
+		"msec": msecs,
 	}
 
 static func format_time(time: float) -> String:
 	var time_split = time_to_min_sec_msec(time)
-	return "%02d:%02d:%02d" % [time_split.min, time_split.sec, time_split.msec]
+	return "%02d:%02d:%02d" % [time_split.mins, time_split.secs, time_split.msecs]
 
 static func normalize_radians(angle: float) -> float:
 	while angle > PI:
