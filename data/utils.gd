@@ -13,7 +13,7 @@ static func time_to_min_sec_msec(time: float) -> Dictionary:
 
 static func format_time(time: float) -> String:
 	var time_split = time_to_min_sec_msec(time)
-	return "%02d:%02d:%02d" % [time_split.mins, time_split.secs, time_split.msecs]
+	return "%02d:%02d:%02d" % [time_split.min, time_split.sec, time_split.msec]
 
 static func normalize_radians(angle: float) -> float:
 	while angle > PI:
