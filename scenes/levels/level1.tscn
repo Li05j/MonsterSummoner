@@ -1,18 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://bgmuet1ygcwso"]
+[gd_scene load_steps=7 format=3 uid="uid://bgmuet1ygcwso"]
 
 [ext_resource type="PackedScene" uid="uid://comfh2g0i6lwu" path="res://scenes/menus/pause_menu/pause_menu.tscn" id="1_chx42"]
 [ext_resource type="Texture2D" uid="uid://xy8k70jj73lh" path="res://addons/Sprites/pixel-art-cloud-background [photoutils.com].png" id="1_k878v"]
 [ext_resource type="Script" path="res://scenes/levels/level_1.gd" id="1_katw6"]
 [ext_resource type="PackedScene" uid="uid://br8ea3ube8q8i" path="res://scenes/command_panel/monster/monster_panel.tscn" id="2_l16lv"]
 [ext_resource type="Theme" uid="uid://6shp5ck1tnja" path="res://addons/Themes/FlatUI4/kenneyUI.tres" id="4_vaajv"]
+[ext_resource type="PackedScene" uid="uid://bvtyihoslb0s5" path="res://scenes/units/base/ally_base.tscn" id="6_1imuu"]
 
 [node name="Level1" type="Node"]
 script = ExtResource("1_katw6")
 
-[node name="UI" type="CanvasLayer" parent="."]
-layer = 10
-
-[node name="Background" type="TextureRect" parent="UI"]
+[node name="Background" type="TextureRect" parent="."]
 z_index = -5
 anchors_preset = 15
 anchor_right = 1.0
@@ -22,6 +20,11 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_k878v")
 
+[node name="Ally_Base" parent="." instance=ExtResource("6_1imuu")]
+position = Vector2(116, 575)
+
+[node name="UI" type="CanvasLayer" parent="."]
+
 [node name="PauseMenu" parent="UI" instance=ExtResource("1_chx42")]
 z_index = 5
 
@@ -29,16 +32,18 @@ z_index = 5
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -20.0
-offset_right = 20.0
-offset_bottom = 23.0
+offset_left = -125.0
+offset_right = 125.0
+offset_bottom = 45.0
 grow_horizontal = 2
-size_flags_horizontal = 6
-size_flags_vertical = 6
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme = ExtResource("4_vaajv")
 theme_type_variation = &"HeaderLarge"
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 36
+theme_override_font_sizes/font_size = 30
 text = "119:04:48"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="MonsterPanel" parent="UI" instance=ExtResource("2_l16lv")]

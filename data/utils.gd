@@ -15,23 +15,6 @@ static func format_time(time: float) -> String:
 	var time_split = time_to_min_sec_msec(time)
 	return "%02d:%02d:%02d" % [time_split.min, time_split.sec, time_split.msec]
 
-#static func convert_animation_string_to_enum(str: String) -> Types_M.Animation_Type:
-	#match str:
-		#"idle":
-			#return Types_M.Animation_Type.IDLE
-		#"run":
-			#return Types_M.Animation_Type.RUN
-		#"attack":
-			#return Types_M.Animation_Type.ATTACK
-		#"special":
-			#return Types_M.Animation_Type.SPECIAL
-		#"hurt":
-			#return Types_M.Animation_Type.HURT
-		#"death":
-			#return Types_M.Animation_Type.DEATH
-		#_:
-			#return Types_M.Animation_Type.NONE
-
 static func normalize_radians(angle: float) -> float:
 	while angle > PI:
 		angle -= 2 * PI
@@ -53,3 +36,20 @@ static func get_global_bounds(node) -> Rect2:
 static func get_global_center(node) -> Vector2:
 	var bounds = get_global_bounds(node)
 	return bounds.position + bounds.size / 2
+
+#static func convert_animation_string_to_enum(str: String) -> Types_M.Animation_Type:
+	#match str:
+		#"idle":
+			#return Types_M.Animation_Type.IDLE
+		#"run":
+			#return Types_M.Animation_Type.RUN
+		#"attack":
+			#return Types_M.Animation_Type.ATTACK
+		#"special":
+			#return Types_M.Animation_Type.SPECIAL
+		#"hurt":
+			#return Types_M.Animation_Type.HURT
+		#"death":
+			#return Types_M.Animation_Type.DEATH
+		#_:
+			#return Types_M.Animation_Type.NONE
