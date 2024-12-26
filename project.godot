@@ -26,6 +26,13 @@ Types="*res://data/globals/types.gd"
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
+[global_group]
+
+enemy_unit=""
+ally_unit=""
+enemy_proj=""
+ally_proj=""
+
 [input]
 
 pause={

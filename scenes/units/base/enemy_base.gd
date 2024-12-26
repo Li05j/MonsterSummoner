@@ -1,4 +1,4 @@
-class_name AllyBase extends BattleUnit
+class_name EnemyBase extends BattleUnit
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -10,13 +10,13 @@ func _ready() -> void:
 
 func _init_misc() -> void:
 	_max_hp = 1000
-	add_to_group("ally_unit")
+	add_to_group("enemy_unit")
 	super()
 
 func _dead() -> void:
 	super()
 	if LevelState.who_wins == Types.Who.NONE:
-		LevelState.who_wins = Types.Who.ENEMY
+		LevelState.who_wins = Types.Who.ALLY
 		_sprite.play("dead")
 		_dead_timer.start(7)
 
