@@ -12,7 +12,7 @@ var _who: Types.Who = Types.Who.NONE
 ##### States #####
 
 var _is_dead = false
-var _is_invincible = true
+var _is_invincible = false
 
 ###########################################################
 
@@ -59,7 +59,8 @@ func _set_who(who: Types.Who) -> void:
 
 func _dead() -> void:
 	# start dead timer, queue_free if no dead animation, handle gold drops, etc.
-	self.queue_free()
+	_is_dead = true
+	_is_invincible = true
 
 func _on_hitbox_enter() -> void:
 	pass

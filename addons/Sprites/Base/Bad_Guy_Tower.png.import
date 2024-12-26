@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c4637ntjulp63"
-path="res://.godot/imported/health.png-bf17c87ce291bf04bd4cf0d2da26a607.ctex"
+uid="uid://djv81g1me7vp1"
+path="res://.godot/imported/Bad_Guy_Tower.png-4e5093ae5da0acfa3a9b7660009faf41.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/Sprites/health.png"
-dest_files=["res://.godot/imported/health.png-bf17c87ce291bf04bd4cf0d2da26a607.ctex"]
+source_file="res://addons/Sprites/Base/Bad_Guy_Tower.png"
+dest_files=["res://.godot/imported/Bad_Guy_Tower.png-4e5093ae5da0acfa3a9b7660009faf41.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b6wbfovx8pilv"
-path="res://.godot/imported/Fire+Sparks-Sheet.png-d4818a36946e731cfa0fc553f57c0418.ctex"
+uid="uid://cdnio0nq3mnr6"
+path="res://.godot/imported/no health bar.png-7b11d6205c2fed18dff6140c7e0593de.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/Sprites/Fire+Sparks-Sheet.png"
-dest_files=["res://.godot/imported/Fire+Sparks-Sheet.png-d4818a36946e731cfa0fc553f57c0418.ctex"]
+source_file="res://addons/Sprites/HpBar/no health bar.png"
+dest_files=["res://.godot/imported/no health bar.png-7b11d6205c2fed18dff6140c7e0593de.ctex"]
 
 [params]
 
