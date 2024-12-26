@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://scenes/units/base/enemy_base.gd" id="1_kid43"]
 [ext_resource type="Texture2D" uid="uid://b2wg1nlfkwg6q" path="res://addons/Sprites/FireSparks.png" id="2_vuq3o"]
 [ext_resource type="Texture2D" uid="uid://djv81g1me7vp1" path="res://addons/Sprites/Base/Bad_Guy_Tower.png" id="3_73e1v"]
-[ext_resource type="Texture2D" path="res://addons/Sprites/no health bar.png" id="4_e7ivo"]
-[ext_resource type="Texture2D" path="res://addons/Sprites/health.png" id="5_bk4cf"]
+[ext_resource type="Texture2D" uid="uid://cdnio0nq3mnr6" path="res://addons/Sprites/HpBar/no health bar.png" id="4_vo1p0"]
+[ext_resource type="Texture2D" uid="uid://c4637ntjulp63" path="res://addons/Sprites/HpBar/health.png" id="5_ttky5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_le3pi"]
 atlas = ExtResource("2_vuq3o")
@@ -262,6 +262,6 @@ offset_bottom = -431.5
 grow_horizontal = 2
 scale = Vector2(1.5, 1.75)
 value = 70.0
-texture_under = ExtResource("4_e7ivo")
-texture_progress = ExtResource("5_bk4cf")
+texture_under = ExtResource("4_vo1p0")
+texture_progress = ExtResource("5_ttky5")
 metadata/_edit_use_anchors_ = true

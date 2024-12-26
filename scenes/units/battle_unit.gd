@@ -22,6 +22,7 @@ func _ready() -> void:
 
 func _init_misc() -> void:
 	super()
+	_current_hp = _max_hp
 	_hp_bar.max_value = _max_hp
 	_hp_bar.value = _current_hp
 

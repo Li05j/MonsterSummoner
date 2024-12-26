@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://br8ea3ube8q8i" path="res://scenes/command_panel/monster/monster_panel.tscn" id="2_l16lv"]
 [ext_resource type="PackedScene" uid="uid://dtcecri4xg6mt" path="res://scenes/units/base/enemy_base.tscn" id="4_11ap7"]
 [ext_resource type="Theme" uid="uid://6shp5ck1tnja" path="res://addons/Themes/FlatUI4/kenneyUI.tres" id="4_vaajv"]
-[ext_resource type="PackedScene" uid="uid://bvtyihoslb0s5" path="res://scenes/units/base/ally_base.tscn" id="6_1imuu"]
+[ext_resource type="PackedScene" uid="uid://c530l6142474t" path="res://scenes/units/base/ally_base.tscn" id="6_1imuu"]
 
 [node name="Level1" type="Node"]
 script = ExtResource("1_katw6")
