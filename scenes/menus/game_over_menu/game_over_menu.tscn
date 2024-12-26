@@ -1,0 +1,78 @@
+[gd_scene load_steps=3 format=3 uid="uid://cwketkcg5x58"]
+
+[ext_resource type="Script" path="res://scenes/menus/game_over_menu/game_over_menu.gd" id="1_jhyqh"]
+[ext_resource type="Theme" uid="uid://6shp5ck1tnja" path="res://addons/Themes/FlatUI4/kenneyUI.tres" id="2_w4fbt"]
+
+[node name="GameOverMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jhyqh")
+
+[node name="Bg" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0, 0, 1)
+
+[node name="Stats" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.025
+anchor_right = 1.0
+anchor_bottom = 0.025
+offset_bottom = 103.0
+grow_horizontal = 2
+
+[node name="WhoWins" type="Label" parent="Stats"]
+layout_mode = 2
+theme = ExtResource("2_w4fbt")
+theme_type_variation = &"GraphFrameTitleLabel"
+theme_override_font_sizes/font_size = 64
+text = "YOU LOSE!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Gametime" type="Label" parent="Stats"]
+layout_mode = 2
+theme = ExtResource("2_w4fbt")
+theme_type_variation = &"HeaderMedium"
+theme_override_font_sizes/font_size = 24
+text = "Time: 42:42:42"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Buttons" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -185.0
+offset_top = -95.0
+offset_right = 185.0
+offset_bottom = 95.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 15
+
+[node name="Restart" type="Button" parent="Buttons"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2_w4fbt")
+text = "RESTART"
+
+[node name="Quit" type="Button" parent="Buttons"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2_w4fbt")
+text = "Quit"
+
+[connection signal="pressed" from="Buttons/Restart" to="." method="_on_restart_pressed"]
