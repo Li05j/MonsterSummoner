@@ -14,7 +14,7 @@ var _current_hp: int = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	_init_position()
+	_init_stats()
 	_init_timers()
 	_init_collisions()
 	_init_misc()
@@ -45,13 +45,16 @@ func get_hp_percent() -> float:
 	return float(_current_hp) / float(_max_hp)
 
 func heal(amount: int) -> void:
+	if _not_interactable or _is_dead:
+		return
+		
 	_current_hp += _final_heal(amount)
 	if _current_hp > _max_hp:
 		_current_hp = _max_hp
 
 func take_dmg(damage: int) -> void:
-	if _is_invincible || _is_dead:
-		return # unit is invincible or unit is already dead - they don't take damage
+	if _not_interactable || _is_invincible || _is_dead:
+		return # they don't take damage
 	
 	_current_hp -= _final_damage(damage)
 	_hurt_reaction()

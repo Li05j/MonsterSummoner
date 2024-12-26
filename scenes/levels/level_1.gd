@@ -11,6 +11,7 @@ func _process(delta: float) -> void:
 	_update_game_time(delta)
 
 func _init_level() -> void:
+	LevelState.current_level = self
 	game_time.text = Utils.format_time(0)
 
 func _update_game_time(delta) -> void:

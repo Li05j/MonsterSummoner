@@ -16,6 +16,8 @@ class_name MonsterPanel extends Panel
 @onready var build3 = building_buttons.get_node("Build3")
 @onready var build4 = building_buttons.get_node("Build4")
 
+var goblin_scene = preload(Paths.MONSTER + "goblin.tscn")
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	_init_unit_price()
@@ -40,6 +42,11 @@ func _init_text_display() -> void:
 func _on_gold_gen_timer_timeout() -> void:
 	LevelState.player_gold += LevelState.player_gold_gen
 	player_gold.text = "GOLD: %d (+%d)" % [LevelState.player_gold, LevelState.player_gold_gen]
+
+func _on_unit_1_pressed() -> void:
+	var scene = goblin_scene.instantiate()
+	LevelState.current_level.add_child(scene)
+	scene.set_who(Types.Who.ALLY)
 
 func update_units_price(change: int) -> void:
 	pass

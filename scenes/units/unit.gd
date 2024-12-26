@@ -1,7 +1,7 @@
 class_name Unit extends Node2D
 
 @onready var _sprite = $AnimatedSprite2D
-@onready var _hitbox = $HitboxArea
+@onready var _hitbox = _sprite.get_node("HitboxArea")
 
 var _dead_timer: Timer
 var _invincible_timer: Timer
@@ -11,20 +11,24 @@ var _who: Types.Who = Types.Who.NONE
 ##########################################################
 ##### States #####
 
+var _cc_count: int = 0 # counter for being cc'd
+
+var _not_interactable = false # ultimate form
 var _is_dead = false
 var _is_invincible = false
+var _is_cc_immune = true
 
 ###########################################################
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	_init_position()
+	_init_stats()
 	_init_timers()
 	_init_collisions()
 	_init_misc()
 	_connect_signals()
 
-func _init_position() -> void:
+func _init_stats() -> void:
 	pass
 
 func _init_timers() -> void:
@@ -54,11 +58,9 @@ func _add_invincible_timer() -> void:
 	_invincible_timer.timeout.connect(_on_invincible_timeout)
 	add_child(_invincible_timer)
 
-func _set_who(who: Types.Who) -> void:
-	_who = who
-
 func _dead() -> void:
 	# start dead timer, queue_free if no dead animation, handle gold drops, etc.
+	_not_interactable = true
 	_is_dead = true
 	_is_invincible = true
 
@@ -73,3 +75,7 @@ func _on_dead_timer_timeout() -> void:
 
 func _on_invincible_timeout() -> void:
 	_is_invincible = false
+
+# this acts similarly to a constructor
+func set_who(who: Types.Who) -> void:
+	_who = who

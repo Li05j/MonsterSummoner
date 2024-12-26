@@ -37,19 +37,21 @@ static func get_global_center(node) -> Vector2:
 	var bounds = get_global_bounds(node)
 	return bounds.position + bounds.size / 2
 
-#static func convert_animation_string_to_enum(str: String) -> Types_M.Animation_Type:
-	#match str:
-		#"idle":
-			#return Types_M.Animation_Type.IDLE
-		#"run":
-			#return Types_M.Animation_Type.RUN
-		#"attack":
-			#return Types_M.Animation_Type.ATTACK
-		#"special":
-			#return Types_M.Animation_Type.SPECIAL
+static func convert_animation_string_to_enum(str: String) -> Types.Animation_Type:
+	match str:
+		"idle":
+			return Types.Animation_Type.IDLE
+		"run":
+			return Types.Animation_Type.RUN
+		"attack":
+			return Types.Animation_Type.ATTACK
+		"special":
+			return Types.Animation_Type.SPECIAL
 		#"hurt":
-			#return Types_M.Animation_Type.HURT
-		#"death":
-			#return Types_M.Animation_Type.DEATH
-		#_:
-			#return Types_M.Animation_Type.NONE
+			#return Types.Animation_Type.HURT
+		"dead":
+			return Types.Animation_Type.DEAD
+		"spawn":
+			return Types.Animation_Type.SPAWN
+		_:
+			return Types.Animation_Type.NONE
