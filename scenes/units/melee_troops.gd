@@ -113,17 +113,17 @@ func _on_spawn_animation_done(timer_name: String) -> void:
 	
 	_atk_detect_box.monitoring = true
 
-func _on_hitbox_enter() -> void:
+func _on_hitbox_enter(other: Area2D) -> void:
 	print("hitbox enter - does nothing")
 
-func _on_hitbox_exit() -> void:
+func _on_hitbox_exit(other: Area2D) -> void:
 	print("hitbox exit")
 
-func _on_atk_detect_box_enter() -> void:
+func _on_atk_detect_box_enter(other: Area2D) -> void:
 	print("enemy detected")
 	_v_x = 0
 
-func _on_atk_detect_box_exit() -> void:
+func _on_atk_detect_box_exit(other: Area2D) -> void:
 	print("enemy exited")
 
 func _on_hp_bar_visible_timer_timeout() -> void:

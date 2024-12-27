@@ -64,10 +64,10 @@ func _dead() -> void:
 	_is_dead = true
 	_is_invincible = true
 
-func _on_hitbox_enter() -> void:
+func _on_hitbox_enter(other: Area2D) -> void:
 	pass
 
-func _on_hitbox_exit() -> void:
+func _on_hitbox_exit(other: Area2D) -> void:
 	pass
 
 func _on_dead_timer_timeout() -> void:
