@@ -58,8 +58,8 @@ func _init_timers() -> void:
 	_add_hp_bar_visible_timer()
 
 func _init_collisions() -> void:
-	_atk_detect_box.collision_layer = Types.Collision.NONE
-	_atk_dmg_box.collision_layer = Types.Collision.NONE
+	_atk_detect_box.collision_layer = Types.Collision.DETECT_ONLY
+	_atk_dmg_box.collision_layer = Types.Collision.DETECT_ONLY
 
 func _init_misc() -> void:
 	super()
@@ -110,6 +110,8 @@ func _on_spawn_animation_done(timer_name: String) -> void:
 	if get_node(timer_name) and is_instance_valid(get_node(timer_name)):
 		get_node(timer_name).queue_free()
 	_invincible_timer.start(0.75) # so unit wont get killed on spawn
+	
+	_atk_detect_box.monitoring = true
 
 func _on_hitbox_enter() -> void:
 	print("hitbox enter - does nothing")
@@ -119,6 +121,7 @@ func _on_hitbox_exit() -> void:
 
 func _on_atk_detect_box_enter() -> void:
 	print("enemy detected")
+	_v_x = 0
 
 func _on_atk_detect_box_exit() -> void:
 	print("enemy exited")

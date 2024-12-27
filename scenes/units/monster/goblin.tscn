@@ -366,6 +366,7 @@ size = Vector2(70, 35)
 script = ExtResource("1_q1idu")
 
 [node name="Spawn" type="AnimatedSprite2D" parent="."]
+visible = false
 scale = Vector2(1.775, 1.775)
 sprite_frames = SubResource("SpriteFrames_6fjhv")
 animation = &"spawn"
@@ -374,7 +375,6 @@ frame_progress = 0.591573
 offset = Vector2(0, -35)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-visible = false
 scale = Vector2(2.77333, 2.77333)
 sprite_frames = SubResource("SpriteFrames_onkip")
 animation = &"atk"
@@ -417,3 +417,5 @@ grow_horizontal = 0
 scale = Vector2(0.8, 1)
 texture_under = ExtResource("7_2fcqj")
 texture_progress = ExtResource("8_g5y7l")
+
+[connection signal="area_entered" from="AnimatedSprite2D/AtkRangeBoxArea" to="." method="_on_atk_detect_box_enter"]

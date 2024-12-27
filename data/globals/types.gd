@@ -13,5 +13,5 @@ enum Collision {
 	ENEMY_PROJ = 1 << 3,
 	PLAYER_BASE = 1 << 4,
 	ENEMY_BASE = 1 << 5,
-	OTHER = 1 << 6
+	DETECT_ONLY = 1 << 6
 }

@@ -36,7 +36,7 @@ func _init_timers() -> void:
 	_add_invincible_timer()
 
 func _init_collisions() -> void:
-	_hitbox.collision_layer = Types.Collision.NONE
+	_hitbox.collision_layer = Types.Collision.DETECT_ONLY
 	_hitbox.collision_mask = Types.Collision.NONE
 
 func _init_misc() -> void:
