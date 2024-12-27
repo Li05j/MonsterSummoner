@@ -14,7 +14,7 @@ var _hp_bar_visible_timer_wait_time: int = 3
 
 var _cost: int = 0
 var _gold_drop: int = 0 # floor(_cost / 3.0)
-var _move_spd: int = 100
+var _move_spd: int = 1
 var _atk: int = 0
 var _atk_spd: float = 1.0
 var _atk_frame: int = 0 # the frame the atk is resolved
@@ -107,7 +107,6 @@ func _on_spawn_animation_done(timer_name: String) -> void:
 	_sprite.speed_scale = _spd_scale
 	_v_x = _dir * _move_spd
 	_not_interactable = false
-	_is_invincible = true
 	if get_node(timer_name) and is_instance_valid(get_node(timer_name)):
 		get_node(timer_name).queue_free()
 	_invincible_timer.start(0.75) # so unit wont get killed on spawn
@@ -145,8 +144,8 @@ func set_who(who: Types.Who) -> void:
 		_dir = 1
 		_hitbox.collision_layer = Types.Collision.PLAYER_UNIT
 		_hitbox.collision_mask = Types.Collision.ENEMY_UNIT | Types.Collision.ENEMY_PROJ
-		_atk_detect_box.collision_mask = Types.Collision.ENEMY_UNIT
-		_atk_dmg_box.collision_mask = Types.Collision.ENEMY_UNIT
+		_atk_detect_box.collision_mask = Types.Collision.ENEMY_UNIT | Types.Collision.ENEMY_BASE
+		_atk_dmg_box.collision_mask = Types.Collision.ENEMY_UNIT | Types.Collision.ENEMY_BASE
 		global_position = Vector2(130, 530)
 	if _who == Types.Who.ENEMY:
 		add_to_group("enemy_unit")
@@ -154,6 +153,6 @@ func set_who(who: Types.Who) -> void:
 		_dir = -1
 		_hitbox.collision_layer = Types.Collision.ENEMY_UNIT
 		_hitbox.collision_mask = Types.Collision.PLAYER_UNIT | Types.Collision.PLAYER_PROJ
-		_atk_detect_box.collision_mask = Types.Collision.PLAYER_UNIT
-		_atk_dmg_box.collision_mask = Types.Collision.PLAYER_UNIT
+		_atk_detect_box.collision_mask = Types.Collision.PLAYER_UNIT | Types.Collision.PLAYER_BASE
+		_atk_dmg_box.collision_mask = Types.Collision.PLAYER_UNIT | Types.Collision.PLAYER_BASE
 		global_position = Vector2(1000, 530)

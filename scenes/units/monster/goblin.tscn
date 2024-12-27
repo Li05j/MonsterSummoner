@@ -154,7 +154,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"spawn",
-"speed": 10.0
+"speed": 16.0
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v56x3"]
