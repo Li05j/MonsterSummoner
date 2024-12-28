@@ -9,7 +9,7 @@ func _ready() -> void:
 	_gold_drop = floor(_cost / 3.0)
 	_move_spd = 400
 	_max_hp = 88
-	_atk = 9
+	_atk = 90
 	_atk_spd = 0.4
 	_atk_frame = 6
 	

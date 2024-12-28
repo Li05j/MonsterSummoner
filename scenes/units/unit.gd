@@ -63,6 +63,11 @@ func _dead() -> void:
 	_not_interactable = true
 	_is_dead = true
 	_is_invincible = true
+	
+	_hitbox.monitoring = false
+
+func _is_valid() -> bool:
+	return !(_not_interactable or _is_dead)
 
 func _on_hitbox_enter(other: Area2D) -> void:
 	pass

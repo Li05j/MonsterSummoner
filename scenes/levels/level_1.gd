@@ -15,8 +15,11 @@ func _init_level() -> void:
 	game_time.text = Utils.format_time(0)
 
 func _update_game_time(delta) -> void:
-	LevelState.game_time += delta
-	_game_time_update_steps += 1
-	if _game_time_update_steps >= 11:
+	if LevelState.who_wins == Types.Who.NONE:
+		LevelState.game_time += delta
+		_game_time_update_steps += 1
+		if _game_time_update_steps >= 11:
+			game_time.text = Utils.format_time(LevelState.game_time)
+			_game_time_update_steps = 0
+	else:
 		game_time.text = Utils.format_time(LevelState.game_time)
-		_game_time_update_steps = 0

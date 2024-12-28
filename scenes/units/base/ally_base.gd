@@ -25,7 +25,8 @@ func _dead() -> void:
 	if LevelState.who_wins == Types.Who.NONE:
 		LevelState.who_wins = Types.Who.ENEMY
 		_sprite.play("dead")
-		_dead_timer.start(7)
+		_sprite.offset.y = -55
+		_dead_timer.start(5)
 
 func _on_dead_timer_timeout() -> void:
 	super()
