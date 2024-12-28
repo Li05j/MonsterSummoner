@@ -69,10 +69,11 @@ size_flags_vertical = 3
 theme = ExtResource("2_w4fbt")
 text = "RESTART"
 
-[node name="Quit" type="Button" parent="Buttons"]
+[node name="Back" type="Button" parent="Buttons"]
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("2_w4fbt")
-text = "Quit"
+text = "Back To Main Menu"
 
 [connection signal="pressed" from="Buttons/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="Buttons/Back" to="." method="_on_back_pressed"]

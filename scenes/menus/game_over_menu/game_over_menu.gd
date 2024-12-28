@@ -16,3 +16,6 @@ func _ready() -> void:
 func _on_restart_pressed() -> void:
 	LevelState.reset_level_state()
 	get_tree().change_scene_to_file(Paths.LEVELS + "level1.tscn")
+
+func _on_back_pressed() -> void:
+	get_tree().change_scene_to_file(Paths.MAIN_MENU + "main_menu.tscn")
