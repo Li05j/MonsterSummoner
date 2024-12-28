@@ -2,6 +2,7 @@ class_name Level1 extends Node
 
 @onready var game_time = $UI/GameTime
 
+var _enemy_ai: EnemyAI
 var _game_time_update_steps = 0 # we let game time update visually every 11 steps
 
 func _ready() -> void:
@@ -13,6 +14,9 @@ func _process(delta: float) -> void:
 func _init_level() -> void:
 	LevelState.current_level = self
 	game_time.text = Utils.format_time(0)
+	
+	_enemy_ai = EnemyAI.new()
+	add_child(_enemy_ai)
 
 func _update_game_time(delta) -> void:
 	if LevelState.who_wins == Types.Who.NONE:

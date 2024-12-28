@@ -64,7 +64,7 @@ func _dead() -> void:
 	_is_dead = true
 	_is_invincible = true
 	
-	_hitbox.monitoring = false
+	_hitbox.monitorable = false
 
 func _is_valid() -> bool:
 	return !(_not_interactable or _is_dead)

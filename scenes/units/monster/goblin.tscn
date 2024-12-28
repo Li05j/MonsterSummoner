@@ -354,13 +354,13 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h0dtu"]
-size = Vector2(45, 35)
+size = Vector2(40, 35)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7wg3o"]
 size = Vector2(32, 35)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vahyi"]
-size = Vector2(40, 35)
+size = Vector2(45, 35)
 
 [node name="Goblin" type="Node2D"]
 script = ExtResource("1_q1idu")
@@ -377,19 +377,20 @@ offset = Vector2(0, -35)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(2.77333, 2.77333)
 sprite_frames = SubResource("SpriteFrames_onkip")
-animation = &"attack"
+animation = &"dead"
 autoplay = "idle"
 offset = Vector2(0, -27)
 
 [node name="AtkRangeBoxArea" type="Area2D" parent="AnimatedSprite2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/AtkRangeBoxArea"]
-position = Vector2(6.73688, -17.5)
+position = Vector2(4.19778, -17.5)
 scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_h0dtu")
 debug_color = Color(0.719562, 0.326995, 0.88156, 0.42)
 
 [node name="HitboxArea" type="Area2D" parent="AnimatedSprite2D"]
+monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/HitboxArea"]
 position = Vector2(0, -17.5)
@@ -397,9 +398,10 @@ shape = SubResource("RectangleShape2D_7wg3o")
 
 [node name="AtkDmgBoxArea" type="Area2D" parent="AnimatedSprite2D"]
 monitoring = false
+monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/AtkDmgBoxArea"]
-position = Vector2(4.13584, -17.5)
+position = Vector2(6.6713, -17.5)
 scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_vahyi")
 debug_color = Color(0.467372, 0.586243, 0.223272, 0.42)
@@ -409,12 +411,12 @@ visible = false
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -51.0
-offset_top = -145.0
-offset_right = 77.0
-offset_bottom = -129.0
+offset_left = -38.5
+offset_top = -140.0
+offset_right = 89.5
+offset_bottom = -124.0
 grow_horizontal = 0
-scale = Vector2(0.8, 1)
+scale = Vector2(0.6, 1)
 texture_under = ExtResource("7_2fcqj")
 texture_progress = ExtResource("8_g5y7l")
 

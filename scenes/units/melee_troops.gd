@@ -30,6 +30,8 @@ var _dir: int = 1 # direction
 var _v_x: float = 0
 var _v_y: float = 0
 
+var _slow_rate: float = 1.0 # potential slow unit
+
 var _description: String = "Meow"
 
 ###########################################################
@@ -100,8 +102,10 @@ func _move(delta: float) -> void:
 	if _cc_count == 0:
 		if _if_any_enemy_in_range():
 			_attack()
-		else:
-			position.x += _dir * _v_x * delta
+		elif _sprite.animation != "attack":
+			_sprite.play("run")
+			_v_x = _move_spd
+			position.x += _dir * _v_x * _slow_rate * delta
 			position.y += _v_y * delta
 
 func _hurt_reaction() -> void:
@@ -111,19 +115,19 @@ func _hurt_reaction() -> void:
 
 func _dead() -> void:
 	super()
-
+	_sprite.play("dead")
+	
 func _if_any_enemy_in_range() -> bool:
-	return _atk_detect_box.has_overlapping_areas()
-	#var overlapping_areas = _atk_detect_box.get_overlapping_areas()
-	#var valid_enemies = overlapping_areas.filter(
-		#func(area):
-			#if is_instance_valid(area):
-				#return area.get_parent().get_parent()._is_valid() # so sus
-			#)
-	#if valid_enemies.size() > 0:
-		#return true
-	#else:
-		#return false
+	var count = 0
+	for area in _atk_detect_box.get_overlapping_areas():
+		if !is_instance_valid(area):
+			continue
+			
+		var enemy_node = area.get_parent().get_parent()
+		if is_instance_valid(enemy_node):
+			if enemy_node._is_valid():
+				count += 1
+	return count
 
 func _attack() -> void:
 	if _is_valid() and _cc_count == 0:
@@ -133,7 +137,7 @@ func _attack() -> void:
 
 func _resolve_attack() -> void:
 	var valid_enemies = []
-	for area in _atk_detect_box.get_overlapping_areas():
+	for area in _atk_dmg_box.get_overlapping_areas():
 		if !is_instance_valid(area):
 			continue
 			
@@ -164,7 +168,6 @@ func _resolve_attack() -> void:
 		idx += _dir
 		targets_left -= 1
 
-
 func _on_spawn_animation_done(timer_name: String) -> void:
 	_spawn.visible = false
 	_sprite.visible = true
@@ -175,7 +178,7 @@ func _on_spawn_animation_done(timer_name: String) -> void:
 		
 	_sprite.play("run")
 	_sprite.speed_scale = _spd_scale
-	_v_x = _dir * _move_spd
+	_v_x = _move_spd
 	
 	if get_node(timer_name) and is_instance_valid(get_node(timer_name)):
 		get_node(timer_name).queue_free()
@@ -196,7 +199,7 @@ func _on_atk_detect_box_exit(other: Area2D) -> void:
 	print("enemy exited")
 
 func _on_attack_cd_timer_timeout() -> void:
-	print("attack ready again")
+	pass
 
 func _on_hp_bar_visible_timer_timeout() -> void:
 	_hp_bar.visible = false
@@ -205,11 +208,15 @@ func _on_sprite_animation_finished() -> void:
 	if !_not_interactable and !_is_dead and _sprite.animation == "attack":
 		_sprite.play("idle")  	# Idle while waiting for next attack
 		_attack_cd_timer.start()	# Basic attack cooldown
+	if _sprite.animation == "dead":
+		self.queue_free()
 
 func _on_sprite_attack_frame_change() -> void:
 	# Deal damage on a specific attack animation frame
+	_atk_dmg_box.monitoring = true
 	if _is_valid() and _sprite.animation == "attack" and _sprite.frame == _atk_frame:
 		_resolve_attack()
+		_atk_dmg_box.monitoring = false
 
 ###########################################################
 
