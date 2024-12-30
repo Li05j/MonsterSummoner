@@ -365,7 +365,7 @@ size = Vector2(45, 35)
 [node name="Goblin" type="Node2D"]
 script = ExtResource("1_q1idu")
 
-[node name="Spawn" type="AnimatedSprite2D" parent="."]
+[node name="SpawnAnimation" type="AnimatedSprite2D" parent="."]
 visible = false
 scale = Vector2(1.775, 1.775)
 sprite_frames = SubResource("SpriteFrames_6fjhv")
@@ -385,7 +385,6 @@ offset = Vector2(0, -27)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/AtkRangeBoxArea"]
 position = Vector2(4.19778, -17.5)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_h0dtu")
 debug_color = Color(0.719562, 0.326995, 0.88156, 0.42)
 
@@ -402,7 +401,6 @@ monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/AtkDmgBoxArea"]
 position = Vector2(6.6713, -17.5)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_vahyi")
 debug_color = Color(0.467372, 0.586243, 0.223272, 0.42)
 
