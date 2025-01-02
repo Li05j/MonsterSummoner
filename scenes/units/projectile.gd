@@ -47,16 +47,18 @@ func _resolve_contact(other: Area2D) -> void:
 		if is_instance_valid(enemy) and enemy._is_valid():
 			_proj_owner._deal_dmg(enemy)
 			
-			_curr_target_count += 1
-			if _curr_target_count >= _max_target_count || _max_target_count == 0:
-				_dead()
+			if _max_target_count != -1:
+				_curr_target_count += 1
+				if _curr_target_count >= _max_target_count:
+					_dead()
 
 func attack_special_effects(other) -> void:
 	pass
 
 func _on_hitbox_enter(other: Area2D) -> void:
 	_hitbox.monitoring = false
-	if _curr_target_count < _max_target_count:
+	# Hit multiple enemies
+	if _max_target_count == -1 or _curr_target_count < _max_target_count:
 		_resolve_contact(other)
 	else:
 		_dead()

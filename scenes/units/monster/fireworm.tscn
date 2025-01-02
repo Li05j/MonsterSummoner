@@ -432,7 +432,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h0dtu"]
-size = Vector2(120, 30.7694)
+size = Vector2(110, 30.769)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7wg3o"]
 size = Vector2(46.1539, 30.7692)
@@ -461,7 +461,7 @@ offset = Vector2(0, -14)
 [node name="AtkRangeBoxArea" type="Area2D" parent="AnimatedSprite2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/AtkRangeBoxArea"]
-position = Vector2(36.1539, -15.3845)
+position = Vector2(31.0769, -15.3845)
 shape = SubResource("RectangleShape2D_h0dtu")
 debug_color = Color(0.719562, 0.326995, 0.88156, 0.42)
 

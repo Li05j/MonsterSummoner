@@ -5,9 +5,9 @@ func _ready() -> void:
 	_is_invincible = true
 	_is_cc_immune = false
 	
-	_cost = 145
+	_cost = 105
 	_gold_drop = floor(_cost / 3.0)
-	_move_spd = 285
+	_move_spd = 85
 	_max_hp = 145
 	_atk = 11
 	_atk_spd = 1.45

@@ -1,7 +1,7 @@
 extends Node
 
 const ground_y = 530 # global ground
-const gravity = 500 # y gravity
+const gravity = 250 # y gravity
 
 enum Who { NONE, ALLY, ENEMY }
 enum Animation_Type { NONE, IDLE, RUN, ATTACK, SPECIAL, DEAD, SPAWN }

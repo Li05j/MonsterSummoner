@@ -5,8 +5,6 @@ class_name BattleUnit extends Unit
 ##########################################################
 ##### States #####
 
-var _cc_count: int = 0 # counter for being cc'd
-
 ##### Stats #####
 
 var _max_hp: int = 1

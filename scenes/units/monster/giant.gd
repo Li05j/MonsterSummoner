@@ -1,0 +1,26 @@
+class_name Giant extends MeleeTroops
+
+func _ready() -> void:
+	_not_interactable = true
+	_is_invincible = true
+	_is_cc_immune = true
+	
+	_cost = 235
+	_gold_drop = floor(_cost / 3.0)
+	_move_spd = 35
+	_max_hp = 1400
+	_atk = 12
+	_atk_spd = 4.5
+	_atk_frame = 3
+	
+	_spwn_wait = 3.0
+	
+	_targets = -1
+	super()
+	
+func _attack_special_effects(enemy) -> void:
+	var knockback_duration = 1.5 # seconds
+	enemy.knockback(knockback_duration)
+
+func _final_damage(damage: int) -> int:
+	return max(0, damage - 3)

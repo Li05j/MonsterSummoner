@@ -16,6 +16,11 @@ var _is_dead = false
 var _is_invincible = false
 var _is_cc_immune = true
 
+##### All CC Variables #####
+
+var _cc_count: int = 0 # counter for being cc'd
+var _is_knockback: bool = false
+
 ###########################################################
 
 # Called when the node enters the scene tree for the first time.

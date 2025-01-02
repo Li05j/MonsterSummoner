@@ -48,7 +48,7 @@ func _physics_process(delta: float) -> void:
 		if global_position.y < Types.ground_y:
 			_v_y += Types.gravity * delta
 		else:
-			_v_y = 0
+			#_v_y = 0
 			global_position.y = Types.ground_y
 		_move(delta)
 
@@ -102,9 +102,13 @@ func _move(delta: float) -> void:
 			_attack()
 		elif _sprite.animation != "attack":
 			_sprite.play("run")
-			_v_x = _move_spd
-			position.x += _dir * _v_x * _slow_rate * delta
-			position.y += _v_y * delta
+			_v_x = _dir * _move_spd
+			
+	position.x += _v_x * _slow_rate * delta
+	position.y += _v_y * delta
+	
+	if _v_x == 0 and _sprite.animation == "run":
+		_sprite.play("idle")
 
 func _set_ally() -> void:
 	add_to_group("ally_unit")
@@ -155,8 +159,12 @@ func _attack() -> void:
 func _resolve_attack() -> void:
 	pass
 
-func _deal_dmg(enemy = null) -> void:
+func _deal_dmg(enemy) -> void:
 	enemy.take_dmg(_atk)
+	_attack_special_effects(enemy)
+
+func _attack_special_effects(enemy) -> void:
+	pass
 
 func _on_spawn_animation_done(timer_name: String) -> void:
 	_atk_detect_box.monitoring = true
@@ -169,7 +177,7 @@ func _on_spawn_animation_done(timer_name: String) -> void:
 		
 	_sprite.play("run")
 	_sprite.speed_scale = _spd_scale
-	_v_x = _move_spd
+	_v_x = _dir * _move_spd
 	
 	if get_node(timer_name) and is_instance_valid(get_node(timer_name)):
 		get_node(timer_name).queue_free()
@@ -206,14 +214,57 @@ func _on_sprite_attack_frame_change() -> void:
 	if _is_valid() and _sprite.animation == "attack" and _sprite.frame == _atk_frame:
 		_resolve_attack()
 
-###########################################################
+##########################################################
+##### All CC interactions #####
+##########################################################
 
-func _final_heal(amount: int) -> int:
-	return amount
+func knockback(duration: float) -> void:
+	if !_is_valid() or _is_cc_immune:
+		return
+	if _is_knockback: # do not knockback again
+		return
+	
+	_add_cc(true)
+	_is_knockback = true
+	
+	var fluc_x = randf_range(0, 0.5) # 1.0 - 1.5 movespd knockback
+	_v_x = -_dir * _move_spd + _move_spd * fluc_x
+	_v_y = -Types.gravity * (duration / 2)
+	
+	_new_cc_timer("knockback", duration)
 
-func _final_damage(damage: int) -> int:
-	return damage
+# When unit is cc'd or free of cc
+func _add_cc(cc: bool) -> void:
+	if cc:
+		_cc_count += 1
+		_attack_cd_timer.set_paused(true)
+		_sprite.play("idle")
+	if !cc:
+		_cc_count -= 1
+		if _cc_count == 0:
+			_attack_cd_timer.set_paused(false)
 
+func _new_cc_timer(timer_name: String, duration: float) -> void:
+	var new_timer = Timer.new()
+	new_timer.name = timer_name
+	new_timer.wait_time = duration
+	new_timer.one_shot = true
+	new_timer.timeout.connect(Callable(self, "_on_cc_timeout").bind(new_timer.name))
+	add_child(new_timer)
+	new_timer.start()
+
+func _free_timer(timer_name: String) -> void:
+	if get_node(timer_name) and is_instance_valid(get_node(timer_name)):
+		get_node(timer_name).queue_free()	
+
+func _on_cc_timeout(timer_name: String) -> void:
+	match timer_name:
+		"knockback":
+			_is_knockback = false
+		_:
+			return
+	_add_cc(false)
+	_free_timer(timer_name)
 ###########################################################
 
 func set_who(who: Types.Who) -> void:
