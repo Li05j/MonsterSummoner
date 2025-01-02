@@ -131,7 +131,7 @@ func _hurt_reaction() -> void:
 
 func _dead() -> void:
 	super()
-	_sprite.modulate.a = 0.7
+	modulate.a = 0.7
 	_sprite.play("dead")
 	
 func _if_any_enemy_in_range() -> bool:
