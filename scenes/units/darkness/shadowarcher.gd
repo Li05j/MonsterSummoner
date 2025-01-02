@@ -5,23 +5,23 @@ func _ready() -> void:
 	_is_invincible = true
 	_is_cc_immune = false
 	
-	_cost = 105
+	_cost = 40
 	_gold_drop = floor(_cost / 3.0)
 	_move_spd = 85
-	_max_hp = 145
-	_atk = 11
-	_atk_spd = 1.45
-	_atk_frame = 10
+	_max_hp = 36
+	_atk = 13
+	_atk_spd = 1.8
+	_atk_frame = 6
 	
-	_spwn_wait = 1.5
+	_spwn_wait = 0.75
 	
-	_targets = 3
+	_targets = 2
 	
 	#####
 	
-	_projectile_scene = preload(Paths.PROJ + "fireworm_proj.tscn")
+	_projectile_scene = preload(Paths.PROJ + "shadowarcher_proj.tscn")
 	super()
 	
 func _init_proj_max_range() -> void:
-	_max_travel_range = _atk_detect_box.get_child(0).shape.size.x * _sprite.scale.x * 2
+	_max_travel_range = 1.3 * _atk_detect_box.get_child(0).shape.size.x * _sprite.scale.x
 	_proj_range = _max_travel_range

@@ -75,6 +75,7 @@ func init(proj_owner) -> void:
 		_hitbox.collision_mask = Types.Collision.ENEMY_UNIT | Types.Collision.ENEMY_BASE
 	else:
 		_dir = -1
+		scale.x *= -1
 		_hitbox.collision_mask = Types.Collision.PLAYER_UNIT | Types.Collision.PLAYER_BASE
 
 	global_position = Vector2(

@@ -10,7 +10,7 @@ func _ready() -> void:
 	_move_spd = 85
 	_max_hp = 145
 	_atk = 11
-	_atk_spd = 1.45
+	_atk_spd = 1.35
 	_atk_frame = 10
 	
 	_spwn_wait = 1.5
@@ -23,5 +23,5 @@ func _ready() -> void:
 	super()
 	
 func _init_proj_max_range() -> void:
-	_max_travel_range = _atk_detect_box.get_child(0).shape.size.x * _sprite.scale.x * 2
+	_max_travel_range = 2 * _atk_detect_box.get_child(0).shape.size.x * _sprite.scale.x
 	_proj_range = _max_travel_range

@@ -7,6 +7,7 @@ var slime_scene = preload(Paths.MONSTER + "slime.tscn")
 var fireworm_scene = preload(Paths.MONSTER + "fireworm.tscn")
 var giant_scene = preload(Paths.MONSTER + "giant.tscn")
 
+var shadowarcher_scene = preload(Paths.DARKNESS + "shadowarcher.tscn")
 var nightborne_scene = preload(Paths.DARKNESS + "nightborne.tscn")
 
 func _ready() -> void:
@@ -25,7 +26,8 @@ func summon() -> void:
 	#var scene = fireworm_scene.instantiate()
 	#var scene = giant_scene.instantiate()
 	
-	var scene = nightborne_scene.instantiate()
+	var scene = shadowarcher_scene.instantiate()
+	#var scene = nightborne_scene.instantiate()
 	LevelState.current_level.add_child(scene)
 	scene.set_who(Types.Who.ENEMY)
 	

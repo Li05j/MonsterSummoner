@@ -378,7 +378,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h0dtu"]
-size = Vector2(86.0769, 30.769)
+size = Vector2(152.727, 30.769)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7wg3o"]
 size = Vector2(26.6667, 30.7692)
@@ -395,17 +395,16 @@ autoplay = "spawn"
 offset = Vector2(0, -35)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(1.8, 1.8)
+scale = Vector2(2.2, 2.2)
 sprite_frames = SubResource("SpriteFrames_onkip")
-animation = &"run"
+animation = &"attack"
 autoplay = "idle"
-frame_progress = 0.706784
 offset = Vector2(0, -17)
 
 [node name="AtkRangeBoxArea" type="Area2D" parent="AnimatedSprite2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/AtkRangeBoxArea"]
-position = Vector2(43.0385, -15.3845)
+position = Vector2(76.3637, -15.3845)
 shape = SubResource("RectangleShape2D_h0dtu")
 debug_color = Color(0.719562, 0.326995, 0.88156, 0.42)
 
@@ -422,9 +421,9 @@ anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -24.0
-offset_top = -85.0
+offset_top = -105.0
 offset_right = 104.0
-offset_bottom = -69.0
+offset_bottom = -89.0
 grow_horizontal = 0
 scale = Vector2(0.38, 1)
 texture_under = ExtResource("6_iniqj")
