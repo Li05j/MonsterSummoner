@@ -45,7 +45,6 @@ func attack_special_effects() -> void:
 	pass
 
 func _on_hitbox_enter(other: Area2D) -> void:
-	print("Enemy spotted")
 	_resolve_contact()
 
 func _on_hitbox_exit(other: Area2D) -> void:
@@ -56,12 +55,11 @@ func init(proj_owner) -> void:
 	
 	if proj_owner._who == Types.Who.ALLY:
 		_dir = 1
-		_sprite.flip_h = false
 		_hitbox.collision_mask = Types.Collision.ENEMY_UNIT | Types.Collision.ENEMY_BASE
-		print("init complete")
 	else:
-		_dir == -1
-		_sprite.flip_h = true
+		_dir = -1
+		_hitbox.collision_mask = Types.Collision.PLAYER_UNIT | Types.Collision.PLAYER_BASE
+		#_sprite.scale.x *= -1
 
 	global_position = Vector2(proj_owner.global_position.x, proj_owner.global_position.y + _offset_y)
 	_initial_position = global_position

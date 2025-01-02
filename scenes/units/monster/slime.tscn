@@ -341,7 +341,6 @@ offset = Vector2(0, -17)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/AtkRangeBoxArea"]
 position = Vector2(21.7789, -7.39184)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_h0dtu")
 debug_color = Color(0.719562, 0.326995, 0.88156, 0.42)
 
@@ -350,7 +349,6 @@ monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/HitboxArea"]
 position = Vector2(-0.180289, -7.39184)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_7wg3o")
 
 [node name="HpBar" type="TextureProgressBar" parent="."]

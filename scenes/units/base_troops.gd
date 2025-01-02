@@ -71,8 +71,8 @@ func _connect_signals() -> void:
 	_sprite.animation_finished.connect(_on_sprite_animation_finished)
 	_sprite.frame_changed.connect(_on_sprite_attack_frame_change)
 	
-	_atk_detect_box.area_entered.connect(_on_atk_detect_box_enter)
-	_atk_detect_box.area_exited.connect(_on_atk_detect_box_exit)
+	#_atk_detect_box.area_entered.connect(_on_atk_detect_box_enter)
+	#_atk_detect_box.area_exited.connect(_on_atk_detect_box_exit)
 
 func _add_spawn_timer() -> void:
 	var spawn_timer = Timer.new()
@@ -162,7 +162,7 @@ func _on_spawn_animation_done(timer_name: String) -> void:
 	_not_interactable = false
 	
 	if _who == Types.Who.ENEMY:
-		_sprite.flip_h = true
+		_sprite.scale.x *= -1
 		
 	_sprite.play("run")
 	_sprite.speed_scale = _spd_scale
@@ -173,17 +173,17 @@ func _on_spawn_animation_done(timer_name: String) -> void:
 		
 	_invincible_timer.start(0.75) # so unit wont get killed on spawn
 
-func _on_hitbox_enter(other: Area2D) -> void:
-	print("hitbox enter - does nothing")
-
-func _on_hitbox_exit(other: Area2D) -> void:
-	print("hitbox exit")
-
-func _on_atk_detect_box_enter(other: Area2D) -> void:
-	pass
-
-func _on_atk_detect_box_exit(other: Area2D) -> void:
-	print("enemy exited")
+#func _on_hitbox_enter(other: Area2D) -> void:
+	#print("hitbox enter - does nothing")
+#
+#func _on_hitbox_exit(other: Area2D) -> void:
+	#print("hitbox exit")
+#
+#func _on_atk_detect_box_enter(other: Area2D) -> void:
+	#pass
+#
+#func _on_atk_detect_box_exit(other: Area2D) -> void:
+	#print("enemy exited")
 
 func _on_attack_cd_timer_timeout() -> void:
 	pass

@@ -3,6 +3,7 @@ class_name EnemyAI extends Node
 var last_check_time: float = 0.0
 
 var goblin_scene = preload(Paths.MONSTER + "goblin.tscn")
+var slime_scene = preload(Paths.MONSTER + "slime.tscn")
 
 func _ready() -> void:
 	pass
@@ -15,6 +16,8 @@ func _process(delta: float) -> void:
 		summon()
 
 func summon() -> void:
-	var scene = goblin_scene.instantiate()
+	#var scene = goblin_scene.instantiate()
+	var scene = slime_scene.instantiate()
 	LevelState.current_level.add_child(scene)
 	scene.set_who(Types.Who.ENEMY)
+	

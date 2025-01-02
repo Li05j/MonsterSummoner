@@ -39,5 +39,4 @@ animation = &"shoot"
 [node name="HitboxArea" type="Area2D" parent="AnimatedSprite2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/HitboxArea"]
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_b2q20")
