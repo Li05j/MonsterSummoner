@@ -29,6 +29,8 @@ func _physics_process(delta: float) -> void:
 
 func _move(delta: float) -> void:
 	position += _v * delta
+	if position.y <= _initial_position.y:
+		_v.y += Types.gravity * delta
 	if abs(_initial_position.x - position.x) > _max_travel_dist:
 		queue_free()
 
@@ -55,11 +57,14 @@ func init(proj_owner) -> void:
 	if proj_owner._who == Types.Who.ALLY:
 		_dir = 1
 		_sprite.flip_h = false
+		_hitbox.collision_mask = Types.Collision.ENEMY_UNIT | Types.Collision.ENEMY_BASE
+		print("init complete")
 	else:
 		_dir == -1
 		_sprite.flip_h = true
 
-	_initial_position = proj_owner.global_position
+	global_position = Vector2(proj_owner.global_position.x, proj_owner.global_position.y + _offset_y)
+	_initial_position = global_position
 	_target_count = proj_owner._targets
 	_max_travel_dist = proj_owner._proj_range
 
@@ -70,9 +75,9 @@ func init(proj_owner) -> void:
 ###########################################################
 
 func _linear() -> void:
-	_v = Vector2(_max_travel_dist / _travel_time, 0)
+	_v = Vector2(_dir * _max_travel_dist / _travel_time, 0)
 
 func _parabola() -> void:
-	var vx: float = _max_travel_dist / _travel_time
-	var vy: float = (_offset_y - 0.5 * Types.gravity * _travel_time * _travel_time) / _travel_time
+	var vx: float = _dir * _max_travel_dist / _travel_time
+	var vy: float = (-_offset_y - 0.5 * Types.gravity * _travel_time * _travel_time) / _travel_time
 	_v = Vector2(vx, vy)

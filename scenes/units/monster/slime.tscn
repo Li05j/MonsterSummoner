@@ -1,6 +1,6 @@
 [gd_scene load_steps=49 format=3 uid="uid://bbsugrnjli7ev"]
 
-[ext_resource type="Script" path="res://scenes/units/monster/goblin.gd" id="1_n27cm"]
+[ext_resource type="Script" path="res://scenes/units/monster/slime.gd" id="1_j6uyy"]
 [ext_resource type="Texture2D" uid="uid://cnq1hc8pwsi37" path="res://addons/Sprites/Gravity-Sheet.png" id="2_c40lu"]
 [ext_resource type="Texture2D" uid="uid://dn2sqexdjdgoh" path="res://addons/Sprites/Slime/Slime_Throw.png" id="3_b3q8r"]
 [ext_resource type="Texture2D" uid="uid://o7loxxx148qt" path="res://addons/Sprites/Slime/Slime_Hurt.png" id="4_qke3v"]
@@ -313,13 +313,13 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h0dtu"]
-size = Vector2(40, 35)
+size = Vector2(90, 14.784)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7wg3o"]
-size = Vector2(32, 35)
+size = Vector2(19.1106, 14.7837)
 
 [node name="Slime" type="Node2D"]
-script = ExtResource("1_n27cm")
+script = ExtResource("1_j6uyy")
 
 [node name="SpawnAnimation" type="AnimatedSprite2D" parent="."]
 visible = false
@@ -333,15 +333,15 @@ offset = Vector2(0, -35)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(2.77333, 2.77333)
 sprite_frames = SubResource("SpriteFrames_onkip")
-animation = &"dead"
+animation = &"attack"
 autoplay = "idle"
-frame_progress = 0.274828
-offset = Vector2(0, -27)
+offset = Vector2(0, -17)
 
 [node name="AtkRangeBoxArea" type="Area2D" parent="AnimatedSprite2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/AtkRangeBoxArea"]
-position = Vector2(4.19778, -17.5)
+position = Vector2(35.4148, -7.39184)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_h0dtu")
 debug_color = Color(0.719562, 0.326995, 0.88156, 0.42)
 
@@ -349,7 +349,8 @@ debug_color = Color(0.719562, 0.326995, 0.88156, 0.42)
 monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/HitboxArea"]
-position = Vector2(0, -17.5)
+position = Vector2(-0.180289, -7.39184)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_7wg3o")
 
 [node name="HpBar" type="TextureProgressBar" parent="."]

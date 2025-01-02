@@ -377,7 +377,7 @@ offset = Vector2(0, -35)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(2.77333, 2.77333)
 sprite_frames = SubResource("SpriteFrames_onkip")
-animation = &"dead"
+animation = &"attack"
 autoplay = "idle"
 offset = Vector2(0, -27)
 

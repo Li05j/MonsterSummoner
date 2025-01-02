@@ -20,5 +20,9 @@ func _ready() -> void:
 	
 	#####
 	
-	_proj_range = 150
+	_projectile_scene = preload(Paths.PROJ + "slime_proj.tscn")
+	_atk_range = 100
 	super()
+
+func _set_proj_range() -> void:
+	_by_closest_target()

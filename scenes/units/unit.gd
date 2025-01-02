@@ -11,8 +11,6 @@ var _who: Types.Who = Types.Who.NONE
 ##########################################################
 ##### States #####
 
-var _cc_count: int = 0 # counter for being cc'd
-
 var _not_interactable = false # ultimate form
 var _is_dead = false
 var _is_invincible = false
@@ -43,8 +41,8 @@ func _init_misc() -> void:
 	pass
 
 func _connect_signals() -> void:
-	_hitbox.body_entered.connect(_on_hitbox_enter)
-	_hitbox.body_exited.connect(_on_hitbox_exit)
+	_hitbox.area_entered.connect(_on_hitbox_enter)
+	_hitbox.area_exited.connect(_on_hitbox_exit)
 
 func _add_dead_timer() -> void:
 	_dead_timer = Timer.new()

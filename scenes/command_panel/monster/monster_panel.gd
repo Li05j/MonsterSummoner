@@ -17,6 +17,7 @@ class_name MonsterPanel extends Panel
 @onready var build4 = building_buttons.get_node("Build4")
 
 var goblin_scene = preload(Paths.MONSTER + "goblin.tscn")
+var slime_scene = preload(Paths.MONSTER + "slime.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -45,6 +46,11 @@ func _on_gold_gen_timer_timeout() -> void:
 
 func _on_unit_1_pressed() -> void:
 	var scene = goblin_scene.instantiate()
+	LevelState.current_level.add_child(scene)
+	scene.set_who(Types.Who.ALLY)
+
+func _on_unit_2_pressed() -> void:
+	var scene = slime_scene.instantiate()
 	LevelState.current_level.add_child(scene)
 	scene.set_who(Types.Who.ALLY)
 

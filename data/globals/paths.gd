@@ -12,3 +12,4 @@ const HELP_MENU = MENUS + "help_menu/"
 const GAME_OVER_MENU = MENUS + "game_over_menu/"
 
 const MONSTER = UNITS + "monster/"
+const PROJ = UNITS + "projectile/"
