@@ -21,7 +21,6 @@ func _ready() -> void:
 	#####
 	
 	_projectile_scene = preload(Paths.PROJ + "slime_proj.tscn")
-	_atk_range = 100
 	super()
 
 func _set_proj_range() -> void:

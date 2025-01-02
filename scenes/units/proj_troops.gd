@@ -1,7 +1,7 @@
 class_name ProjTroops extends BaseTroops
 
 var _projectile_scene
-var _atk_range: int = 1
+var _fallback_atk_range: int = 1
 var _proj_range: int
 
 # Called when the node enters the scene tree for the first time.
@@ -26,12 +26,13 @@ func _set_proj_range() -> void:
 ##### Projectile Max Distance #####
 ###########################################################
 
-# TODO: can just put this in init so we dont have to assign on every attack
 func _by_fixed_range() -> void:
-	_proj_range = _atk_range
+	_proj_range = _atk_detect_box.get_child(0).shape.size.x * _sprite.scale.x # convert pixels to units
 
 func _by_closest_target() -> void:
-	var valid_enemies = []
+	_by_fixed_range()
+	
+	var valid_enemies_x = []
 	for area in _atk_detect_box.get_overlapping_areas():
 		if !is_instance_valid(area):
 			continue
@@ -39,14 +40,12 @@ func _by_closest_target() -> void:
 		var enemy_node = area.get_parent().get_parent()
 		if is_instance_valid(enemy_node):
 			if enemy_node._is_valid():
-				valid_enemies.append(enemy_node)
+				valid_enemies_x.append(enemy_node.global_position.x)
 	
-	if valid_enemies.size() == 0:
-		_proj_range = _atk_range
-		
-	valid_enemies.sort_custom(
+	valid_enemies_x.sort_custom(
 		func(a, b): 
-			return a.global_position.x < b.global_position.x
+			return a < b
 	)
 	
-	_proj_range = abs(valid_enemies[0].global_position.x - self.global_position.x)
+	if valid_enemies_x.size():
+		_proj_range = abs(valid_enemies_x[0] - self.global_position.x)

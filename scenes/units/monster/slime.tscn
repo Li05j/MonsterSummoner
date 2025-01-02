@@ -313,7 +313,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h0dtu"]
-size = Vector2(90, 14.784)
+size = Vector2(63, 14.784)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7wg3o"]
 size = Vector2(19.1106, 14.7837)
@@ -340,7 +340,7 @@ offset = Vector2(0, -17)
 [node name="AtkRangeBoxArea" type="Area2D" parent="AnimatedSprite2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/AtkRangeBoxArea"]
-position = Vector2(35.4148, -7.39184)
+position = Vector2(21.7789, -7.39184)
 scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_h0dtu")
 debug_color = Color(0.719562, 0.326995, 0.88156, 0.42)
@@ -366,5 +366,3 @@ grow_horizontal = 0
 scale = Vector2(0.6, 1)
 texture_under = ExtResource("7_if43e")
 texture_progress = ExtResource("8_hne3j")
-
-[connection signal="area_entered" from="AnimatedSprite2D/AtkRangeBoxArea" to="." method="_on_atk_detect_box_enter"]

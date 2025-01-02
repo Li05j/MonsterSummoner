@@ -71,8 +71,8 @@ func _connect_signals() -> void:
 	_sprite.animation_finished.connect(_on_sprite_animation_finished)
 	_sprite.frame_changed.connect(_on_sprite_attack_frame_change)
 	
-	_atk_detect_box.body_entered.connect(_on_atk_detect_box_enter)
-	_atk_detect_box.body_exited.connect(_on_atk_detect_box_exit)
+	_atk_detect_box.area_entered.connect(_on_atk_detect_box_enter)
+	_atk_detect_box.area_exited.connect(_on_atk_detect_box_exit)
 
 func _add_spawn_timer() -> void:
 	var spawn_timer = Timer.new()
