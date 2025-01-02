@@ -8,8 +8,8 @@ func _ready() -> void:
 	_cost = 40
 	_gold_drop = floor(_cost / 3.0)
 	_move_spd = 400
-	_max_hp = 88
-	_atk = 7
+	_max_hp = 91
+	_atk = 8
 	_atk_spd = 0.4
 	_atk_frame = 6
 	
