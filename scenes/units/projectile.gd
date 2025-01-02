@@ -43,7 +43,7 @@ func _resolve_contact(other: Area2D) -> void:
 	if is_instance_valid(other):
 		var enemy = other.get_parent().get_parent()
 		if is_instance_valid(enemy) and enemy._is_valid():
-			_proj_owner.deal_dmg(enemy)
+			_proj_owner._deal_dmg(enemy)
 			
 			_curr_target_count += 1
 			if _curr_target_count >= _max_target_count || _max_target_count == 0:
