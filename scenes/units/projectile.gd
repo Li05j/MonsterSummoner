@@ -6,7 +6,9 @@ var _dir: int = 0
 var _travel_time: float = 1.0 # 1 second
 var _max_travel_dist: int
 var _max_target_count: int
-var _offset_y: int
+var _offset_x: int = 0
+var _offset_y: int = 0
+var _affected_by_gravity: bool = false
 
 var _curr_target_count: int = 0
 
@@ -27,7 +29,7 @@ func _physics_process(delta: float) -> void:
 
 func _move(delta: float) -> void:
 	position += _v * delta
-	if position.y <= _initial_position.y:
+	if _affected_by_gravity and position.y <= _initial_position.y:
 		_v.y += Types.gravity * delta
 	if abs(_initial_position.x - position.x) > _max_travel_dist:
 		_dead()
@@ -73,7 +75,10 @@ func init(proj_owner) -> void:
 		_dir = -1
 		_hitbox.collision_mask = Types.Collision.PLAYER_UNIT | Types.Collision.PLAYER_BASE
 
-	global_position = Vector2(proj_owner.global_position.x, proj_owner.global_position.y + _offset_y)
+	global_position = Vector2(
+		proj_owner.global_position.x + _offset_x * _dir, 
+		proj_owner.global_position.y + _offset_y
+	)
 	_initial_position = global_position
 	_max_target_count = proj_owner._targets
 	_max_travel_dist = proj_owner._proj_range
@@ -88,6 +93,7 @@ func _linear() -> void:
 	_v = Vector2(_dir * _max_travel_dist / _travel_time, 0)
 
 func _parabola() -> void:
+	_affected_by_gravity = true
 	var vx: float = _dir * _max_travel_dist / _travel_time
 	var vy: float = (-_offset_y - 0.5 * Types.gravity * _travel_time * _travel_time) / _travel_time
 	_v = Vector2(vx, vy)

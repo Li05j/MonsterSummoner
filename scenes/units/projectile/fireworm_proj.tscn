@@ -1,0 +1,73 @@
+[gd_scene load_steps=11 format=3 uid="uid://c2b8blbbqyplj"]
+
+[ext_resource type="Script" path="res://scenes/units/projectile/fireworm_proj.gd" id="1_wml5t"]
+[ext_resource type="Texture2D" uid="uid://drlx7in1gq88h" path="res://addons/Sprites/Fireworm/Move.png" id="2_a8bqy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ynr3q"]
+atlas = ExtResource("2_a8bqy")
+region = Rect2(0, 0, 46, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bh18a"]
+atlas = ExtResource("2_a8bqy")
+region = Rect2(46, 0, 46, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d6stu"]
+atlas = ExtResource("2_a8bqy")
+region = Rect2(92, 0, 46, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_smmp2"]
+atlas = ExtResource("2_a8bqy")
+region = Rect2(138, 0, 46, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gvwv2"]
+atlas = ExtResource("2_a8bqy")
+region = Rect2(184, 0, 46, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_glxoq"]
+atlas = ExtResource("2_a8bqy")
+region = Rect2(230, 0, 46, 46)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4oaq5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ynr3q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bh18a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d6stu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_smmp2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gvwv2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_glxoq")
+}],
+"loop": true,
+"name": &"shoot",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b2q20"]
+size = Vector2(14.5, 13)
+
+[node name="fireworm_proj" type="Node2D"]
+script = ExtResource("1_wml5t")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_4oaq5")
+animation = &"shoot"
+autoplay = "shoot"
+frame_progress = 0.161677
+
+[node name="HitboxArea" type="Area2D" parent="AnimatedSprite2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/HitboxArea"]
+position = Vector2(0.75, 0)
+shape = SubResource("RectangleShape2D_b2q20")

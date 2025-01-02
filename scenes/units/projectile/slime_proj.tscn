@@ -35,6 +35,7 @@ script = ExtResource("1_eaj83")
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_4oaq5")
 animation = &"shoot"
+autoplay = "shoot"
 
 [node name="HitboxArea" type="Area2D" parent="AnimatedSprite2D"]
 

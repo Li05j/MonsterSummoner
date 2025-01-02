@@ -563,4 +563,6 @@ autostart = true
 
 [connection signal="pressed" from="Panel/UnitButtons/Unit1" to="Panel" method="_on_unit_1_pressed"]
 [connection signal="pressed" from="Panel/UnitButtons/Unit2" to="Panel" method="_on_unit_2_pressed"]
+[connection signal="pressed" from="Panel/UnitButtons/Unit3" to="Panel" method="_on_unit_3_pressed"]
+[connection signal="pressed" from="Panel/UnitButtons/Unit4" to="Panel" method="_on_unit_4_pressed"]
 [connection signal="timeout" from="Panel/GoldGenTimer" to="Panel" method="_on_gold_gen_timer_timeout"]
