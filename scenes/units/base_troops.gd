@@ -155,6 +155,9 @@ func _attack() -> void:
 func _resolve_attack() -> void:
 	pass
 
+func _deal_dmg(enemy = null) -> void:
+	enemy.take_dmg(_atk)
+
 func _on_spawn_animation_done(timer_name: String) -> void:
 	_atk_detect_box.monitoring = true
 	_spawn.visible = false

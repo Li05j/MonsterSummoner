@@ -5,15 +5,13 @@ var _proj_owner
 var _dir: int = 0
 var _travel_time: float = 1.0 # 1 second
 var _max_travel_dist: int
-var _target_count: int
+var _max_target_count: int
 var _offset_y: int
+
+var _curr_target_count: int = 0
 
 var _initial_position: Vector2
 var _v: Vector2
-
-###########################################################
-
-var _lock = false
 
 ###########################################################
 
@@ -32,20 +30,35 @@ func _move(delta: float) -> void:
 	if position.y <= _initial_position.y:
 		_v.y += Types.gravity * delta
 	if abs(_initial_position.x - position.x) > _max_travel_dist:
-		queue_free()
+		_dead()
+
+func _dead() -> void:
+	queue_free()
 
 # set initial velocity
 func _set_initial_velocity() -> void:
 	pass
 
-func _resolve_contact() -> void:
-	pass
+func _resolve_contact(other: Area2D) -> void:
+	if is_instance_valid(other):
+		var enemy = other.get_parent().get_parent()
+		if is_instance_valid(enemy) and enemy._is_valid():
+			_proj_owner.deal_dmg(enemy)
+			
+			_curr_target_count += 1
+			if _curr_target_count >= _max_target_count || _max_target_count == 0:
+				_dead()
 
-func attack_special_effects() -> void:
+func attack_special_effects(other) -> void:
 	pass
 
 func _on_hitbox_enter(other: Area2D) -> void:
-	_resolve_contact()
+	_hitbox.monitoring = false
+	if _curr_target_count < _max_target_count:
+		_resolve_contact(other)
+	else:
+		_dead()
+	_hitbox.monitoring = true
 
 func _on_hitbox_exit(other: Area2D) -> void:
 	pass
@@ -59,11 +72,10 @@ func init(proj_owner) -> void:
 	else:
 		_dir = -1
 		_hitbox.collision_mask = Types.Collision.PLAYER_UNIT | Types.Collision.PLAYER_BASE
-		#_sprite.scale.x *= -1
 
 	global_position = Vector2(proj_owner.global_position.x, proj_owner.global_position.y + _offset_y)
 	_initial_position = global_position
-	_target_count = proj_owner._targets
+	_max_target_count = proj_owner._targets
 	_max_travel_dist = proj_owner._proj_range
 
 	_set_initial_velocity()

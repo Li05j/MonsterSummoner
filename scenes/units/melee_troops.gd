@@ -67,10 +67,10 @@ func _resolve_attack() -> void:
 		if idx < 0 or idx >= valid_enemies.size():
 			break
 		var target = valid_enemies[idx]
-		if is_instance_valid(target):
-			target.take_dmg(_atk)
+		if is_instance_valid(target) and target._is_valid():
+			_deal_dmg(target)
+			targets_left -= 1
 		idx += _dir
-		targets_left -= 1
 
 func _on_sprite_attack_frame_change() -> void:
 	# Deal damage on a specific attack animation frame
