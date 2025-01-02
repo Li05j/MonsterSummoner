@@ -1,5 +1,7 @@
 class_name Giant extends MeleeTroops
 
+# Knockbacks on hit, AOE, takes 3 less dmg from all sources
+
 func _ready() -> void:
 	_not_interactable = true
 	_is_invincible = true
@@ -20,7 +22,8 @@ func _ready() -> void:
 	
 func _attack_special_effects(enemy) -> void:
 	var knockback_duration = 1.5 # seconds
-	enemy.knockback(knockback_duration)
+	if enemy is BaseTroops:
+		enemy.knockback(knockback_duration)
 
 func _final_damage(damage: int) -> int:
 	return max(0, damage - 3)

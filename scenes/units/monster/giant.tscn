@@ -319,13 +319,13 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_krj4l"]
-size = Vector2(52.25, 46.25)
+size = Vector2(34.75, 46.25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7wg3o"]
-size = Vector2(35.25, 46.5)
+size = Vector2(34.5947, 46.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vahyi"]
-size = Vector2(62, 46.5)
+size = Vector2(44.5, 46.5)
 
 [node name="Giant" type="Node2D"]
 script = ExtResource("1_wjyje")
@@ -344,13 +344,13 @@ scale = Vector2(3.3, 3.3)
 sprite_frames = SubResource("SpriteFrames_onkip")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.484844
+frame_progress = 0.974075
 offset = Vector2(0, -37)
 
 [node name="AtkRangeBoxArea" type="Area2D" parent="AnimatedSprite2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/AtkRangeBoxArea"]
-position = Vector2(8.625, -23.375)
+position = Vector2(17.375, -23.375)
 shape = SubResource("RectangleShape2D_krj4l")
 debug_color = Color(0.717647, 0.32549, 0.882353, 0.419608)
 
@@ -366,7 +366,7 @@ monitoring = false
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/AtkDmgBoxArea"]
-position = Vector2(13.5, -23.25)
+position = Vector2(22.25, -23.25)
 shape = SubResource("RectangleShape2D_vahyi")
 debug_color = Color(0.467372, 0.586243, 0.223272, 0.42)
 

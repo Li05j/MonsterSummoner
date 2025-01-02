@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://b0j4ihy5nb5f5"]
+[gd_scene load_steps=58 format=3 uid="uid://b0j4ihy5nb5f5"]
 
 [ext_resource type="Script" path="res://scenes/units/monster/goblin.gd" id="1_q1idu"]
 [ext_resource type="Texture2D" uid="uid://l1d7j0v1wxmd" path="res://addons/Sprites/Goblin/Attack.png" id="2_6xxpn"]
@@ -354,10 +354,13 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7wg3o"]
-size = Vector2(32, 35)
+size = Vector2(16, 35)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l7tju"]
+size = Vector2(22.2727, 35)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vahyi"]
-size = Vector2(35, 35)
+size = Vector2(19.1446, 35)
 
 [node name="Goblin" type="Node2D"]
 script = ExtResource("1_q1idu")
@@ -372,7 +375,7 @@ frame_progress = 0.591573
 offset = Vector2(0, -35)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(2.77333, 2.77333)
+scale = Vector2(2.2, 2.2)
 sprite_frames = SubResource("SpriteFrames_onkip")
 animation = &"attack"
 autoplay = "idle"
@@ -381,7 +384,7 @@ offset = Vector2(0, -27)
 [node name="AtkRangeBoxArea" type="Area2D" parent="AnimatedSprite2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/AtkRangeBoxArea"]
-position = Vector2(0, -17.5)
+position = Vector2(8, -17.5)
 shape = SubResource("RectangleShape2D_7wg3o")
 debug_color = Color(0.717647, 0.32549, 0.882353, 0.419608)
 
@@ -390,14 +393,14 @@ monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/HitboxArea"]
 position = Vector2(0, -17.5)
-shape = SubResource("RectangleShape2D_7wg3o")
+shape = SubResource("RectangleShape2D_l7tju")
 
 [node name="AtkDmgBoxArea" type="Area2D" parent="AnimatedSprite2D"]
 monitoring = false
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/AtkDmgBoxArea"]
-position = Vector2(1.64463, -17.5)
+position = Vector2(9.57232, -17.5)
 shape = SubResource("RectangleShape2D_vahyi")
 debug_color = Color(0.467372, 0.586243, 0.223272, 0.42)
 
