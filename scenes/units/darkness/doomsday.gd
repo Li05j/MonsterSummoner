@@ -1,6 +1,7 @@
 class_name Doomsday extends ProjTroops
 
 # Ranged (target farthest) until someone in melee range, then turn into melee only
+@onready var _change_to_melee_box = _sprite.get_node("ChangeToMelee")
 @onready var _melee_box = _sprite.get_node("MeleeArea")
 @onready var _atk_dmg_box = _sprite.get_node("AtkDmgBoxArea")
 
@@ -16,11 +17,11 @@ func _ready() -> void:
 	_move_spd = 75
 	_max_hp = 727
 	_atk = 24
-	_atk_spd = 2.1 # will reduce to 1.3 on melee
-	_atk_frame = 2 # will change to 4 on melee
+	_atk_spd = 2.4 # will reduce on melee
+	_atk_frame = 4 # will change to 4 on melee
 	_cc_rate = 0.5
 	
-	_spwn_wait = 0.1
+	_spwn_wait = 3.0
 	
 	_targets = -1 # will change to 1 on melee
 	
@@ -31,11 +32,12 @@ func _ready() -> void:
 
 func _init_collisions() -> void:
 	super()
+	_change_to_melee_box.collision_layer = Types.Collision.DETECT_ONLY
 	_melee_box.collision_layer = Types.Collision.DETECT_ONLY
 
 func _connect_signals() -> void:
 	super()
-	_melee_box.area_entered.connect(_on_melee_box_enter)
+	_change_to_melee_box.area_entered.connect(_on_change_to_melee_enter)
 
 func _move(delta: float) -> void:
 	if _cc_count == 0:
@@ -60,9 +62,12 @@ func _set_enemy() -> void:
 	super()
 
 func _change_to_melee() -> void:
-	_atk_spd = 1.3
+	_change_to_melee_box.queue_free()
+	
+	_atk_spd = 1.2
 	_attack_cd_timer.wait_time = _atk_spd
 	
+	_atk *= 1.5
 	_atk_frame = 4
 	_targets = 1
 	_atk_detect_box.visible = false
@@ -105,7 +110,7 @@ func _resolve_attack() -> void:
 		# sort from close to far first
 		valid_enemies.sort_custom(
 			func(a, b): 
-				return a.global_position.x < b.global_position.x
+				return a.global_position.x > b.global_position.x
 				)
 	
 		var target = valid_enemies[0]
@@ -123,7 +128,7 @@ func _attack() -> void:
 			else:
 				_sprite.play("special")
 
-func _on_melee_box_enter(other: Area2D) -> void:
+func _on_change_to_melee_enter(other: Area2D) -> void:
 	if !_melee:
 		_change_to_melee()
 
