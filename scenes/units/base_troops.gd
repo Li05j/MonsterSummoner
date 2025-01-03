@@ -31,8 +31,6 @@ var _dir: int = 1 # direction
 var _v_x: float = 0
 var _v_y: float = 0
 
-var _slow_rate: float = 1.0 # potential slow unit
-
 var _description: String = "Meow"
 
 ###########################################################
@@ -84,7 +82,7 @@ func _move(delta: float) -> void:
 			_sprite.play("run")
 			_v_x = _dir * _move_spd
 			
-	position.x += _v_x * _slow_rate * delta
+	position.x += _v_x * _spd_scale * delta
 	position.y += _v_y * delta
 	
 	if _v_x == 0 and _sprite.animation == "run":
@@ -116,6 +114,7 @@ func _hurt_reaction() -> void:
 func _dead() -> void:
 	super()
 	modulate.a = 0.7
+	_hp_bar.visible = false
 	_sprite.play("dead")
 	
 func _if_any_enemy_in_range() -> bool:

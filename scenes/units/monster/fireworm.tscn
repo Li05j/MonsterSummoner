@@ -444,7 +444,7 @@ script = ExtResource("1_gtd1j")
 visible = false
 scale = Vector2(1.775, 1.775)
 sprite_frames = SubResource("SpriteFrames_6fjhv")
-animation = &"new_animation"
+animation = &"spawn"
 autoplay = "spawn"
 offset = Vector2(0, -35)
 

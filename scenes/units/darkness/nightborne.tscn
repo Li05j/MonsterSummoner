@@ -595,7 +595,7 @@ offset = Vector2(0, -35)
 modulate = Color(0.857718, 0.868362, 0.871448, 1)
 scale = Vector2(2.77333, 2.77333)
 sprite_frames = SubResource("SpriteFrames_onkip")
-animation = &"dead"
+animation = &"special"
 autoplay = "idle"
 offset = Vector2(0, -24)
 

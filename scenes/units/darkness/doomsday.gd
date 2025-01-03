@@ -47,7 +47,7 @@ func _move(delta: float) -> void:
 			_sprite.play("run")
 			_v_x = _dir * _move_spd
 			
-	position.x += _v_x * _slow_rate * delta
+	position.x += _v_x * _spd_scale * delta
 	position.y += _v_y * delta
 	
 	if _v_x == 0 and _sprite.animation == "run":

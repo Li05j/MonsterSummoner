@@ -353,12 +353,11 @@ offset = Vector2(0, -35)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(2.85, 2.85)
 sprite_frames = SubResource("SpriteFrames_onkip")
-animation = &"dead"
+animation = &"special"
 autoplay = "idle"
 offset = Vector2(0, -30)
 
 [node name="AtkRangeBoxArea" type="Area2D" parent="AnimatedSprite2D"]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/AtkRangeBoxArea"]
 position = Vector2(16.0457, -23.8597)
@@ -366,7 +365,6 @@ shape = SubResource("RectangleShape2D_h0dtu")
 debug_color = Color(0.719562, 0.326995, 0.88156, 0.42)
 
 [node name="HitboxArea" type="Area2D" parent="AnimatedSprite2D"]
-visible = false
 monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/HitboxArea"]
@@ -374,7 +372,6 @@ position = Vector2(2.38419e-07, -23.8598)
 shape = SubResource("RectangleShape2D_7wg3o")
 
 [node name="AtkDmgBoxArea" type="Area2D" parent="AnimatedSprite2D"]
-visible = false
 monitoring = false
 monitorable = false
 

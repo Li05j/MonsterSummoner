@@ -34,8 +34,6 @@ func _hurt_reaction() -> void:
 func _berserk() -> void:
 	_has_gone_berserk = true
 	if _berserk_timer.is_stopped():
-		_atk = 48
-		
 		_atk_spd = 0.1
 		_attack_cd_timer.wait_time = _atk_spd
 		
@@ -48,8 +46,6 @@ func _berserk() -> void:
 		_berserk_timer.start()
 
 func _on_berserk_timeout() -> void:
-	_atk = 32
-	
 	_atk_spd = 4.2
 	_attack_cd_timer.wait_time = _atk_spd
 	
