@@ -72,6 +72,18 @@ func _dead() -> void:
 func _is_valid() -> bool:
 	return !(_not_interactable or _is_dead)
 
+func _new_common_timer(
+	callable: Callable,
+	wait_time: float = 1.0, 
+	one_shot: bool = false,
+) -> Timer:
+	var new_timer = Timer.new()
+	new_timer.one_shot = one_shot
+	new_timer.wait_time = wait_time
+	new_timer.timeout.connect(callable)
+	add_child(new_timer)
+	return new_timer
+
 func _on_hitbox_enter(other: Area2D) -> void:
 	pass
 
