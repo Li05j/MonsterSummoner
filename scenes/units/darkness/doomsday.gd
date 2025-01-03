@@ -15,7 +15,7 @@ func _ready() -> void:
 	_cost = 235
 	_gold_drop = floor(_cost / 3.0)
 	_move_spd = 75
-	_max_hp = 727
+	_max_hp = 450
 	_atk = 24
 	_atk_spd = 2.4 # will reduce on melee
 	_atk_frame = 4 # will change to 4 on melee

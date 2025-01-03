@@ -93,5 +93,4 @@ offset = Vector2(0, -46)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/HitboxArea"]
 position = Vector2(5.96046e-08, -20.6882)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_b2q20")

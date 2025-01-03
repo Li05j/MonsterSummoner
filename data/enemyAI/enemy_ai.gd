@@ -9,6 +9,7 @@ var giant_scene = preload(Paths.MONSTER + "giant.tscn")
 
 var shadowarcher_scene = preload(Paths.DARKNESS + "shadowarcher.tscn")
 var nightborne_scene = preload(Paths.DARKNESS + "nightborne.tscn")
+var darkknight_scene = preload(Paths.DARKNESS + "darkknight.tscn")
 var doomsday_scene = preload(Paths.DARKNESS + "doomsday.tscn")
 
 func _ready() -> void:
@@ -29,7 +30,8 @@ func summon() -> void:
 	
 	#var scene = shadowarcher_scene.instantiate()
 	#var scene = nightborne_scene.instantiate()
-	var scene = doomsday_scene.instantiate()
+	var scene = darkknight_scene.instantiate()
+	#var scene = doomsday_scene.instantiate()
 	LevelState.current_level.add_child(scene)
 	scene.set_who(Types.Who.ENEMY)
 	
