@@ -35,8 +35,8 @@ func _init_stats() -> void:
 	pass
 
 func _init_timers() -> void:
-	_add_dead_timer()
-	_add_invincible_timer()
+	_dead_timer = _new_common_timer(_on_dead_timer_timeout)
+	_invincible_timer = _new_common_timer(_on_invincible_timeout)
 
 func _init_collisions() -> void:
 	_hitbox.collision_layer = Types.Collision.DETECT_ONLY
@@ -48,18 +48,6 @@ func _init_misc() -> void:
 func _connect_signals() -> void:
 	_hitbox.area_entered.connect(_on_hitbox_enter)
 	_hitbox.area_exited.connect(_on_hitbox_exit)
-
-func _add_dead_timer() -> void:
-	_dead_timer = Timer.new()
-	_dead_timer.one_shot = true
-	_dead_timer.timeout.connect(_on_dead_timer_timeout) # Gracefully deletes this instance after timer, i.e. self destruct
-	add_child(_dead_timer)
-
-func _add_invincible_timer() -> void:
-	_invincible_timer = Timer.new()
-	_invincible_timer.one_shot = true
-	_invincible_timer.timeout.connect(_on_invincible_timeout)
-	add_child(_invincible_timer)
 
 func _dead() -> void:
 	# start dead timer, queue_free if no dead animation, handle gold drops, etc.
@@ -74,8 +62,8 @@ func _is_valid() -> bool:
 
 func _new_common_timer(
 	callable: Callable,
-	wait_time: float = 1.0, 
-	one_shot: bool = false,
+	wait_time: float = 1.0,
+	one_shot: bool = true,
 ) -> Timer:
 	var new_timer = Timer.new()
 	new_timer.one_shot = one_shot
@@ -83,6 +71,25 @@ func _new_common_timer(
 	new_timer.timeout.connect(callable)
 	add_child(new_timer)
 	return new_timer
+
+func _new_temp_timer(
+	timer_name: String, 
+	callback_string: String,
+	wait_time: float = 1.0,
+	one_shot: bool = true,
+) -> Timer:
+	var new_timer = Timer.new()
+	new_timer.name = timer_name
+	new_timer.wait_time = wait_time
+	new_timer.one_shot = true
+	# To free the timer
+	new_timer.timeout.connect(Callable(self, callback_string).bind(new_timer.name))
+	add_child(new_timer)
+	return new_timer
+
+func _free_temp_timer(timer_name: String) -> void:
+	if get_node(timer_name) and is_instance_valid(get_node(timer_name)):
+		get_node(timer_name).queue_free()
 
 func _on_hitbox_enter(other: Area2D) -> void:
 	pass

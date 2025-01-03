@@ -4,7 +4,6 @@ class_name BaseTroops extends BattleUnit
 @onready var _atk_detect_box = _sprite.get_node("AtkRangeBoxArea")
 
 var _hp_bar_visible_timer: Timer
-var _hp_bar_visible_timer_wait_time: int = 3
 
 var _attack_cd_timer: Timer
 
@@ -56,9 +55,9 @@ func _physics_process(delta: float) -> void:
 
 func _init_timers() -> void:
 	super()
-	_add_spawn_timer()
-	_add_attack_cd_timer()
-	_add_hp_bar_visible_timer()
+	_new_temp_timer("spawn", "_on_spawn_animation_done", _spwn_wait).start()
+	_attack_cd_timer = _new_common_timer(_on_attack_cd_timer_timeout, _atk_spd)
+	_hp_bar_visible_timer = _new_common_timer(_on_hp_bar_visible_timer_timeout, Types.hp_bar_visible_time)
 
 func _init_collisions() -> void:
 	_atk_detect_box.collision_layer = Types.Collision.DETECT_ONLY
@@ -75,28 +74,6 @@ func _connect_signals() -> void:
 	
 	_atk_detect_box.area_entered.connect(_on_atk_detect_box_enter)
 	#_atk_detect_box.area_exited.connect(_on_atk_detect_box_exit)
-
-func _add_spawn_timer() -> void:
-	var spawn_timer = Timer.new()
-	spawn_timer.name = "spawn"
-	spawn_timer.one_shot = true
-	spawn_timer.timeout.connect(Callable(self, "_on_spawn_animation_done").bind(spawn_timer.name))
-	add_child(spawn_timer)
-	spawn_timer.start(_spwn_wait)
-
-func _add_attack_cd_timer() -> void:
-	_attack_cd_timer = Timer.new()
-	_attack_cd_timer.wait_time = _atk_spd
-	_attack_cd_timer.one_shot = true
-	_attack_cd_timer.timeout.connect(_on_attack_cd_timer_timeout)
-	add_child(_attack_cd_timer)
-
-func _add_hp_bar_visible_timer() -> void:
-	_hp_bar_visible_timer = Timer.new()
-	_hp_bar_visible_timer.one_shot = true
-	_hp_bar_visible_timer.wait_time = _hp_bar_visible_timer_wait_time
-	_hp_bar_visible_timer.timeout.connect(_on_hp_bar_visible_timer_timeout)
-	add_child(_hp_bar_visible_timer)
 
 func _move(delta: float) -> void:
 	if _cc_count == 0:
@@ -189,7 +166,7 @@ func _on_spawn_animation_done(timer_name: String) -> void:
 	if get_node(timer_name) and is_instance_valid(get_node(timer_name)):
 		get_node(timer_name).queue_free()
 		
-	_invincible_timer.start(0.75) # so unit wont get killed on spawn
+	_invincible_timer.start(Types.on_spawn_i_frame) # so unit wont get killed on spawn
 
 #func _on_hitbox_enter(other: Area2D) -> void:
 	#print("hitbox enter - does nothing")
@@ -238,8 +215,8 @@ func knockback(duration: float) -> void:
 	_v_x = -_dir * _move_spd + _move_spd * fluc_x
 	_v_y = -Types.gravity * (duration / 2)
 	
-	var cc_timer = _new_temp_timer("knockback", duration, "_on_cc_timeout")
-	cc_timer.start()
+	#var cc_timer = _new_temp_timer("knockback", "_on_cc_timeout", duration)
+	_new_temp_timer("knockback", "_on_cc_timeout", duration).start()
 
 # When unit is cc'd or free of cc
 func _add_cc(cc: bool) -> void:
@@ -252,19 +229,6 @@ func _add_cc(cc: bool) -> void:
 		if _cc_count == 0:
 			_attack_cd_timer.set_paused(false)
 
-func _new_temp_timer(timer_name: String, duration: float, callback: String) -> Timer:
-	var new_timer = Timer.new()
-	new_timer.name = timer_name
-	new_timer.wait_time = duration
-	new_timer.one_shot = true
-	new_timer.timeout.connect(Callable(self, callback).bind(new_timer.name))
-	add_child(new_timer)
-	return new_timer
-
-func _free_timer(timer_name: String) -> void:
-	if get_node(timer_name) and is_instance_valid(get_node(timer_name)):
-		get_node(timer_name).queue_free()	
-
 func _on_cc_timeout(timer_name: String) -> void:
 	match timer_name:
 		"knockback":
@@ -272,7 +236,7 @@ func _on_cc_timeout(timer_name: String) -> void:
 		_:
 			return
 	_add_cc(false)
-	_free_timer(timer_name)
+	_free_temp_timer(timer_name)
 ###########################################################
 
 func set_who(who: Types.Who) -> void:

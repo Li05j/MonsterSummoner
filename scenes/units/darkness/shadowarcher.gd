@@ -35,9 +35,7 @@ func _resolve_attack() -> void:
 	_set_proj_range()
 	projectile_instance.init(self)
 	
-	var multishot_timer = _new_temp_timer("multishot", 0.1, "_on_multishot_timer_timeout")
-	
-	multishot_timer.start()
+	_new_temp_timer("multishot", "_on_multishot_timer_timeout", 0.1).start()
 
 func _on_multishot_timer_timeout(timer_name: String) -> void:
 	_multishot_counter += 1
@@ -46,4 +44,4 @@ func _on_multishot_timer_timeout(timer_name: String) -> void:
 		get_node(timer_name).start()
 	else:
 		_multishot_counter = 0
-		_free_timer(timer_name)
+		_free_temp_timer(timer_name)

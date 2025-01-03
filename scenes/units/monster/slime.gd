@@ -10,7 +10,7 @@ func _ready() -> void:
 	_move_spd = 60
 	_max_hp = 43
 	_atk = 34
-	_atk_spd = 2.2
+	_atk_spd = 2.4
 	_atk_frame = 3
 	
 	_spwn_wait = 0.75

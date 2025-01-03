@@ -2,6 +2,9 @@ extends Node
 
 const ground_y = 530 # global ground
 const gravity = 200 # y gravity
+const on_spawn_i_frame = 0.75 # i frames in seconds on unit spawn
+const hp_bar_visible_time = 3 # how long the hp bar stays visible on hit
+const base_death_animation_duration = 4 # how long the base stays on fire before gameover screen appears
 
 enum Who { NONE, ALLY, ENEMY }
 enum Animation_Type { NONE, IDLE, RUN, ATTACK, SPECIAL, DEAD, SPAWN }
