@@ -162,10 +162,15 @@ func _resolve_attack() -> void:
 	pass
 
 func _deal_dmg(enemy) -> void:
-	enemy.take_dmg(_atk)
+	var kill: bool = enemy._take_dmg(_atk)
 	_attack_special_effects(enemy)
+	if kill:
+		_on_kill_special_effects()
 
 func _attack_special_effects(enemy) -> void:
+	pass
+
+func _on_kill_special_effects() -> void:
 	pass
 
 func _on_spawn_animation_done(timer_name: String) -> void:
@@ -233,7 +238,8 @@ func knockback(duration: float) -> void:
 	_v_x = -_dir * _move_spd + _move_spd * fluc_x
 	_v_y = -Types.gravity * (duration / 2)
 	
-	_new_cc_timer("knockback", duration)
+	var cc_timer = _new_temp_timer("knockback", duration, "_on_cc_timeout")
+	cc_timer.start()
 
 # When unit is cc'd or free of cc
 func _add_cc(cc: bool) -> void:
@@ -246,14 +252,14 @@ func _add_cc(cc: bool) -> void:
 		if _cc_count == 0:
 			_attack_cd_timer.set_paused(false)
 
-func _new_cc_timer(timer_name: String, duration: float) -> void:
+func _new_temp_timer(timer_name: String, duration: float, callback: String) -> Timer:
 	var new_timer = Timer.new()
 	new_timer.name = timer_name
 	new_timer.wait_time = duration
 	new_timer.one_shot = true
-	new_timer.timeout.connect(Callable(self, "_on_cc_timeout").bind(new_timer.name))
+	new_timer.timeout.connect(Callable(self, callback).bind(new_timer.name))
 	add_child(new_timer)
-	new_timer.start()
+	return new_timer
 
 func _free_timer(timer_name: String) -> void:
 	if get_node(timer_name) and is_instance_valid(get_node(timer_name)):

@@ -52,11 +52,14 @@ func heal(amount: int) -> void:
 	if _current_hp > _max_hp:
 		_current_hp = _max_hp
 
-func take_dmg(damage: int) -> void:
+# true if dead
+func _take_dmg(damage: int) -> bool:
 	if _not_interactable || _is_invincible || _is_dead:
-		return # they don't take damage
+		return false # they don't take damage
 	
 	_current_hp -= _final_damage(damage)
 	_hurt_reaction()
 	if _current_hp <= 0:
 		_dead()
+		return true
+	return false
