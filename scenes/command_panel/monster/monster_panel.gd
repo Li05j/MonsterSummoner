@@ -6,7 +6,7 @@ class_name MonsterPanel extends Panel
 @onready var unit_buttons = $UnitButtons
 @onready var building_buttons = $BuildingButtons
 
-@onready var unit1 = unit_buttons.get_node("Unit1")
+@onready var unit1: Button = unit_buttons.get_node("Unit1")
 @onready var unit2 = unit_buttons.get_node("Unit2")
 @onready var unit3 = unit_buttons.get_node("Unit3")
 @onready var unit4 = unit_buttons.get_node("Unit4")
@@ -26,6 +26,7 @@ func _ready() -> void:
 	_init_unit_price()
 	_init_building_price()
 	_init_text_display()
+	_init_tooltips()
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_released("summon1"):
@@ -60,6 +61,40 @@ func _init_building_price() -> void:
 
 func _init_text_display() -> void:
 	player_gold.text = "GOLD: %d (+%d)" % [LevelState.player_gold, LevelState.player_gold_gen]
+
+func _init_tooltips() -> void:
+	unit1.tooltip_text = "HP: %s\nAttack: %s\nAttack Rate: %s\nTargets: %s\n\n%s" % [
+		MonsterUnits.goblin_data.max_hp,
+		MonsterUnits.goblin_data.atk,
+		MonsterUnits.goblin_data.atk_spd,
+		MonsterUnits.goblin_data.targets,
+		MonsterUnits.goblin_data.description,
+	]
+	unit2.tooltip_text = "HP: %s\nAttack: %s\nAttack Rate: %s\nTargets: %s\n\n%s" % [
+		MonsterUnits.slime_data.max_hp,
+		MonsterUnits.slime_data.atk,
+		MonsterUnits.slime_data.atk_spd,
+		MonsterUnits.slime_data.targets,
+		MonsterUnits.slime_data.description,
+	]
+	unit3.tooltip_text = "HP: %s\nAttack: %s\nAttack Rate: %s\nTargets: %s\n\n%s" % [
+		MonsterUnits.iceworm_data.max_hp,
+		MonsterUnits.iceworm_data.atk,
+		MonsterUnits.iceworm_data.atk_spd,
+		MonsterUnits.iceworm_data.targets,
+		MonsterUnits.iceworm_data.description,
+	]
+	unit4.tooltip_text = "HP: %s\nAttack: %s\nAttack Rate: %s\nTargets: %s\n\n%s" % [
+		MonsterUnits.giant_data.max_hp,
+		MonsterUnits.giant_data.atk,
+		MonsterUnits.giant_data.atk_spd,
+		#MonsterUnits.giant_data.targets,
+		"All",
+		MonsterUnits.giant_data.description,
+	]
+	
+	build1.tooltip_text = BuildingsData.gold_mine.description
+	build2.tooltip_text = BuildingsData.lab.description
 
 func _on_gold_gen_timer_timeout() -> void:
 	LevelState.player_gold += LevelState.player_gold_gen

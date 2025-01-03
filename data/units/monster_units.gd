@@ -24,7 +24,7 @@ const slime_data = {
 	"atk_frame": 3,
 	"spwn_wait": 0.75,
 	"targets": 1,
-	"description": "meow.",
+	"description": "Just a slime.",
 }
 
 const iceworm_data = {
@@ -38,7 +38,7 @@ const iceworm_data = {
 	"atk_frame": 10,
 	"spwn_wait": 1.5,
 	"targets": 4,
-	"description": "Immune to slow.\nSlow (1.5s) on hit.",
+	"description": "Immune to slow.\nSlow (1.5) on hit.",
 }
 
 const giant_data = {
@@ -52,5 +52,5 @@ const giant_data = {
 	"atk_frame": 3,
 	"spwn_wait": 3.0,
 	"targets": -1,
-	"description": "Immune to control.\nKnockback (1.5s) on hit.\nDamage reduction: 3.",
+	"description": "Immune to control.\nKnockback (1.5) on hit.\nDamage reduction: 3.",
 }

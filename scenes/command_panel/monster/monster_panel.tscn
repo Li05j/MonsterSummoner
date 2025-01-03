@@ -47,6 +47,12 @@ theme_override_constants/separation = 20
 [node name="Unit1" type="Button" parent="Panel/UnitButtons"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
+tooltip_text = "HP: 91
+Attack: 8
+Attack Rate: 0.4
+Targets: 1
+
+20% chance to summon a BIG goblin."
 theme = ExtResource("1_gnueo")
 
 [node name="TextureRect" type="TextureRect" parent="Panel/UnitButtons/Unit1"]

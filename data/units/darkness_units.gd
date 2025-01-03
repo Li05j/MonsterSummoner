@@ -6,12 +6,12 @@ const shadowarcher_data = {
 	"cost": 40,
 	"move_spd": 85,
 	"max_hp": 36,
-	"atk": 3,
-	"atk_spd": 1.9,
+	"atk": 4,
+	"atk_spd": 2.0,
 	"atk_frame": 6,
 	"spwn_wait": 0.75,
 	"targets": 2,
-	"description": "Shoot 3 times.\n10% to stun (0.75s) on hit.",
+	"description": "Shoot 3 times.\n10% to stun (0.75) on hit.",
 }
 const nightborne_data = {
 	"cc_immune": false,
@@ -38,7 +38,7 @@ const darkknight_data = {
 	"atk_frame": 4,
 	"spwn_wait": 1.5,
 	"targets": 1,
-	"description": "Immune to control.\n(Once) Berserks (4s) when HP < 25%.",
+	"description": "Immune to control.\n(Once) Berserks (4) when HP < 25%.",
 }
 
 const doomsday_data = {
