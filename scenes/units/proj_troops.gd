@@ -46,14 +46,11 @@ func _get_detect_box_enemies_x() -> Array:
 ##### Projectile Max Distance #####
 ###########################################################
 
-#func _by_fixed_range() -> void:
-	#_proj_range = _atk_detect_box.get_child(0).shape.size.x * _sprite.scale.x # convert pixels to units
-
 func _by_distance(closest: bool) -> void:
 	var valid_enemies_x = _get_detect_box_enemies_x()
 	valid_enemies_x.sort_custom(
 		func(a, b): 
-			return a < b if closest else a > b
+			return a < b if closest else b < a
 	)
 	if valid_enemies_x.size():
 		_proj_range = abs(valid_enemies_x[0] - self.global_position.x)

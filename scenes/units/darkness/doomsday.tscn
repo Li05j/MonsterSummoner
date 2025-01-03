@@ -367,7 +367,7 @@ size = Vector2(27.8261, 53.333)
 size = Vector2(100, 53.3331)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8r3go"]
-size = Vector2(180, 53.3333)
+size = Vector2(200, 53.3333)
 
 [node name="Doomsday" type="Node2D"]
 script = ExtResource("1_7d6t5")
@@ -384,10 +384,8 @@ offset = Vector2(0, -35)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(2.4, 2.4)
 sprite_frames = SubResource("SpriteFrames_onkip")
-animation = &"dead"
+animation = &"special"
 autoplay = "idle"
-frame = 8
-frame_progress = 1.0
 offset = Vector2(34, -47)
 
 [node name="MeleeArea" type="Area2D" parent="AnimatedSprite2D"]
@@ -416,7 +414,7 @@ debug_color = Color(0.467372, 0.586243, 0.223272, 0.42)
 [node name="AtkRangeBoxArea" type="Area2D" parent="AnimatedSprite2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/AtkRangeBoxArea"]
-position = Vector2(90, -26.6667)
+position = Vector2(100, -26.6667)
 shape = SubResource("RectangleShape2D_8r3go")
 debug_color = Color(0.709804, 0, 0.333333, 0.419608)
 

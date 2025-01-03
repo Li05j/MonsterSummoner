@@ -14,10 +14,10 @@ func _ready() -> void:
 	_cost = 235
 	_gold_drop = floor(_cost / 3.0)
 	_move_spd = 75
-	_max_hp = 27
+	_max_hp = 727
 	_atk = 24
 	_atk_spd = 2.1 # will reduce to 1.3 on melee
-	_atk_frame = 7 # will change to 4 on melee
+	_atk_frame = 2 # will change to 4 on melee
 	_cc_rate = 0.5
 	
 	_spwn_wait = 0.1
@@ -26,7 +26,7 @@ func _ready() -> void:
 	
 	#####
 	
-	_projectile_scene = preload(Paths.PROJ + "fireworm_proj.tscn")
+	_projectile_scene = preload(Paths.PROJ + "doomsday_proj.tscn")
 	super()
 
 func _init_collisions() -> void:
@@ -60,7 +60,6 @@ func _set_enemy() -> void:
 	super()
 
 func _change_to_melee() -> void:
-	# TODO: need to force timers too, just change wait time
 	_atk_spd = 1.3
 	_attack_cd_timer.wait_time = _atk_spd
 	
@@ -76,6 +75,17 @@ func _change_to_melee() -> void:
 
 func _set_proj_range() -> void:
 	_by_distance(false)
+
+func _by_distance(closest: bool) -> void:
+	var valid_enemies_x = _get_detect_box_enemies_x()
+	valid_enemies_x.sort_custom(
+		func(a, b): 
+			return a < b if closest else b < a
+	)
+	if valid_enemies_x.size():
+		_proj_range = valid_enemies_x[0]
+	else:
+		_proj_range = _max_travel_range
 
 func _resolve_attack() -> void:
 	if _melee:

@@ -1,0 +1,97 @@
+[gd_scene load_steps=20 format=3 uid="uid://wtxfkgjjx42s"]
+
+[ext_resource type="Script" path="res://scenes/units/projectile/doomsday_proj.gd" id="1_c76y7"]
+[ext_resource type="Texture2D" uid="uid://clw5eu8iqlovj" path="res://addons/Sprites/Bringer-Of-Death/Individual Sprite/Spell/Bringer-of-Death_Spell_1.png" id="2_xra2k"]
+[ext_resource type="Texture2D" uid="uid://eieeav047wpi" path="res://addons/Sprites/Bringer-Of-Death/Individual Sprite/Spell/Bringer-of-Death_Spell_2.png" id="3_koudf"]
+[ext_resource type="Texture2D" uid="uid://bw0y7lsqypeu0" path="res://addons/Sprites/Bringer-Of-Death/Individual Sprite/Spell/Bringer-of-Death_Spell_3.png" id="4_ml4yg"]
+[ext_resource type="Texture2D" uid="uid://dtbgqgm6fn3rw" path="res://addons/Sprites/Bringer-Of-Death/Individual Sprite/Spell/Bringer-of-Death_Spell_4.png" id="5_jdn1n"]
+[ext_resource type="Texture2D" uid="uid://c2ivjrxdtdcig" path="res://addons/Sprites/Bringer-Of-Death/Individual Sprite/Spell/Bringer-of-Death_Spell_5.png" id="6_285k0"]
+[ext_resource type="Texture2D" uid="uid://dny7gtum0h4b7" path="res://addons/Sprites/Bringer-Of-Death/Individual Sprite/Spell/Bringer-of-Death_Spell_6.png" id="7_6dbno"]
+[ext_resource type="Texture2D" uid="uid://dnj233gmvr20k" path="res://addons/Sprites/Bringer-Of-Death/Individual Sprite/Spell/Bringer-of-Death_Spell_7.png" id="8_wn0ph"]
+[ext_resource type="Texture2D" uid="uid://dg6gj6us1lv7a" path="res://addons/Sprites/Bringer-Of-Death/Individual Sprite/Spell/Bringer-of-Death_Spell_8.png" id="9_shxj7"]
+[ext_resource type="Texture2D" uid="uid://b6uaxpkf74fi6" path="res://addons/Sprites/Bringer-Of-Death/Individual Sprite/Spell/Bringer-of-Death_Spell_9.png" id="10_0pqqp"]
+[ext_resource type="Texture2D" uid="uid://dhfivsjc3kdwv" path="res://addons/Sprites/Bringer-Of-Death/Individual Sprite/Spell/Bringer-of-Death_Spell_10.png" id="11_ucxq7"]
+[ext_resource type="Texture2D" uid="uid://byawoj5x7olvr" path="res://addons/Sprites/Bringer-Of-Death/Individual Sprite/Spell/Bringer-of-Death_Spell_11.png" id="12_yf8b4"]
+[ext_resource type="Texture2D" uid="uid://cn3bdvrjfmh0x" path="res://addons/Sprites/Bringer-Of-Death/Individual Sprite/Spell/Bringer-of-Death_Spell_12.png" id="13_obhks"]
+[ext_resource type="Texture2D" uid="uid://h4jh2m6qoq2a" path="res://addons/Sprites/Bringer-Of-Death/Individual Sprite/Spell/Bringer-of-Death_Spell_13.png" id="14_n1mwd"]
+[ext_resource type="Texture2D" uid="uid://b2i7wcgnn166n" path="res://addons/Sprites/Bringer-Of-Death/Individual Sprite/Spell/Bringer-of-Death_Spell_14.png" id="15_bch6g"]
+[ext_resource type="Texture2D" uid="uid://dlulu2q1wf0lt" path="res://addons/Sprites/Bringer-Of-Death/Individual Sprite/Spell/Bringer-of-Death_Spell_15.png" id="16_8v5vs"]
+[ext_resource type="Texture2D" uid="uid://bnymnucgwccp3" path="res://addons/Sprites/Bringer-Of-Death/Individual Sprite/Spell/Bringer-of-Death_Spell_16.png" id="17_18flw"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4oaq5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_xra2k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_koudf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ml4yg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_jdn1n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_285k0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_6dbno")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_wn0ph")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_shxj7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_0pqqp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_ucxq7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_yf8b4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_obhks")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_n1mwd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_bch6g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_8v5vs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_18flw")
+}],
+"loop": false,
+"name": &"shoot",
+"speed": 12.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b2q20"]
+size = Vector2(14.5, 41.2043)
+
+[node name="doomsday_proj" type="Node2D"]
+script = ExtResource("1_c76y7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(4, 4.65)
+sprite_frames = SubResource("SpriteFrames_4oaq5")
+animation = &"shoot"
+autoplay = "shoot"
+frame = 15
+frame_progress = 1.0
+offset = Vector2(0, -46)
+
+[node name="HitboxArea" type="Area2D" parent="AnimatedSprite2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/HitboxArea"]
+position = Vector2(5.96046e-08, -20.6882)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_b2q20")
