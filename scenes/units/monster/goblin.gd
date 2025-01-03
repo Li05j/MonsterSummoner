@@ -23,4 +23,5 @@ func _ready() -> void:
 		_max_hp *= 1.2
 		_atk *= 1.2
 		_sprite.scale *= 1.4
+		_hp_bar.position.y = -150
 	super()

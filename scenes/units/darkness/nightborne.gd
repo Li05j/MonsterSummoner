@@ -15,7 +15,7 @@ func _ready() -> void:
 	_gold_drop = floor(_cost / 3.0)
 	_move_spd = 100
 	_max_hp = 76
-	_atk = 17
+	_atk = 11
 	_atk_spd = 1.4
 	_atk_frame = 9
 	
@@ -58,10 +58,11 @@ func _move(delta: float) -> void:
 func _is_valid() -> bool:
 	return !(_not_interactable or _is_dead or _during_special)
 
-func _on_atk_detect_box_enter(other: Area2D) -> void:
-	if !_dashed:
+func _hurt_reaction() -> void:
+	super()
+	if !_dashed and get_hp_percent() <= 0.75:
 		_during_special = true
-		_v_x = _dir * _move_spd * 3.7
+		_v_x = _dir * _move_spd * 2.25
 		_sprite.play("special")
 
 func _on_sprite_animation_finished() -> void:
@@ -79,6 +80,7 @@ func _on_sprite_attack_frame_change() -> void:
 		_atk_dmg_box.monitoring = false
 		
 	if _sprite.animation == "dead" and _sprite.frame == _dead_frame:
+		_atk *= 2
 		var explosion_area = _sprite.get_node("DeathExplosionArea")
 		
 		var valid_enemies = []

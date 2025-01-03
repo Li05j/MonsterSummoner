@@ -553,10 +553,10 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_g2u7r")
 }, {
-"duration": 1.0,
+"duration": 2.0,
 "texture": SubResource("AtlasTexture_l4pcp")
 }, {
-"duration": 1.0,
+"duration": 2.0,
 "texture": SubResource("AtlasTexture_n0ji8")
 }, {
 "duration": 1.0,
@@ -568,7 +568,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h0dtu"]
-size = Vector2(32.0914, 27.043)
+size = Vector2(25.9616, 27.043)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7wg3o"]
 size = Vector2(22.8967, 27.0433)
@@ -597,12 +597,15 @@ scale = Vector2(2.77333, 2.77333)
 sprite_frames = SubResource("SpriteFrames_onkip")
 animation = &"special"
 autoplay = "idle"
+frame = 4
+frame_progress = 1.0
 offset = Vector2(0, -24)
 
 [node name="AtkRangeBoxArea" type="Area2D" parent="AnimatedSprite2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/AtkRangeBoxArea"]
-position = Vector2(16.0457, -13.5216)
+position = Vector2(12.9808, -13.5216)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_h0dtu")
 debug_color = Color(0.719562, 0.326995, 0.88156, 0.42)
 

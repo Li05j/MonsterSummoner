@@ -71,7 +71,7 @@ func _connect_signals() -> void:
 	_sprite.animation_finished.connect(_on_sprite_animation_finished)
 	_sprite.frame_changed.connect(_on_sprite_attack_frame_change)
 	
-	_atk_detect_box.area_entered.connect(_on_atk_detect_box_enter)
+	#_atk_detect_box.area_entered.connect(_on_atk_detect_box_enter)
 	#_atk_detect_box.area_exited.connect(_on_atk_detect_box_exit)
 
 func _move(delta: float) -> void:
@@ -184,8 +184,8 @@ func _on_spawn_animation_done(timer_name: String) -> void:
 #func _on_hitbox_exit(other: Area2D) -> void:
 	#print("hitbox exit")
 #
-func _on_atk_detect_box_enter(other: Area2D) -> void:
-	pass
+#func _on_atk_detect_box_enter(other: Area2D) -> void:
+	#pass
 #
 #func _on_atk_detect_box_exit(other: Area2D) -> void:
 	#print("enemy exited")
