@@ -29,8 +29,8 @@ func summon() -> void:
 	#scene = iceworm_scene.instantiate()
 	#scene = giant_scene.instantiate()
 	
-	#scene = shadowarcher_scene.instantiate()
-	scene = nightborne_scene.instantiate()
+	scene = shadowarcher_scene.instantiate()
+	#scene = nightborne_scene.instantiate()
 	#scene = darkknight_scene.instantiate()
 	#scene = doomsday_scene.instantiate()
 	LevelState.current_level.add_child(scene)

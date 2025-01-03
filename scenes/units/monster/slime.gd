@@ -1,27 +1,26 @@
 class_name Slime extends ProjTroops
 
-func _ready() -> void:
+func _init_stats() -> void:
 	_not_interactable = true
 	_is_invincible = true
-	_is_cc_immune = false
-	_is_slow_immune = false
 	
-	_cost = 60
+	_is_cc_immune = MonsterUnits.slime_data.cc_immune
+	_is_slow_immune = MonsterUnits.slime_data.slow_immune
+	
+	_cost = MonsterUnits.slime_data.cost
 	_gold_drop = floor(_cost / 3.0)
-	_move_spd = 60
-	_max_hp = 43
-	_atk = 34
-	_atk_spd = 2.4
-	_atk_frame = 3
+	_move_spd = MonsterUnits.slime_data.move_spd
+	_max_hp = MonsterUnits.slime_data.max_hp
+	_atk = MonsterUnits.slime_data.atk
+	_atk_spd = MonsterUnits.slime_data.atk_spd
+	_atk_frame = MonsterUnits.slime_data.atk_frame
 	
-	_spwn_wait = 0.75
+	_spwn_wait = MonsterUnits.slime_data.spwn_wait
 	
-	_targets = 1
-	
-	#####
-	
-	_projectile_scene = preload(Paths.PROJ + "slime_proj.tscn")
-	super()
+	_targets = MonsterUnits.slime_data.targets
 
+	#####
+	_projectile_scene = preload(Paths.PROJ + "slime_proj.tscn")
+	
 func _set_proj_range() -> void:
 	_by_distance(true)

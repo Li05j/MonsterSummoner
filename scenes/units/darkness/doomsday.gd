@@ -7,29 +7,28 @@ class_name Doomsday extends ProjTroops
 
 var _melee: bool = false
 
-func _ready() -> void:
+func _init_stats() -> void:
 	_not_interactable = true
 	_is_invincible = true
-	_is_cc_immune = false
-	_is_slow_immune = false
 	
-	_cost = 235
+	_is_cc_immune = DarknessUnits.doomsday_data.cc_immune
+	_is_slow_immune = DarknessUnits.doomsday_data.slow_immune
+	
+	_cost = DarknessUnits.doomsday_data.cost
 	_gold_drop = floor(_cost / 3.0)
-	_move_spd = 75
-	_max_hp = 450
-	_atk = 24
-	_atk_spd = 2.4 # will reduce on melee
-	_atk_frame = 4 # will change to 4 on melee
-	_cc_rate = 0.5
+	_move_spd = DarknessUnits.doomsday_data.move_spd
+	_max_hp = DarknessUnits.doomsday_data.max_hp
+	_atk = DarknessUnits.doomsday_data.atk
+	_atk_spd = DarknessUnits.doomsday_data.atk_spd
+	_atk_frame = DarknessUnits.doomsday_data.atk_frame
+	_cc_rate = DarknessUnits.doomsday_data.cc_rate
 	
-	_spwn_wait = 3.0
+	_spwn_wait = DarknessUnits.doomsday_data.spwn_wait
 	
-	_targets = -1 # will change to 1 on melee
+	_targets = DarknessUnits.doomsday_data.targets
 	
 	#####
-	
 	_projectile_scene = preload(Paths.PROJ + "doomsday_proj.tscn")
-	super()
 
 func _init_collisions() -> void:
 	super()
@@ -65,12 +64,13 @@ func _set_enemy() -> void:
 func _change_to_melee() -> void:
 	_change_to_melee_box.queue_free()
 	
-	_atk_spd = 1.2
+	_atk_spd *= DarknessUnits.doomsday_data.melee_atk_spd_rate
 	_attack_cd_timer.wait_time = _atk_spd
 	
-	_atk *= 1.5
-	_atk_frame = 4
-	_targets = 1
+	_atk *= DarknessUnits.doomsday_data.melee_atk_rate
+	_atk_frame = DarknessUnits.doomsday_data.melee_atk_frame
+	_targets = DarknessUnits.doomsday_data.melee_targets
+	
 	_atk_detect_box.visible = false
 	_atk_detect_box = _melee_box
 	

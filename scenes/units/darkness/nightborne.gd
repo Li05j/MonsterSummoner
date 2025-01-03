@@ -5,25 +5,24 @@ class_name Nightborne extends MeleeTroops
 var _dashed: bool = false
 const _dead_frame = 12
 
-func _ready() -> void:
+func _init_stats() -> void:
 	_not_interactable = true
 	_is_invincible = true
-	_is_cc_immune = false
-	_is_slow_immune = false
 	
-	_cost = 65
+	_is_cc_immune = DarknessUnits.nightborne_data.cc_immune
+	_is_slow_immune = DarknessUnits.nightborne_data.slow_immune
+	
+	_cost = DarknessUnits.nightborne_data.cost
 	_gold_drop = floor(_cost / 3.0)
-	_move_spd = 100
-	_max_hp = 76
-	_atk = 11
-	_atk_spd = 1.4
-	_atk_frame = 9
+	_move_spd = DarknessUnits.nightborne_data.move_spd
+	_max_hp = DarknessUnits.nightborne_data.max_hp
+	_atk = DarknessUnits.nightborne_data.atk
+	_atk_spd = DarknessUnits.nightborne_data.atk_spd
+	_atk_frame = DarknessUnits.nightborne_data.atk_frame
 	
-	_spwn_wait = 0.75
+	_spwn_wait = DarknessUnits.nightborne_data.spwn_wait
 	
-	_targets = 2
-	
-	super()
+	_targets = DarknessUnits.nightborne_data.targets
 
 func _physics_process(delta: float) -> void:
 	if !(_not_interactable or _is_dead):
@@ -68,7 +67,7 @@ func _hurt_reaction() -> void:
 func _on_sprite_animation_finished() -> void:
 	super()
 	if _sprite.animation == "special":
-		_v_x = _dir * _move_spd
+		_v_x /= 2.25
 		_dashed = true
 		_during_special = false
 

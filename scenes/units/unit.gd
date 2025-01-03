@@ -22,6 +22,7 @@ var _is_slow_immune = true
 var _cc_count: int = 0 # counter for being cc'd
 var _is_knockback: bool = false
 var _is_slowed: bool = false
+var _is_stunned: bool = false
 
 ###########################################################
 
@@ -104,6 +105,21 @@ func _on_dead_timer_timeout() -> void:
 
 func _on_invincible_timeout() -> void:
 	_is_invincible = false
+
+##########################################################
+##### All CC virtual functions #####
+##########################################################
+
+func slow(duration: float) -> void:
+	pass
+
+func knockback(duration: float) -> void:
+	pass
+
+func stun(duration: float) -> void:
+	pass
+
+##########################################################
 
 # this acts similarly to a constructor
 func set_who(who: Types.Who) -> void:

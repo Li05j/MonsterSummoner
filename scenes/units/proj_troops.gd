@@ -46,9 +46,8 @@ func _get_detect_box_enemies_x() -> Array:
 	return valid_enemies_x
 
 func _wait_for_projectiles_on_death() -> void:
-	print(_proj_counter)
 	if _proj_counter > 0:
-		#visible = false
+		visible = false
 		_dead_timer.start(Types.proj_unit_dead_polling_time)
 	else:
 		self.queue_free()

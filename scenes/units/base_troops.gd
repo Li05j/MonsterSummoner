@@ -244,8 +244,21 @@ func knockback(duration: float) -> void:
 	_v_x = -_dir * _move_spd + _move_spd * fluc_x
 	_v_y = -Types.gravity * (actual_duration / 2)
 	
-	#var cc_timer = _new_temp_timer("knockback", "_on_cc_timeout", duration)
 	_new_temp_timer("knockback_timer", "_on_cc_timeout", actual_duration).start()
+
+func stun(duration: float) -> void:
+	if !_is_valid() or _is_cc_immune:
+		return
+	if _is_stunned: # do not stun again
+		return
+	
+	_add_cc(true)
+	_is_stunned = true
+	
+	var actual_duration = duration * _cc_rate
+	_v_x = 0
+	
+	_new_temp_timer("stun_timer", "_on_cc_timeout", actual_duration).start()
 
 # When unit is cc'd or free of cc
 func _add_cc(cc: bool) -> void:
@@ -262,6 +275,8 @@ func _on_cc_timeout(timer_name: String) -> void:
 	match timer_name:
 		"knockback_timer":
 			_is_knockback = false
+		"stun_timer":
+			_is_stunned = false
 		_:
 			return
 	_add_cc(false)

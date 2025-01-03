@@ -4,24 +4,24 @@ var _berserk_timer: Timer
 var _has_gone_berserk = false
 const _berserk_duration = 4.0 # seconds
 
-func _ready() -> void:
+func _init_stats() -> void:
 	_not_interactable = true
 	_is_invincible = true
-	_is_cc_immune = true
-	_is_slow_immune = false
 	
-	_cost = 150
+	_is_cc_immune = DarknessUnits.darkknight_data.cc_immune
+	_is_slow_immune = DarknessUnits.darkknight_data.slow_immune
+	
+	_cost = DarknessUnits.darkknight_data.cost
 	_gold_drop = floor(_cost / 3.0)
-	_move_spd = 60
-	_max_hp = 727
-	_atk = 32
-	_atk_spd = 3.6
-	_atk_frame = 4
+	_move_spd = DarknessUnits.darkknight_data.move_spd
+	_max_hp = DarknessUnits.darkknight_data.max_hp
+	_atk = DarknessUnits.darkknight_data.atk
+	_atk_spd = DarknessUnits.darkknight_data.atk_spd
+	_atk_frame = DarknessUnits.darkknight_data.atk_frame
 	
-	_spwn_wait = 1.5
+	_spwn_wait = DarknessUnits.darkknight_data.spwn_wait
 	
-	_targets = 1
-	super()
+	_targets = DarknessUnits.darkknight_data.targets
 
 func _init_timers() -> void:
 	super()
