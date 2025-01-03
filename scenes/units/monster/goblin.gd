@@ -17,4 +17,10 @@ func _ready() -> void:
 	_spwn_wait = 0.75
 	
 	_targets = 1
+	
+	var rand = randi_range(0, 4)
+	if !rand:	# 1 in 4 it summons big goblin
+		_max_hp *= 1.2
+		_atk *= 1.2
+		_sprite.scale *= 1.4
 	super()
