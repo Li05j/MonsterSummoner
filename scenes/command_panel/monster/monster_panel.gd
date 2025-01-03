@@ -27,15 +27,34 @@ func _ready() -> void:
 	_init_building_price()
 	_init_text_display()
 
+func _input(event: InputEvent) -> void:
+	if event.is_action_released("summon1"):
+		_on_unit_1_pressed()
+	elif event.is_action_released("summon2"):
+		_on_unit_2_pressed()
+	elif event.is_action_released("summon3"):
+		_on_unit_3_pressed()
+	elif event.is_action_released("summon4"):
+		_on_unit_4_pressed()
+		
+	elif event.is_action_released("build1"):
+		_on_build_1_pressed()
+	elif event.is_action_released("build2"):
+		_on_build_2_pressed()
+	elif event.is_action_released("build3"):
+		_on_build_3_pressed()
+	elif event.is_action_released("build4"):
+		_on_build_4_pressed()
+
 func _init_unit_price() -> void:
-	unit1.get_node("Cost").text = "500"
-	unit2.get_node("Cost").text = "20"
-	unit3.get_node("Cost").text = "400"
-	unit4.get_node("Cost").text = "9999"
+	unit1.get_node("Cost").text = str(MonsterUnits.goblin_data.cost)
+	unit2.get_node("Cost").text = str(MonsterUnits.slime_data.cost)
+	unit3.get_node("Cost").text = str(MonsterUnits.iceworm_data.cost)
+	unit4.get_node("Cost").text = str(MonsterUnits.giant_data.cost)
 
 func _init_building_price() -> void:
-	build1.get_node("Cost").text = "500"
-	build2.get_node("Cost").text = "20"
+	build1.get_node("Cost").text = str(BuildingsData.gold_mine.cost)
+	build2.get_node("Cost").text = str(BuildingsData.lab.cost)
 	build3.get_node("Cost").text = "400"
 	build4.get_node("Cost").text = "9999"
 
@@ -65,6 +84,18 @@ func _on_unit_4_pressed() -> void:
 	var scene = giant_scene.instantiate()
 	LevelState.current_level.add_child(scene)
 	scene.set_who(Types.Who.ALLY)
+
+func _on_build_1_pressed() -> void:
+	print("1")
+
+func _on_build_2_pressed() -> void:
+	print("2")
+
+func _on_build_3_pressed() -> void:
+	pass # Replace with function body.
+
+func _on_build_4_pressed() -> void:
+	pass # Replace with function body.
 
 func update_units_price(change: int) -> void:
 	pass

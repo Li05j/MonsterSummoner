@@ -22,6 +22,7 @@ LevelState="*res://data/globals/level_state.gd"
 Types="*res://data/globals/types.gd"
 MonsterUnits="*res://data/units/monster_units.gd"
 DarknessUnits="*res://data/units/darkness_units.gd"
+BuildingsData="*res://data/globals/buildings_data.gd"
 
 [display]
 

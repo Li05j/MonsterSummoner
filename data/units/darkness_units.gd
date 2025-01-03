@@ -6,7 +6,7 @@ const shadowarcher_data = {
 	"cost": 40,
 	"move_spd": 85,
 	"max_hp": 36,
-	"atk": 4,
+	"atk": 3,
 	"atk_spd": 1.9,
 	"atk_frame": 6,
 	"spwn_wait": 0.75,
