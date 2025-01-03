@@ -9,13 +9,14 @@ var giant_scene = preload(Paths.MONSTER + "giant.tscn")
 
 var shadowarcher_scene = preload(Paths.DARKNESS + "shadowarcher.tscn")
 var nightborne_scene = preload(Paths.DARKNESS + "nightborne.tscn")
+var doomsday_scene = preload(Paths.DARKNESS + "doomsday.tscn")
 
 func _ready() -> void:
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if LevelState.game_time - last_check_time >= 2.0:
+	if LevelState.game_time - last_check_time >= 1.0:
 		last_check_time = LevelState.game_time
 		last_check_time = INF
 		summon()
@@ -26,8 +27,9 @@ func summon() -> void:
 	#var scene = fireworm_scene.instantiate()
 	#var scene = giant_scene.instantiate()
 	
-	var scene = shadowarcher_scene.instantiate()
+	#var scene = shadowarcher_scene.instantiate()
 	#var scene = nightborne_scene.instantiate()
+	var scene = doomsday_scene.instantiate()
 	LevelState.current_level.add_child(scene)
 	scene.set_who(Types.Who.ENEMY)
 	

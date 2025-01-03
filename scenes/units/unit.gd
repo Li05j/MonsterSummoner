@@ -47,7 +47,7 @@ func _init_misc() -> void:
 
 func _connect_signals() -> void:
 	_hitbox.area_entered.connect(_on_hitbox_enter)
-	_hitbox.area_exited.connect(_on_hitbox_exit)
+	#_hitbox.area_exited.connect(_on_hitbox_exit)
 
 func _dead() -> void:
 	# start dead timer, queue_free if no dead animation, handle gold drops, etc.
@@ -94,8 +94,8 @@ func _free_temp_timer(timer_name: String) -> void:
 func _on_hitbox_enter(other: Area2D) -> void:
 	pass
 
-func _on_hitbox_exit(other: Area2D) -> void:
-	pass
+#func _on_hitbox_exit(other: Area2D) -> void:
+	#pass
 
 func _on_dead_timer_timeout() -> void:
 	self.queue_free()

@@ -37,9 +37,15 @@ func _move(delta: float) -> void:
 func _dead() -> void:
 	queue_free()
 
-# set initial velocity
 func _set_initial_velocity() -> void:
 	pass
+
+func _set_initial_pos() -> void:
+	global_position = Vector2(
+		_proj_owner.global_position.x + _offset_x * _dir, 
+		_proj_owner.global_position.y + _offset_y
+	)
+	_initial_position = global_position
 
 func _resolve_contact(other: Area2D) -> void:
 	if is_instance_valid(other):
@@ -64,13 +70,13 @@ func _on_hitbox_enter(other: Area2D) -> void:
 		_dead()
 	_hitbox.monitoring = true
 
-func _on_hitbox_exit(other: Area2D) -> void:
-	pass
+#func _on_hitbox_exit(other: Area2D) -> void:
+	#pass
 
 func init(proj_owner) -> void:
 	_proj_owner = proj_owner
 	
-	if proj_owner._who == Types.Who.ALLY:
+	if _proj_owner._who == Types.Who.ALLY:
 		_dir = 1
 		_hitbox.collision_mask = Types.Collision.ENEMY_UNIT | Types.Collision.ENEMY_BASE
 	else:
@@ -78,11 +84,7 @@ func init(proj_owner) -> void:
 		scale.x *= -1
 		_hitbox.collision_mask = Types.Collision.PLAYER_UNIT | Types.Collision.PLAYER_BASE
 
-	global_position = Vector2(
-		proj_owner.global_position.x + _offset_x * _dir, 
-		proj_owner.global_position.y + _offset_y
-	)
-	_initial_position = global_position
+	_set_initial_pos()
 	_max_target_count = proj_owner._targets
 	_max_travel_dist = proj_owner._proj_range
 
@@ -91,6 +93,9 @@ func init(proj_owner) -> void:
 ###########################################################
 ##### Movements #####
 ###########################################################
+
+func _stationary() -> void:
+	_v = Vector2.ZERO
 
 func _linear() -> void:
 	_v = Vector2(_dir * _max_travel_dist / _travel_time, 0)

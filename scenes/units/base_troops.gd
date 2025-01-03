@@ -23,6 +23,7 @@ var _atk_frame: int = 0 # the frame the atk is resolved
 var _spwn_wait: float = 1.0 # spanw waiting time
 var _spd_scale: float = 1.0 # animation rate, low means slow
 var _targets: int = 1 # how many targets, -1 means all in range, else closest first
+var _cc_rate: float = 1.0 # cc effectiveness, when 0 then it is equal to immune
 
 ##### Others #####
 
@@ -187,7 +188,7 @@ func _on_hp_bar_visible_timer_timeout() -> void:
 	_hp_bar.visible = false
 
 func _on_sprite_animation_finished() -> void:
-	if !_not_interactable and !_is_dead and _sprite.animation == "attack":
+	if _is_valid() and _sprite.animation == "attack":
 		_sprite.play("idle")  	# Idle while waiting for next attack
 		_attack_cd_timer.start()	# Basic attack cooldown
 	if _sprite.animation == "dead":
@@ -211,12 +212,13 @@ func knockback(duration: float) -> void:
 	_add_cc(true)
 	_is_knockback = true
 	
+	var actual_duration = duration * _cc_rate
 	var fluc_x = randf_range(0, 0.5) # 1.0 - 1.5 movespd knockback
 	_v_x = -_dir * _move_spd + _move_spd * fluc_x
-	_v_y = -Types.gravity * (duration / 2)
+	_v_y = -Types.gravity * (actual_duration / 2)
 	
 	#var cc_timer = _new_temp_timer("knockback", "_on_cc_timeout", duration)
-	_new_temp_timer("knockback", "_on_cc_timeout", duration).start()
+	_new_temp_timer("knockback", "_on_cc_timeout", actual_duration).start()
 
 # When unit is cc'd or free of cc
 func _add_cc(cc: bool) -> void:

@@ -30,14 +30,7 @@ func _init_proj_max_range() -> void:
 func _set_proj_range() -> void:
 	pass
 
-###########################################################
-##### Projectile Max Distance #####
-###########################################################
-
-#func _by_fixed_range() -> void:
-	#_proj_range = _atk_detect_box.get_child(0).shape.size.x * _sprite.scale.x # convert pixels to units
-
-func _by_closest_target() -> void:
+func _get_detect_box_enemies_x() -> Array:
 	var valid_enemies_x = []
 	for area in _atk_detect_box.get_overlapping_areas():
 		if !is_instance_valid(area):
@@ -47,12 +40,21 @@ func _by_closest_target() -> void:
 		if is_instance_valid(enemy_node):
 			if enemy_node._is_valid():
 				valid_enemies_x.append(enemy_node.global_position.x)
-	
+	return valid_enemies_x
+
+###########################################################
+##### Projectile Max Distance #####
+###########################################################
+
+#func _by_fixed_range() -> void:
+	#_proj_range = _atk_detect_box.get_child(0).shape.size.x * _sprite.scale.x # convert pixels to units
+
+func _by_distance(closest: bool) -> void:
+	var valid_enemies_x = _get_detect_box_enemies_x()
 	valid_enemies_x.sort_custom(
 		func(a, b): 
-			return a < b
+			return a < b if closest else a > b
 	)
-	
 	if valid_enemies_x.size():
 		_proj_range = abs(valid_enemies_x[0] - self.global_position.x)
 	else:

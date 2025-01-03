@@ -23,4 +23,4 @@ func _ready() -> void:
 	super()
 
 func _set_proj_range() -> void:
-	_by_closest_target()
+	_by_distance(true)
