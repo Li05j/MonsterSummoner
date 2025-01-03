@@ -1,4 +1,4 @@
-class_name FirewormProj extends Projectile
+class_name IcewormProj extends Projectile
 
 func _ready() -> void:
 	super()

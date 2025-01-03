@@ -1,7 +1,7 @@
 class_name Unit extends Node2D
 
-@onready var _sprite = $AnimatedSprite2D
-@onready var _hitbox = _sprite.get_node("HitboxArea")
+@onready var _sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var _hitbox: Area2D = _sprite.get_node("HitboxArea")
 
 var _dead_timer: Timer
 var _invincible_timer: Timer
@@ -15,11 +15,13 @@ var _not_interactable = false # ultimate form
 var _is_dead = false
 var _is_invincible = false
 var _is_cc_immune = true
+var _is_slow_immune = true
 
 ##### All CC Variables #####
 
 var _cc_count: int = 0 # counter for being cc'd
 var _is_knockback: bool = false
+var _is_slowed: bool = false
 
 ###########################################################
 

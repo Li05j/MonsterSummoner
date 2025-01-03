@@ -1,6 +1,6 @@
 class_name Projectile extends Unit
 
-var _proj_owner
+var _proj_owner: ProjTroops
 
 var _dir: int = 0
 var _travel_time: float = 1.0 # 1 second
@@ -35,6 +35,9 @@ func _move(delta: float) -> void:
 		_dead()
 
 func _dead() -> void:
+	if !_is_dead:
+		_is_dead = true
+		_proj_owner.proj_died()
 	queue_free()
 
 func _set_initial_velocity() -> void:
@@ -57,9 +60,6 @@ func _resolve_contact(other: Area2D) -> void:
 				_curr_target_count += 1
 				if _curr_target_count >= _max_target_count:
 					_dead()
-
-func attack_special_effects(other) -> void:
-	pass
 
 func _on_hitbox_enter(other: Area2D) -> void:
 	_hitbox.monitoring = false

@@ -342,9 +342,8 @@ offset = Vector2(0, -35)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(3.3, 3.3)
 sprite_frames = SubResource("SpriteFrames_onkip")
-animation = &"idle"
+animation = &"dead"
 autoplay = "idle"
-frame_progress = 0.974075
 offset = Vector2(0, -37)
 
 [node name="AtkRangeBoxArea" type="Area2D" parent="AnimatedSprite2D"]

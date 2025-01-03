@@ -6,8 +6,8 @@
 [ext_resource type="Theme" uid="uid://6shp5ck1tnja" path="res://addons/Themes/FlatUI4/kenneyUI.tres" id="3_68wak"]
 [ext_resource type="Texture2D" uid="uid://bdaoovccsps1n" path="res://addons/Sprites/Slime/Slime Portrati.png" id="3_xp7dm"]
 [ext_resource type="Texture2D" uid="uid://dv3gow0me4kq6" path="res://addons/Icons/free-coin-icon-794-thumb.png" id="4_gcp50"]
-[ext_resource type="Texture2D" uid="uid://cej1nshcbpd3d" path="res://addons/Sprites/Fireworm/fireworm.png" id="4_wck0a"]
 [ext_resource type="Texture2D" uid="uid://c1wcihr2i4tdn" path="res://addons/Sprites/Troll/Troll portarit.png" id="5_2783n"]
+[ext_resource type="Texture2D" uid="uid://bg2alshvt06eg" path="res://addons/Sprites/BlueWorm/blueworm.png" id="7_5qdum"]
 [ext_resource type="Texture2D" uid="uid://37sccet8d6dx" path="res://addons/Icons/pixel-art-mining-cart.png" id="9_bk6gg"]
 [ext_resource type="Texture2D" uid="uid://d2vh00freqpe2" path="res://addons/Icons/pixel-art-lab-icon.png" id="9_hme53"]
 [ext_resource type="Theme" uid="uid://h1f7iqhh7ycb" path="res://addons/Themes/FlatUI4/kenneyUI-yellow.tres" id="11_2trsw"]
@@ -162,11 +162,12 @@ theme = ExtResource("1_gnueo")
 
 [node name="TextureRect" type="TextureRect" parent="Panel/UnitButtons/Unit3"]
 layout_mode = 0
-offset_left = -2.0
-offset_right = 564.0
-offset_bottom = 440.0
+offset_left = -7.33325
+offset_top = -2.8335
+offset_right = 679.667
+offset_bottom = 531.167
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("4_wck0a")
+texture = ExtResource("7_5qdum")
 
 [node name="Label" type="Label" parent="Panel/UnitButtons/Unit3"]
 modulate = Color(1, 1, 1, 0.784314)

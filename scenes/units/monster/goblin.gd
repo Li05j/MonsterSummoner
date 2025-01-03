@@ -4,6 +4,7 @@ func _ready() -> void:
 	_not_interactable = true
 	_is_invincible = true
 	_is_cc_immune = false
+	_is_slow_immune = false
 	
 	_cost = 40
 	_gold_drop = floor(_cost / 3.0)

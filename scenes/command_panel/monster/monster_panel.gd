@@ -18,7 +18,7 @@ class_name MonsterPanel extends Panel
 
 var goblin_scene = preload(Paths.MONSTER + "goblin.tscn")
 var slime_scene = preload(Paths.MONSTER + "slime.tscn")
-var fireworm_scene = preload(Paths.MONSTER + "fireworm.tscn")
+var iceworm_scene = preload(Paths.MONSTER + "iceworm.tscn")
 var giant_scene = preload(Paths.MONSTER + "giant.tscn")
 
 # Called when the node enters the scene tree for the first time.
@@ -57,7 +57,7 @@ func _on_unit_2_pressed() -> void:
 	scene.set_who(Types.Who.ALLY)
 
 func _on_unit_3_pressed() -> void:
-	var scene = fireworm_scene.instantiate()
+	var scene = iceworm_scene.instantiate()
 	LevelState.current_level.add_child(scene)
 	scene.set_who(Types.Who.ALLY)
 

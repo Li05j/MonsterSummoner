@@ -150,6 +150,16 @@ func _attack_special_effects(enemy) -> void:
 func _on_kill_special_effects() -> void:
 	pass
 
+# if rate = -1 it resets - there is no reason for spd scale to be negative
+func _modify_spd_scale(rate: float, revert: bool) -> void:
+	if rate == -1:
+		_spd_scale = 1.0
+	elif revert == false:
+		_spd_scale *= rate
+	else:
+		_spd_scale /= rate
+	_sprite.speed_scale = _spd_scale
+
 func _on_spawn_animation_done(timer_name: String) -> void:
 	_atk_detect_box.monitoring = true
 	_spawn.visible = false
@@ -202,6 +212,24 @@ func _on_sprite_attack_frame_change() -> void:
 ##### All CC interactions #####
 ##########################################################
 
+func slow(duration: float) -> void:
+	if !_is_valid() or _is_slow_immune:
+		return
+	if _is_slowed: # if alreay slowed refresh slow duration instead
+		var slow_timer: Timer = get_node("slow_timer")
+		if is_instance_valid(slow_timer):
+			slow_timer.start() # restart
+		return
+	
+	_is_slowed = true
+	
+	var actual_duration = duration * _cc_rate
+	_modify_spd_scale(0.5, false)
+	_sprite.self_modulate = _sprite.self_modulate.lerp(Color(0, 0, 1), 0.5)
+	
+	#var cc_timer = _new_temp_timer("knockback", "_on_cc_timeout", duration)
+	_new_temp_timer("slow_timer", "_on_slow_timeout", actual_duration).start()
+
 func knockback(duration: float) -> void:
 	if !_is_valid() or _is_cc_immune:
 		return
@@ -217,7 +245,7 @@ func knockback(duration: float) -> void:
 	_v_y = -Types.gravity * (actual_duration / 2)
 	
 	#var cc_timer = _new_temp_timer("knockback", "_on_cc_timeout", duration)
-	_new_temp_timer("knockback", "_on_cc_timeout", actual_duration).start()
+	_new_temp_timer("knockback_timer", "_on_cc_timeout", actual_duration).start()
 
 # When unit is cc'd or free of cc
 func _add_cc(cc: bool) -> void:
@@ -232,12 +260,19 @@ func _add_cc(cc: bool) -> void:
 
 func _on_cc_timeout(timer_name: String) -> void:
 	match timer_name:
-		"knockback":
+		"knockback_timer":
 			_is_knockback = false
 		_:
 			return
 	_add_cc(false)
 	_free_temp_timer(timer_name)
+
+func _on_slow_timeout(timer_name: String) -> void:
+	_is_slowed = false
+	_modify_spd_scale(0.5, true)
+	_sprite.self_modulate = Color(1, 1, 1, 1)
+	_free_temp_timer(timer_name)
+
 ###########################################################
 
 func set_who(who: Types.Who) -> void:

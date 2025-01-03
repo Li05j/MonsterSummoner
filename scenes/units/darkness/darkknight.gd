@@ -8,6 +8,7 @@ func _ready() -> void:
 	_not_interactable = true
 	_is_invincible = true
 	_is_cc_immune = true
+	_is_slow_immune = false
 	
 	_cost = 150
 	_gold_drop = floor(_cost / 3.0)
@@ -34,11 +35,18 @@ func _hurt_reaction() -> void:
 func _berserk() -> void:
 	_has_gone_berserk = true
 	if _berserk_timer.is_stopped():
+		# immune to slow and shed slow effect
+		_is_slow_immune = true
+		if _is_slowed:
+			var slow_timer: Timer = get_node("slow_timer")
+			if is_instance_valid(slow_timer):
+				slow_timer.stop()
+				_on_slow_timeout("slow_timer")
+		
 		_atk_spd = 0.1
 		_attack_cd_timer.wait_time = _atk_spd
 		
-		_spd_scale = 2.0
-		_sprite.speed_scale = _spd_scale
+		_modify_spd_scale(2.0, false)
 		
 		_sprite.self_modulate = _sprite.self_modulate.lerp(Color(1, 0, 0), 0.5)
 		if !_attack_cd_timer.is_stopped():
@@ -46,10 +54,11 @@ func _berserk() -> void:
 		_berserk_timer.start()
 
 func _on_berserk_timeout() -> void:
+	_is_slow_immune = false
+	
 	_atk_spd = 4.2
 	_attack_cd_timer.wait_time = _atk_spd
 	
-	_spd_scale = 1.0
-	_sprite.speed_scale = _spd_scale
+	_modify_spd_scale(2.0, true)
 	
 	_sprite.self_modulate = Color(1, 1, 1, 1)

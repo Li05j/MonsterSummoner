@@ -7,6 +7,7 @@ func _ready() -> void:
 	_not_interactable = true
 	_is_invincible = true
 	_is_cc_immune = false
+	_is_slow_immune = false
 	
 	_cost = 40
 	_gold_drop = floor(_cost / 3.0)
@@ -30,11 +31,7 @@ func _init_proj_max_range() -> void:
 	_proj_range = _max_travel_range
 
 func _resolve_attack() -> void:
-	var projectile_instance: Projectile = _projectile_scene.instantiate()
-	LevelState.current_level.add_child(projectile_instance)
-	_set_proj_range()
-	projectile_instance.init(self)
-	
+	super()
 	_new_temp_timer("multishot", "_on_multishot_timer_timeout", 0.1).start()
 
 func _on_multishot_timer_timeout(timer_name: String) -> void:
