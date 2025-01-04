@@ -21,6 +21,14 @@ var slime_scene = preload(Paths.MONSTER + "slime.tscn")
 var iceworm_scene = preload(Paths.MONSTER + "iceworm.tscn")
 var giant_scene = preload(Paths.MONSTER + "giant.tscn")
 
+var unit1_cost = MonsterUnits.goblin_data.cost
+var unit2_cost = MonsterUnits.slime_data.cost
+var unit3_cost = MonsterUnits.iceworm_data.cost
+var unit4_cost = MonsterUnits.giant_data.cost
+
+var build1_cost = BuildingsData.gold_mine.cost
+var build2_cost = BuildingsData.lab.cost
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	_init_unit_price()
@@ -48,14 +56,14 @@ func _input(event: InputEvent) -> void:
 		_on_build_4_pressed()
 
 func _init_unit_price() -> void:
-	unit1.get_node("Cost").text = str(MonsterUnits.goblin_data.cost)
-	unit2.get_node("Cost").text = str(MonsterUnits.slime_data.cost)
-	unit3.get_node("Cost").text = str(MonsterUnits.iceworm_data.cost)
-	unit4.get_node("Cost").text = str(MonsterUnits.giant_data.cost)
+	unit1.get_node("Cost").text = str(unit1_cost)
+	unit2.get_node("Cost").text = str(unit2_cost)
+	unit3.get_node("Cost").text = str(unit3_cost)
+	unit4.get_node("Cost").text = str(unit4_cost)
 
 func _init_building_price() -> void:
-	build1.get_node("Cost").text = str(BuildingsData.gold_mine.cost)
-	build2.get_node("Cost").text = str(BuildingsData.lab.cost)
+	build1.get_node("Cost").text = str(build1_cost)
+	build2.get_node("Cost").text = str(build2_cost)
 	build3.get_node("Cost").text = "400"
 	build4.get_node("Cost").text = "9999"
 
@@ -96,44 +104,71 @@ func _init_tooltips() -> void:
 	build1.tooltip_text = BuildingsData.gold_mine.description
 	build2.tooltip_text = BuildingsData.lab.description
 
+func _summon(cost: int, scene) -> void:
+	if LevelState.player_gold >= cost:
+		var new_scene = scene.instantiate()
+		LevelState.current_level.add_child(new_scene)
+		new_scene.set_who(Types.Who.ALLY)
+		LevelState.player_gold -= cost
+		player_gold.text = "GOLD: %d (+%d)" % [LevelState.player_gold, LevelState.player_gold_gen]
+
+func update_units_price(rate: float) -> void:
+	unit1_cost = floor(unit1_cost * rate)
+	unit2_cost = floor(unit2_cost * rate)
+	unit3_cost = floor(unit3_cost * rate)
+	unit4_cost = floor(unit4_cost * rate)
+
+func update_units_price_text() -> void:
+	unit1.get_node("Cost").text = str(unit1_cost)
+	unit2.get_node("Cost").text = str(unit2_cost)
+	unit3.get_node("Cost").text = str(unit3_cost)
+	unit4.get_node("Cost").text = str(unit4_cost)
+
+func update_buildings_price(rate: float) -> void:
+	build1_cost = floor(build1_cost * rate)
+	build2_cost = floor(build2_cost * rate)
+
+func update_buildings_price_text() -> void:
+	build1.get_node("Cost").text = str(build1_cost)
+	build2.get_node("Cost").text = str(build2_cost)
+
 func _on_gold_gen_timer_timeout() -> void:
 	LevelState.player_gold += LevelState.player_gold_gen
 	player_gold.text = "GOLD: %d (+%d)" % [LevelState.player_gold, LevelState.player_gold_gen]
 
 func _on_unit_1_pressed() -> void:
-	var scene = goblin_scene.instantiate()
-	LevelState.current_level.add_child(scene)
-	scene.set_who(Types.Who.ALLY)
+	_summon(unit1_cost, goblin_scene)
 
 func _on_unit_2_pressed() -> void:
-	var scene = slime_scene.instantiate()
-	LevelState.current_level.add_child(scene)
-	scene.set_who(Types.Who.ALLY)
+	_summon(unit2_cost, slime_scene)
 
 func _on_unit_3_pressed() -> void:
-	var scene = iceworm_scene.instantiate()
-	LevelState.current_level.add_child(scene)
-	scene.set_who(Types.Who.ALLY)
+	_summon(unit3_cost, iceworm_scene)
 
 func _on_unit_4_pressed() -> void:
-	var scene = giant_scene.instantiate()
-	LevelState.current_level.add_child(scene)
-	scene.set_who(Types.Who.ALLY)
+	_summon(unit4_cost, giant_scene)
 
 func _on_build_1_pressed() -> void:
-	print("1")
+	if LevelState.player_gold >= build1_cost:
+		var new_gold_gen = floor(LevelState.player_gold_gen * BuildingsData.gold_mine.income_increase_rate)
+		LevelState.player_gold_gen += max(1, new_gold_gen)
+		LevelState.player_gold -= build1_cost
+		build1_cost = floor(build1_cost * BuildingsData.gold_mine.price_increase_rate)
+		player_gold.text = "GOLD: %d (+%d)" % [LevelState.player_gold, LevelState.player_gold_gen]
+		update_buildings_price_text()
 
 func _on_build_2_pressed() -> void:
-	print("2")
+	if LevelState.player_gold >= build2_cost:
+		update_units_price(BuildingsData.lab.reduction_percent)
+		update_buildings_price(BuildingsData.lab.reduction_percent)
+		LevelState.player_gold -= build2_cost
+		build2_cost = floor(build2_cost * BuildingsData.lab.price_increase_rate)
+		player_gold.text = "GOLD: %d (+%d)" % [LevelState.player_gold, LevelState.player_gold_gen]
+		update_units_price_text()
+		update_buildings_price_text()
 
 func _on_build_3_pressed() -> void:
 	pass # Replace with function body.
 
 func _on_build_4_pressed() -> void:
 	pass # Replace with function body.
-
-func update_units_price(change: int) -> void:
-	pass
-
-func update_buildings_price(change: int) -> void:
-	pass
