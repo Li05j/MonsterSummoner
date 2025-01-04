@@ -32,12 +32,12 @@ const iceworm_data = {
 	"slow_immune": true,
 	"cost": 115,
 	"move_spd": 80,
-	"max_hp": 205,
+	"max_hp": 225,
 	"atk": 10,
 	"atk_spd": 1.25,
 	"atk_frame": 10,
 	"spwn_wait": 1.5,
-	"targets": 4,
+	"targets": 5,
 	"description": "Immune to slow.\nSlow (2.0) on hit.",
 }
 

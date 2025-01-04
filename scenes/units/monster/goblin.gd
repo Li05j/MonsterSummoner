@@ -21,7 +21,7 @@ func _init_stats() -> void:
 	
 	var rand = randi_range(0, 4)
 	if !rand:	# 1 in 4 it summons big goblin
-		_max_hp *= 1.2
-		_atk *= 1.2
+		_max_hp *= 1.3
+		_atk *= 1.15
 		_sprite.scale *= 1.4
 		_hp_bar.position.y = -150

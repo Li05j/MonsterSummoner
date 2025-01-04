@@ -82,17 +82,6 @@ func _change_to_melee() -> void:
 func _set_proj_range() -> void:
 	_by_distance(false)
 
-func _by_distance(closest: bool) -> void:
-	var valid_enemies_x = _get_detect_box_enemies_x()
-	valid_enemies_x.sort_custom(
-		func(a, b): 
-			return a < b if closest else b < a
-	)
-	if valid_enemies_x.size():
-		_proj_range = valid_enemies_x[0]
-	else:
-		_proj_range = _max_travel_range
-
 func _resolve_attack() -> void:
 	if _melee:
 		var valid_enemies = []

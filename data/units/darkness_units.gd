@@ -3,15 +3,15 @@ extends Node
 const shadowarcher_data = {
 	"cc_immune": false,
 	"slow_immune": false,
-	"cost": 40,
+	"cost": 35,
 	"move_spd": 85,
 	"max_hp": 36,
-	"atk": 5,
-	"atk_spd": 1.85,
+	"atk": 4,
+	"atk_spd": 1.65,
 	"atk_frame": 6,
 	"spwn_wait": 0.75,
-	"targets": 2,
-	"description": "Shoot 2 times.\n10% to stun (0.65) on hit.",
+	"targets": 1,
+	"description": "Shoot 3 times.\n20% to stun (1.0) on hit.",
 }
 const nightborne_data = {
 	"cc_immune": false,
@@ -31,10 +31,10 @@ const darkknight_data = {
 	"cc_immune": true,
 	"slow_immune": false,
 	"cost": 150,
-	"move_spd": 60,
-	"max_hp": 727,
+	"move_spd": 45,
+	"max_hp": 625,
 	"atk": 32,
-	"atk_spd": 3.6,
+	"atk_spd": 4.3,
 	"atk_frame": 4,
 	"spwn_wait": 1.5,
 	"targets": 1,
@@ -44,7 +44,7 @@ const darkknight_data = {
 const doomsday_data = {
 	"cc_immune": false,
 	"slow_immune": false,
-	"cost": 235,
+	"cost": 245,
 	"move_spd": 70,
 	"max_hp": 450,
 	"atk": 24,
@@ -56,7 +56,7 @@ const doomsday_data = {
 	"description": "Slow and control duration -50%.\nChanges to Melee form when enemy is approaching.",
 	
 	"melee_atk_rate": 1.5,
-	"melee_atk_spd_rate": 0.33,
+	"melee_atk_spd_rate": 0.25,
 	"melee_atk_frame": 4,
 	"melee_targets": 1,
 }

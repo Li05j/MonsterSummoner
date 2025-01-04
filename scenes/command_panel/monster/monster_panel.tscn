@@ -32,6 +32,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_bvh3a")
 script = ExtResource("1_5qkhy")
 
 [node name="UnitButtons" type="HBoxContainer" parent="Panel"]
+process_mode = 3
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.4
@@ -274,6 +275,7 @@ texture = ExtResource("4_gcp50")
 expand_mode = 2
 
 [node name="BuildingButtons" type="HBoxContainer" parent="Panel"]
+process_mode = 3
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 1.045

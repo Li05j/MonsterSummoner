@@ -367,10 +367,10 @@ size = Vector2(27.8261, 53.333)
 size = Vector2(100, 53.3331)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8r3go"]
-size = Vector2(165.926, 53.3333)
+size = Vector2(174.815, 53.3333)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3pngw"]
-size = Vector2(33.3333, 53.3333)
+size = Vector2(23.7037, 53.3333)
 
 [node name="Doomsday" type="Node2D"]
 script = ExtResource("1_7d6t5")
@@ -417,7 +417,7 @@ debug_color = Color(0.467372, 0.586243, 0.223272, 0.42)
 [node name="AtkRangeBoxArea" type="Area2D" parent="AnimatedSprite2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/AtkRangeBoxArea"]
-position = Vector2(82.963, -26.6667)
+position = Vector2(87.4074, -26.6667)
 shape = SubResource("RectangleShape2D_8r3go")
 debug_color = Color(0.709804, 0, 0.333333, 0.419608)
 
@@ -425,7 +425,7 @@ debug_color = Color(0.709804, 0, 0.333333, 0.419608)
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/ChangeToMelee"]
-position = Vector2(16.6667, -26.6667)
+position = Vector2(11.8519, -26.6667)
 shape = SubResource("RectangleShape2D_3pngw")
 
 [node name="HpBar" type="TextureProgressBar" parent="."]

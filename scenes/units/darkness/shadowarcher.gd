@@ -1,6 +1,6 @@
 class_name ShadowArcher extends ProjTroops
 
-const _MULTISHOT_MAX: int = 2
+const _MULTISHOT_MAX: int = 3
 var _multishot_counter: int = 0
 
 func _init_stats() -> void:
@@ -26,7 +26,7 @@ func _init_stats() -> void:
 	_projectile_scene = preload(Paths.PROJ + "shadowarcher_proj.tscn")
 	
 func _init_proj_max_range() -> void:
-	_max_travel_range = 1.3 * _atk_detect_box.get_child(0).shape.size.x * _sprite.scale.x
+	_max_travel_range = 1.1 * _atk_detect_box.get_child(0).shape.size.x * _sprite.scale.x
 	_proj_range = _max_travel_range
 
 func _resolve_attack() -> void:
@@ -44,4 +44,4 @@ func _on_multishot_timer_timeout(timer_name: String) -> void:
 func _attack_special_effects(enemy) -> void:
 	var rand = randi_range(0, 4)
 	if !rand:
-		enemy.stun(0.65)
+		enemy.stun(1.0)

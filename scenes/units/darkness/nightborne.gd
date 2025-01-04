@@ -79,7 +79,7 @@ func _on_sprite_attack_frame_change() -> void:
 		_atk_dmg_box.monitoring = false
 		
 	if _sprite.animation == "dead" and _sprite.frame == _dead_frame:
-		_atk *= 2.2
+		_atk *= 2
 		var explosion_area = _sprite.get_node("DeathExplosionArea")
 		
 		var valid_enemies = []
