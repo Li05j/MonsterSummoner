@@ -1,6 +1,6 @@
 extends Node
 
-var who_wins: Types.Who = Types.Who.NONE
+var who_wins: Global.Who = Global.Who.NONE
 
 var current_level = null
 var enemy_ai: EnemyAI = null
@@ -16,12 +16,12 @@ func _ready():
 	EventBus.unit_died.connect(_on_unit_died)
 
 func _on_unit_died(who, gold_drop):
-	if who == Types.Who.ENEMY:
+	if who == Global.Who.ENEMY:
 		player_gold += gold_drop
 		EventBus.player_gold_text_changed.emit()
 
 func reset_level_state() -> void:
-	who_wins = Types.Who.NONE
+	who_wins = Global.Who.NONE
 	
 	current_level = null
 	enemy_ai = null

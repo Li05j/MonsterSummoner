@@ -1,6 +1,6 @@
 class_name ShadowArcher extends ProjTroops
 
-const _MULTISHOT_MAX: int = 3
+const _MULTISHOT_MAX: int = 2
 var _multishot_counter: int = 0
 
 func _init_stats() -> void:
@@ -11,7 +11,7 @@ func _init_stats() -> void:
 	_is_slow_immune = DarknessUnits.shadowarcher_data.slow_immune
 	
 	_cost = DarknessUnits.shadowarcher_data.cost
-	_gold_drop = floor(_cost / 3.0)
+	_gold_drop = Global.get_gold_drop(_cost)
 	_move_spd = DarknessUnits.shadowarcher_data.move_spd
 	_max_hp = DarknessUnits.shadowarcher_data.max_hp
 	_atk = DarknessUnits.shadowarcher_data.atk
@@ -42,6 +42,6 @@ func _on_multishot_timer_timeout(timer_name: String) -> void:
 		_free_temp_timer(timer_name)
 
 func _attack_special_effects(enemy) -> void:
-	var rand = randi_range(0, 4)
+	var rand = randi_range(0, 3)
 	if !rand:
 		enemy.stun(1.0)

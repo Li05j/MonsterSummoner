@@ -8,7 +8,7 @@ func _init_stats() -> void:
 	_is_slow_immune = MonsterUnits.goblin_data.slow_immune
 	
 	_cost = MonsterUnits.goblin_data.cost
-	_gold_drop = floor(_cost / 3.0)
+	_gold_drop = Global.get_gold_drop(_cost)
 	_move_spd = MonsterUnits.goblin_data.move_spd
 	_max_hp = MonsterUnits.goblin_data.max_hp
 	_atk = MonsterUnits.goblin_data.atk

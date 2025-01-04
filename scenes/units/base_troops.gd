@@ -47,21 +47,21 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	if _is_valid():
-		if global_position.y < Types.ground_y:
-			_v_y += Types.gravity * delta
+		if global_position.y < Global.ground_y:
+			_v_y += Global.gravity * delta
 		else:
 			#_v_y = 0
-			global_position.y = Types.ground_y
+			global_position.y = Global.ground_y
 		_move(delta)
 
 func _init_timers() -> void:
 	super()
 	_new_temp_timer("spawn", "_on_spawn_animation_done", _spwn_wait).start()
 	_attack_cd_timer = _new_common_timer(_on_attack_cd_timer_timeout, _atk_spd)
-	_hp_bar_visible_timer = _new_common_timer(_on_hp_bar_visible_timer_timeout, Types.hp_bar_visible_time)
+	_hp_bar_visible_timer = _new_common_timer(_on_hp_bar_visible_timer_timeout, Global.hp_bar_visible_time)
 
 func _init_collisions() -> void:
-	_atk_detect_box.collision_layer = Types.Collision.DETECT_ONLY
+	_atk_detect_box.collision_layer = Global.Collision.DETECT_ONLY
 
 func _init_misc() -> void:
 	super()
@@ -94,18 +94,18 @@ func _set_ally() -> void:
 	add_to_group("ally_unit")
 	_spawn.flip_h = false
 	_dir = 1
-	_hitbox.collision_layer = Types.Collision.PLAYER_UNIT
-	_hitbox.collision_mask = Types.Collision.ENEMY_UNIT | Types.Collision.ENEMY_PROJ
-	_atk_detect_box.collision_mask = Types.Collision.ENEMY_UNIT | Types.Collision.ENEMY_BASE
+	_hitbox.collision_layer = Global.Collision.PLAYER_UNIT
+	_hitbox.collision_mask = Global.Collision.ENEMY_UNIT | Global.Collision.ENEMY_PROJ
+	_atk_detect_box.collision_mask = Global.Collision.ENEMY_UNIT | Global.Collision.ENEMY_BASE
 	global_position = Vector2(130, 530)
 
 func _set_enemy() -> void:
 	add_to_group("enemy_unit")
 	_spawn.flip_h = true
 	_dir = -1
-	_hitbox.collision_layer = Types.Collision.ENEMY_UNIT
-	_hitbox.collision_mask = Types.Collision.PLAYER_UNIT | Types.Collision.PLAYER_PROJ
-	_atk_detect_box.collision_mask = Types.Collision.PLAYER_UNIT | Types.Collision.PLAYER_BASE
+	_hitbox.collision_layer = Global.Collision.ENEMY_UNIT
+	_hitbox.collision_mask = Global.Collision.PLAYER_UNIT | Global.Collision.PLAYER_PROJ
+	_atk_detect_box.collision_mask = Global.Collision.PLAYER_UNIT | Global.Collision.PLAYER_BASE
 	global_position = Vector2(1000, 530)
 
 func _hurt_reaction() -> void:
@@ -122,9 +122,9 @@ func _dead() -> void:
 		_sprite.play("dead")
 
 #func _gain_gold_on_death() -> void:
-	#if _who == Types.Who.ALLY:
+	#if _who == Global.Who.ALLY:
 		#LevelState.enemy_ai.enemy_gold += _gold_drop
-	#if _who == Types.Who.ENEMY:
+	#if _who == Global.Who.ENEMY:
 		#LevelState.player_gold += _gold_drop
 	
 func _if_any_enemy_in_range() -> bool:
@@ -176,7 +176,7 @@ func _on_spawn_animation_done(timer_name: String) -> void:
 	_sprite.visible = true
 	_not_interactable = false
 	
-	if _who == Types.Who.ENEMY:
+	if _who == Global.Who.ENEMY:
 		_sprite.scale.x *= -1
 		
 	_sprite.play("run")
@@ -186,7 +186,7 @@ func _on_spawn_animation_done(timer_name: String) -> void:
 	if get_node(timer_name) and is_instance_valid(get_node(timer_name)):
 		get_node(timer_name).queue_free()
 		
-	_invincible_timer.start(Types.on_spawn_i_frame) # so unit wont get killed on spawn
+	_invincible_timer.start(Global.on_spawn_i_frame) # so unit wont get killed on spawn
 
 #func _on_hitbox_enter(other: Area2D) -> void:
 	#print("hitbox enter - does nothing")
@@ -252,7 +252,7 @@ func knockback(duration: float) -> void:
 	var actual_duration = duration * _cc_rate
 	var fluc_x = randf_range(0, 0.5) # 1.0 - 1.5 movespd knockback
 	_v_x = -_dir * _move_spd + _move_spd * fluc_x
-	_v_y = -Types.gravity * (actual_duration / 2)
+	_v_y = -Global.gravity * (actual_duration / 2)
 	
 	_new_temp_timer("knockback_timer", "_on_cc_timeout", actual_duration).start()
 
@@ -300,9 +300,9 @@ func _on_slow_timeout(timer_name: String) -> void:
 
 ###########################################################
 
-func set_who(who: Types.Who) -> void:
+func set_who(who: Global.Who) -> void:
 	_who = who
-	if _who == Types.Who.ALLY:
+	if _who == Global.Who.ALLY:
 		_set_ally()
-	if _who == Types.Who.ENEMY:
+	if _who == Global.Who.ENEMY:
 		_set_enemy()

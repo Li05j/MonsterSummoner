@@ -14,7 +14,7 @@ func _set_initial_velocity() -> void:
 	_stationary()
 
 func _set_initial_pos() -> void:
-	global_position = Vector2(_proj_owner._proj_range, Types.ground_y)
+	global_position = Vector2(_proj_owner._proj_range, Global.ground_y)
 	_initial_position = global_position
 
 func _resolve_attack() -> void:

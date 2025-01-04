@@ -577,7 +577,7 @@ size = Vector2(22.8967, 27.0433)
 size = Vector2(38.4844, 27.043)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nuy60"]
-size = Vector2(77.5241, 38.4231)
+size = Vector2(57.6924, 34.6155)
 
 [node name="Nightborne" type="Node2D"]
 script = ExtResource("1_u0bks")
@@ -626,11 +626,11 @@ shape = SubResource("RectangleShape2D_l07g5")
 debug_color = Color(0.467372, 0.586243, 0.223272, 0.42)
 
 [node name="DeathExplosionArea" type="Area2D" parent="AnimatedSprite2D"]
-visible = false
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/DeathExplosionArea"]
-position = Vector2(0, -19.2115)
+position = Vector2(-8.59683e-07, -17.3077)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_nuy60")
 debug_color = Color(0.814851, 0, 0.0203877, 0.42)
 

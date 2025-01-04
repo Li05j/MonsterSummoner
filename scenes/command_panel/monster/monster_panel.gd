@@ -112,7 +112,7 @@ func _summon(cost: int, scene) -> void:
 	if LevelState.player_gold >= cost:
 		var new_scene = scene.instantiate()
 		LevelState.current_level.add_child(new_scene)
-		new_scene.set_who(Types.Who.ALLY)
+		new_scene.set_who(Global.Who.ALLY)
 		LevelState.player_gold -= cost
 		_update_gold_display_text()
 

@@ -12,21 +12,21 @@ func _init_stats() -> void:
 	_max_hp = 1000
 
 func _init_collisions() -> void:
-	_hitbox.collision_layer = Types.Collision.ENEMY_BASE
-	_hitbox.collision_mask = Types.Collision.PLAYER_UNIT | Types.Collision.PLAYER_PROJ
+	_hitbox.collision_layer = Global.Collision.ENEMY_BASE
+	_hitbox.collision_mask = Global.Collision.PLAYER_UNIT | Global.Collision.PLAYER_PROJ
 
 func _init_misc() -> void:
-	set_who(Types.Who.ENEMY)
+	set_who(Global.Who.ENEMY)
 	add_to_group("enemy_unit")
 	super()
 
 func _dead() -> void:
 	super()
-	if LevelState.who_wins == Types.Who.NONE:
-		LevelState.who_wins = Types.Who.ALLY
+	if LevelState.who_wins == Global.Who.NONE:
+		LevelState.who_wins = Global.Who.ALLY
 		_sprite.play("dead")
 		_sprite.offset.y = -55
-		_dead_timer.start(Types.base_death_animation_duration)
+		_dead_timer.start(Global.base_death_animation_duration)
 
 func _on_dead_timer_timeout() -> void:
 	super()

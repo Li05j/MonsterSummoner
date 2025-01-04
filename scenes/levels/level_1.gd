@@ -20,7 +20,7 @@ func _init_level() -> void:
 	add_child(_enemy_ai)
 
 func _update_game_time(delta) -> void:
-	if LevelState.who_wins == Types.Who.NONE:
+	if LevelState.who_wins == Global.Who.NONE:
 		LevelState.game_time += delta
 		_game_time_update_steps += 1
 		if _game_time_update_steps >= 11:

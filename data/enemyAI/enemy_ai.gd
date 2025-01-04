@@ -86,7 +86,7 @@ func _on_decision_timeout() -> void:
 	decision_timer.start(behavior.generate_decision_wait_time())
 
 func _on_unit_died(who, gold_drop):
-	if who == Types.Who.ALLY:
+	if who == Global.Who.ALLY:
 		enemy_gold += gold_drop
 
 # which = 1 to 4
@@ -116,5 +116,5 @@ func summon(which: int) -> void:
 				return
 		_: return
 	LevelState.current_level.add_child(scene)
-	scene.set_who(Types.Who.ENEMY)
+	scene.set_who(Global.Who.ENEMY)
 	

@@ -10,7 +10,7 @@ func _init_stats() -> void:
 	_is_slow_immune = MonsterUnits.giant_data.slow_immune
 	
 	_cost = MonsterUnits.giant_data.cost
-	_gold_drop = floor(_cost / 3.0)
+	_gold_drop = Global.get_gold_drop(_cost)
 	_move_spd = MonsterUnits.giant_data.move_spd
 	_max_hp = MonsterUnits.giant_data.max_hp
 	_atk = MonsterUnits.giant_data.atk
@@ -25,4 +25,4 @@ func _attack_special_effects(enemy) -> void:
 	enemy.knockback(1.5)
 
 func _final_damage(damage: int) -> int:
-	return max(1, damage - 3)
+	return max(1, damage - 2)

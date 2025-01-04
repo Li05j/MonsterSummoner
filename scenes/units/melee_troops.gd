@@ -23,20 +23,20 @@ func _set_ally() -> void:
 	add_to_group("ally_unit")
 	_spawn.flip_h = false
 	_dir = 1
-	_hitbox.collision_layer = Types.Collision.PLAYER_UNIT
-	_hitbox.collision_mask = Types.Collision.ENEMY_UNIT | Types.Collision.ENEMY_PROJ
-	_atk_detect_box.collision_mask = Types.Collision.ENEMY_UNIT | Types.Collision.ENEMY_BASE
-	_atk_dmg_box.collision_mask = Types.Collision.ENEMY_UNIT | Types.Collision.ENEMY_BASE
+	_hitbox.collision_layer = Global.Collision.PLAYER_UNIT
+	_hitbox.collision_mask = Global.Collision.ENEMY_UNIT | Global.Collision.ENEMY_PROJ
+	_atk_detect_box.collision_mask = Global.Collision.ENEMY_UNIT | Global.Collision.ENEMY_BASE
+	_atk_dmg_box.collision_mask = Global.Collision.ENEMY_UNIT | Global.Collision.ENEMY_BASE
 	global_position = Vector2(130, 530)
 
 func _set_enemy() -> void:
 	add_to_group("enemy_unit")
 	_spawn.flip_h = true
 	_dir = -1
-	_hitbox.collision_layer = Types.Collision.ENEMY_UNIT
-	_hitbox.collision_mask = Types.Collision.PLAYER_UNIT | Types.Collision.PLAYER_PROJ
-	_atk_detect_box.collision_mask = Types.Collision.PLAYER_UNIT | Types.Collision.PLAYER_BASE
-	_atk_dmg_box.collision_mask = Types.Collision.PLAYER_UNIT | Types.Collision.PLAYER_BASE
+	_hitbox.collision_layer = Global.Collision.ENEMY_UNIT
+	_hitbox.collision_mask = Global.Collision.PLAYER_UNIT | Global.Collision.PLAYER_PROJ
+	_atk_detect_box.collision_mask = Global.Collision.PLAYER_UNIT | Global.Collision.PLAYER_BASE
+	_atk_dmg_box.collision_mask = Global.Collision.PLAYER_UNIT | Global.Collision.PLAYER_BASE
 	global_position = Vector2(1000, 530)
 
 func _resolve_attack() -> void:
@@ -67,7 +67,7 @@ func _resolve_attack() -> void:
 	
 		var idx = 0
 		var targets_left = _targets
-		if _who == Types.Who.ENEMY:
+		if _who == Global.Who.ENEMY:
 			idx = valid_enemies.size() - 1
 	
 		while targets_left > 0:

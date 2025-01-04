@@ -19,7 +19,7 @@ config/icon="res://icon.svg"
 
 Paths="*res://data/globals/paths.gd"
 LevelState="*res://data/globals/level_state.gd"
-Types="*res://data/globals/types.gd"
+Global="*res://data/globals/global.gd"
 MonsterUnits="*res://data/units/monster_units.gd"
 DarknessUnits="*res://data/units/darkness_units.gd"
 BuildingsData="*res://data/globals/buildings_data.gd"

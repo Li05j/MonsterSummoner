@@ -30,7 +30,7 @@ func _physics_process(delta: float) -> void:
 func _move(delta: float) -> void:
 	position += _v * delta
 	if _affected_by_gravity and position.y <= _initial_position.y:
-		_v.y += Types.gravity * delta
+		_v.y += Global.gravity * delta
 	if abs(_initial_position.x - position.x) > _max_travel_dist:
 		_dead()
 
@@ -76,13 +76,13 @@ func _on_hitbox_enter(other: Area2D) -> void:
 func init(proj_owner) -> void:
 	_proj_owner = proj_owner
 	
-	if _proj_owner._who == Types.Who.ALLY:
+	if _proj_owner._who == Global.Who.ALLY:
 		_dir = 1
-		_hitbox.collision_mask = Types.Collision.ENEMY_UNIT | Types.Collision.ENEMY_BASE
+		_hitbox.collision_mask = Global.Collision.ENEMY_UNIT | Global.Collision.ENEMY_BASE
 	else:
 		_dir = -1
 		scale.x *= -1
-		_hitbox.collision_mask = Types.Collision.PLAYER_UNIT | Types.Collision.PLAYER_BASE
+		_hitbox.collision_mask = Global.Collision.PLAYER_UNIT | Global.Collision.PLAYER_BASE
 
 	_set_initial_pos()
 	_max_target_count = proj_owner._targets
@@ -103,5 +103,5 @@ func _linear() -> void:
 func _parabola() -> void:
 	_affected_by_gravity = true
 	var vx: float = _dir * _max_travel_dist / _travel_time
-	var vy: float = (-_offset_y - 0.5 * Types.gravity * _travel_time * _travel_time) / _travel_time
+	var vy: float = (-_offset_y - 0.5 * Global.gravity * _travel_time * _travel_time) / _travel_time
 	_v = Vector2(vx, vy)

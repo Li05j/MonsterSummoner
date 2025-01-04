@@ -15,7 +15,7 @@ func _init_stats() -> void:
 	_is_slow_immune = DarknessUnits.doomsday_data.slow_immune
 	
 	_cost = DarknessUnits.doomsday_data.cost
-	_gold_drop = floor(_cost / 3.0)
+	_gold_drop = Global.get_gold_drop(_cost)
 	_move_spd = DarknessUnits.doomsday_data.move_spd
 	_max_hp = DarknessUnits.doomsday_data.max_hp
 	_atk = DarknessUnits.doomsday_data.atk
@@ -32,8 +32,8 @@ func _init_stats() -> void:
 
 func _init_collisions() -> void:
 	super()
-	_change_to_melee_box.collision_layer = Types.Collision.DETECT_ONLY
-	_melee_box.collision_layer = Types.Collision.DETECT_ONLY
+	_change_to_melee_box.collision_layer = Global.Collision.DETECT_ONLY
+	_melee_box.collision_layer = Global.Collision.DETECT_ONLY
 
 func _connect_signals() -> void:
 	super()
@@ -54,11 +54,11 @@ func _move(delta: float) -> void:
 		_sprite.play("idle")
 
 func _set_ally() -> void:
-	_melee_box.collision_mask = Types.Collision.ENEMY_UNIT | Types.Collision.ENEMY_BASE
+	_melee_box.collision_mask = Global.Collision.ENEMY_UNIT | Global.Collision.ENEMY_BASE
 	super()
 
 func _set_enemy() -> void:
-	_melee_box.collision_mask = Types.Collision.PLAYER_UNIT | Types.Collision.PLAYER_BASE
+	_melee_box.collision_mask = Global.Collision.PLAYER_UNIT | Global.Collision.PLAYER_BASE
 	super()
 
 func _change_to_melee() -> void:

@@ -6,7 +6,7 @@ class_name Unit extends Node2D
 var _dead_timer: Timer
 var _invincible_timer: Timer
 
-var _who: Types.Who = Types.Who.NONE
+var _who: Global.Who = Global.Who.NONE
 
 ##########################################################
 ##### States #####
@@ -42,8 +42,8 @@ func _init_timers() -> void:
 	_invincible_timer = _new_common_timer(_on_invincible_timeout)
 
 func _init_collisions() -> void:
-	_hitbox.collision_layer = Types.Collision.DETECT_ONLY
-	_hitbox.collision_mask = Types.Collision.NONE
+	_hitbox.collision_layer = Global.Collision.DETECT_ONLY
+	_hitbox.collision_mask = Global.Collision.NONE
 
 func _init_misc() -> void:
 	pass
@@ -122,5 +122,5 @@ func stun(duration: float) -> void:
 ##########################################################
 
 # this acts similarly to a constructor
-func set_who(who: Types.Who) -> void:
+func set_who(who: Global.Who) -> void:
 	_who = who

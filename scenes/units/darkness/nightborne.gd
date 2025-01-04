@@ -13,7 +13,7 @@ func _init_stats() -> void:
 	_is_slow_immune = DarknessUnits.nightborne_data.slow_immune
 	
 	_cost = DarknessUnits.nightborne_data.cost
-	_gold_drop = floor(_cost / 3.0)
+	_gold_drop = Global.get_gold_drop(_cost)
 	_move_spd = DarknessUnits.nightborne_data.move_spd
 	_max_hp = DarknessUnits.nightborne_data.max_hp
 	_atk = DarknessUnits.nightborne_data.atk
@@ -26,11 +26,11 @@ func _init_stats() -> void:
 
 func _physics_process(delta: float) -> void:
 	if !(_not_interactable or _is_dead):
-		if global_position.y < Types.ground_y:
-			_v_y += Types.gravity * delta
+		if global_position.y < Global.ground_y:
+			_v_y += Global.gravity * delta
 		else:
 			#_v_y = 0
-			global_position.y = Types.ground_y
+			global_position.y = Global.ground_y
 		_move(delta)
 
 func _move(delta: float) -> void:
