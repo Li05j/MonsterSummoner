@@ -3,6 +3,8 @@ class_name BaseTroops extends BattleUnit
 @onready var _spawn = $SpawnAnimation
 @onready var _atk_detect_box = _sprite.get_node("AtkRangeBoxArea")
 
+##########################################################
+
 var _hp_bar_visible_timer: Timer
 
 var _attack_cd_timer: Timer
@@ -112,10 +114,18 @@ func _hurt_reaction() -> void:
 	_hp_bar_visible_timer.start()
 
 func _dead() -> void:
-	super()
-	modulate.a = 0.7
-	_hp_bar.visible = false
-	_sprite.play("dead")
+	if !_is_dead:
+		super()
+		EventBus.unit_died.emit(_who, _gold_drop)
+		modulate.a = 0.7
+		_hp_bar.visible = false
+		_sprite.play("dead")
+
+#func _gain_gold_on_death() -> void:
+	#if _who == Types.Who.ALLY:
+		#LevelState.enemy_ai.enemy_gold += _gold_drop
+	#if _who == Types.Who.ENEMY:
+		#LevelState.player_gold += _gold_drop
 	
 func _if_any_enemy_in_range() -> bool:
 	var count = 0

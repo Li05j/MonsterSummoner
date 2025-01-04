@@ -17,10 +17,10 @@ const slime_data = {
 	"cc_immune": false,
 	"slow_immune": false,
 	"cost": 60,
-	"move_spd": 60,
+	"move_spd": 65,
 	"max_hp": 43,
-	"atk": 39,
-	"atk_spd": 2.5,
+	"atk": 67,
+	"atk_spd": 2.65,
 	"atk_frame": 3,
 	"spwn_wait": 0.75,
 	"targets": 1,
@@ -30,15 +30,15 @@ const slime_data = {
 const iceworm_data = {
 	"cc_immune": false,
 	"slow_immune": true,
-	"cost": 145,
+	"cost": 115,
 	"move_spd": 80,
-	"max_hp": 165,
+	"max_hp": 205,
 	"atk": 10,
 	"atk_spd": 1.25,
 	"atk_frame": 10,
 	"spwn_wait": 1.5,
 	"targets": 4,
-	"description": "Immune to slow.\nSlow (1.5) on hit.",
+	"description": "Immune to slow.\nSlow (2.0) on hit.",
 }
 
 const giant_data = {

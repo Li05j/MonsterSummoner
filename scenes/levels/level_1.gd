@@ -16,6 +16,7 @@ func _init_level() -> void:
 	game_time.text = Utils.format_time(0)
 	
 	_enemy_ai = EnemyAI.new()
+	LevelState.enemy_ai = _enemy_ai
 	add_child(_enemy_ai)
 
 func _update_game_time(delta) -> void:

@@ -28,6 +28,8 @@ func _ready() -> void:
 	behavior = ConserveAIBehavior.new()
 	behavior.set_ai(self)
 	
+	EventBus.unit_died.connect(_on_unit_died)
+	
 	enemy_base = LevelState.current_level.get_node("Enemy_base")
 	gold_gen_timer = _new_common_timer(_on_gold_gen_timeout, 1.0, false)
 	gold_gen_increase_timer = _new_common_timer(_on_gold_gen_increase_timeout, behavior.target_time_till_next_gold_gen_increase, true)
@@ -61,6 +63,12 @@ func _new_common_timer(
 	add_child(new_timer)
 	return new_timer
 
+func _try_to_purchase(cost: int) -> bool:
+	if enemy_gold >= cost:
+		enemy_gold -= cost
+		return true
+	return false
+
 func _on_gold_gen_timeout() -> void:
 	enemy_gold += enemy_gold_gen
 	print(enemy_gold)
@@ -74,11 +82,39 @@ func _on_pot_of_gold_timeout() -> void:
 	enemy_gold += behavior.get_pot_of_gold_value(0)
 
 func _on_decision_timeout() -> void:
-	#print(behavior.decide_what_to_do())
+	summon(behavior.decide_what_to_do())
 	decision_timer.start(behavior.generate_decision_wait_time())
 
-func summon() -> void:
-	var scene = shadowarcher_scene.instantiate()
+func _on_unit_died(who, gold_drop):
+	if who == Types.Who.ALLY:
+		enemy_gold += gold_drop
+
+# which = 1 to 4
+func summon(which: int) -> void:
+	var scene
+	match which:
+		1: 
+			
+			if _try_to_purchase(DarknessUnits.shadowarcher_data.cost):
+				scene = shadowarcher_scene.instantiate()
+			else:
+				return
+		2: 
+			if _try_to_purchase(DarknessUnits.nightborne_data.cost):
+				scene = nightborne_scene.instantiate()
+			else:
+				return
+		3: 
+			if _try_to_purchase(DarknessUnits.darkknight_data.cost):
+				scene = darkknight_scene.instantiate()
+			else:
+				return
+		4: 
+			if _try_to_purchase(DarknessUnits.doomsday_data.cost):
+				scene = doomsday_scene.instantiate()
+			else:
+				return
+		_: return
 	LevelState.current_level.add_child(scene)
 	scene.set_who(Types.Who.ENEMY)
 	

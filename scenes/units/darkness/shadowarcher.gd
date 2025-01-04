@@ -1,6 +1,6 @@
 class_name ShadowArcher extends ProjTroops
 
-const _MULTISHOT_MAX: int = 3
+const _MULTISHOT_MAX: int = 2
 var _multishot_counter: int = 0
 
 func _init_stats() -> void:
@@ -35,9 +35,8 @@ func _resolve_attack() -> void:
 
 func _on_multishot_timer_timeout(timer_name: String) -> void:
 	_multishot_counter += 1
-	if _multishot_counter < _MULTISHOT_MAX and get_node(timer_name):
+	if _multishot_counter < _MULTISHOT_MAX and is_instance_valid(get_node(timer_name)):
 		_resolve_attack()
-		get_node(timer_name).start()
 	else:
 		_multishot_counter = 0
 		_free_temp_timer(timer_name)
@@ -45,4 +44,4 @@ func _on_multishot_timer_timeout(timer_name: String) -> void:
 func _attack_special_effects(enemy) -> void:
 	var rand = randi_range(0, 4)
 	if !rand:
-		enemy.stun(0.75)
+		enemy.stun(0.65)

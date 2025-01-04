@@ -91,7 +91,7 @@ func _new_temp_timer(
 	return new_timer
 
 func _free_temp_timer(timer_name: String) -> void:
-	if get_node(timer_name) and is_instance_valid(get_node(timer_name)):
+	if is_instance_valid(get_node(timer_name)) and get_node(timer_name):
 		get_node(timer_name).queue_free()
 
 func _on_hitbox_enter(other: Area2D) -> void:

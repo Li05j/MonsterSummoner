@@ -23,6 +23,7 @@ Types="*res://data/globals/types.gd"
 MonsterUnits="*res://data/units/monster_units.gd"
 DarknessUnits="*res://data/units/darkness_units.gd"
 BuildingsData="*res://data/globals/buildings_data.gd"
+EventBus="*res://data/globals/event_bus.gd"
 
 [display]
 
