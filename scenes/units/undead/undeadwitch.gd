@@ -27,4 +27,6 @@ func _init_proj_max_range() -> void:
 	_proj_range = _max_travel_range
 
 func _attack_special_effects(enemy) -> void:
-	enemy.fear(0.75)
+	var rand = randi_range(0,1)
+	if rand:
+		enemy.fear(0.75)

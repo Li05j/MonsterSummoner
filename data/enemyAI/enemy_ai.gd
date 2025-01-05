@@ -5,10 +5,10 @@ class_name EnemyAI extends Node
 #var iceworm_scene = preload(Paths.MONSTER + "iceworm.tscn")
 #var giant_scene = preload(Paths.MONSTER + "giant.tscn")
 
-var shadowarcher_scene = preload(Paths.DARKNESS + "shadowarcher.tscn")
-var nightborne_scene = preload(Paths.DARKNESS + "nightborne.tscn")
-var darkknight_scene = preload(Paths.DARKNESS + "darkknight.tscn")
-var doomsday_scene = preload(Paths.DARKNESS + "doomsday.tscn")
+#var shadowarcher_scene = preload(Paths.DARKNESS + "shadowarcher.tscn")
+#var nightborne_scene = preload(Paths.DARKNESS + "nightborne.tscn")
+#var darkknight_scene = preload(Paths.DARKNESS + "darkknight.tscn")
+#var doomsday_scene = preload(Paths.DARKNESS + "doomsday.tscn")
 
 var skeleton_scene = preload(Paths.UNDEAD + "skeleton.tscn")
 var ghost_scene = preload(Paths.UNDEAD + "ghost.tscn")
@@ -113,11 +113,11 @@ func summon(which: int) -> void:
 				scene = undeadwitch_scene.instantiate()
 			else:
 				return
-		4: 
-			if _try_to_purchase(DarknessUnits.doomsday_data.cost):
-				scene = doomsday_scene.instantiate()
-			else:
-				return
+		#4: 
+			#if _try_to_purchase(DarknessUnits.doomsday_data.cost):
+				#scene = doomsday_scene.instantiate()
+			#else:
+				#return
 		_: return
 	LevelState.current_level.add_child(scene)
 	scene.set_who(Global.Who.ENEMY)

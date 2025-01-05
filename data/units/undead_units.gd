@@ -11,7 +11,7 @@ const skeleton_data = {
 	"atk_frame": 6,
 	"spwn_wait": 0.75,
 	"targets": 1,
-	"description": "Changes to defence stance (4) when HP < 25%.",
+	"description": "(Once) Changes to defence stance (4) when HP < 25%.",
 }
 const ghost_data = {
 	"cc_immune": false,
@@ -30,15 +30,15 @@ const ghost_data = {
 const undead_witch_data = {
 	"cc_immune": false,
 	"slow_immune": false,
-	"cost": 50,
+	"cost": 150,
 	"move_spd": 65,
-	"max_hp": 150,
+	"max_hp": 130,
 	"atk": 16,
 	"atk_spd": 1.5,
 	"atk_frame": 9,
 	"spwn_wait": 1.5,
 	"targets": -1,
-	"description": "Projectile explodes (0.5x damage) on impact.\nFear (0.5) on hit.",
+	"description": "Projectile explodes (0.5x damage) on impact.\n50% to fear (0.75) on hit.",
 }
 
 const death_data = {
