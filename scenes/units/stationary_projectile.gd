@@ -1,35 +1,23 @@
-class_name MeleeTroops extends BaseTroops
+class_name StationaryProj extends Projectile
 
-@onready var _atk_dmg_box = _sprite.get_node("AtkDmgBoxArea")
+var _atk_frame: int
+var _targets: int
 
-##########################################################
-##### States #####
-
-##### Stats #####
-
-##### Others #####
-
-###########################################################
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	_init_stats()
-	_init_timers()
-	_init_collisions()
-	_init_misc()
-	_connect_signals()
-
-func _set_ally() -> void:
+func _connect_signals() -> void:
 	super()
-	_atk_dmg_box.collision_mask = Global.Collision.ENEMY_UNIT | Global.Collision.ENEMY_BASE
+	_sprite.animation_finished.connect(_on_sprite_animation_finished)
+	_sprite.frame_changed.connect(_on_sprite_attack_frame_change)
 
-func _set_enemy() -> void:
-	super()
-	_atk_dmg_box.collision_mask = Global.Collision.PLAYER_UNIT | Global.Collision.PLAYER_BASE
+func _set_initial_velocity() -> void:
+	_stationary()
+
+func _set_initial_pos() -> void:
+	global_position = Vector2(abs(_proj_owner._proj_range - _proj_owner.global_position.x), Global.ground_y)
+	_initial_position = global_position
 
 func _resolve_attack() -> void:
 	var valid_enemies = []
-	for area in _atk_dmg_box.get_overlapping_areas():
+	for area in _hitbox.get_overlapping_areas():
 		if !is_instance_valid(area):
 			continue
 			
@@ -45,7 +33,7 @@ func _resolve_attack() -> void:
 	if _targets == -1:
 		for target in valid_enemies:
 			if is_instance_valid(target) and target._is_valid():
-				_deal_dmg(target)
+				_proj_owner._deal_dmg(target)
 	else:
 		# sort from close to far first
 		valid_enemies.sort_custom(
@@ -63,15 +51,20 @@ func _resolve_attack() -> void:
 				break
 			var target = valid_enemies[idx]
 			if is_instance_valid(target) and target._is_valid():
-				_deal_dmg(target)
+				_proj_owner._deal_dmg(target)
 				targets_left -= 1
 			idx += _dir
 
+func _on_hitbox_enter(other: Area2D) -> void:
+	pass
+
+func _on_sprite_animation_finished() -> void:
+	if _is_valid():
+		_dead()
+
 func _on_sprite_attack_frame_change() -> void:
 	# Deal damage on a specific attack animation frame
-	_atk_dmg_box.monitoring = true
-	if _is_valid() and _sprite.animation == "attack" and _sprite.frame == _atk_frame:
+	_hitbox.monitoring = true
+	if _is_valid() and _sprite.frame == _atk_frame:
 		_resolve_attack()
-		_atk_dmg_box.monitoring = false
-
-###########################################################
+		_hitbox.monitoring = false

@@ -346,9 +346,9 @@ animation = &"dead"
 autoplay = "idle"
 offset = Vector2(0, -37)
 
-[node name="AtkRangeBoxArea" type="Area2D" parent="AnimatedSprite2D"]
+[node name="AtkDetectBoxArea" type="Area2D" parent="AnimatedSprite2D"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/AtkRangeBoxArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/AtkDetectBoxArea"]
 position = Vector2(13.3333, -23.375)
 shape = SubResource("RectangleShape2D_krj4l")
 debug_color = Color(0.717647, 0.32549, 0.882353, 0.419608)

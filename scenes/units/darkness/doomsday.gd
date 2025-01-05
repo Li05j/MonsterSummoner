@@ -1,4 +1,4 @@
-class_name Doomsday extends ProjTroops
+class_name Doomsday extends FarthestTargetProjTroops
 
 # Ranged (target farthest) until someone in melee range, then turn into melee only
 @onready var _change_to_melee_box = _sprite.get_node("ChangeToMelee")
@@ -71,8 +71,11 @@ func _change_to_melee() -> void:
 	_atk_frame = DarknessUnits.doomsday_data.melee_atk_frame
 	_targets = DarknessUnits.doomsday_data.melee_targets
 	
-	_atk_detect_box.visible = false
+	#_atk_detect_box.visible = false
+	_atk_detect_box.queue_free()
 	_atk_detect_box = _melee_box
+	
+	_atk_range_box.queue_free()
 	
 	if !_attack_cd_timer.is_stopped():
 		_attack_cd_timer.stop()

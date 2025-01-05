@@ -23,7 +23,7 @@ func _init_stats() -> void:
 	_projectile_scene = preload(Paths.PROJ + "iceworm_proj.tscn")
 	
 func _init_proj_max_range() -> void:
-	_max_travel_range = 1.75 * _atk_detect_box.get_child(0).shape.size.x * _sprite.scale.x
+	_max_travel_range = 1.65 * _atk_detect_box.get_child(0).shape.size.x * _sprite.scale.x
 	_proj_range = _max_travel_range
 
 func _attack_special_effects(enemy) -> void:

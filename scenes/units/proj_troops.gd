@@ -33,7 +33,7 @@ func _init_proj_max_range() -> void:
 func _set_proj_range() -> void:
 	pass
 
-func _get_detect_box_enemies_x() -> Array:
+func _get_enemies_in_range_x() -> Array:
 	var valid_enemies_x = []
 	for area in _atk_detect_box.get_overlapping_areas():
 		if !is_instance_valid(area):
@@ -67,13 +67,14 @@ func _on_dead_timer_timeout() -> void:
 ###########################################################
 
 func _by_distance(closest: bool) -> void:
-	var valid_enemies_x = _get_detect_box_enemies_x()
+	var valid_enemies_x = _get_enemies_in_range_x()
 	valid_enemies_x.sort_custom(
-		func(a, b): 
-			return a < b if closest else a > b
+		func(a, b):
+			var sort_way: bool = closest if _who == Global.Who.ALLY else !closest
+			return a < b if sort_way else a > b
 	)
 	if valid_enemies_x.size():
-		_proj_range = abs(valid_enemies_x[0] - self.global_position.x)
+		_proj_range = abs(valid_enemies_x[0] - global_position.x)
 	else:
 		_proj_range = _max_travel_range
 

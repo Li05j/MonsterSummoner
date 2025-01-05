@@ -7,7 +7,7 @@ const hp_bar_visible_time = 3 # how long the hp bar stays visible on hit
 const base_death_animation_duration = 4 # how long the base stays on fire before gameover screen appears
 const proj_unit_dead_polling_time = 1.0
 
-enum Who { NONE, ALLY, ENEMY }
+enum Who { NONE, ALLY = 1, ENEMY = -1 }
 enum Animation_Type { NONE, IDLE, RUN, ATTACK, SPECIAL, DEAD, SPAWN }
 enum Collision { 
 	NONE = 0,

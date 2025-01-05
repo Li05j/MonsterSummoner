@@ -1,7 +1,7 @@
 class_name BaseTroops extends BattleUnit
 
 @onready var _spawn = $SpawnAnimation
-@onready var _atk_detect_box = _sprite.get_node("AtkRangeBoxArea")
+@onready var _atk_detect_box = _sprite.get_node("AtkDetectBoxArea")
 
 ##########################################################
 

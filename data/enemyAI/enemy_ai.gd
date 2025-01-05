@@ -11,7 +11,7 @@ var darkknight_scene = preload(Paths.DARKNESS + "darkknight.tscn")
 var doomsday_scene = preload(Paths.DARKNESS + "doomsday.tscn")
 
 var enemy_base: EnemyBase
-var enemy_gold: int = 50
+var enemy_gold: int = 250
 var enemy_gold_gen: int = 5
 
 var gold_gen_timer: Timer
@@ -71,7 +71,7 @@ func _try_to_purchase(cost: int) -> bool:
 
 func _on_gold_gen_timeout() -> void:
 	enemy_gold += enemy_gold_gen
-	print(enemy_gold)
+	#print(enemy_gold)
 
 func _on_gold_gen_increase_timeout() -> void:
 	enemy_gold_gen += 1

@@ -1,4 +1,4 @@
-[gd_scene load_steps=76 format=3 uid="uid://locqnsstgyy1"]
+[gd_scene load_steps=77 format=3 uid="uid://locqnsstgyy1"]
 
 [ext_resource type="Script" path="res://scenes/units/darkness/doomsday.gd" id="1_7d6t5"]
 [ext_resource type="Texture2D" uid="uid://cnq1hc8pwsi37" path="res://addons/Sprites/Gravity-Sheet.png" id="2_e75vl"]
@@ -366,8 +366,11 @@ size = Vector2(27.8261, 53.333)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l07g5"]
 size = Vector2(100, 53.3331)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vrnwc"]
+size = Vector2(170, 53.3333)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8r3go"]
-size = Vector2(174.815, 53.3333)
+size = Vector2(150, 53.3333)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3pngw"]
 size = Vector2(23.7037, 53.3333)
@@ -417,7 +420,13 @@ debug_color = Color(0.467372, 0.586243, 0.223272, 0.42)
 [node name="AtkRangeBoxArea" type="Area2D" parent="AnimatedSprite2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/AtkRangeBoxArea"]
-position = Vector2(87.4074, -26.6667)
+position = Vector2(85, -26.6667)
+shape = SubResource("RectangleShape2D_vrnwc")
+
+[node name="AtkDetectBoxArea" type="Area2D" parent="AnimatedSprite2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/AtkDetectBoxArea"]
+position = Vector2(74.9999, -26.6667)
 shape = SubResource("RectangleShape2D_8r3go")
 debug_color = Color(0.709804, 0, 0.333333, 0.419608)
 
