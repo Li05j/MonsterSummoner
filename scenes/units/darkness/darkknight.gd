@@ -35,6 +35,8 @@ func _hurt_reaction() -> void:
 func _berserk() -> void:
 	_has_gone_berserk = true
 	if _berserk_timer.is_stopped():
+		_during_special = true
+		
 		# immune to slow and shed slow effect
 		_is_slow_immune = true
 		if _is_slowed:
@@ -54,6 +56,7 @@ func _berserk() -> void:
 		_berserk_timer.start()
 
 func _on_berserk_timeout() -> void:
+	_during_special = false
 	_is_slow_immune = false
 	
 	_atk_spd = 4.2

@@ -61,13 +61,13 @@ func _hurt_reaction() -> void:
 	super()
 	if !_dashed and get_hp_percent() <= 0.75:
 		_during_special = true
-		_v_x = _dir * _move_spd * 2.25
+		_v_x *= 2.25
 		_sprite.play("special")
 
 func _on_sprite_animation_finished() -> void:
 	super()
 	if _sprite.animation == "special":
-		_v_x /= 2.25
+		_v_x = _dir * _move_spd
 		_dashed = true
 		_during_special = false
 

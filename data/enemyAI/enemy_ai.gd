@@ -10,8 +10,10 @@ var nightborne_scene = preload(Paths.DARKNESS + "nightborne.tscn")
 var darkknight_scene = preload(Paths.DARKNESS + "darkknight.tscn")
 var doomsday_scene = preload(Paths.DARKNESS + "doomsday.tscn")
 
+var skeleton_scene = preload(Paths.UNDEAD + "skeleton.tscn")
+
 var enemy_base: EnemyBase
-var enemy_gold: int = 250
+var enemy_gold: int = 50
 var enemy_gold_gen: int = 5
 
 var gold_gen_timer: Timer
@@ -95,8 +97,8 @@ func summon(which: int) -> void:
 	match which:
 		1: 
 			
-			if _try_to_purchase(DarknessUnits.shadowarcher_data.cost):
-				scene = shadowarcher_scene.instantiate()
+			if _try_to_purchase(UndeadUnits.skeleton_data.cost):
+				scene = skeleton_scene.instantiate()
 			else:
 				return
 		2: 

@@ -9,7 +9,7 @@ var enemy_base_pos = Vector2.ZERO
 
 var game_time: float = 0
 
-var player_gold = 150
+var player_gold = 50
 var player_gold_gen = 5
 
 func _ready():
@@ -29,5 +29,5 @@ func reset_level_state() -> void:
 	enemy_base_pos = Vector2(1037, 530)
 	
 	game_time = 0
-	player_gold = 150
+	player_gold = 50
 	player_gold_gen = 5

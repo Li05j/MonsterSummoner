@@ -13,5 +13,6 @@ const GAME_OVER_MENU = MENUS + "game_over_menu/"
 
 const MONSTER = UNITS + "monster/"
 const DARKNESS = UNITS + "darkness/"
+const UNDEAD = UNITS + "undead/"
 
 const PROJ = UNITS + "projectile/"

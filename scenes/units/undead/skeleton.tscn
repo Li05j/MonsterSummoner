@@ -355,13 +355,13 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7wg3o"]
-size = Vector2(60, 50)
+size = Vector2(36.5714, 50)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l7tju"]
 size = Vector2(22.2727, 50)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vahyi"]
-size = Vector2(70, 50)
+size = Vector2(50.2857, 50)
 
 [node name="Skeleton" type="Node2D"]
 script = ExtResource("1_1fvie")
@@ -376,7 +376,7 @@ frame_progress = 0.591573
 offset = Vector2(0, -35)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(1.6, 1.6)
+scale = Vector2(1.75, 1.75)
 sprite_frames = SubResource("SpriteFrames_onkip")
 animation = &"attack"
 autoplay = "idle"
@@ -385,8 +385,7 @@ offset = Vector2(0, -27)
 [node name="AtkDetectBoxArea" type="Area2D" parent="AnimatedSprite2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/AtkDetectBoxArea"]
-position = Vector2(30, -25)
-scale = Vector2(1, 1)
+position = Vector2(18.2857, -25)
 shape = SubResource("RectangleShape2D_7wg3o")
 debug_color = Color(0.717647, 0.32549, 0.882353, 0.419608)
 
@@ -395,7 +394,6 @@ monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/HitboxArea"]
 position = Vector2(0, -25)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_l7tju")
 
 [node name="AtkDmgBoxArea" type="Area2D" parent="AnimatedSprite2D"]
@@ -403,8 +401,7 @@ monitoring = false
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/AtkDmgBoxArea"]
-position = Vector2(35, -25)
-scale = Vector2(1, 1)
+position = Vector2(25.1429, -25)
 shape = SubResource("RectangleShape2D_vahyi")
 debug_color = Color(0.467372, 0.586243, 0.223272, 0.42)
 

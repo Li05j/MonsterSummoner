@@ -1,27 +1,64 @@
 class_name Skeleton extends MeleeTroops
 
+var _shield_timer: Timer
+var _has_shielded: bool = false
+const _shield_duration = 4.0 # seconds
+
+var def: int = 0
+
 func _init_stats() -> void:
 	_not_interactable = true
 	_is_invincible = true
 	
-	_is_cc_immune = MonsterUnits.goblin_data.cc_immune
-	_is_slow_immune = MonsterUnits.goblin_data.slow_immune
+	_is_cc_immune = UndeadUnits.skeleton_data.cc_immune
+	_is_slow_immune = UndeadUnits.skeleton_data.slow_immune
 	
-	_cost = MonsterUnits.goblin_data.cost
+	_cost = UndeadUnits.skeleton_data.cost
 	_gold_drop = Global.get_gold_drop(_cost)
-	_move_spd = MonsterUnits.goblin_data.move_spd
-	_max_hp = MonsterUnits.goblin_data.max_hp
-	_atk = MonsterUnits.goblin_data.atk
-	_atk_spd = MonsterUnits.goblin_data.atk_spd
-	_atk_frame = MonsterUnits.goblin_data.atk_frame
+	_move_spd = UndeadUnits.skeleton_data.move_spd
+	_max_hp = UndeadUnits.skeleton_data.max_hp
+	_atk = UndeadUnits.skeleton_data.atk
+	_atk_spd = UndeadUnits.skeleton_data.atk_spd
+	_atk_frame = UndeadUnits.skeleton_data.atk_frame
 	
-	_spwn_wait = MonsterUnits.goblin_data.spwn_wait
+	_spwn_wait = UndeadUnits.skeleton_data.spwn_wait
 	
-	_targets = MonsterUnits.goblin_data.targets
-	
-	var rand = randi_range(0, 4)
-	if !rand:	# 1 in 4 it summons big goblin
-		_max_hp *= 1.3
-		_atk *= 1.15
-		_sprite.scale *= 1.4
-		_hp_bar.position.y = -150
+	_targets = UndeadUnits.skeleton_data.targets
+
+func _init_timers() -> void:
+	super()
+	_shield_timer = _new_common_timer(_on_shield_timeout, _shield_duration)
+
+#func _is_valid() -> bool:
+	#return !(_not_interactable or _is_dead or _during_special)
+
+func _hurt_reaction() -> void:
+	super()
+	if !_has_shielded and !_cc_count and get_hp_percent() <= 0.25:
+		_shield()
+	if _during_special:
+		_v_x = 0
+		_sprite.play("special")
+
+func _final_damage(damage: int) -> int:
+	return max(1, damage - def)
+
+func _shield() -> void:
+	_has_shielded = true
+	if _shield_timer.is_stopped():
+		_during_special = true
+		_is_cc_immune = true
+		
+		def = 10
+		_attack_cd_timer.start(4.0)
+		_shield_timer.start()
+
+func _on_shield_timeout() -> void:
+	_during_special = false
+	_is_cc_immune = false
+	def = 0
+
+func _on_sprite_animation_finished() -> void:
+	super()
+	if _sprite.animation == "special":
+		_v_x = _dir * _move_spd

@@ -629,7 +629,6 @@ monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/DeathExplosionArea"]
 position = Vector2(-8.59683e-07, -17.3077)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_nuy60")
 debug_color = Color(0.814851, 0, 0.0203877, 0.42)
 

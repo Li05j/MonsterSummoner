@@ -20,7 +20,7 @@ const slime_data = {
 	"move_spd": 65,
 	"max_hp": 43,
 	"atk": 67,
-	"atk_spd": 2.65,
+	"atk_spd": 2.45,
 	"atk_frame": 3,
 	"spwn_wait": 0.75,
 	"targets": 1,
