@@ -11,6 +11,8 @@ var _who: Global.Who = Global.Who.NONE
 ##########################################################
 ##### States #####
 
+var _active_tints = {}
+
 var _not_interactable = false # ultimate form
 var _is_dead = false
 var _is_invincible = false
@@ -20,9 +22,6 @@ var _is_slow_immune = true
 ##### All CC Variables #####
 
 var _cc_count: int = 0 # counter for being cc'd
-var _is_knockback: bool = false
-var _is_slowed: bool = false
-var _is_stunned: bool = false
 
 ###########################################################
 
@@ -118,6 +117,27 @@ func knockback(duration: float) -> void:
 
 func stun(duration: float) -> void:
 	pass
+
+func fear(duration: float) -> void:
+	pass
+
+##########################################################
+##### Color #####
+##########################################################
+
+func _apply_tint(tint_name: String, color: Color):
+	_active_tints[tint_name] = color
+	_recalculate_tints()
+
+func _remove_tint(tint_name: String):
+	_active_tints.erase(tint_name)
+	_recalculate_tints()
+
+func _recalculate_tints():
+	var final_color = Color(1,1,1,1)
+	for tint in _active_tints.values():
+		final_color = final_color.lerp(tint, 0.75)
+	_sprite.self_modulate = final_color
 
 ##########################################################
 

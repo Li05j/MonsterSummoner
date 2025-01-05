@@ -30,15 +30,15 @@ const ghost_data = {
 const undead_witch_data = {
 	"cc_immune": false,
 	"slow_immune": false,
-	"cost": 150,
+	"cost": 50,
 	"move_spd": 65,
 	"max_hp": 150,
 	"atk": 16,
 	"atk_spd": 1.5,
-	"atk_frame": 0,
+	"atk_frame": 9,
 	"spwn_wait": 1.5,
 	"targets": -1,
-	"description": "Projectile explodes on contact\nFear (1.5) on hit.",
+	"description": "Projectile explodes (0.5x damage) on impact.\nFear (0.5) on hit.",
 }
 
 const death_data = {

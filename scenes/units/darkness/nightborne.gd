@@ -79,7 +79,6 @@ func _on_sprite_attack_frame_change() -> void:
 		_atk_dmg_box.monitoring = false
 		
 	if _sprite.animation == "dead" and _sprite.frame == _dead_frame:
-		_atk *= 2
 		var explosion_area = _sprite.get_node("DeathExplosionArea")
 		
 		var valid_enemies = []
@@ -98,4 +97,4 @@ func _on_sprite_attack_frame_change() -> void:
 			# Hit all enemies
 			for target in valid_enemies:
 				if is_instance_valid(target) and target._is_valid():
-					_deal_dmg(target)
+					_deal_dmg(target, 2.0)

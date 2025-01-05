@@ -27,6 +27,13 @@ var _spd_scale: float = 1.0 # animation rate, low means slow
 var _targets: int = 1 # how many targets, -1 means all in range, else closest first
 var _cc_rate: float = 1.0 # cc effectiveness, when 0 then it is equal to immune
 
+##### All CC Variables #####
+
+var _is_knockback: bool = false
+var _is_slowed: bool = false
+var _is_stunned: bool = false
+var _is_feared: bool = false
+
 ##### Others #####
 
 var _dir: int = 1 # direction
@@ -61,6 +68,7 @@ func _init_timers() -> void:
 	_hp_bar_visible_timer = _new_common_timer(_on_hp_bar_visible_timer_timeout, Global.hp_bar_visible_time)
 
 func _init_collisions() -> void:
+	super()
 	_atk_detect_box.collision_layer = Global.Collision.DETECT_ONLY
 
 func _init_misc() -> void:
@@ -149,8 +157,8 @@ func _attack() -> void:
 func _resolve_attack() -> void:
 	pass
 
-func _deal_dmg(enemy) -> void:
-	var kill: bool = enemy._take_dmg(_atk)
+func _deal_dmg(enemy, modifier: float = 1.0, flat_dmg: int = 0) -> void:
+	var kill: bool = enemy._take_dmg(_atk * modifier + flat_dmg)
 	_attack_special_effects(enemy)
 	if kill:
 		_on_kill_special_effects()
@@ -236,9 +244,8 @@ func slow(duration: float) -> void:
 	
 	var actual_duration = duration * _cc_rate
 	_modify_spd_scale(0.5, false)
-	_sprite.self_modulate = _sprite.self_modulate.lerp(Color(0, 0, 1), 0.5)
+	_apply_tint("slow", Color(0, 0, 1))
 	
-	#var cc_timer = _new_temp_timer("knockback", "_on_cc_timeout", duration)
 	_new_temp_timer("slow_timer", "_on_slow_timeout", actual_duration).start()
 
 func knockback(duration: float) -> void:
@@ -271,6 +278,24 @@ func stun(duration: float) -> void:
 	
 	_new_temp_timer("stun_timer", "_on_cc_timeout", actual_duration).start()
 
+func fear(duration: float) -> void:
+	if !_is_valid() or _is_cc_immune:
+		return
+	if _is_feared: # do not fear again
+		return
+	
+	_add_cc(true)
+	_is_feared = true
+	
+	var actual_duration = duration * _cc_rate
+	var fluc_x = randf_range(0.9, 1.1)
+	_v_x = -1 * _move_spd * fluc_x
+	_sprite.scale.x *= -1
+	_apply_tint("fear", Color(1, 0, 1))
+	_sprite.play("run")
+	
+	_new_temp_timer("fear_timer", "_on_cc_timeout", actual_duration).start()
+
 # When unit is cc'd or free of cc
 func _add_cc(cc: bool) -> void:
 	if cc:
@@ -288,6 +313,10 @@ func _on_cc_timeout(timer_name: String) -> void:
 			_is_knockback = false
 		"stun_timer":
 			_is_stunned = false
+		"fear_timer":
+			_is_feared = false
+			_sprite.scale.x *= -1
+			_sprite.self_modulate = Color(1, 1, 1, 1)
 		_:
 			return
 	_add_cc(false)
@@ -296,7 +325,7 @@ func _on_cc_timeout(timer_name: String) -> void:
 func _on_slow_timeout(timer_name: String) -> void:
 	_is_slowed = false
 	_modify_spd_scale(0.5, true)
-	_sprite.self_modulate = Color(1, 1, 1, 1)
+	_remove_tint("slow")
 	_free_temp_timer(timer_name)
 
 ###########################################################

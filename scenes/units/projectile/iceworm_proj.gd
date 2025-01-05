@@ -1,6 +1,6 @@
 class_name IcewormProj extends Projectile
 
-func _ready() -> void:
+func _init_misc() -> void:
 	super()
 	_offset_x = 34
 	_offset_y = -40

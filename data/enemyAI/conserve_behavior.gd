@@ -5,7 +5,7 @@ func generate_decision_wait_time() -> float:
 
 # 0 = do nothing, 1-4 summon respective unit
 func decide_what_to_do() -> int:
-	var rand = randi_range(2, 2)
+	var rand = randi_range(3,3)
 	match rand:
 		1: return 1
 		2: return 2

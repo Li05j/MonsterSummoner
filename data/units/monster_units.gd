@@ -30,7 +30,7 @@ const slime_data = {
 const iceworm_data = {
 	"cc_immune": false,
 	"slow_immune": true,
-	"cost": 115,
+	"cost": 15,
 	"move_spd": 80,
 	"max_hp": 195,
 	"atk": 10,

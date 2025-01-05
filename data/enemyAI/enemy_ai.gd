@@ -12,6 +12,7 @@ var doomsday_scene = preload(Paths.DARKNESS + "doomsday.tscn")
 
 var skeleton_scene = preload(Paths.UNDEAD + "skeleton.tscn")
 var ghost_scene = preload(Paths.UNDEAD + "ghost.tscn")
+var undeadwitch_scene = preload(Paths.UNDEAD + "undeadwitch.tscn")
 
 var enemy_base: EnemyBase
 var enemy_gold: int = 50
@@ -108,8 +109,8 @@ func summon(which: int) -> void:
 			else:
 				return
 		3: 
-			if _try_to_purchase(DarknessUnits.darkknight_data.cost):
-				scene = darkknight_scene.instantiate()
+			if _try_to_purchase(UndeadUnits.undead_witch_data.cost):
+				scene = undeadwitch_scene.instantiate()
 			else:
 				return
 		4: 

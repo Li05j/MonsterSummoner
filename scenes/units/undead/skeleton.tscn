@@ -334,7 +334,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"run",
-"speed": 5.0
+"speed": 3.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -378,8 +378,9 @@ offset = Vector2(0, -35)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(1.75, 1.75)
 sprite_frames = SubResource("SpriteFrames_onkip")
-animation = &"attack"
+animation = &"run"
 autoplay = "idle"
+frame_progress = 0.343894
 offset = Vector2(0, -27)
 
 [node name="AtkDetectBoxArea" type="Area2D" parent="AnimatedSprite2D"]

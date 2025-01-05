@@ -50,7 +50,7 @@ func _berserk() -> void:
 		
 		_modify_spd_scale(2.0, false)
 		
-		_sprite.self_modulate = _sprite.self_modulate.lerp(Color(1, 0, 0), 0.5)
+		_apply_tint("berserk", Color(1, 0, 0))
 		if !_attack_cd_timer.is_stopped():
 			_attack_cd_timer.stop()
 		_berserk_timer.start()
@@ -63,5 +63,4 @@ func _on_berserk_timeout() -> void:
 	_attack_cd_timer.wait_time = _atk_spd
 	
 	_modify_spd_scale(2.0, true)
-	
-	_sprite.self_modulate = Color(1, 1, 1, 1)
+	_remove_tint("berserk")
