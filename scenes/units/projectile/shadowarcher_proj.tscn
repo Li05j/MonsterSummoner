@@ -22,6 +22,7 @@ animations = [{
 size = Vector2(28, 8)
 
 [node name="shadowarcher_proj" type="Node2D"]
+z_index = 10
 script = ExtResource("1_236b7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

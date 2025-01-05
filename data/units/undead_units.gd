@@ -21,7 +21,7 @@ const ghost_data = {
 	"max_hp": 55,
 	"atk": 23,
 	"atk_spd": 1.75,
-	"atk_frame": 0,
+	"atk_frame": 11,
 	"spwn_wait": 0.75,
 	"targets": 1,
 	"description": "Targets farthest unit.",

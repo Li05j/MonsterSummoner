@@ -118,7 +118,8 @@ func _dead() -> void:
 		super()
 		EventBus.unit_died.emit(_who, _gold_drop)
 		modulate.a = 0.7
-		_hp_bar.visible = false
+		_hp_bar.modulate.a = 0.35
+		#_hp_bar.visible = false
 		_sprite.play("dead")
 
 #func _gain_gold_on_death() -> void:

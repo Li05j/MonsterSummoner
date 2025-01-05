@@ -57,6 +57,7 @@ animations = [{
 size = Vector2(14.5, 13)
 
 [node name="iceworm_proj" type="Node2D"]
+z_index = 10
 script = ExtResource("1_bfmam")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
