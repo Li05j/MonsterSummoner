@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://c530l6142474t"]
+[gd_scene load_steps=37 format=3 uid="uid://c530l6142474t"]
 
 [ext_resource type="Script" path="res://scenes/units/base/ally_base.gd" id="1_d7ah5"]
 [ext_resource type="Texture2D" uid="uid://b2wg1nlfkwg6q" path="res://addons/Sprites/FireSparks.png" id="2_6si53"]
@@ -229,9 +229,6 @@ animations = [{
 "speed": 6.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_n5sqn"]
-size = Vector2(124, 391)
-
 [node name="Ally_Base" type="Node2D" groups=["ally_unit"]]
 position = Vector2(0, 648)
 script = ExtResource("1_d7ah5")
@@ -247,9 +244,9 @@ offset = Vector2(0, -65)
 [node name="HitboxArea" type="Area2D" parent="AnimatedSprite2D"]
 scale = Vector2(0.4, 0.232558)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/HitboxArea"]
-position = Vector2(0, -195.5)
-shape = SubResource("RectangleShape2D_n5sqn")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AnimatedSprite2D/HitboxArea"]
+position = Vector2(0, -89.2501)
+polygon = PackedVector2Array(0, -203.25, 80, 44.75, 0, 92.7501, -80, 44.75)
 
 [node name="HpBar" type="TextureProgressBar" parent="."]
 anchors_preset = 5

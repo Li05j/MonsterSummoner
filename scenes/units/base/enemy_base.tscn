@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://dtcecri4xg6mt"]
+[gd_scene load_steps=37 format=3 uid="uid://dtcecri4xg6mt"]
 
 [ext_resource type="Script" path="res://scenes/units/base/enemy_base.gd" id="1_kid43"]
 [ext_resource type="Texture2D" uid="uid://b2wg1nlfkwg6q" path="res://addons/Sprites/FireSparks.png" id="2_vuq3o"]
@@ -229,9 +229,6 @@ animations = [{
 "speed": 6.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_n5sqn"]
-size = Vector2(124, 391)
-
 [node name="Enemy_base" type="Node2D" groups=["enemy_unit"]]
 position = Vector2(0, 648)
 script = ExtResource("1_kid43")
@@ -240,16 +237,16 @@ script = ExtResource("1_kid43")
 position = Vector2(0, 52.5)
 scale = Vector2(2.5, 4.3)
 sprite_frames = SubResource("SpriteFrames_7e8og")
-animation = &"dead"
+animation = &"idle"
 autoplay = "idle"
 offset = Vector2(0, -65)
 
 [node name="HitboxArea" type="Area2D" parent="AnimatedSprite2D"]
 scale = Vector2(0.4, 0.232558)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/HitboxArea"]
-position = Vector2(0, -195.5)
-shape = SubResource("RectangleShape2D_n5sqn")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AnimatedSprite2D/HitboxArea"]
+position = Vector2(0, -89.2501)
+polygon = PackedVector2Array(0, -203.25, 80, 44.75, 0, 92.7501, -80, 44.75)
 
 [node name="HpBar" type="TextureProgressBar" parent="."]
 anchors_preset = 5
