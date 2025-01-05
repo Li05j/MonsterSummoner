@@ -22,8 +22,8 @@ func _set_enemy() -> void:
 	_atk_range_box.collision_mask = Global.Collision.PLAYER_UNIT | Global.Collision.PLAYER_BASE
 	super()
 
-func _get_enemies_in_range_x() -> Array:
-	var valid_enemies_x = []
+func _get_enemies_in_range() -> Array:
+	var valid_enemies = []
 	for area in _atk_range_box.get_overlapping_areas():
 		if !is_instance_valid(area):
 			continue
@@ -31,5 +31,5 @@ func _get_enemies_in_range_x() -> Array:
 		var enemy_node = area.get_parent().get_parent()
 		if is_instance_valid(enemy_node):
 			if enemy_node._is_valid():
-				valid_enemies_x.append(enemy_node.global_position.x)
-	return valid_enemies_x
+				valid_enemies.append(enemy_node)
+	return valid_enemies

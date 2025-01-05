@@ -75,7 +75,7 @@ func _try_to_purchase(cost: int) -> bool:
 
 func _on_gold_gen_timeout() -> void:
 	enemy_gold += enemy_gold_gen
-	print(enemy_gold)
+	#print(enemy_gold)
 
 func _on_gold_gen_increase_timeout() -> void:
 	enemy_gold_gen += 1
