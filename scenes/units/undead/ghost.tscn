@@ -581,10 +581,10 @@ animations = [{
 size = Vector2(27.8261, 35.5553)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vrnwc"]
-size = Vector2(124.444, 35.5555)
+size = Vector2(112.727, 35.5555)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8r3go"]
-size = Vector2(62.2223, 35.5555)
+size = Vector2(47.2728, 35.5555)
 
 [node name="Ghost" type="Node2D"]
 script = ExtResource("1_raasa")
@@ -617,13 +617,13 @@ shape = SubResource("RectangleShape2D_7wg3o")
 [node name="AtkRangeBoxArea" type="Area2D" parent="AnimatedSprite2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/AtkRangeBoxArea"]
-position = Vector2(62.2222, -17.7778)
+position = Vector2(56.3635, -17.7778)
 shape = SubResource("RectangleShape2D_vrnwc")
 
 [node name="AtkDetectBoxArea" type="Area2D" parent="AnimatedSprite2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/AtkDetectBoxArea"]
-position = Vector2(31.1111, -17.7778)
+position = Vector2(23.6363, -17.7778)
 shape = SubResource("RectangleShape2D_8r3go")
 debug_color = Color(0.709804, 0, 0.333333, 0.419608)
 
@@ -633,9 +633,9 @@ anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -24.0
-offset_top = -150.0
+offset_top = -135.0
 offset_right = 104.0
-offset_bottom = -134.0
+offset_bottom = -119.0
 grow_horizontal = 0
 scale = Vector2(0.38, 1)
 texture_under = ExtResource("29_m8kk3")

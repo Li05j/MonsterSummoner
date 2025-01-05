@@ -27,4 +27,4 @@ func _init_proj_max_range() -> void:
 	_proj_range = _max_travel_range
 
 func _attack_special_effects(enemy) -> void:
-	enemy.slow(2.0) # slow for x seconds
+	enemy.slow(1.75) # slow for x seconds

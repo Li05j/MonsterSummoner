@@ -29,12 +29,12 @@ func _init_proj_max_range() -> void:
 	_max_travel_range = _atk_detect_box.get_child(0).shape.size.x * _sprite.scale.x # convert pixels to units
 	_proj_range = _max_travel_range
 
-# find the closest target if parabola; default is liunear - set to max range
+# find the closest target if parabola; default is linear - set to max range
 func _set_proj_range() -> void:
 	pass
 
-func _get_enemies_in_range_x() -> Array:
-	var valid_enemies_x = []
+func _get_enemies_in_range() -> Array:
+	var valid_enemies = []
 	for area in _atk_detect_box.get_overlapping_areas():
 		if !is_instance_valid(area):
 			continue
@@ -42,8 +42,8 @@ func _get_enemies_in_range_x() -> Array:
 		var enemy_node = area.get_parent().get_parent()
 		if is_instance_valid(enemy_node):
 			if enemy_node._is_valid():
-				valid_enemies_x.append(enemy_node.global_position.x)
-	return valid_enemies_x
+				valid_enemies.append(enemy_node)
+	return valid_enemies
 
 func _wait_for_projectiles_on_death() -> void:
 	if _proj_counter > 0:
@@ -67,14 +67,17 @@ func _on_dead_timer_timeout() -> void:
 ###########################################################
 
 func _by_distance(closest: bool) -> void:
-	var valid_enemies_x = _get_enemies_in_range_x()
-	valid_enemies_x.sort_custom(
+	var valid_enemies = _get_enemies_in_range()
+	valid_enemies.sort_custom(
 		func(a, b):
 			var sort_way: bool = closest if _who == Global.Who.ALLY else !closest
-			return a < b if sort_way else a > b
+			return a.global_position.x < b.global_position.x if sort_way else a.global_position.x > b.global_position.x
 	)
-	if valid_enemies_x.size():
-		_proj_range = abs(valid_enemies_x[0] - global_position.x)
+	if valid_enemies.size():
+		var first = valid_enemies[0]
+		if !closest and (first is AllyBase or first is EnemyBase):
+			Utils.swap_array_elements(valid_enemies, 0, -1)
+		_proj_range = abs(valid_enemies[0].global_position.x - global_position.x)
 	else:
 		_proj_range = _max_travel_range
 

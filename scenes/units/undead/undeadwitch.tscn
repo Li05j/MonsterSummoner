@@ -1,4 +1,4 @@
-[gd_scene load_steps=82 format=3 uid="uid://bf4q3ncsc6e5p"]
+[gd_scene load_steps=72 format=3 uid="uid://bf4q3ncsc6e5p"]
 
 [ext_resource type="Script" path="res://scenes/units/undead/undeadwitch.gd" id="1_a07ll"]
 [ext_resource type="Texture2D" uid="uid://cnq1hc8pwsi37" path="res://addons/Sprites/Gravity-Sheet.png" id="2_aqi68"]
@@ -209,46 +209,6 @@ region = Rect2(1540, 0, 140, 140)
 atlas = ExtResource("3_7t0pa")
 region = Rect2(1680, 0, 140, 140)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_yhuwa"]
-atlas = ExtResource("4_lvi4d")
-region = Rect2(0, 0, 140, 140)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_g6rjp"]
-atlas = ExtResource("4_lvi4d")
-region = Rect2(140, 0, 140, 140)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_e3mwo"]
-atlas = ExtResource("4_lvi4d")
-region = Rect2(280, 0, 140, 140)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5ws01"]
-atlas = ExtResource("4_lvi4d")
-region = Rect2(420, 0, 140, 140)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_refqr"]
-atlas = ExtResource("4_lvi4d")
-region = Rect2(560, 0, 140, 140)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_grxch"]
-atlas = ExtResource("4_lvi4d")
-region = Rect2(700, 0, 140, 140)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_pjwnu"]
-atlas = ExtResource("4_lvi4d")
-region = Rect2(840, 0, 140, 140)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5fp31"]
-atlas = ExtResource("4_lvi4d")
-region = Rect2(980, 0, 140, 140)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_joqjk"]
-atlas = ExtResource("4_lvi4d")
-region = Rect2(1120, 0, 140, 140)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_plmct"]
-atlas = ExtResource("4_lvi4d")
-region = Rect2(1260, 0, 140, 140)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_gjuqy"]
 atlas = ExtResource("4_lvi4d")
 region = Rect2(1400, 0, 140, 140)
@@ -401,36 +361,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_yhuwa")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_g6rjp")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_e3mwo")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5ws01")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_refqr")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_grxch")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_pjwnu")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5fp31")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_joqjk")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_plmct")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_gjuqy")
 }, {
 "duration": 1.0,
@@ -548,9 +478,9 @@ offset = Vector2(0, -35)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_onkip")
-animation = &"attack"
+animation = &"dead"
 autoplay = "idle"
-frame = 12
+frame = 7
 frame_progress = 1.0
 offset = Vector2(0, -28)
 

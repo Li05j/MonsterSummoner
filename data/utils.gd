@@ -37,6 +37,11 @@ static func get_global_center(node) -> Vector2:
 	var bounds = get_global_bounds(node)
 	return bounds.position + bounds.size / 2
 
+static func swap_array_elements(array: Array, index1: int, index2: int) -> void:
+	var temp = array[index1]
+	array[index1] = array[index2]
+	array[index2] = temp
+
 static func convert_animation_string_to_enum(str: String) -> Global.Animation_Type:
 	match str:
 		"idle":
