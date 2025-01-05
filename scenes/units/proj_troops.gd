@@ -76,6 +76,7 @@ func _by_distance(closest: bool) -> void:
 	if valid_enemies.size():
 		var first = valid_enemies[0]
 		if !closest and (first is AllyBase or first is EnemyBase):
+			# If farthest, base has lowest prio
 			Utils.swap_array_elements(valid_enemies, 0, -1)
 		_proj_range = abs(valid_enemies[0].global_position.x - global_position.x)
 	else:

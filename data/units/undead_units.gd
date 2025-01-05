@@ -3,15 +3,15 @@ extends Node
 const skeleton_data = {
 	"cc_immune": false,
 	"slow_immune": false,
-	"cost": 50,
+	"cost": 55,
 	"move_spd": 55,
 	"max_hp": 160,
 	"atk": 19,
 	"atk_spd": 2.7,
 	"atk_frame": 6,
 	"spwn_wait": 0.75,
-	"targets": 1,
-	"description": "(Once) Changes to defence stance (4) when HP < 33%.",
+	"targets": 2,
+	"description": "(Once) Changes to defence stance (5) when HP < 50%.",
 }
 const ghost_data = {
 	"cc_immune": false,
@@ -20,7 +20,7 @@ const ghost_data = {
 	"move_spd": 80,
 	"max_hp": 65,
 	"atk": 23,
-	"atk_spd": 1.7,
+	"atk_spd": 1.65,
 	"atk_frame": 11,
 	"spwn_wait": 0.75,
 	"targets": 1,
@@ -41,30 +41,30 @@ const undead_witch_data = {
 	"description": "Projectile explodes (0.5x damage) on impact.\n50% to fear (0.75) on hit.",
 }
 
-const death_data = {
+const reaper_data = {
 	"cc_immune": false,
 	"slow_immune": false,
-	"cost": 275,
+	"cost": 50,
 	"move_spd": 105,
-	"max_hp": 727,
+	"max_hp": 375,
 	"atk": 20,
 	"atk_spd": 2.2,
-	"atk_frame": 0,
+	"atk_frame": 1,
 	"spwn_wait": 3.0,
 	"targets": -1,
 	"description": "Closest target takes 2x damage.\nExecute on HP < 10%.\nSummon Bats on kill.",
 }
 
-const bats_data = {
-	"cc_immune": false,
+const bat_data = {
+	"cc_immune": true,
 	"slow_immune": false,
-	"cost": 275,
-	"move_spd": 105,
-	"max_hp": 727,
-	"atk": 20,
-	"atk_spd": 2.2,
-	"atk_frame": 0,
-	"spwn_wait": 3.0,
-	"targets": -1,
-	"description": "Closest target takes 2x damage.\nExecute on HP < 10%.\nSummon Bats on kill.",
+	"cost": 0,
+	"move_spd": 145,
+	"max_hp": 15,
+	"atk": 4,
+	"atk_spd": 0.25,
+	"atk_frame": 4,
+	"spwn_wait": 1.0,
+	"targets": 1,
+	"description": "Reaper's minion.",
 }

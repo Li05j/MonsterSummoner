@@ -2,7 +2,7 @@ class_name Skeleton extends MeleeTroops
 
 var _shield_timer: Timer
 var _has_shielded: bool = false
-const _shield_duration = 4.0 # seconds
+const _shield_duration = 5.0 # seconds
 
 var def: int = 0
 
@@ -34,7 +34,7 @@ func _init_timers() -> void:
 
 func _hurt_reaction() -> void:
 	super()
-	if !_has_shielded and !_cc_count and get_hp_percent() <= 0.33:
+	if !_has_shielded and !_cc_count and get_hp_percent() <= 0.5:
 		_shield()
 	if _during_special:
 		_v_x = 0
@@ -50,7 +50,7 @@ func _shield() -> void:
 		_is_cc_immune = true
 		
 		def = 10
-		_attack_cd_timer.start(4.0)
+		_attack_cd_timer.start(5.0)
 		_shield_timer.start()
 
 func _on_shield_timeout() -> void:

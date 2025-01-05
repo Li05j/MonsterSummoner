@@ -5,7 +5,7 @@ class_name UndeadWitchProj extends Projectile
 var _impact_success: bool = false
 var _impact_frame = 3
 var _impact_delay_timer: Timer
-var _impact_delay: float = 0.25
+var _impact_delay: float = 0.4
 
 func _ready() -> void:
 	super()

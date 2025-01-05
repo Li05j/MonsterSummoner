@@ -13,6 +13,9 @@ class_name EnemyAI extends Node
 var skeleton_scene = preload(Paths.UNDEAD + "skeleton.tscn")
 var ghost_scene = preload(Paths.UNDEAD + "ghost.tscn")
 var undeadwitch_scene = preload(Paths.UNDEAD + "undeadwitch.tscn")
+var reaper_scene = preload(Paths.UNDEAD + "reaper.tscn")
+
+var bat_scene = preload(Paths.UNDEAD + "bat.tscn")
 
 var enemy_base: EnemyBase
 var enemy_gold: int = 50
@@ -75,7 +78,7 @@ func _try_to_purchase(cost: int) -> bool:
 
 func _on_gold_gen_timeout() -> void:
 	enemy_gold += enemy_gold_gen
-	#print(enemy_gold)
+	print(enemy_gold)
 
 func _on_gold_gen_increase_timeout() -> void:
 	enemy_gold_gen += 1
@@ -113,11 +116,16 @@ func summon(which: int) -> void:
 				scene = undeadwitch_scene.instantiate()
 			else:
 				return
-		#4: 
-			#if _try_to_purchase(DarknessUnits.doomsday_data.cost):
-				#scene = doomsday_scene.instantiate()
-			#else:
-				#return
+		4: 
+			if _try_to_purchase(UndeadUnits.reaper_data.cost):
+				scene = reaper_scene.instantiate()
+			else:
+				return
+		5: 
+			if _try_to_purchase(UndeadUnits.bat_data.cost):
+				scene = bat_scene.instantiate()
+			else:
+				return
 		_: return
 	LevelState.current_level.add_child(scene)
 	scene.set_who(Global.Who.ENEMY)

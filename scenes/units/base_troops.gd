@@ -157,16 +157,16 @@ func _attack() -> void:
 func _resolve_attack() -> void:
 	pass
 
-func _deal_dmg(enemy, modifier: float = 1.0, flat_dmg: int = 0) -> void:
+func _deal_dmg(enemy, modifier: float = 1.0, flat_dmg: int = 0, killer = null) -> void:
 	var kill: bool = enemy._take_dmg(_atk * modifier + flat_dmg)
 	_attack_special_effects(enemy)
-	if kill:
-		_on_kill_special_effects()
+	if kill and killer:
+		killer._on_kill_special_effects(enemy)
 
 func _attack_special_effects(enemy) -> void:
 	pass
 
-func _on_kill_special_effects() -> void:
+func _on_kill_special_effects(enemy) -> void:
 	pass
 
 # if rate = -1 it resets - there is no reason for spd scale to be negative

@@ -33,7 +33,7 @@ const iceworm_data = {
 	"cost": 120,
 	"move_spd": 80,
 	"max_hp": 195,
-	"atk": 8,
+	"atk": 5,
 	"atk_spd": 1.25,
 	"atk_frame": 10,
 	"spwn_wait": 1.5,

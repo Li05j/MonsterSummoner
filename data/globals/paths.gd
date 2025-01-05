@@ -5,6 +5,7 @@ const SCENES = "res://scenes/"
 const MENUS = SCENES + "menus/"
 const LEVELS = SCENES + "levels/"
 const UNITS = SCENES + "units/"
+const ANIMATIONS = SCENES + "animations/"
 const COMMAND_PANEL = SCENES + "command_panel/"
 
 const MAIN_MENU = MENUS + "main_menu/"
