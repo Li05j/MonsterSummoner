@@ -4,6 +4,8 @@ const _summon_count: int = 3
 const skull_animation_scene = preload(Paths.ANIMATIONS + "skull_animation.tscn")
 const bat_scene = preload(Paths.UNDEAD + "bat.tscn")
 
+const skull_y_offset = -120
+
 func _init_stats() -> void:
 	_not_interactable = true
 	_is_invincible = true
@@ -58,13 +60,15 @@ func _resolve_attack() -> void:
 		idx += _dir
 
 func _attack_special_effects(enemy) -> void:
-	if enemy._is_valid() and enemy is not AllyBase and enemy is not EnemyBase and enemy.get_hp_percent() <= 0.1:
+	if enemy._is_valid() and enemy is BaseTroops and !enemy.a_summon and enemy.get_hp_percent() <= 0.1:
 		enemy._take_dmg(enemy._max_hp)
 		_on_kill_special_effects(enemy)
 
 func _on_kill_special_effects(enemy) -> void:
+	if enemy is not BaseTroops or enemy.a_summon:
+		return
 	var skull = skull_animation_scene.instantiate()
-	skull.global_position = Vector2(enemy.global_position.x, enemy.global_position.y - 90)
+	skull.global_position = Vector2(enemy.global_position.x, enemy.global_position.y + skull_y_offset)
 	LevelState.current_level.add_child(skull)
 	
 	var bat = bat_scene.instantiate()

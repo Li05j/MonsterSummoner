@@ -64,7 +64,7 @@ const bat_data = {
 	"atk": 4,
 	"atk_spd": 0.25,
 	"atk_frame": 4,
-	"spwn_wait": 1.0,
+	"spwn_wait": 0.5,
 	"targets": 1,
 	"description": "Reaper's minion.",
 }

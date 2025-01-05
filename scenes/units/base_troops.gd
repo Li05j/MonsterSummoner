@@ -3,10 +3,11 @@ class_name BaseTroops extends BattleUnit
 @onready var _spawn = $SpawnAnimation
 @onready var _atk_detect_box = _sprite.get_node("AtkDetectBoxArea")
 
+var a_summon = false
+
 ##########################################################
 
 var _hp_bar_visible_timer: Timer
-
 var _attack_cd_timer: Timer
 
 ##########################################################

@@ -18,3 +18,7 @@ func _init_stats() -> void:
 	_spwn_wait = UndeadUnits.bat_data.spwn_wait
 	
 	_targets = UndeadUnits.bat_data.targets
+
+func _init_misc() -> void:
+	super()
+	a_summon = true

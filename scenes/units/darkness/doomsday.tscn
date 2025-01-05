@@ -390,8 +390,10 @@ offset = Vector2(0, -35)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(2.7, 2.7)
 sprite_frames = SubResource("SpriteFrames_onkip")
-animation = &"special"
+animation = &"attack"
 autoplay = "idle"
+frame = 9
+frame_progress = 1.0
 offset = Vector2(34, -47)
 
 [node name="MeleeArea" type="Area2D" parent="AnimatedSprite2D"]

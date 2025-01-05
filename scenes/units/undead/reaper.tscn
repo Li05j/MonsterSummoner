@@ -392,7 +392,7 @@ animations = [{
 "frames": [],
 "loop": false,
 "name": &"special",
-"speed": 5.0
+"speed": 14.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7wg3o"]
@@ -419,9 +419,8 @@ offset = Vector2(0, -35)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(2.773, 2.773)
 sprite_frames = SubResource("SpriteFrames_onkip")
-animation = &"attack"
+animation = &"special"
 autoplay = "idle"
-frame = 3
 frame_progress = 1.0
 offset = Vector2(0, -32)
 
