@@ -2,6 +2,8 @@ class_name FarthestTargetProjTroops extends ProjTroops
 
 @onready var _atk_range_box = _sprite.get_node("AtkRangeBoxArea")
 
+var target_enemy_node
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	_init_stats()
@@ -36,5 +38,6 @@ func _by_distance(closest: bool) -> void:
 			first = valid_enemies.pop_front()
 			valid_enemies.push_back(first)
 		_proj_range = abs(valid_enemies[0].global_position.x - global_position.x)
+		target_enemy_node = valid_enemies[0]
 	else:
 		_proj_range = _max_travel_range

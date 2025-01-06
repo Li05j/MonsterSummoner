@@ -1,0 +1,589 @@
+[gd_scene load_steps=15 format=3 uid="uid://dlpbq2u3ll56f"]
+
+[ext_resource type="Script" path="res://scenes/command_panel/undead/undead_panel.gd" id="1_ytcku"]
+[ext_resource type="Theme" uid="uid://bnhngmri4tfgr" path="res://addons/Themes/FlatUI4/kenneyUI-green.tres" id="2_croom"]
+[ext_resource type="Texture2D" uid="uid://c48wkobil26xp" path="res://addons/Sprites/Skeleton/skeleton.png" id="3_bsx5w"]
+[ext_resource type="Theme" uid="uid://6shp5ck1tnja" path="res://addons/Themes/FlatUI4/kenneyUI.tres" id="4_0e46u"]
+[ext_resource type="Texture2D" uid="uid://dv3gow0me4kq6" path="res://addons/Icons/free-coin-icon-794-thumb.png" id="5_aarlq"]
+[ext_resource type="Texture2D" uid="uid://c2c0r688wvq5h" path="res://addons/Sprites/2023.10.6 dark fantasy big boss free/ghost.png" id="6_dcwbg"]
+[ext_resource type="Texture2D" uid="uid://cdn048fk7e3g7" path="res://addons/Sprites/Evil Wizard 3/undeadwitch.png" id="7_ccqci"]
+[ext_resource type="Texture2D" uid="uid://dax6w1vnyuhca" path="res://addons/Sprites/Undead executioner puppet/png/reaper.png" id="8_aeb2p"]
+[ext_resource type="Texture2D" uid="uid://dtdoxa1pck4mq" path="res://addons/Sprites/Goblin/goblin.png" id="9_jqskt"]
+[ext_resource type="Texture2D" uid="uid://bdaoovccsps1n" path="res://addons/Sprites/Slime/Slime Portrati.png" id="10_p5kxa"]
+[ext_resource type="Texture2D" uid="uid://d2vh00freqpe2" path="res://addons/Icons/pixel-art-lab-icon.png" id="11_h6fxh"]
+[ext_resource type="Texture2D" uid="uid://37sccet8d6dx" path="res://addons/Icons/pixel-art-mining-cart.png" id="12_m5y2d"]
+[ext_resource type="Theme" uid="uid://h1f7iqhh7ycb" path="res://addons/Themes/FlatUI4/kenneyUI-yellow.tres" id="13_kdvke"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bvh3a"]
+bg_color = Color(0.285029, 0.369249, 0.38439, 1)
+shadow_size = 10
+
+[node name="UndeadPanel" type="CanvasLayer"]
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = -1
+anchor_left = 0.002
+anchor_top = 0.998
+anchor_right = 0.998
+anchor_bottom = 0.998
+offset_top = -117.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_bvh3a")
+script = ExtResource("1_ytcku")
+
+[node name="UnitButtons" type="HBoxContainer" parent="Panel"]
+process_mode = 3
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.4
+anchor_bottom = 0.4
+offset_left = 20.0
+offset_top = -25.0
+offset_right = 260.0
+offset_bottom = 25.0
+grow_vertical = 2
+scale = Vector2(1.2, 1.2)
+theme_override_constants/separation = 20
+
+[node name="Unit1" type="Button" parent="Panel/UnitButtons"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+tooltip_text = "HP: 91
+Attack: 8
+Attack Rate: 0.4
+Targets: 1
+
+20% chance to summon a BIG goblin."
+theme = ExtResource("2_croom")
+
+[node name="TextureRect" type="TextureRect" parent="Panel/UnitButtons/Unit1"]
+layout_mode = 0
+offset_left = 6.83333
+offset_top = 2.16663
+offset_right = 169.833
+offset_bottom = 165.167
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_bsx5w")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="Panel/UnitButtons/Unit1"]
+modulate = Color(1, 1, 1, 0.784314)
+layout_mode = 0
+offset_left = 37.0
+offset_top = -17.0
+offset_right = 53.0
+offset_bottom = 24.0
+theme = ExtResource("4_0e46u")
+theme_type_variation = &"GraphFrameTitleLabel"
+theme_override_font_sizes/font_size = 36
+text = "1"
+
+[node name="Cost" type="Label" parent="Panel/UnitButtons/Unit1"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.4
+anchor_right = 0.5
+anchor_bottom = 1.4
+offset_left = 7.0
+offset_top = -13.0
+offset_right = 5.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 11
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Panel/UnitButtons/Unit1/Cost"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -21.0
+offset_top = -10.0
+offset_right = -40.0
+offset_bottom = 10.0
+grow_vertical = 2
+texture = ExtResource("5_aarlq")
+expand_mode = 2
+
+[node name="Unit2" type="Button" parent="Panel/UnitButtons"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme = ExtResource("2_croom")
+
+[node name="TextureRect" type="TextureRect" parent="Panel/UnitButtons/Unit2"]
+layout_mode = 0
+offset_left = 3.91333
+offset_top = -0.753387
+offset_right = 33.9133
+offset_bottom = 29.2466
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("6_dcwbg")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="Panel/UnitButtons/Unit2"]
+modulate = Color(1, 1, 1, 0.784314)
+layout_mode = 0
+offset_left = 37.0
+offset_top = -17.0
+offset_right = 53.0
+offset_bottom = 24.0
+theme = ExtResource("4_0e46u")
+theme_type_variation = &"GraphFrameTitleLabel"
+theme_override_font_sizes/font_size = 36
+text = "2"
+
+[node name="Cost" type="Label" parent="Panel/UnitButtons/Unit2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.4
+anchor_right = 0.5
+anchor_bottom = 1.4
+offset_left = 7.0
+offset_top = -13.0
+offset_right = 5.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 11
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Panel/UnitButtons/Unit2/Cost"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -21.0
+offset_top = -10.0
+offset_right = -40.0
+offset_bottom = 10.0
+grow_vertical = 2
+texture = ExtResource("5_aarlq")
+expand_mode = 2
+
+[node name="Unit3" type="Button" parent="Panel/UnitButtons"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme = ExtResource("2_croom")
+
+[node name="TextureRect" type="TextureRect" parent="Panel/UnitButtons/Unit3"]
+layout_mode = 0
+offset_left = -0.253296
+offset_top = 0.0800781
+offset_right = 560.747
+offset_bottom = 445.08
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("7_ccqci")
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="Panel/UnitButtons/Unit3"]
+modulate = Color(1, 1, 1, 0.784314)
+layout_mode = 0
+offset_left = 37.0
+offset_top = -17.0
+offset_right = 53.0
+offset_bottom = 24.0
+theme = ExtResource("4_0e46u")
+theme_type_variation = &"GraphFrameTitleLabel"
+theme_override_font_sizes/font_size = 36
+text = "3"
+
+[node name="Cost" type="Label" parent="Panel/UnitButtons/Unit3"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.4
+anchor_right = 0.5
+anchor_bottom = 1.4
+offset_left = 7.0
+offset_top = -13.0
+offset_right = 5.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 11
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Panel/UnitButtons/Unit3/Cost"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -21.0
+offset_top = -10.0
+offset_right = -40.0
+offset_bottom = 10.0
+grow_vertical = 2
+texture = ExtResource("5_aarlq")
+expand_mode = 2
+
+[node name="Unit4" type="Button" parent="Panel/UnitButtons"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme = ExtResource("2_croom")
+
+[node name="TextureRect" type="TextureRect" parent="Panel/UnitButtons/Unit4"]
+layout_mode = 0
+offset_left = 7.24664
+offset_top = 0.079956
+offset_right = 95.2466
+offset_bottom = 59.08
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("8_aeb2p")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="Panel/UnitButtons/Unit4"]
+modulate = Color(1, 1, 1, 0.784314)
+layout_mode = 0
+offset_left = 37.0
+offset_top = -17.0
+offset_right = 53.0
+offset_bottom = 24.0
+theme = ExtResource("4_0e46u")
+theme_type_variation = &"GraphFrameTitleLabel"
+theme_override_font_sizes/font_size = 36
+text = "4"
+
+[node name="Cost" type="Label" parent="Panel/UnitButtons/Unit4"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.4
+anchor_right = 0.5
+anchor_bottom = 1.4
+offset_left = 7.0
+offset_top = -13.0
+offset_right = 5.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 11
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Panel/UnitButtons/Unit4/Cost"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -21.0
+offset_top = -10.0
+offset_right = -40.0
+offset_bottom = 10.0
+grow_vertical = 2
+texture = ExtResource("5_aarlq")
+expand_mode = 2
+
+[node name="BuildingButtons" type="HBoxContainer" parent="Panel"]
+process_mode = 3
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.045
+anchor_top = 0.4
+anchor_right = 1.045
+anchor_bottom = 0.4
+offset_left = -399.025
+offset_top = -25.0
+offset_right = -139.025
+offset_bottom = 25.0
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(1.2, 1.2)
+theme_override_constants/separation = 20
+alignment = 2
+
+[node name="Build4" type="Button" parent="Panel/BuildingButtons"]
+visible = false
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme = ExtResource("2_croom")
+
+[node name="TextureRect" type="TextureRect" parent="Panel/BuildingButtons/Build4"]
+layout_mode = 0
+offset_left = 3.0
+offset_right = 188.0
+offset_bottom = 185.0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("9_jqskt")
+
+[node name="Label" type="Label" parent="Panel/BuildingButtons/Build4"]
+modulate = Color(1, 1, 1, 0.784314)
+layout_mode = 0
+offset_left = 37.0
+offset_top = -17.0
+offset_right = 53.0
+offset_bottom = 24.0
+theme = ExtResource("4_0e46u")
+theme_type_variation = &"GraphFrameTitleLabel"
+theme_override_font_sizes/font_size = 36
+text = "1"
+
+[node name="Cost" type="Label" parent="Panel/BuildingButtons/Build4"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.4
+anchor_right = 0.5
+anchor_bottom = 1.4
+offset_left = 7.0
+offset_top = -13.0
+offset_right = 5.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 11
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Panel/BuildingButtons/Build4/Cost"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -21.0
+offset_top = -10.0
+offset_right = -40.0
+offset_bottom = 10.0
+grow_vertical = 2
+texture = ExtResource("5_aarlq")
+expand_mode = 2
+
+[node name="Build3" type="Button" parent="Panel/BuildingButtons"]
+visible = false
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme = ExtResource("2_croom")
+
+[node name="TextureRect" type="TextureRect" parent="Panel/BuildingButtons/Build3"]
+layout_mode = 0
+offset_left = 4.696
+offset_top = -11.204
+offset_right = 32.696
+offset_bottom = 20.796
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("10_p5kxa")
+
+[node name="Label" type="Label" parent="Panel/BuildingButtons/Build3"]
+modulate = Color(1, 1, 1, 0.784314)
+layout_mode = 0
+offset_left = 37.0
+offset_top = -17.0
+offset_right = 53.0
+offset_bottom = 24.0
+theme = ExtResource("4_0e46u")
+theme_type_variation = &"GraphFrameTitleLabel"
+theme_override_font_sizes/font_size = 36
+text = "2"
+
+[node name="Cost" type="Label" parent="Panel/BuildingButtons/Build3"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.4
+anchor_right = 0.5
+anchor_bottom = 1.4
+offset_left = 7.0
+offset_top = -13.0
+offset_right = 5.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 11
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Panel/BuildingButtons/Build3/Cost"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -21.0
+offset_top = -10.0
+offset_right = -40.0
+offset_bottom = 10.0
+grow_vertical = 2
+texture = ExtResource("5_aarlq")
+expand_mode = 2
+
+[node name="Build2" type="Button" parent="Panel/BuildingButtons"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme = ExtResource("2_croom")
+
+[node name="TextureRect" type="TextureRect" parent="Panel/BuildingButtons/Build2"]
+modulate = Color(0, 0.462745, 0.811765, 1)
+layout_mode = 0
+offset_left = -16.9209
+offset_top = -13.2534
+offset_right = 829.079
+offset_bottom = 711.747
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("11_h6fxh")
+
+[node name="Label" type="Label" parent="Panel/BuildingButtons/Build2"]
+modulate = Color(1, 1, 1, 0.784314)
+layout_mode = 0
+offset_left = 37.0
+offset_top = -17.0
+offset_right = 53.0
+offset_bottom = 24.0
+theme = ExtResource("4_0e46u")
+theme_type_variation = &"GraphFrameTitleLabel"
+theme_override_font_sizes/font_size = 36
+text = "9"
+
+[node name="Cost" type="Label" parent="Panel/BuildingButtons/Build2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.4
+anchor_right = 0.5
+anchor_bottom = 1.4
+offset_left = 7.0
+offset_top = -13.0
+offset_right = 5.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 11
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Panel/BuildingButtons/Build2/Cost"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -21.0
+offset_top = -10.0
+offset_right = -40.0
+offset_bottom = 10.0
+grow_vertical = 2
+texture = ExtResource("5_aarlq")
+expand_mode = 2
+
+[node name="Build1" type="Button" parent="Panel/BuildingButtons"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme = ExtResource("2_croom")
+
+[node name="TextureRect" type="TextureRect" parent="Panel/BuildingButtons/Build1"]
+layout_mode = 0
+offset_left = 7.24661
+offset_top = 9.24664
+offset_right = 59.2466
+offset_bottom = 51.2466
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("12_m5y2d")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="Panel/BuildingButtons/Build1"]
+modulate = Color(1, 1, 1, 0.784314)
+layout_mode = 0
+offset_left = 37.0
+offset_top = -17.0
+offset_right = 53.0
+offset_bottom = 24.0
+theme = ExtResource("4_0e46u")
+theme_type_variation = &"GraphFrameTitleLabel"
+theme_override_font_sizes/font_size = 36
+text = "0"
+
+[node name="Cost" type="Label" parent="Panel/BuildingButtons/Build1"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.4
+anchor_right = 0.5
+anchor_bottom = 1.4
+offset_left = 7.0
+offset_top = -13.0
+offset_right = 5.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 11
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Panel/BuildingButtons/Build1/Cost"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -21.0
+offset_top = -10.0
+offset_right = -40.0
+offset_bottom = 10.0
+grow_vertical = 2
+texture = ExtResource("5_aarlq")
+expand_mode = 2
+
+[node name="Panel" type="Panel" parent="Panel"]
+modulate = Color(1, 1, 1, 0.784314)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -155.5
+offset_top = -31.5
+offset_right = 155.5
+offset_bottom = 31.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PlayerGold" type="Label" parent="Panel/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -87.5
+offset_top = -9.0
+offset_right = 87.5
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("13_kdvke")
+theme_override_font_sizes/font_size = 20
+text = "Gold: 2500 (+40)"
+
+[node name="TextureRect" type="TextureRect" parent="Panel/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -193.5
+offset_top = -30.5
+offset_right = -122.5
+offset_bottom = 30.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_aarlq")
+expand_mode = 2
+
+[node name="GoldGenTimer" type="Timer" parent="Panel"]
+autostart = true
+
+[connection signal="pressed" from="Panel/UnitButtons/Unit1" to="Panel" method="_on_unit_1_pressed"]
+[connection signal="pressed" from="Panel/UnitButtons/Unit2" to="Panel" method="_on_unit_2_pressed"]
+[connection signal="pressed" from="Panel/UnitButtons/Unit3" to="Panel" method="_on_unit_3_pressed"]
+[connection signal="pressed" from="Panel/UnitButtons/Unit4" to="Panel" method="_on_unit_4_pressed"]
+[connection signal="pressed" from="Panel/BuildingButtons/Build4" to="Panel" method="_on_build_4_pressed"]
+[connection signal="pressed" from="Panel/BuildingButtons/Build3" to="Panel" method="_on_build_3_pressed"]
+[connection signal="pressed" from="Panel/BuildingButtons/Build2" to="Panel" method="_on_build_2_pressed"]
+[connection signal="pressed" from="Panel/BuildingButtons/Build1" to="Panel" method="_on_build_1_pressed"]
+[connection signal="timeout" from="Panel/GoldGenTimer" to="Panel" method="_on_gold_gen_timer_timeout"]

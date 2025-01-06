@@ -361,7 +361,7 @@ animations = [{
 size = Vector2(73.3333, 53.3332)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7wg3o"]
-size = Vector2(27.8261, 53.333)
+size = Vector2(23.7037, 53.333)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l07g5"]
 size = Vector2(100, 53.3331)
@@ -407,7 +407,7 @@ debug_color = Color(0.719562, 0.326995, 0.88156, 0.42)
 monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/HitboxArea"]
-position = Vector2(5.18301e-07, -26.6668)
+position = Vector2(4.41516e-07, -26.6668)
 shape = SubResource("RectangleShape2D_7wg3o")
 
 [node name="AtkDmgBoxArea" type="Area2D" parent="AnimatedSprite2D"]
@@ -424,6 +424,7 @@ debug_color = Color(0.467372, 0.586243, 0.223272, 0.42)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/AtkRangeBoxArea"]
 position = Vector2(85, -26.6667)
 shape = SubResource("RectangleShape2D_vrnwc")
+debug_color = Color(0.614558, 0.360149, 0.996874, 0.42)
 
 [node name="AtkDetectBoxArea" type="Area2D" parent="AnimatedSprite2D"]
 
@@ -438,6 +439,7 @@ monitorable = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/ChangeToMelee"]
 position = Vector2(11.8519, -26.6667)
 shape = SubResource("RectangleShape2D_3pngw")
+debug_color = Color(0.579323, 0.552135, 0.0159636, 0.42)
 
 [node name="HpBar" type="TextureProgressBar" parent="."]
 visible = false

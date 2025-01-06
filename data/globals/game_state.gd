@@ -12,6 +12,10 @@ func get_command_panel_scene() -> PackedScene:
 	match playing_as:
 		Global.Faction.MONSTER:
 			return preload(Paths.COMMAND_PANEL + "monster/monster_panel.tscn")
+		Global.Faction.DARKNESS:
+			return preload(Paths.COMMAND_PANEL + "darkness/darkness_panel.tscn")
+		Global.Faction.UNDEAD:
+			return preload(Paths.COMMAND_PANEL + "undead/undead_panel.tscn")
 		_:
 			return null
 

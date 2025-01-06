@@ -303,7 +303,7 @@ func fear(duration: float) -> void:
 	
 	var actual_duration = duration * _cc_rate
 	var fluc_x = randf_range(0.9, 1.1)
-	_v_x = -1 * _move_spd * fluc_x
+	_v_x = _dir * _dir * _move_spd * fluc_x
 	_sprite.scale.x *= -1
 	_apply_tint("fear", Color(1, 0, 1))
 	_sprite.play("run")

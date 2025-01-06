@@ -54,10 +54,12 @@ func _move(delta: float) -> void:
 		_sprite.play("idle")
 
 func _set_ally() -> void:
+	_change_to_melee_box.collision_mask = Global.Collision.ENEMY_UNIT | Global.Collision.ENEMY_BASE
 	_melee_box.collision_mask = Global.Collision.ENEMY_UNIT | Global.Collision.ENEMY_BASE
 	super()
 
 func _set_enemy() -> void:
+	_change_to_melee_box.collision_mask = Global.Collision.PLAYER_UNIT | Global.Collision.PLAYER_BASE
 	_melee_box.collision_mask = Global.Collision.PLAYER_UNIT | Global.Collision.PLAYER_BASE
 	super()
 

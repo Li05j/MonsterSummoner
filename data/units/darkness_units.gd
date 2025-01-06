@@ -44,10 +44,10 @@ const darkknight_data = {
 const doomsday_data = {
 	"cc_immune": false,
 	"slow_immune": false,
-	"cost": 235,
+	"cost": 35,
 	"move_spd": 70,
 	"max_hp": 335,
-	"atk": 24,
+	"atk": 32,
 	"atk_spd": 2.4,
 	"atk_frame": 4,
 	"spwn_wait": 1.0,
@@ -55,7 +55,7 @@ const doomsday_data = {
 	"cc_rate": 0.5,
 	"description": "Slow and control duration -50%.\nChanges to Melee form when enemy is approaching.",
 	
-	"melee_atk_rate": 1.5,
+	"melee_atk_rate": 1.2,
 	"melee_atk_spd_rate": 0.25,
 	"melee_atk_frame": 4,
 	"melee_targets": 1,

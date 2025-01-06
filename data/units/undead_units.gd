@@ -48,13 +48,13 @@ const reaper_data = {
 	"slow_immune": false,
 	"cost": 250,
 	"move_spd": 105,
-	"max_hp": 375,
-	"atk": 40,
-	"atk_spd": 3.2,
+	"max_hp": 300,
+	"atk": 20,
+	"atk_spd": 4.0,
 	"atk_frame": 1,
 	"spwn_wait": 3.0,
 	"targets": -1,
-	"description": "Closest target takes 2x damage.\nExecute on HP < 10%.\nSummon Bats on kill.",
+	"description": "Closest target takes 3x damage.\nExecute on HP < 10%.\nSummon Bats on kill.",
 }
 
 const bat_data = {
@@ -62,8 +62,8 @@ const bat_data = {
 	"slow_immune": false,
 	"cost": 0,
 	"move_spd": 145,
-	"max_hp": 15,
-	"atk": 4,
+	"max_hp": 8,
+	"atk": 2,
 	"atk_spd": 0.25,
 	"atk_frame": 4,
 	"spwn_wait": 0.5,

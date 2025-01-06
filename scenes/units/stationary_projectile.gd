@@ -12,7 +12,12 @@ func _set_initial_velocity() -> void:
 	_stationary()
 
 func _set_initial_pos() -> void:
-	global_position = Vector2(abs(_proj_owner._proj_range - _proj_owner.global_position.x), Global.ground_y)
+	var enemy = _proj_owner.get("target_enemy_node")
+	if enemy:
+		global_position = enemy.global_position
+	else:
+		#global_position = Vector2(abs(_proj_owner._proj_range - _proj_owner.global_position.x), Global.ground_y)
+		global_position = Vector2(_proj_owner._proj_range, Global.ground_y)
 	_initial_position = global_position
 
 func _resolve_attack() -> void:

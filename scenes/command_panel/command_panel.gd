@@ -103,10 +103,10 @@ func _init_text_display() -> void:
 	_update_gold_display_text()
 
 func _init_tooltips() -> void:
-	unit1.tooltip_text = _write_tooltip(MonsterUnits.goblin_data)
-	unit2.tooltip_text = _write_tooltip(MonsterUnits.slime_data)
-	unit3.tooltip_text = _write_tooltip(MonsterUnits.iceworm_data)
-	unit4.tooltip_text = _write_tooltip(MonsterUnits.giant_data)
+	unit1.tooltip_text = _write_tooltip(unit1_data)
+	unit2.tooltip_text = _write_tooltip(unit2_data)
+	unit3.tooltip_text = _write_tooltip(unit3_data)
+	unit4.tooltip_text = _write_tooltip(unit4_data)
 	
 	build1.tooltip_text = BuildingsData.gold_mine.description
 	build2.tooltip_text = BuildingsData.lab.description

@@ -84,4 +84,6 @@ theme = ExtResource("3_mx87t")
 text = "Back to Main Menu"
 
 [connection signal="pressed" from="Buttons/monster" to="." method="_on_monster_pressed"]
+[connection signal="pressed" from="Buttons/darkness" to="." method="_on_darkness_pressed"]
+[connection signal="pressed" from="Buttons/undead" to="." method="_on_undead_pressed"]
 [connection signal="pressed" from="Back" to="." method="_on_back_pressed"]

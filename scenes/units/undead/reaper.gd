@@ -48,7 +48,7 @@ func _resolve_attack() -> void:
 	# 1st target takes 2x damage
 	var target = valid_enemies[idx]
 	if is_instance_valid(target) and target._is_valid():
-		_deal_dmg(target, 2.0, 0, self)
+		_deal_dmg(target, 3.0, 0, self)
 	idx += _dir
 	
 	while idx >= 0 and idx < valid_enemies.size():
