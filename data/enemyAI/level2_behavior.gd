@@ -1,8 +1,8 @@
 class_name Level2AIBehavior extends EnemyAIBehavior
 
 func init() -> void:
-	target_time_till_next_gold_gen_increase = 45
-	target_gold_gen_time_step = 16
+	target_time_till_next_gold_gen_increase = 60
+	target_gold_gen_time_step = 20
 
 func get_pot_of_gold_value(critical: int) -> int:
 	if critical == 1:
