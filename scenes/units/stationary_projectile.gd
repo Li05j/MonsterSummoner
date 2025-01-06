@@ -46,6 +46,8 @@ func _resolve_attack() -> void:
 			var target = valid_enemies[idx]
 			if is_instance_valid(target) and (target is AllyBase or target is EnemyBase):
 				base = valid_enemies.pop_at(idx)
+				if _who == Global.Who.ENEMY:
+					idx += _dir
 				continue
 			if is_instance_valid(target) and target._is_valid():
 				_proj_owner._deal_dmg(target)
