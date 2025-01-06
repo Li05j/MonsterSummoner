@@ -1,18 +1,25 @@
 [gd_scene load_steps=8 format=3 uid="uid://bgmuet1ygcwso"]
 
+[ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_4sgyc"]
 [ext_resource type="PackedScene" uid="uid://comfh2g0i6lwu" path="res://scenes/menus/pause_menu/pause_menu.tscn" id="1_chx42"]
 [ext_resource type="Texture2D" uid="uid://xy8k70jj73lh" path="res://addons/Sprites/pixel-art-cloud-background [photoutils.com].png" id="1_k878v"]
-[ext_resource type="Script" path="res://scenes/levels/level_1.gd" id="1_katw6"]
 [ext_resource type="PackedScene" uid="uid://dtcecri4xg6mt" path="res://scenes/units/base/enemy_base.tscn" id="4_11ap7"]
 [ext_resource type="Theme" uid="uid://6shp5ck1tnja" path="res://addons/Themes/FlatUI4/kenneyUI.tres" id="4_vaajv"]
 [ext_resource type="PackedScene" uid="uid://c530l6142474t" path="res://scenes/units/base/ally_base.tscn" id="6_1imuu"]
 [ext_resource type="Script" path="res://scenes/levels/camera_2d.gd" id="8_qh2cd"]
 
 [node name="Level1" type="Node"]
-script = ExtResource("1_katw6")
+script = ExtResource("1_4sgyc")
 
-[node name="Background" type="TextureRect" parent="."]
+[node name="Bg" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="Background" type="TextureRect" parent="Bg"]
 z_index = -5
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -51,5 +58,5 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(576, 325)
+anchor_mode = 0
 script = ExtResource("8_qh2cd")

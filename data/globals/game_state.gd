@@ -5,6 +5,8 @@ var player_initial_gold_gen: int = 5
 
 var playing_as: Global.Faction = Global.Faction.NONE
 
+var total_game_time: float = 0
+
 func set_playing_as(faction: Global.Faction) -> void:
 	playing_as = faction
 
@@ -26,3 +28,5 @@ func reset_game_state() -> void:
 	player_initial_gold_gen = 5
 
 	playing_as = Global.Faction.NONE
+	
+	total_game_time = 0

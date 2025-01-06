@@ -1,4 +1,4 @@
-class_name Level1 extends Node
+class_name Level extends Node
 
 @onready var _ui = $UI
 @onready var _game_time = $UI/GameTime

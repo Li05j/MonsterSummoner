@@ -26,9 +26,21 @@ func reset_level_state() -> void:
 	
 	current_level = null
 	enemy_ai = null
-	ally_base_pos = Vector2(115, 530)
-	enemy_base_pos = Vector2(1037, 530)
+	ally_base_pos = Vector2.ZERO
+	enemy_base_pos = Vector2.ZERO
 	
 	game_time = 0
 	player_gold = GameState.player_initial_gold
 	player_gold_gen = GameState.player_initial_gold_gen
+
+func set_level_1() -> void:
+	ally_base_pos = Vector2(115, 530)
+	enemy_base_pos = Vector2(1037, 530)
+
+func set_level_2() -> void:
+	ally_base_pos = Vector2(115, 530)
+	enemy_base_pos = Vector2(1037, 530)
+
+func set_level_3() -> void:
+	ally_base_pos = Vector2(115, 530)
+	enemy_base_pos = Vector2(1037, 530)
