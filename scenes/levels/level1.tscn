@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bgmuet1ygcwso"]
+[gd_scene load_steps=9 format=3 uid="uid://bgmuet1ygcwso"]
 
 [ext_resource type="PackedScene" uid="uid://comfh2g0i6lwu" path="res://scenes/menus/pause_menu/pause_menu.tscn" id="1_chx42"]
 [ext_resource type="Texture2D" uid="uid://xy8k70jj73lh" path="res://addons/Sprites/pixel-art-cloud-background [photoutils.com].png" id="1_k878v"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dtcecri4xg6mt" path="res://scenes/units/base/enemy_base.tscn" id="4_11ap7"]
 [ext_resource type="Theme" uid="uid://6shp5ck1tnja" path="res://addons/Themes/FlatUI4/kenneyUI.tres" id="4_vaajv"]
 [ext_resource type="PackedScene" uid="uid://c530l6142474t" path="res://scenes/units/base/ally_base.tscn" id="6_1imuu"]
+[ext_resource type="Script" path="res://scenes/levels/camera_2d.gd" id="8_qh2cd"]
 
 [node name="Level1" type="Node"]
 script = ExtResource("1_katw6")
@@ -51,3 +52,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="MonsterPanel" parent="UI" instance=ExtResource("2_l16lv")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 325)
+script = ExtResource("8_qh2cd")
