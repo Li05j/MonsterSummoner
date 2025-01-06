@@ -3,11 +3,13 @@ extends Node
 var player_initial_gold: int = 50
 var player_initial_gold_gen: int = 5
 
+var enemy_factions_left: Array = Global.Faction.values()
 var playing_as: Global.Faction = Global.Faction.NONE
 var total_game_time: float = 0
 
 func set_playing_as(faction: Global.Faction) -> void:
 	playing_as = faction
+	remove_enemy_faction(faction)
 
 func get_command_panel_scene() -> PackedScene:
 	match playing_as:
@@ -20,11 +22,16 @@ func get_command_panel_scene() -> PackedScene:
 		_:
 			return null
 
+func remove_enemy_faction(faction: Global.Faction) -> void:
+	enemy_factions_left.erase(faction)
+
 func reset_without_changing_faction() -> void:
 	LevelState.reset_level_state()
 	player_initial_gold = 50
 	player_initial_gold_gen = 5
 	total_game_time = 0
+	enemy_factions_left = Global.Faction.values()
+	enemy_factions_left.erase(Global.Faction.NONE)
 
 func restart() -> void:
 	reset_without_changing_faction()

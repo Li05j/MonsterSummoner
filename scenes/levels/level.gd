@@ -23,6 +23,14 @@ func _init_level() -> void:
 	
 	_enemy_ai = EnemyAI.new()
 	LevelState.enemy_ai = _enemy_ai
+	if LevelState.level_number == 1:
+		_enemy_ai.init_scenes(GameState.playing_as)
+	else:
+		var factions_left = GameState.enemy_factions_left
+		var rand_idx: int = randi_range(0, factions_left.size() - 1)
+		
+		_enemy_ai.init_scenes(factions_left[rand_idx])
+		GameState.remove_enemy_faction(factions_left[rand_idx])
 	add_child(_enemy_ai)
 
 func _update_game_time(delta) -> void:

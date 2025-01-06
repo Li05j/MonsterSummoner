@@ -10,6 +10,6 @@ const gold_mine = {
 const lab = {
 	"cost": 75,
 	"price_increase_rate": 1.2,
-	"reduction_percent": 0.95,
-	"description": "-5% purchase price.",
+	"reduction_percent": 0.96,
+	"description": "-4% purchase price.",
 }

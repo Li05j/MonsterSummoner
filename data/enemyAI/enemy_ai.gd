@@ -1,19 +1,14 @@
 class_name EnemyAI extends Node
 
-#var goblin_scene = preload(Paths.MONSTER + "goblin.tscn")
-#var slime_scene = preload(Paths.MONSTER + "slime.tscn")
-#var iceworm_scene = preload(Paths.MONSTER + "iceworm.tscn")
-#var giant_scene = preload(Paths.MONSTER + "giant.tscn")
+var unit1_data
+var unit2_data
+var unit3_data
+var unit4_data
 
-var shadowarcher_scene = preload(Paths.DARKNESS + "shadowarcher.tscn")
-var nightborne_scene = preload(Paths.DARKNESS + "nightborne.tscn")
-var darkknight_scene = preload(Paths.DARKNESS + "darkknight.tscn")
-var doomsday_scene = preload(Paths.DARKNESS + "doomsday.tscn")
-
-var skeleton_scene = preload(Paths.UNDEAD + "skeleton.tscn")
-var ghost_scene = preload(Paths.UNDEAD + "ghost.tscn")
-var undeadwitch_scene = preload(Paths.UNDEAD + "undeadwitch.tscn")
-var reaper_scene = preload(Paths.UNDEAD + "reaper.tscn")
+var unit1_scene: PackedScene
+var unit2_scene: PackedScene
+var unit3_scene: PackedScene
+var unit4_scene: PackedScene
 
 var enemy_base: EnemyBase
 var enemy_gold: int = 50
@@ -30,7 +25,7 @@ var critical_1_flag: bool = false
 var critical_2_flag: bool = false
 
 func _ready() -> void:
-	behavior = ConserveAIBehavior.new()
+	behavior = Level1AIBehavior.new()
 	behavior.set_ai(self)
 	
 	EventBus.unit_died.connect(_on_unit_died)
@@ -46,6 +41,39 @@ func _ready() -> void:
 	gold_gen_increase_timer.start()
 	pot_of_gold_timer.start()
 	decision_timer.start()
+
+func init_scenes(faction: Global.Faction) -> void:
+	match faction:
+		Global.Faction.MONSTER:
+			unit1_data = MonsterUnits.goblin_data
+			unit2_data = MonsterUnits.slime_data
+			unit3_data = MonsterUnits.iceworm_data
+			unit4_data = MonsterUnits.giant_data
+	
+			unit1_scene = preload(Paths.MONSTER + "goblin.tscn")
+			unit2_scene = preload(Paths.MONSTER + "slime.tscn")
+			unit3_scene = preload(Paths.MONSTER + "iceworm.tscn")
+			unit4_scene = preload(Paths.MONSTER + "giant.tscn")
+		Global.Faction.DARKNESS:
+			unit1_data = DarknessUnits.shadowarcher_data
+			unit2_data = DarknessUnits.nightborne_data
+			unit3_data = DarknessUnits.darkknight_data
+			unit4_data = DarknessUnits.doomsday_data
+	
+			unit1_scene = preload(Paths.DARKNESS + "shadowarcher.tscn")
+			unit2_scene = preload(Paths.DARKNESS + "nightborne.tscn")
+			unit3_scene = preload(Paths.DARKNESS + "darkknight.tscn")
+			unit4_scene = preload(Paths.DARKNESS + "doomsday.tscn")
+		Global.Faction.UNDEAD:
+			unit1_data = UndeadUnits.skeleton_data
+			unit2_data = UndeadUnits.ghost_data
+			unit3_data = UndeadUnits.undead_witch_data
+			unit4_data = UndeadUnits.reaper_data
+	
+			unit1_scene = preload(Paths.UNDEAD + "skeleton.tscn")
+			unit2_scene = preload(Paths.UNDEAD + "ghost.tscn")
+			unit3_scene = preload(Paths.UNDEAD + "undeadwitch.tscn")
+			unit4_scene = preload(Paths.UNDEAD + "reaper.tscn")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -68,15 +96,14 @@ func _new_common_timer(
 	add_child(new_timer)
 	return new_timer
 
-func _try_to_purchase(cost: int) -> bool:
+func _check_if_affordable(cost: int) -> bool:
 	if enemy_gold >= cost:
-		enemy_gold -= cost
 		return true
 	return false
 
 func _on_gold_gen_timeout() -> void:
 	enemy_gold += enemy_gold_gen
-	#print(enemy_gold)
+	print(enemy_gold)
 
 func _on_gold_gen_increase_timeout() -> void:
 	enemy_gold_gen += 1
@@ -99,45 +126,17 @@ func summon(which: int) -> void:
 	var scene
 	match which:
 		1: 
-			if _try_to_purchase(UndeadUnits.skeleton_data.cost):
-				scene = skeleton_scene.instantiate()
-			else:
-				return
+			enemy_gold -= unit1_data.cost
+			scene = unit1_scene.instantiate()
 		2: 
-			if _try_to_purchase(UndeadUnits.ghost_data.cost):
-				scene = ghost_scene.instantiate()
-			else:
-				return
+			enemy_gold -= unit2_data.cost
+			scene = unit2_scene.instantiate()
 		3: 
-			if _try_to_purchase(UndeadUnits.undead_witch_data.cost):
-				scene = undeadwitch_scene.instantiate()
-			else:
-				return
+			enemy_gold -= unit3_data.cost
+			scene = unit3_scene.instantiate()
 		4: 
-			if _try_to_purchase(UndeadUnits.reaper_data.cost):
-				scene = reaper_scene.instantiate()
-			else:
-				return
-		#1: 
-			#if _try_to_purchase(DarknessUnits.shadowarcher_data.cost):
-				#scene = shadowarcher_scene.instantiate()
-			#else:
-				#return
-		#2: 
-			#if _try_to_purchase(DarknessUnits.nightborne_data.cost):
-				#scene = nightborne_scene.instantiate()
-			#else:
-				#return
-		#3: 
-			#if _try_to_purchase(DarknessUnits.darkknight_data.cost):
-				#scene = darkknight_scene.instantiate()
-			#else:
-				#return
-		#4: 
-			#if _try_to_purchase(DarknessUnits.doomsday_data.cost):
-				#scene = doomsday_scene.instantiate()
-			#else:
-				#return
+			enemy_gold -= unit4_data.cost
+			scene = unit4_scene.instantiate()
 		_: return
 	LevelState.current_level.add_child(scene)
 	scene.set_who(Global.Who.ENEMY)
