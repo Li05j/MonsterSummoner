@@ -3,6 +3,7 @@ extends Node
 var who_wins: Global.Who = Global.Who.NONE
 
 var current_level = null
+
 var enemy_ai: EnemyAI = null
 var ally_base_pos = Vector2.ZERO
 var enemy_base_pos = Vector2.ZERO
@@ -29,5 +30,5 @@ func reset_level_state() -> void:
 	enemy_base_pos = Vector2(1037, 530)
 	
 	game_time = 0
-	player_gold = 50
-	player_gold_gen = 5
+	player_gold = GameState.player_initial_gold
+	player_gold_gen = GameState.player_initial_gold_gen

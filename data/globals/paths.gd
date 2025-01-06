@@ -10,6 +10,7 @@ const COMMAND_PANEL = SCENES + "command_panel/"
 
 const MAIN_MENU = MENUS + "main_menu/"
 const HELP_MENU = MENUS + "help_menu/"
+const FACTION_SELECT_MENU = MENUS + "faction_select_menu/"
 const GAME_OVER_MENU = MENUS + "game_over_menu/"
 
 const MONSTER = UNITS + "monster/"

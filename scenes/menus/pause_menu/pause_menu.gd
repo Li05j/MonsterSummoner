@@ -59,4 +59,5 @@ func _on_resume_button_pressed() -> void:
 func _on_quit_button_pressed() -> void:
 	if visible:
 		close()
+		GameState.reset_game_state()
 		get_tree().change_scene_to_file(Paths.MAIN_MENU + "main_menu.tscn")

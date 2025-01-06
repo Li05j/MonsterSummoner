@@ -8,8 +8,8 @@ func _ready() -> void:
 	#$Buttons/StartGame.grab_focus()
 
 func _on_start_btn_pressed() -> void:
-	LevelState.reset_level_state()
-	get_tree().change_scene_to_file(Paths.LEVELS + "level1.tscn")
+	GameState.reset_game_state()
+	get_tree().change_scene_to_file(Paths.FACTION_SELECT_MENU + "faction_select_menu.tscn")
 
 func _on_help_btn_pressed() -> void:
 	get_tree().change_scene_to_file(Paths.HELP_MENU + "help_menu.tscn")

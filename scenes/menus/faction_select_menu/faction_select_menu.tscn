@@ -1,0 +1,87 @@
+[gd_scene load_steps=4 format=3 uid="uid://celljqtrdj7tg"]
+
+[ext_resource type="Script" path="res://scenes/menus/faction_select_menu/faction_select_menu.gd" id="1_f7rs0"]
+[ext_resource type="Texture2D" uid="uid://xy8k70jj73lh" path="res://addons/Sprites/pixel-art-cloud-background [photoutils.com].png" id="2_fxk1k"]
+[ext_resource type="Theme" uid="uid://6shp5ck1tnja" path="res://addons/Themes/FlatUI4/kenneyUI.tres" id="3_mx87t"]
+
+[node name="FactionSelectMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_f7rs0")
+
+[node name="Background" type="TextureRect" parent="."]
+self_modulate = Color(1, 1, 1, 0.196078)
+z_index = -5
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_fxk1k")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -108.0
+offset_right = 108.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme = ExtResource("3_mx87t")
+theme_type_variation = &"GraphFrameTitleLabel"
+theme_override_font_sizes/font_size = 60
+text = "Select a Faction"
+
+[node name="Buttons" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -448.0
+offset_top = -69.0
+offset_right = 448.0
+offset_bottom = 69.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 100
+
+[node name="monster" type="Button" parent="Buttons"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_mx87t")
+text = "Monster"
+
+[node name="darkness" type="Button" parent="Buttons"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_mx87t")
+text = "Darkness"
+
+[node name="undead" type="Button" parent="Buttons"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_mx87t")
+text = "Undead"
+
+[node name="Back" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -42.251
+offset_right = 220.324
+grow_vertical = 0
+size_flags_vertical = 3
+theme = ExtResource("3_mx87t")
+text = "Back to Main Menu"
+
+[connection signal="pressed" from="Buttons/monster" to="." method="_on_monster_pressed"]
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]

@@ -19,6 +19,7 @@ enum Collision {
 	ENEMY_BASE = 1 << 5,
 	DETECT_ONLY = 1 << 6
 }
+enum Faction { NONE, MONSTER, DARKNESS, UNDEAD }
 
 func get_gold_drop(base_cost: int) -> int:
 	return floor(base_cost / 5.0)
