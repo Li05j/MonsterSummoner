@@ -39,12 +39,21 @@ text = "YOU LOSE!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Gametime" type="Label" parent="Stats"]
+[node name="LevelTime" type="Label" parent="Stats"]
 layout_mode = 2
 theme = ExtResource("2_w4fbt")
 theme_type_variation = &"HeaderMedium"
 theme_override_font_sizes/font_size = 24
-text = "Time: 42:42:42"
+text = "Level Time: 42:42:42"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TotalTime" type="Label" parent="Stats"]
+layout_mode = 2
+theme = ExtResource("2_w4fbt")
+theme_type_variation = &"HeaderMedium"
+theme_override_font_sizes/font_size = 24
+text = "Total Time: 42:42:42"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -63,7 +72,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 15
 
-[node name="Restart" type="Button" parent="Buttons"]
+[node name="Continue" type="Button" parent="Buttons"]
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("2_w4fbt")
@@ -75,5 +84,4 @@ size_flags_vertical = 3
 theme = ExtResource("2_w4fbt")
 text = "Back To Main Menu"
 
-[connection signal="pressed" from="Buttons/Restart" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="Buttons/Back" to="." method="_on_back_pressed"]

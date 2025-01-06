@@ -1,6 +1,9 @@
 extends Node
 
+const ally_base_x = 115 # ally base
 const ground_y = 530 # global ground
+const summon_offset_x = 20
+
 const gravity = 200 # y gravity
 const on_spawn_i_frame = 0.75 # i frames in seconds on unit spawn
 const hp_bar_visible_time = 3 # how long the hp bar stays visible on hit

@@ -4,7 +4,6 @@ var player_initial_gold: int = 50
 var player_initial_gold_gen: int = 5
 
 var playing_as: Global.Faction = Global.Faction.NONE
-
 var total_game_time: float = 0
 
 func set_playing_as(faction: Global.Faction) -> void:
@@ -21,12 +20,16 @@ func get_command_panel_scene() -> PackedScene:
 		_:
 			return null
 
-func reset_game_state() -> void:
+func reset_without_changing_faction() -> void:
 	LevelState.reset_level_state()
-	
 	player_initial_gold = 50
 	player_initial_gold_gen = 5
-
-	playing_as = Global.Faction.NONE
-	
 	total_game_time = 0
+
+func restart() -> void:
+	reset_without_changing_faction()
+	LevelState.set_level_1()
+
+func reset_game_state() -> void:
+	reset_without_changing_faction()
+	playing_as = Global.Faction.NONE

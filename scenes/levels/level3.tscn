@@ -18,6 +18,7 @@ offset_right = 1848.0
 offset_bottom = 648.0
 
 [node name="Background" type="TextureRect" parent="Bg"]
+self_modulate = Color(0.65098, 0.741176, 1, 1)
 z_index = -5
 layout_mode = 1
 anchors_preset = 15
@@ -31,6 +32,7 @@ texture = ExtResource("1_tfwfj")
 flip_h = true
 
 [node name="Background2" type="TextureRect" parent="Bg"]
+self_modulate = Color(0.65098, 0.741176, 1, 1)
 z_index = -5
 layout_mode = 1
 anchors_preset = 15

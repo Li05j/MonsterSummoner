@@ -44,7 +44,7 @@ const darkknight_data = {
 const doomsday_data = {
 	"cc_immune": false,
 	"slow_immune": false,
-	"cost": 35,
+	"cost": 235,
 	"move_spd": 70,
 	"max_hp": 335,
 	"atk": 32,

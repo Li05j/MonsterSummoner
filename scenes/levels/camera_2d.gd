@@ -18,9 +18,6 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	var mouse_pos = get_viewport().get_mouse_position()
 	
-	if mouse_pos.y > _bottom_margin_for_mouse:
-		return
-	
 	# so that the camera doesnt wander into the void
 	if position.x < limit_left:
 		position.x = limit_left
@@ -28,11 +25,12 @@ func _process(delta: float) -> void:
 		position.x = limit_right - _viewport_size.x
 		
 	# Check right side of screen
-	if mouse_pos.x > _viewport_size.x - screen_margin:
-		_dir = 1
-	# Check left side of screen
-	elif mouse_pos.x < screen_margin:
-		_dir = -1
+	if mouse_pos.y <= _bottom_margin_for_mouse:
+		if mouse_pos.x > _viewport_size.x - screen_margin:
+			_dir = 1
+		# Check left side of screen
+		elif mouse_pos.x < screen_margin:
+			_dir = -1
 	
 	if Input.is_action_pressed("left"):
 		_dir = -1
@@ -64,8 +62,3 @@ func _set_camera_limit(top, bottom, left, right) -> void:
 	limit_top = top - _camera_offset
 	limit_right = right + _camera_offset
 	limit_bottom = bottom + _camera_offset
-	
-	print(limit_left)
-	print(limit_top)
-	print(limit_right)
-	print(limit_bottom)

@@ -2,20 +2,44 @@ class_name GameOverMenu extends Control
 
 @onready var _bg = $Bg
 @onready var _who_wins = $Stats/WhoWins
-@onready var _time = $Stats/Gametime
+@onready var _level_time = $Stats/LevelTime
+@onready var _total_time = $Stats/TotalTime
+
+@onready var _continue = $Buttons/Continue
 
 func _ready() -> void:
+	GameState.total_game_time += LevelState.game_time
 	if LevelState.who_wins == Global.Who.ALLY:
 		_bg.color = Color(0, 255, 0)
 		_who_wins.text = "You Win!"
+		if LevelState.level_number == LevelState.MAX_LVL_NUMBER:
+			_continue.visible = false
+		else:
+			_continue.text = "Next Level"
+			_continue.pressed.connect(_on_next_level_pressed)
 	if LevelState.who_wins == Global.Who.ENEMY:
 		_bg.color = Color(255, 0, 0)
 		_who_wins.text = "You Lose!"
-	_time.text = "Time: " + Utils.format_time(LevelState.game_time)
+		_continue.text = "Restart"
+		_continue.pressed.connect(_on_restart_pressed)
+	_level_time.text = "Level Time: " + Utils.format_time(LevelState.game_time)
+	_total_time.text = "Total Time: " + Utils.format_time(GameState.total_game_time)
+
+func _change_scene(scene_path: String) -> void:
+	get_tree().change_scene_to_file(scene_path)
+
+func _on_next_level_pressed() -> void:
+	if LevelState.level_number == 1:
+		LevelState.set_level_2()
+		call_deferred("_change_scene", Paths.LEVELS + "level2.tscn")
+	elif LevelState.level_number == 2:
+		LevelState.set_level_3()
+		call_deferred("_change_scene", Paths.LEVELS + "level3.tscn")
 
 func _on_restart_pressed() -> void:
-	LevelState.reset_level_state()
+	GameState.restart()
 	get_tree().change_scene_to_file(Paths.LEVELS + "level1.tscn")
 
 func _on_back_pressed() -> void:
+	GameState.reset_game_state()
 	get_tree().change_scene_to_file(Paths.MAIN_MENU + "main_menu.tscn")
