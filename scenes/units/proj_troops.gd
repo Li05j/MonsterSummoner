@@ -33,18 +33,6 @@ func _init_proj_max_range() -> void:
 func _set_proj_range() -> void:
 	pass
 
-func _get_enemies_in_range() -> Array:
-	var valid_enemies = []
-	for area in _atk_detect_box.get_overlapping_areas():
-		if !is_instance_valid(area):
-			continue
-			
-		var enemy_node = area.get_parent().get_parent()
-		if is_instance_valid(enemy_node):
-			if enemy_node._is_valid():
-				valid_enemies.append(enemy_node)
-	return valid_enemies
-
 func _wait_for_projectiles_on_death() -> void:
 	if _proj_counter > 0:
 		visible = false
@@ -67,7 +55,7 @@ func _on_dead_timer_timeout() -> void:
 ###########################################################
 
 func _by_distance(closest: bool) -> void:
-	var valid_enemies = _get_enemies_in_range()
+	var valid_enemies = _get_enemies_in_box(_atk_detect_box)
 	valid_enemies.sort_custom(
 		func(a, b):
 			var sort_way: bool = closest if _who == Global.Who.ALLY else !closest
@@ -77,7 +65,8 @@ func _by_distance(closest: bool) -> void:
 		var first = valid_enemies[0]
 		if !closest and (first is AllyBase or first is EnemyBase):
 			# If farthest, base has lowest prio
-			Utils.swap_array_elements(valid_enemies, 0, -1)
+			first = valid_enemies.pop_front()
+			valid_enemies.push_back(first)
 		_proj_range = abs(valid_enemies[0].global_position.x - global_position.x)
 	else:
 		_proj_range = _max_travel_range

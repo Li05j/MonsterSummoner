@@ -80,21 +80,12 @@ func _on_sprite_attack_frame_change() -> void:
 		
 	if _sprite.animation == "dead" and _sprite.frame == _dead_frame:
 		var explosion_area = _sprite.get_node("DeathExplosionArea")
-		
-		var valid_enemies = []
-		for area in explosion_area.get_overlapping_areas():
-			if !is_instance_valid(area):
-				continue
-			
-			var enemy_node = area.get_parent().get_parent()
-			if is_instance_valid(enemy_node):
-				if enemy_node._is_valid():
-					valid_enemies.append(enemy_node)
+		var valid_enemies = _get_enemies_in_box(explosion_area)
 	
-			if valid_enemies.size() == 0:
-				return
+		if valid_enemies.size() == 0:
+			return
 	
-			# Hit all enemies
-			for target in valid_enemies:
-				if is_instance_valid(target) and target._is_valid():
-					_deal_dmg(target, 2.0)
+		# Hit all enemies
+		for target in valid_enemies:
+			if is_instance_valid(target) and target._is_valid():
+				_deal_dmg(target, 2.0)

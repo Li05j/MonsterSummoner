@@ -28,16 +28,7 @@ func _set_enemy() -> void:
 	_atk_dmg_box.collision_mask = Global.Collision.PLAYER_UNIT | Global.Collision.PLAYER_BASE
 
 func _resolve_attack() -> void:
-	var valid_enemies = []
-	for area in _atk_dmg_box.get_overlapping_areas():
-		if !is_instance_valid(area):
-			continue
-			
-		var enemy_node = area.get_parent().get_parent()
-		if is_instance_valid(enemy_node):
-			if enemy_node._is_valid():
-				valid_enemies.append(enemy_node)
-	
+	var valid_enemies = _get_enemies_in_box(_atk_dmg_box)
 	if valid_enemies.size() == 0:
 		return
 	
@@ -57,15 +48,19 @@ func _resolve_attack() -> void:
 		var targets_left = _targets
 		if _who == Global.Who.ENEMY:
 			idx = valid_enemies.size() - 1
-	
-		while targets_left > 0:
-			if idx < 0 or idx >= valid_enemies.size():
-				break
+		var base = null
+		while targets_left > 0 and idx >= 0 and idx < valid_enemies.size():
 			var target = valid_enemies[idx]
+			if is_instance_valid(target) and (target is AllyBase or target is EnemyBase):
+				base = valid_enemies.pop_at(idx)
+				continue
 			if is_instance_valid(target) and target._is_valid():
 				_deal_dmg(target)
 				targets_left -= 1
 			idx += _dir
+		if targets_left:
+			if is_instance_valid(base) and base._is_valid():
+				_deal_dmg(base)
 
 func _on_sprite_attack_frame_change() -> void:
 	# Deal damage on a specific attack animation frame

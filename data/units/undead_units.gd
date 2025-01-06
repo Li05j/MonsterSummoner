@@ -44,7 +44,7 @@ const undead_witch_data = {
 const reaper_data = {
 	"cc_immune": false,
 	"slow_immune": false,
-	"cost": 50,
+	"cost": 250,
 	"move_spd": 105,
 	"max_hp": 375,
 	"atk": 20,

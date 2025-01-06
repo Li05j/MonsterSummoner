@@ -46,11 +46,11 @@ const giant_data = {
 	"slow_immune": false,
 	"cost": 265,
 	"move_spd": 35,
-	"max_hp": 1450,
+	"max_hp": 727,
 	"atk": 12,
 	"atk_spd": 4.5,
 	"atk_frame": 3,
 	"spwn_wait": 3.0,
 	"targets": -1,
-	"description": "Immune to control.\nKnockback (1.5) on hit.\nDamage reduction: 2.",
+	"description": "Immune to control.\nKnockback (1.5) on hit.\nDamage reduction: 7.",
 }

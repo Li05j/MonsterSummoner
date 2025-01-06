@@ -87,15 +87,7 @@ func _set_proj_range() -> void:
 
 func _resolve_attack() -> void:
 	if _melee:
-		var valid_enemies = []
-		for area in _atk_dmg_box.get_overlapping_areas():
-			if !is_instance_valid(area):
-				continue
-			
-			var enemy_node = area.get_parent().get_parent()
-			if is_instance_valid(enemy_node):
-				if enemy_node._is_valid():
-					valid_enemies.append(enemy_node)
+		var valid_enemies = _get_enemies_in_box(_atk_dmg_box)
 	
 		if valid_enemies.size() == 0:
 			return

@@ -140,6 +140,22 @@ func _recalculate_tints():
 	_sprite.self_modulate = final_color
 
 ##########################################################
+##### Helpers that is probably not supposed to be here #####
+##########################################################
+
+func _get_enemies_in_box(box: Area2D) -> Array:
+	var valid_enemies = []
+	for area in box.get_overlapping_areas():
+		if !is_instance_valid(area):
+			continue
+			
+		var enemy_node = area.get_parent().get_parent()
+		if is_instance_valid(enemy_node):
+			if enemy_node._is_valid():
+				valid_enemies.append(enemy_node)
+	return valid_enemies
+
+##########################################################
 
 # this acts similarly to a constructor
 func set_who(who: Global.Who) -> void:

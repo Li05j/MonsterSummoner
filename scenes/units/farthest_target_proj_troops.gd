@@ -22,14 +22,19 @@ func _set_enemy() -> void:
 	_atk_range_box.collision_mask = Global.Collision.PLAYER_UNIT | Global.Collision.PLAYER_BASE
 	super()
 
-func _get_enemies_in_range() -> Array:
-	var valid_enemies = []
-	for area in _atk_range_box.get_overlapping_areas():
-		if !is_instance_valid(area):
-			continue
-			
-		var enemy_node = area.get_parent().get_parent()
-		if is_instance_valid(enemy_node):
-			if enemy_node._is_valid():
-				valid_enemies.append(enemy_node)
-	return valid_enemies
+func _by_distance(closest: bool) -> void:
+	var valid_enemies = _get_enemies_in_box(_atk_range_box)
+	valid_enemies.sort_custom(
+		func(a, b):
+			var sort_way: bool = closest if _who == Global.Who.ALLY else !closest
+			return a.global_position.x < b.global_position.x if sort_way else a.global_position.x > b.global_position.x
+	)
+	if valid_enemies.size():
+		var first = valid_enemies[0]
+		if !closest and (first is AllyBase or first is EnemyBase):
+			# If farthest, base has lowest prio
+			first = valid_enemies.pop_front()
+			valid_enemies.push_back(first)
+		_proj_range = abs(valid_enemies[0].global_position.x - global_position.x)
+	else:
+		_proj_range = _max_travel_range
