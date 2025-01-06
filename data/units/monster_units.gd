@@ -16,11 +16,11 @@ const goblin_data = {
 const slime_data = {
 	"cc_immune": false,
 	"slow_immune": false,
-	"cost": 60,
+	"cost": 55,
 	"move_spd": 65,
 	"max_hp": 43,
 	"atk": 67,
-	"atk_spd": 2.45,
+	"atk_spd": 2.25,
 	"atk_frame": 3,
 	"spwn_wait": 0.75,
 	"targets": 1,
@@ -32,13 +32,13 @@ const iceworm_data = {
 	"slow_immune": true,
 	"cost": 120,
 	"move_spd": 80,
-	"max_hp": 195,
+	"max_hp": 185,
 	"atk": 5,
-	"atk_spd": 1.25,
+	"atk_spd": 1.35,
 	"atk_frame": 10,
 	"spwn_wait": 1.5,
 	"targets": 5,
-	"description": "Immune to slow.\nSlow (1.75) on hit.",
+	"description": "Immune to slow.\nSlow (1.35) on hit.",
 }
 
 const giant_data = {
@@ -47,10 +47,13 @@ const giant_data = {
 	"cost": 265,
 	"move_spd": 35,
 	"max_hp": 727,
-	"atk": 12,
-	"atk_spd": 4.5,
+	"atk": 10,
+	"atk_spd": 4.75,
 	"atk_frame": 3,
 	"spwn_wait": 3.0,
 	"targets": -1,
-	"description": "Immune to control.\nKnockback (1.5) on hit.\nDamage reduction: 7.",
+	"description": "Immune to control.\nKnockback (1.2) on hit.\nDamage reduction: 7.",
+	
+	"def": 7,
+	"knockback_time": 1.2
 }

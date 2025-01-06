@@ -1,10 +1,12 @@
 class_name Reaper extends MeleeTroops
 
 const _summon_count: int = 3
-const skull_animation_scene = preload(Paths.ANIMATIONS + "skull_animation.tscn")
-const bat_scene = preload(Paths.UNDEAD + "bat.tscn")
+const _skull_animation_scene = preload(Paths.ANIMATIONS + "skull_animation.tscn")
+const _bat_scene = preload(Paths.UNDEAD + "bat.tscn")
 
-const skull_y_offset = -120
+const _skull_y_offset = -120
+
+var _original_scale
 
 func _init_stats() -> void:
 	_not_interactable = true
@@ -24,6 +26,10 @@ func _init_stats() -> void:
 	_spwn_wait = UndeadUnits.reaper_data.spwn_wait
 	
 	_targets = UndeadUnits.reaper_data.targets
+
+func _init_misc() -> void:
+	super()
+	_original_scale = _sprite.scale
 
 func _resolve_attack() -> void:
 	var valid_enemies = _get_enemies_in_box(_atk_dmg_box)
@@ -56,14 +62,26 @@ func _attack_special_effects(enemy) -> void:
 		enemy._take_dmg(enemy._max_hp)
 		_on_kill_special_effects(enemy)
 
+func _add_cc(cc: bool) -> void:
+	if cc:
+		_cc_count += 1
+		_attack_cd_timer.set_paused(true)
+		_sprite.play("idle")
+		if _sprite.scale > _original_scale:
+			_sprite.scale /= 1.5
+	if !cc:
+		_cc_count -= 1
+		if _cc_count == 0:
+			_attack_cd_timer.set_paused(false)
+
 func _on_kill_special_effects(enemy) -> void:
 	if enemy is not BaseTroops or enemy.a_summon:
 		return
-	var skull = skull_animation_scene.instantiate()
-	skull.global_position = Vector2(enemy.global_position.x, enemy.global_position.y + skull_y_offset)
+	var skull = _skull_animation_scene.instantiate()
+	skull.global_position = Vector2(enemy.global_position.x, enemy.global_position.y + _skull_y_offset)
 	LevelState.current_level.add_child(skull)
 	
-	var bat = bat_scene.instantiate()
+	var bat = _bat_scene.instantiate()
 	LevelState.current_level.add_child(bat)
 	bat.set_who(_who)
 	# overwrite position
@@ -71,7 +89,7 @@ func _on_kill_special_effects(enemy) -> void:
 	
 	var current_count = 1
 	while current_count < _summon_count:
-		bat = bat_scene.instantiate()
+		bat = _bat_scene.instantiate()
 		var min = -60
 		var max = 60
 		if _who == Global.Who.ALLY:

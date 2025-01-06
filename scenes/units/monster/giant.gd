@@ -21,8 +21,7 @@ func _init_stats() -> void:
 	
 	_targets = MonsterUnits.giant_data.targets
 	
+	_def = MonsterUnits.giant_data.def
+	
 func _attack_special_effects(enemy) -> void:
-	enemy.knockback(1.5)
-
-func _final_damage(damage: int) -> int:
-	return max(1, damage - 7)
+	enemy.knockback(MonsterUnits.giant_data.knockback_time)

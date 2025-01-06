@@ -326,16 +326,16 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_owg38")
 }, {
-"duration": 1.5,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_dv22v")
 }, {
-"duration": 1.5,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_nfpes")
 }, {
-"duration": 1.5,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_30anj")
 }, {
-"duration": 1.5,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_yt4wj")
 }, {
 "duration": 1.0,
@@ -358,7 +358,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"attack",
-"speed": 9.0
+"speed": 11.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -464,9 +464,9 @@ offset = Vector2(0, -35)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_onkip")
-animation = &"dead"
+animation = &"attack"
 autoplay = "idle"
-frame = 2
+frame = 15
 frame_progress = 1.0
 offset = Vector2(0, -14)
 

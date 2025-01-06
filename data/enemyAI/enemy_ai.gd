@@ -5,15 +5,15 @@ class_name EnemyAI extends Node
 #var iceworm_scene = preload(Paths.MONSTER + "iceworm.tscn")
 #var giant_scene = preload(Paths.MONSTER + "giant.tscn")
 
-#var shadowarcher_scene = preload(Paths.DARKNESS + "shadowarcher.tscn")
-#var nightborne_scene = preload(Paths.DARKNESS + "nightborne.tscn")
-#var darkknight_scene = preload(Paths.DARKNESS + "darkknight.tscn")
-#var doomsday_scene = preload(Paths.DARKNESS + "doomsday.tscn")
+var shadowarcher_scene = preload(Paths.DARKNESS + "shadowarcher.tscn")
+var nightborne_scene = preload(Paths.DARKNESS + "nightborne.tscn")
+var darkknight_scene = preload(Paths.DARKNESS + "darkknight.tscn")
+var doomsday_scene = preload(Paths.DARKNESS + "doomsday.tscn")
 
-var skeleton_scene = preload(Paths.UNDEAD + "skeleton.tscn")
-var ghost_scene = preload(Paths.UNDEAD + "ghost.tscn")
-var undeadwitch_scene = preload(Paths.UNDEAD + "undeadwitch.tscn")
-var reaper_scene = preload(Paths.UNDEAD + "reaper.tscn")
+#var skeleton_scene = preload(Paths.UNDEAD + "skeleton.tscn")
+#var ghost_scene = preload(Paths.UNDEAD + "ghost.tscn")
+#var undeadwitch_scene = preload(Paths.UNDEAD + "undeadwitch.tscn")
+#var reaper_scene = preload(Paths.UNDEAD + "reaper.tscn")
 
 var enemy_base: EnemyBase
 var enemy_gold: int = 50
@@ -98,32 +98,46 @@ func _on_unit_died(who, gold_drop):
 func summon(which: int) -> void:
 	var scene
 	match which:
+		#1: 
+			#if _try_to_purchase(UndeadUnits.skeleton_data.cost):
+				#scene = skeleton_scene.instantiate()
+			#else:
+				#return
+		#2: 
+			#if _try_to_purchase(UndeadUnits.ghost_data.cost):
+				#scene = ghost_scene.instantiate()
+			#else:
+				#return
+		#3: 
+			#if _try_to_purchase(UndeadUnits.undead_witch_data.cost):
+				#scene = undeadwitch_scene.instantiate()
+			#else:
+				#return
+		#4: 
+			#if _try_to_purchase(UndeadUnits.reaper_data.cost):
+				#scene = reaper_scene.instantiate()
+			#else:
+				#return
 		1: 
-			
-			if _try_to_purchase(UndeadUnits.skeleton_data.cost):
-				scene = skeleton_scene.instantiate()
+			if _try_to_purchase(DarknessUnits.shadowarcher_data.cost):
+				scene = shadowarcher_scene.instantiate()
 			else:
 				return
 		2: 
-			if _try_to_purchase(UndeadUnits.ghost_data.cost):
-				scene = ghost_scene.instantiate()
+			if _try_to_purchase(DarknessUnits.nightborne_data.cost):
+				scene = nightborne_scene.instantiate()
 			else:
 				return
 		3: 
-			if _try_to_purchase(UndeadUnits.undead_witch_data.cost):
-				scene = undeadwitch_scene.instantiate()
+			if _try_to_purchase(DarknessUnits.darkknight_data.cost):
+				scene = darkknight_scene.instantiate()
 			else:
 				return
 		4: 
-			if _try_to_purchase(UndeadUnits.reaper_data.cost):
-				scene = reaper_scene.instantiate()
+			if _try_to_purchase(DarknessUnits.doomsday_data.cost):
+				scene = doomsday_scene.instantiate()
 			else:
 				return
-		#5: 
-			#if _try_to_purchase(UndeadUnits.bat_data.cost):
-				#scene = bat_scene.instantiate()
-			#else:
-				#return
 		_: return
 	LevelState.current_level.add_child(scene)
 	scene.set_who(Global.Who.ENEMY)

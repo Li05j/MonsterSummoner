@@ -28,6 +28,9 @@ var _spd_scale: float = 1.0 # animation rate, low means slow
 var _targets: int = 1 # how many targets, -1 means all in range, else closest first
 var _cc_rate: float = 1.0 # cc effectiveness, when 0 then it is equal to immune
 
+var _def: int = 0
+var _atk_rate: float = 1.0
+
 ##### All CC Variables #####
 
 var _is_knockback: bool = false
@@ -159,7 +162,7 @@ func _resolve_attack() -> void:
 	pass
 
 func _deal_dmg(enemy, modifier: float = 1.0, flat_dmg: int = 0, killer = null) -> void:
-	var kill: bool = enemy._take_dmg(_atk * modifier + flat_dmg)
+	var kill: bool = enemy._take_dmg(_get_final_atk() * modifier + flat_dmg)
 	_attack_special_effects(enemy)
 	if kill and killer:
 		killer._on_kill_special_effects(enemy)
@@ -229,6 +232,16 @@ func _on_sprite_attack_frame_change() -> void:
 		_resolve_attack()
 
 ##########################################################
+##### Stat getters #####
+##########################################################
+
+func _final_damage(damage: int) -> int:
+	return max(1, (damage - _def) * _dmg_rate)
+
+func _get_final_atk() -> int:
+	return floor(_atk * _atk_rate)
+
+##########################################################
 ##### All CC interactions #####
 ##########################################################
 
@@ -244,7 +257,7 @@ func slow(duration: float) -> void:
 	_is_slowed = true
 	
 	var actual_duration = duration * _cc_rate
-	_modify_spd_scale(0.5, false)
+	_modify_spd_scale(0.6, false)
 	_apply_tint("slow", Color(0, 0, 1))
 	
 	_new_temp_timer("slow_timer", "_on_slow_timeout", actual_duration).start()
@@ -325,7 +338,7 @@ func _on_cc_timeout(timer_name: String) -> void:
 
 func _on_slow_timeout(timer_name: String) -> void:
 	_is_slowed = false
-	_modify_spd_scale(0.5, true)
+	_modify_spd_scale(0.6, true)
 	_remove_tint("slow")
 	_free_temp_timer(timer_name)
 

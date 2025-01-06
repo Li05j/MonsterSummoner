@@ -19,7 +19,7 @@ const nightborne_data = {
 	"cost": 65,
 	"move_spd": 100,
 	"max_hp": 76,
-	"atk": 13,
+	"atk": 11,
 	"atk_spd": 1.5,
 	"atk_frame": 9,
 	"spwn_wait": 0.75,

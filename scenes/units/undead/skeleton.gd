@@ -4,8 +4,6 @@ var _shield_timer: Timer
 var _has_shielded: bool = false
 const _shield_duration = 5.0 # seconds
 
-var def: int = 0
-
 func _init_stats() -> void:
 	_not_interactable = true
 	_is_invincible = true
@@ -34,14 +32,11 @@ func _init_timers() -> void:
 
 func _hurt_reaction() -> void:
 	super()
-	if !_has_shielded and !_cc_count and get_hp_percent() <= 0.5:
+	if !_has_shielded and !_cc_count and get_hp_percent() <= 0.33:
 		_shield()
 	if _during_special:
 		_v_x = 0
 		_sprite.play("special")
-
-func _final_damage(damage: int) -> int:
-	return max(1, damage - def)
 
 func _shield() -> void:
 	_has_shielded = true
@@ -49,14 +44,14 @@ func _shield() -> void:
 		_during_special = true
 		_is_cc_immune = true
 		
-		def = 10
+		_def += UndeadUnits.skeleton_data.increased_def
 		_attack_cd_timer.start(5.0)
 		_shield_timer.start()
 
 func _on_shield_timeout() -> void:
 	_during_special = false
 	_is_cc_immune = false
-	def = 0
+	_def -= UndeadUnits.skeleton_data.increased_def
 
 func _on_sprite_animation_finished() -> void:
 	super()

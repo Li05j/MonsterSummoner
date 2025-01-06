@@ -10,6 +10,8 @@ class_name BattleUnit extends Unit
 var _max_hp: int = 1
 var _current_hp: int = 1
 
+var _dmg_rate: float = 1.0
+
 ###########################################################
 
 # Called when the node enters the scene tree for the first time.
@@ -35,7 +37,7 @@ func _final_heal(amount: int) -> int:
 	return amount
 
 func _final_damage(damage: int) -> int:
-	return damage
+	return max(1, damage * _dmg_rate)
 
 ###########################################################
 
