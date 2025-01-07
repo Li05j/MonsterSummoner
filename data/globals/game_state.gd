@@ -10,6 +10,9 @@ var total_game_time: float = 0
 var total_restarts: int = 0
 var ally_base_hp_left: int = Global.max_base_hp
 
+var build1_count: int = 0
+var build2_count: int = 0
+
 func _ready() -> void:
 	EventBus.enemy_base_destroyed.connect(_on_enemy_base_destroyed)
 
@@ -28,8 +31,17 @@ func get_command_panel_scene() -> PackedScene:
 		_:
 			return null
 
+func save_upgrades(b1: int = 0, b2: int = 0, b3: int = 0, b4: int = 0):
+	build1_count = b1
+	build2_count = b2
+
 func remove_enemy_faction(faction: Global.Faction) -> void:
 	enemy_factions_left.erase(faction)
+
+func restart() -> int:
+	total_restarts += 1
+	total_game_time -= LevelState.game_time
+	return LevelState.restart_level()
 
 func reset_without_changing_faction() -> void:
 	LevelState.reset_level_state()
@@ -38,11 +50,8 @@ func reset_without_changing_faction() -> void:
 	total_game_time = 0
 	enemy_factions_left = Global.Faction.values()
 	enemy_factions_left.erase(Global.Faction.NONE)
-
-func restart() -> int:
-	total_restarts += 1
-	total_game_time -= LevelState.game_time
-	return LevelState.restart_level()
+	build1_count = 0
+	build2_count = 0
 
 func reset_game_state() -> void:
 	reset_without_changing_faction()

@@ -21,8 +21,6 @@ func _init_misc() -> void:
 	super()
 	_current_hp = GameState.ally_base_hp_left
 	_hp_bar.value = _current_hp
-	print(_max_hp)
-	print(_current_hp)
 
 func _connect_signals() -> void:
 	super()

@@ -13,7 +13,7 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("cheat"):
-		get_node("Enemy_base")._take_dmg(1000)
+		get_node("Enemy_base")._take_dmg(9999)
 		
 func _process(delta: float) -> void:
 	_update_game_time(delta)

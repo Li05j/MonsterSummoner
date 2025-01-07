@@ -2,7 +2,7 @@ extends Camera2D
 
 @onready var _map = get_parent().get_node("Bg")
 
-@export var camera_speed: float = 500.0  # Adjust speed as needed
+@export var camera_speed: float = 750.0  # Adjust speed as needed
 @export var screen_margin: float = 150.0  # Distance from screen edge to trigger movement
 
 var _viewport_size

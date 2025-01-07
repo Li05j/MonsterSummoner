@@ -16,11 +16,6 @@ class_name CommandPanel extends Panel
 @onready var build3 = building_buttons.get_node("Build3")
 @onready var build4 = building_buttons.get_node("Build4")
 
-#var scene1 = preload(Paths.MONSTER + "goblin.tscn")
-#var scene2 = preload(Paths.MONSTER + "slime.tscn")
-#var scene3 = preload(Paths.MONSTER + "iceworm.tscn")
-#var scene4 = preload(Paths.MONSTER + "giant.tscn")
-
 var unit1_data
 var unit2_data
 var unit3_data
@@ -34,14 +29,18 @@ var unit4_cost
 var build1_cost = BuildingsData.gold_mine.cost
 var build2_cost = BuildingsData.lab.cost
 
+var build1_count = 0
+var build2_count = 0
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	_init_unit_base_data()
 	_init_unit_additional_data()
-	_init_unit_price()
-	_init_building_price()
-	_init_text_display()
-	_init_tooltips()
+	_apply_past_upgrades()
+	_init_unit_price_text()
+	_init_building_price_text()
+	_init_other_text_display()
+	_init_tooltips_text()
 	_connect_signals()
 
 ############ OVERWRITE these please . ############
@@ -87,22 +86,31 @@ func _init_unit_additional_data() -> void:
 	unit3_cost = unit3_data.cost
 	unit4_cost = unit4_data.cost
 
-func _init_unit_price() -> void:
+func _apply_past_upgrades() ->  void:
+	build1_count = GameState.build1_count
+	build2_count = GameState.build2_count
+	
+	for i in build1_count:
+		_apply_build_1_benefits()
+	for i in build2_count:
+		_apply_build_2_benefits()
+
+func _init_unit_price_text() -> void:
 	unit1.get_node("Cost").text = str(unit1_cost)
 	unit2.get_node("Cost").text = str(unit2_cost)
 	unit3.get_node("Cost").text = str(unit3_cost)
 	unit4.get_node("Cost").text = str(unit4_cost)
 
-func _init_building_price() -> void:
+func _init_building_price_text() -> void:
 	build1.get_node("Cost").text = str(build1_cost)
 	build2.get_node("Cost").text = str(build2_cost)
 	build3.get_node("Cost").text = "400"
 	build4.get_node("Cost").text = "9999"
 
-func _init_text_display() -> void:
+func _init_other_text_display() -> void:
 	_update_gold_display_text()
 
-func _init_tooltips() -> void:
+func _init_tooltips_text() -> void:
 	unit1.tooltip_text = _write_tooltip(unit1_data)
 	unit2.tooltip_text = _write_tooltip(unit2_data)
 	unit3.tooltip_text = _write_tooltip(unit3_data)
@@ -113,6 +121,7 @@ func _init_tooltips() -> void:
 
 func _connect_signals() -> void:
 	EventBus.player_gold_text_changed.connect(_update_gold_display_text)
+	EventBus.enemy_base_destroyed.connect(_on_enemy_base_destroyed)
 
 func _write_tooltip(data: Dictionary) -> String:
 	return "HP: %s\nAttack: %s\nAttack Rate: %s\nTargets: %s\n\n%s" % [
@@ -158,6 +167,9 @@ func _on_gold_gen_timer_timeout() -> void:
 	LevelState.player_gold += LevelState.player_gold_gen
 	_update_gold_display_text()
 
+func _on_enemy_base_destroyed() -> void:
+	GameState.save_upgrades(build1_count, build2_count)
+
 func _on_unit_1_pressed() -> void:
 	_summon(unit1_cost, _get_scene1())
 
@@ -172,22 +184,30 @@ func _on_unit_4_pressed() -> void:
 
 func _on_build_1_pressed() -> void:
 	if LevelState.player_gold >= build1_cost:
-		var new_gold_gen = floor(LevelState.player_gold_gen * BuildingsData.gold_mine.income_increase_rate)
-		LevelState.player_gold_gen += max(1, new_gold_gen)
+		build1_count += 1
 		LevelState.player_gold -= build1_cost
-		build1_cost = floor(build1_cost * BuildingsData.gold_mine.price_increase_rate)
+		_apply_build_1_benefits()
 		_update_gold_display_text()
 		_update_buildings_price_text()
 
+func _apply_build_1_benefits() -> void:
+	var new_gold_gen = floor(LevelState.player_gold_gen * BuildingsData.gold_mine.income_increase_rate)
+	LevelState.player_gold_gen += max(1, new_gold_gen)
+	build1_cost = floor(build1_cost * BuildingsData.gold_mine.price_increase_rate)
+
 func _on_build_2_pressed() -> void:
 	if LevelState.player_gold >= build2_cost:
-		_update_units_price(BuildingsData.lab.reduction_percent)
-		_update_buildings_price(BuildingsData.lab.reduction_percent)
+		build2_count += 1
 		LevelState.player_gold -= build2_cost
-		build2_cost = floor(build2_cost * BuildingsData.lab.price_increase_rate)
+		_apply_build_2_benefits()
 		_update_gold_display_text()
 		_update_units_price_text()
 		_update_buildings_price_text()
+
+func _apply_build_2_benefits() -> void:
+	_update_units_price(BuildingsData.lab.reduction_percent)
+	_update_buildings_price(BuildingsData.lab.reduction_percent)
+	build2_cost = floor(build2_cost * BuildingsData.lab.price_increase_rate)
 
 func _on_build_3_pressed() -> void:
 	pass # Replace with function body.
