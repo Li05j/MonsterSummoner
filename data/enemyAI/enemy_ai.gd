@@ -11,7 +11,7 @@ var unit3_scene: PackedScene
 var unit4_scene: PackedScene
 
 var enemy_base: EnemyBase
-var enemy_gold: int = 25
+var enemy_gold: int = 35
 var enemy_gold_gen: int = 5
 
 var gold_gen_timer: Timer
@@ -31,7 +31,7 @@ func _ready() -> void:
 		3: behavior = Level3AIBehavior.new()
 		_: behavior = Level1AIBehavior.new()
 	behavior.init(self)
-	
+
 	EventBus.unit_died.connect(_on_unit_died)
 	
 	enemy_base = LevelState.current_level.get_node("Enemy_base")
@@ -107,7 +107,7 @@ func _check_if_affordable(cost: int) -> bool:
 
 func _on_gold_gen_timeout() -> void:
 	enemy_gold += enemy_gold_gen
-	print(enemy_gold)
+	#print(enemy_gold)
 
 func _on_gold_gen_increase_timeout() -> void:
 	enemy_gold_gen += 1

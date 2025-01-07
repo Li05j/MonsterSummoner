@@ -40,7 +40,6 @@ func remove_enemy_faction(faction: Global.Faction) -> void:
 
 func restart() -> int:
 	total_restarts += 1
-	total_game_time -= LevelState.game_time
 	return LevelState.restart_level()
 
 func reset_without_changing_faction() -> void:
@@ -48,14 +47,17 @@ func reset_without_changing_faction() -> void:
 	player_initial_gold = 50
 	player_initial_gold_gen = 5
 	total_game_time = 0
-	enemy_factions_left = Global.Faction.values()
-	enemy_factions_left.erase(Global.Faction.NONE)
+	total_restarts = 0
 	build1_count = 0
 	build2_count = 0
+	enemy_factions_left = Global.Faction.values()
+	enemy_factions_left.erase(Global.Faction.NONE)
+	ally_base_hp_left = Global.max_base_hp
 
 func reset_game_state() -> void:
 	reset_without_changing_faction()
 	playing_as = Global.Faction.NONE
 
 func _on_enemy_base_destroyed() -> void:
+	GameState.total_game_time += LevelState.game_time
 	ally_base_hp_left = LevelState.current_level.get_node("Ally_Base")._current_hp

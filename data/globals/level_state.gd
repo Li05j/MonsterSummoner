@@ -37,6 +37,8 @@ func reset_level_state() -> void:
 	enemy_ai = null
 	ally_base_pos = Vector2.ZERO
 	enemy_base_pos = Vector2.ZERO
+	
+	restarts = 0
 
 func restart_level() -> int:
 	restarts += 1

@@ -9,7 +9,6 @@ class_name GameOverMenu extends Control
 @onready var _continue = $Buttons/Continue
 
 func _ready() -> void:
-	GameState.total_game_time += LevelState.game_time
 	if LevelState.who_wins == Global.Who.ALLY:
 		_bg.color = Color(0, 255, 0)
 		_who_wins.text = "You Win!"
