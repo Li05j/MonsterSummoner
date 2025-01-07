@@ -33,26 +33,25 @@ func _resolve_attack() -> void:
 	else:
 		# sort from close to far first
 		valid_enemies.sort_custom(
-			func(a, b): 
-				return a.global_position.x < b.global_position.x
+			func(a, b):
+				if _who == Global.Who.ALLY:
+					return a.global_position.x < b.global_position.x # sort from left to right
+				else:
+					return a.global_position.x > b.global_position.x # sort from right to left
 				)
 	
 		var idx = 0
 		var targets_left = _targets
-		if _who == Global.Who.ENEMY:
-			idx = valid_enemies.size() - 1
 		var base = null
 		while targets_left > 0 and idx >= 0 and idx < valid_enemies.size():
 			var target = valid_enemies[idx]
 			if is_instance_valid(target) and (target is AllyBase or target is EnemyBase):
 				base = valid_enemies.pop_at(idx)
-				if _who == Global.Who.ENEMY:
-					idx += _dir
 				continue
 			if is_instance_valid(target) and target._is_valid():
 				_proj_owner._deal_dmg(target)
 				targets_left -= 1
-			idx += _dir
+			idx += 1
 		if targets_left:
 			if is_instance_valid(base) and base._is_valid():
 				_proj_owner._deal_dmg(base)

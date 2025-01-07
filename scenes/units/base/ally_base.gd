@@ -9,7 +9,7 @@ func _ready() -> void:
 	_connect_signals()
 
 func _init_stats() -> void:
-	_max_hp = 1000
+	_max_hp = Global.max_base_hp
 
 func _init_collisions() -> void:
 	_hitbox.collision_layer = Global.Collision.PLAYER_BASE
@@ -19,6 +19,14 @@ func _init_misc() -> void:
 	set_who(Global.Who.ALLY)
 	add_to_group("ally_unit")
 	super()
+	_current_hp = GameState.ally_base_hp_left
+	_hp_bar.value = _current_hp
+	print(_max_hp)
+	print(_current_hp)
+
+func _connect_signals() -> void:
+	super()
+	EventBus.enemy_base_destroyed.connect(_on_enemy_base_destroyed)
 
 func _dead() -> void:
 	super()
@@ -31,3 +39,6 @@ func _dead() -> void:
 func _on_dead_timer_timeout() -> void:
 	super()
 	get_tree().change_scene_to_file(Paths.GAME_OVER_MENU + "game_over_menu.tscn")
+
+func _on_enemy_base_destroyed() -> void:
+	_is_invincible = true

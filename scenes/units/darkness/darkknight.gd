@@ -2,7 +2,7 @@ class_name DarkKnight extends MeleeTroops
 
 var _berserk_timer: Timer
 var _has_gone_berserk = false
-const _berserk_duration = 4.0 # seconds
+const _berserk_duration = DarknessUnits.darkknight_data.duration # seconds
 
 func _init_stats() -> void:
 	_not_interactable = true
@@ -29,7 +29,7 @@ func _init_timers() -> void:
 
 func _hurt_reaction() -> void:
 	super()
-	if !_has_gone_berserk and get_hp_percent() <= 0.25:
+	if !_has_gone_berserk and get_hp_percent() <= DarknessUnits.darkknight_data.threshold:
 		_berserk()
 
 func _berserk() -> void:

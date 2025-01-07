@@ -32,7 +32,7 @@ func _init_timers() -> void:
 
 func _hurt_reaction() -> void:
 	super()
-	if !_has_shielded and !_cc_count and get_hp_percent() <= 0.33:
+	if !_has_shielded and !_cc_count and get_hp_percent() <= UndeadUnits.skeleton_data.threshold:
 		_shield()
 	if _during_special:
 		_v_x = 0

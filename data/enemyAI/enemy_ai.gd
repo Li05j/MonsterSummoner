@@ -11,7 +11,7 @@ var unit3_scene: PackedScene
 var unit4_scene: PackedScene
 
 var enemy_base: EnemyBase
-var enemy_gold: int = 50
+var enemy_gold: int = 25
 var enemy_gold_gen: int = 5
 
 var gold_gen_timer: Timer
@@ -25,8 +25,12 @@ var critical_1_flag: bool = false
 var critical_2_flag: bool = false
 
 func _ready() -> void:
-	behavior = Level1AIBehavior.new()
-	behavior.set_ai(self)
+	match LevelState.level_number:
+		1: behavior = Level1AIBehavior.new()
+		2: behavior = Level2AIBehavior.new()
+		3: behavior = Level3AIBehavior.new()
+		_: behavior = Level1AIBehavior.new()
+	behavior.init(self)
 	
 	EventBus.unit_died.connect(_on_unit_died)
 	

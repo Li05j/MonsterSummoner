@@ -11,6 +11,10 @@ var _game_time_update_steps = 0 # we let game time update visually every 11 step
 func _ready() -> void:
 	_init_level()
 
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("cheat"):
+		get_node("Enemy_base")._take_dmg(1000)
+		
 func _process(delta: float) -> void:
 	_update_game_time(delta)
 
@@ -23,14 +27,21 @@ func _init_level() -> void:
 	
 	_enemy_ai = EnemyAI.new()
 	LevelState.enemy_ai = _enemy_ai
-	if LevelState.level_number == 1:
-		_enemy_ai.init_scenes(GameState.playing_as)
+	
+	var enemy_faction: Global.Faction
+	if LevelState.restarts == 0:
+		if LevelState.level_number == 1:
+			enemy_faction = GameState.playing_as
+		else:
+			var factions_left = GameState.enemy_factions_left
+			var rand_idx: int = randi_range(0, factions_left.size() - 1)
+			enemy_faction = factions_left[rand_idx]
 	else:
-		var factions_left = GameState.enemy_factions_left
-		var rand_idx: int = randi_range(0, factions_left.size() - 1)
-		
-		_enemy_ai.init_scenes(factions_left[rand_idx])
-		GameState.remove_enemy_faction(factions_left[rand_idx])
+		enemy_faction = LevelState.current_enemy_faction
+	
+	_enemy_ai.init_scenes(enemy_faction)
+	LevelState.current_enemy_faction = enemy_faction
+	GameState.remove_enemy_faction(enemy_faction)
 	add_child(_enemy_ai)
 
 func _update_game_time(delta) -> void:

@@ -4,6 +4,7 @@ class_name GameOverMenu extends Control
 @onready var _who_wins = $Stats/WhoWins
 @onready var _level_time = $Stats/LevelTime
 @onready var _total_time = $Stats/TotalTime
+@onready var _restarts = $Stats/Restarts
 
 @onready var _continue = $Buttons/Continue
 
@@ -24,21 +25,21 @@ func _ready() -> void:
 		_continue.pressed.connect(_on_restart_pressed)
 	_level_time.text = "Level Time: " + Utils.format_time(LevelState.game_time)
 	_total_time.text = "Total Time: " + Utils.format_time(GameState.total_game_time)
+	_restarts.text = "Restarts this level: " + str(LevelState.restarts) + ", Total Restarts: " + str(GameState.total_restarts)
 
-func _change_scene(scene_path: String) -> void:
-	get_tree().change_scene_to_file(scene_path)
+#func _change_scene(scene_path: String) -> void:
+	#get_tree().change_scene_to_file(scene_path)
 
 func _on_next_level_pressed() -> void:
-	if LevelState.level_number == 1:
-		LevelState.set_level_2()
-		call_deferred("_change_scene", Paths.LEVELS + "level2.tscn")
-	elif LevelState.level_number == 2:
-		LevelState.set_level_3()
-		call_deferred("_change_scene", Paths.LEVELS + "level3.tscn")
+	var level = LevelState.next_level()
+	if level == 2: get_tree().change_scene_to_file(Paths.LEVELS + "level2.tscn")
+	elif level == 3: get_tree().change_scene_to_file(Paths.LEVELS + "level3.tscn")
 
 func _on_restart_pressed() -> void:
-	GameState.restart()
-	get_tree().change_scene_to_file(Paths.LEVELS + "level1.tscn")
+	var level = GameState.restart()
+	if level == 1: get_tree().change_scene_to_file(Paths.LEVELS + "level1.tscn")
+	elif level == 2: get_tree().change_scene_to_file(Paths.LEVELS + "level2.tscn")
+	elif level == 3: get_tree().change_scene_to_file(Paths.LEVELS + "level3.tscn")
 
 func _on_back_pressed() -> void:
 	GameState.reset_game_state()

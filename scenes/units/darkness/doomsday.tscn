@@ -373,7 +373,7 @@ size = Vector2(170, 53.3333)
 size = Vector2(150, 53.3333)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3pngw"]
-size = Vector2(23.7037, 53.3333)
+size = Vector2(35.5555, 53.3333)
 
 [node name="Doomsday" type="Node2D"]
 script = ExtResource("1_7d6t5")
@@ -437,7 +437,7 @@ debug_color = Color(0.709804, 0, 0.333333, 0.419608)
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/ChangeToMelee"]
-position = Vector2(11.8519, -26.6667)
+position = Vector2(17.7778, -26.6667)
 shape = SubResource("RectangleShape2D_3pngw")
 debug_color = Color(0.579323, 0.552135, 0.0159636, 0.42)
 

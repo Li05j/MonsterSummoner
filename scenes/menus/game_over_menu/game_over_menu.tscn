@@ -57,6 +57,15 @@ text = "Total Time: 42:42:42"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Restarts" type="Label" parent="Stats"]
+layout_mode = 2
+theme = ExtResource("2_w4fbt")
+theme_type_variation = &"HeaderMedium"
+theme_override_font_sizes/font_size = 24
+text = "tt"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Buttons" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8

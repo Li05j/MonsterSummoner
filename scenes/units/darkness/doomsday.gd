@@ -2,7 +2,7 @@ class_name Doomsday extends FarthestTargetProjTroops
 
 # Ranged (target farthest) until someone in melee range, then turn into melee only
 @onready var _change_to_melee_box = _sprite.get_node("ChangeToMelee")
-@onready var _melee_box = _sprite.get_node("MeleeArea")
+@onready var _melee_detect_box = _sprite.get_node("MeleeArea")
 @onready var _atk_dmg_box = _sprite.get_node("AtkDmgBoxArea")
 
 var _melee: bool = false
@@ -33,7 +33,8 @@ func _init_stats() -> void:
 func _init_collisions() -> void:
 	super()
 	_change_to_melee_box.collision_layer = Global.Collision.DETECT_ONLY
-	_melee_box.collision_layer = Global.Collision.DETECT_ONLY
+	_melee_detect_box.collision_layer = Global.Collision.DETECT_ONLY
+	_atk_dmg_box.collision_layer = Global.Collision.DETECT_ONLY
 
 func _connect_signals() -> void:
 	super()
@@ -55,12 +56,14 @@ func _move(delta: float) -> void:
 
 func _set_ally() -> void:
 	_change_to_melee_box.collision_mask = Global.Collision.ENEMY_UNIT | Global.Collision.ENEMY_BASE
-	_melee_box.collision_mask = Global.Collision.ENEMY_UNIT | Global.Collision.ENEMY_BASE
+	_melee_detect_box.collision_mask = Global.Collision.ENEMY_UNIT | Global.Collision.ENEMY_BASE
+	_atk_dmg_box.collision_mask = Global.Collision.ENEMY_UNIT | Global.Collision.ENEMY_BASE
 	super()
 
 func _set_enemy() -> void:
 	_change_to_melee_box.collision_mask = Global.Collision.PLAYER_UNIT | Global.Collision.PLAYER_BASE
-	_melee_box.collision_mask = Global.Collision.PLAYER_UNIT | Global.Collision.PLAYER_BASE
+	_melee_detect_box.collision_mask = Global.Collision.PLAYER_UNIT | Global.Collision.PLAYER_BASE
+	_atk_dmg_box.collision_mask = Global.Collision.PLAYER_UNIT | Global.Collision.PLAYER_BASE
 	super()
 
 func _change_to_melee() -> void:
@@ -75,7 +78,7 @@ func _change_to_melee() -> void:
 	
 	#_atk_detect_box.visible = false
 	_atk_detect_box.queue_free()
-	_atk_detect_box = _melee_box
+	_atk_detect_box = _melee_detect_box
 	
 	_atk_range_box.queue_free()
 	
@@ -94,10 +97,12 @@ func _resolve_attack() -> void:
 		if valid_enemies.size() == 0:
 			return
 	
-		# sort from close to far first
 		valid_enemies.sort_custom(
-			func(a, b): 
-				return a.global_position.x > b.global_position.x
+			func(a, b):
+				if _who == Global.Who.ALLY:
+					return a.global_position.x < b.global_position.x # sort from left to right
+				else:
+					return a.global_position.x > b.global_position.x # sort from right to left
 				)
 	
 		var target = valid_enemies[0]

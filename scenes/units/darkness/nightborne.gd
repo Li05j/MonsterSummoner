@@ -2,6 +2,8 @@ class_name Nightborne extends MeleeTroops
 
 # Dashes upon first contact and AOE on death
 
+@onready var _explosion_area = _sprite.get_node("DeathExplosionArea")
+
 var _dashed: bool = false
 const _dead_frame = 12
 
@@ -33,6 +35,18 @@ func _physics_process(delta: float) -> void:
 			global_position.y = Global.ground_y
 		_move(delta)
 
+func _init_collisions() -> void:
+	super()
+	_explosion_area.collision_layer = Global.Collision.DETECT_ONLY
+
+func _set_ally() -> void:
+	_explosion_area.collision_mask = Global.Collision.ENEMY_UNIT | Global.Collision.ENEMY_BASE
+	super()
+
+func _set_enemy() -> void:
+	_explosion_area.collision_mask = Global.Collision.PLAYER_UNIT | Global.Collision.PLAYER_BASE
+	super()
+
 func _move(delta: float) -> void:
 	if !_during_special and _cc_count == 0:
 		if _if_any_enemy_in_range():
@@ -46,10 +60,10 @@ func _move(delta: float) -> void:
 	
 	if _during_special:
 		var x = global_position.x
-		if x < LevelState.ally_base_pos.x:
-			global_position.x = LevelState.ally_base_pos.x
-		elif x > LevelState.enemy_base_pos.x:
-			global_position.x = LevelState.enemy_base_pos.x
+		if x < LevelState.ally_base_pos.x + Global.summon_offset_x * 2:
+			global_position.x = LevelState.ally_base_pos.x + Global.summon_offset_x * 2
+		elif x > LevelState.enemy_base_pos.x - Global.summon_offset_x * 2:
+			global_position.x = LevelState.enemy_base_pos.x - Global.summon_offset_x * 2
 			
 	if _v_x == 0 and _sprite.animation == "run":
 		_sprite.play("idle")
@@ -79,8 +93,7 @@ func _on_sprite_attack_frame_change() -> void:
 		_atk_dmg_box.monitoring = false
 		
 	if _sprite.animation == "dead" and _sprite.frame == _dead_frame:
-		var explosion_area = _sprite.get_node("DeathExplosionArea")
-		var valid_enemies = _get_enemies_in_box(explosion_area)
+		var valid_enemies = _get_enemies_in_box(_explosion_area)
 	
 		if valid_enemies.size() == 0:
 			return

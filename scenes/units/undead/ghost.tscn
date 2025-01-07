@@ -581,10 +581,10 @@ animations = [{
 size = Vector2(27.8261, 35.5553)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vrnwc"]
-size = Vector2(192, 35.5555)
+size = Vector2(172, 35.5555)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8r3go"]
-size = Vector2(52.0001, 35.5555)
+size = Vector2(64.0002, 35.5555)
 
 [node name="Ghost" type="Node2D"]
 script = ExtResource("1_raasa")
@@ -617,13 +617,13 @@ shape = SubResource("RectangleShape2D_7wg3o")
 [node name="AtkRangeBoxArea" type="Area2D" parent="AnimatedSprite2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/AtkRangeBoxArea"]
-position = Vector2(96, -17.7778)
+position = Vector2(86, -17.7778)
 shape = SubResource("RectangleShape2D_vrnwc")
 
 [node name="AtkDetectBoxArea" type="Area2D" parent="AnimatedSprite2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/AtkDetectBoxArea"]
-position = Vector2(25.9999, -17.7778)
+position = Vector2(31.9999, -17.7778)
 shape = SubResource("RectangleShape2D_8r3go")
 debug_color = Color(0.709804, 0, 0.333333, 0.419608)
 

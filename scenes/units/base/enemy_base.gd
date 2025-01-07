@@ -9,7 +9,7 @@ func _ready() -> void:
 	_connect_signals()
 
 func _init_stats() -> void:
-	_max_hp = 1000
+	_max_hp = Global.max_base_hp
 
 func _init_collisions() -> void:
 	_hitbox.collision_layer = Global.Collision.ENEMY_BASE
@@ -27,6 +27,9 @@ func _dead() -> void:
 		_sprite.play("dead")
 		_sprite.offset.y = -55
 		_dead_timer.start(Global.base_death_animation_duration)
+		
+		# Remember ally base hp
+		EventBus.enemy_base_destroyed.emit()
 
 func _on_dead_timer_timeout() -> void:
 	super()

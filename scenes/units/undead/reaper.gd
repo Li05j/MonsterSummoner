@@ -38,24 +38,24 @@ func _resolve_attack() -> void:
 		return
 		
 	valid_enemies.sort_custom(
-		func(a, b): 
-			return a.global_position.x < b.global_position.x
+		func(a, b):
+			if _who == Global.Who.ALLY:
+				return a.global_position.x < b.global_position.x # sort from left to right
+			else:
+				return a.global_position.x > b.global_position.x # sort from right to left
 			)
-	var idx = 0
-	if _who == Global.Who.ENEMY:
-		idx = valid_enemies.size() - 1
 	
 	# 1st target takes 2x damage
-	var target = valid_enemies[idx]
+	var target = valid_enemies[0]
 	if is_instance_valid(target) and target._is_valid():
 		_deal_dmg(target, 3.0, 0, self)
-	idx += _dir
 	
+	var idx = 1
 	while idx >= 0 and idx < valid_enemies.size():
 		target = valid_enemies[idx]
 		if is_instance_valid(target) and target._is_valid():
 			_deal_dmg(target, 1.0, 0, self)
-		idx += _dir
+		idx += 1
 
 func _attack_special_effects(enemy) -> void:
 	if enemy._is_valid() and enemy is BaseTroops and !enemy.a_summon and enemy.get_hp_percent() <= 0.1:

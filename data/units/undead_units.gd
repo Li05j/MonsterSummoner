@@ -11,9 +11,10 @@ const skeleton_data = {
 	"atk_frame": 6,
 	"spwn_wait": 0.75,
 	"targets": 2,
-	"description": "(Once) Changes to defence stance (5) when HP < 33%.",
+	"description": "(Once) Changes to defence stance (5) when HP < 50%.",
 	
 	"increased_def": 10,
+	"threshold": 0.5
 }
 const ghost_data = {
 	"cc_immune": false,
@@ -21,8 +22,8 @@ const ghost_data = {
 	"cost": 65,
 	"move_spd": 80,
 	"max_hp": 64,
-	"atk": 21,
-	"atk_spd": 1.6,
+	"atk": 15,
+	"atk_spd": 0.9,
 	"atk_frame": 11,
 	"spwn_wait": 0.75,
 	"targets": 1,
@@ -32,7 +33,7 @@ const ghost_data = {
 const undead_witch_data = {
 	"cc_immune": false,
 	"slow_immune": false,
-	"cost": 140,
+	"cost": 145,
 	"move_spd": 65,
 	"max_hp": 165,
 	"atk": 16,
@@ -48,7 +49,7 @@ const reaper_data = {
 	"slow_immune": false,
 	"cost": 250,
 	"move_spd": 105,
-	"max_hp": 300,
+	"max_hp": 200,
 	"atk": 20,
 	"atk_spd": 4.0,
 	"atk_frame": 1,

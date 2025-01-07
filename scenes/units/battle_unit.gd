@@ -1,6 +1,6 @@
 class_name BattleUnit extends Unit
 
-@onready var _hp_bar = $HpBar
+@onready var _hp_bar: TextureProgressBar = $HpBar
 
 ##########################################################
 ##### States #####

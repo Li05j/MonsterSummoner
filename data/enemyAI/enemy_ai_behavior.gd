@@ -15,6 +15,9 @@ var u2cost
 var u3cost
 var u4cost
 
+func init(enemy_ai: EnemyAI) -> void:
+	set_ai(enemy_ai)
+
 func set_ai(enemy_ai: EnemyAI) -> void:
 	ai = enemy_ai
 	u1cost = ai.unit1_data.cost
@@ -24,10 +27,10 @@ func set_ai(enemy_ai: EnemyAI) -> void:
 
 func get_pot_of_gold_value(critical: int) -> int:
 	if critical == 1:
-		return max(100, floor(LevelState.game_time))
+		return max(100, ai.enemy_gold_gen * 12)
 	if critical == 2:
-		return max(200, floor(LevelState.game_time))
-	return floor(LevelState.game_time / 3.5)
+		return max(200, ai.enemy_gold_gen * 12)
+	return ai.enemy_gold_gen * 10
 
 func generate_decision_wait_time() -> float:
 	return 0.1

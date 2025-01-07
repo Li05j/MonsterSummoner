@@ -7,13 +7,13 @@ func _init_unit_base_data() -> void:
 	unit4_data = MonsterUnits.giant_data
 
 func _get_scene1() -> PackedScene:
-	return preload(Paths.MONSTER + "goblin.tscn")
+	return load(Paths.MONSTER + "goblin.tscn")
 
 func _get_scene2() -> PackedScene:
-	return preload(Paths.MONSTER + "slime.tscn")
+	return load(Paths.MONSTER + "slime.tscn")
 
 func _get_scene3() -> PackedScene:
-	return preload(Paths.MONSTER + "iceworm.tscn")
+	return load(Paths.MONSTER + "iceworm.tscn")
 
 func _get_scene4() -> PackedScene:
-	return preload(Paths.MONSTER + "giant.tscn")
+	return load(Paths.MONSTER + "giant.tscn")

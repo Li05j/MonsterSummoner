@@ -7,6 +7,12 @@ var enemy_factions_left: Array = Global.Faction.values()
 var playing_as: Global.Faction = Global.Faction.NONE
 var total_game_time: float = 0
 
+var total_restarts: int = 0
+var ally_base_hp_left: int = Global.max_base_hp
+
+func _ready() -> void:
+	EventBus.enemy_base_destroyed.connect(_on_enemy_base_destroyed)
+
 func set_playing_as(faction: Global.Faction) -> void:
 	playing_as = faction
 	remove_enemy_faction(faction)
@@ -33,10 +39,14 @@ func reset_without_changing_faction() -> void:
 	enemy_factions_left = Global.Faction.values()
 	enemy_factions_left.erase(Global.Faction.NONE)
 
-func restart() -> void:
-	reset_without_changing_faction()
-	LevelState.set_level_1()
+func restart() -> int:
+	total_restarts += 1
+	total_game_time -= LevelState.game_time
+	return LevelState.restart_level()
 
 func reset_game_state() -> void:
 	reset_without_changing_faction()
 	playing_as = Global.Faction.NONE
+
+func _on_enemy_base_destroyed() -> void:
+	ally_base_hp_left = LevelState.current_level.get_node("Ally_Base")._current_hp
