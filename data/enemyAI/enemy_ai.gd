@@ -26,9 +26,16 @@ var critical_2_flag: bool = false
 
 func _ready() -> void:
 	match LevelState.level_number:
-		1: behavior = Level1AIBehavior.new()
-		2: behavior = Level2AIBehavior.new()
-		3: behavior = Level3AIBehavior.new()
+		1: 
+			behavior = Level1AIBehavior.new()
+		2: 
+			enemy_gold *= 2
+			enemy_gold_gen += 1
+			behavior = Level2AIBehavior.new()
+		3: 
+			enemy_gold *= 3
+			enemy_gold_gen += 2
+			behavior = Level3AIBehavior.new()
 		_: behavior = Level1AIBehavior.new()
 	behavior.init(self)
 
@@ -83,10 +90,14 @@ func init_scenes(faction: Global.Faction) -> void:
 func _process(delta: float) -> void:
 	if !critical_1_flag and enemy_base.get_hp_percent() <= behavior.critical_hp_1:
 		critical_1_flag = true
-		enemy_gold += behavior.get_pot_of_gold_value(1)
+		var amount = behavior.get_pot_of_gold_value(1)
+		print("critical 1: " + str(amount))
+		enemy_gold += amount
 	if !critical_2_flag and enemy_base.get_hp_percent() <= behavior.critical_hp_2:
 		critical_2_flag = true
-		enemy_gold += behavior.get_pot_of_gold_value(2)
+		var amount = behavior.get_pot_of_gold_value(2)
+		print("critical 2: " + str(amount))
+		enemy_gold += amount
 
 func _new_common_timer(
 	callable: Callable,
@@ -107,7 +118,7 @@ func _check_if_affordable(cost: int) -> bool:
 
 func _on_gold_gen_timeout() -> void:
 	enemy_gold += enemy_gold_gen
-	#print(enemy_gold)
+	print(enemy_gold)
 
 func _on_gold_gen_increase_timeout() -> void:
 	enemy_gold_gen += 1

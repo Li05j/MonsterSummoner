@@ -36,12 +36,14 @@ const undead_witch_data = {
 	"cost": 145,
 	"move_spd": 65,
 	"max_hp": 145,
-	"atk": 12,
+	"atk": 10,
 	"atk_spd": 1.5,
 	"atk_frame": 9,
 	"spwn_wait": 1.5,
 	"targets": -1,
-	"description": "Projectile explodes (0.5x damage) on impact.\n50% to fear (0.75) on hit.",
+	"description": "Projectile explodes (0.5x damage) on impact.\n50% to fear (0.5) on hit.",
+	
+	"fear_duration": 0.5,
 }
 
 const reaper_data = {
@@ -49,13 +51,15 @@ const reaper_data = {
 	"slow_immune": false,
 	"cost": 250,
 	"move_spd": 105,
-	"max_hp": 200,
+	"max_hp": 205,
 	"atk": 20,
-	"atk_spd": 4.0,
+	"atk_spd": 3.2,
 	"atk_frame": 1,
 	"spwn_wait": 3.0,
 	"targets": -1,
-	"description": "Closest target takes 3x damage.\nExecute on HP < 10%.\nSummon Bats on kill.",
+	"description": "Closest target takes 3x damage.\nExecute on HP < 20%.\nSummon Bats on kill.",
+	
+	"execute_threshold": 0.2,
 }
 
 const bat_data = {

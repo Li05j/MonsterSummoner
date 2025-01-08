@@ -191,8 +191,9 @@ func _on_build_1_pressed() -> void:
 		_update_buildings_price_text()
 
 func _apply_build_1_benefits() -> void:
-	var new_gold_gen = floor(LevelState.player_gold_gen * BuildingsData.gold_mine.income_increase_rate)
-	LevelState.player_gold_gen += max(1, new_gold_gen)
+	#var new_gold_gen = floor(LevelState.player_gold_gen * BuildingsData.gold_mine.income_increase_rate)
+	#LevelState.player_gold_gen += max(1, new_gold_gen)
+	LevelState.player_gold_gen += BuildingsData.gold_mine.income_increase_flat
 	build1_cost = floor(build1_cost * BuildingsData.gold_mine.price_increase_rate)
 
 func _on_build_2_pressed() -> void:

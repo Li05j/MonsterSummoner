@@ -2,14 +2,14 @@ class_name Level1AIBehavior extends EnemyAIBehavior
 
 func init(enemy_ai: EnemyAI) -> void:
 	super(enemy_ai)
-	target_time_till_next_gold_gen_increase = 180
-	target_gold_gen_time_step = 60
+	target_time_till_next_gold_gen_increase = 90
+	target_gold_gen_time_step = 40
 
 func get_pot_of_gold_value(critical: int) -> int:
 	if critical == 1:
-		return max(25, floor(LevelState.game_time / 5))
+		return max(30, floor((GameState.total_game_time + LevelState.game_time) / 4))
 	if critical == 2:
-		return max(50, floor(LevelState.game_time / 5))
+		return max(60, floor((GameState.total_game_time + LevelState.game_time) / 4))
 	return ai.enemy_gold_gen
 
 func generate_decision_wait_time() -> float:

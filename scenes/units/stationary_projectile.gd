@@ -13,7 +13,7 @@ func _set_initial_velocity() -> void:
 
 func _set_initial_pos() -> void:
 	var enemy = _proj_owner.get("target_enemy_node")
-	if enemy:
+	if is_instance_valid(enemy) and enemy:
 		global_position = enemy.global_position
 	else:
 		#global_position = Vector2(abs(_proj_owner._proj_range - _proj_owner.global_position.x), Global.ground_y)

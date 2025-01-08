@@ -396,13 +396,13 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7wg3o"]
-size = Vector2(36.5714, 50)
+size = Vector2(40.3895, 50)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l7tju"]
 size = Vector2(22.2727, 50)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vahyi"]
-size = Vector2(50.2857, 50)
+size = Vector2(49.0443, 50)
 
 [node name="Reaper" type="Node2D"]
 script = ExtResource("1_sf4n3")
@@ -419,15 +419,16 @@ offset = Vector2(0, -35)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(2.773, 2.773)
 sprite_frames = SubResource("SpriteFrames_onkip")
-animation = &"special"
+animation = &"attack"
 autoplay = "idle"
+frame = 3
 frame_progress = 1.0
 offset = Vector2(0, -32)
 
 [node name="AtkDetectBoxArea" type="Area2D" parent="AnimatedSprite2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/AtkDetectBoxArea"]
-position = Vector2(18.2857, -25)
+position = Vector2(20.1947, -25)
 shape = SubResource("RectangleShape2D_7wg3o")
 debug_color = Color(0.717647, 0.32549, 0.882353, 0.419608)
 
@@ -443,7 +444,7 @@ monitoring = false
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/AtkDmgBoxArea"]
-position = Vector2(25.1429, -25)
+position = Vector2(24.5222, -25)
 shape = SubResource("RectangleShape2D_vahyi")
 debug_color = Color(0.467372, 0.586243, 0.223272, 0.42)
 

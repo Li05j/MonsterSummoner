@@ -11,9 +11,9 @@ var _game_time_update_steps = 0 # we let game time update visually every 11 step
 func _ready() -> void:
 	_init_level()
 
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("cheat"):
-		get_node("Enemy_base")._take_dmg(9999)
+#func _input(event: InputEvent) -> void:
+	#if event.is_action_pressed("cheat"):
+		#get_node("Enemy_base")._take_dmg(9999)
 		
 func _process(delta: float) -> void:
 	_update_game_time(delta)

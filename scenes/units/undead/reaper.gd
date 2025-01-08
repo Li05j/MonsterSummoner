@@ -58,7 +58,7 @@ func _resolve_attack() -> void:
 		idx += 1
 
 func _attack_special_effects(enemy) -> void:
-	if enemy._is_valid() and enemy is BaseTroops and !enemy.a_summon and enemy.get_hp_percent() <= 0.1:
+	if enemy._is_valid() and enemy is BaseTroops and !enemy.a_summon and enemy.get_hp_percent() <= UndeadUnits.reaper_data.execute_threshold:
 		enemy._take_dmg(enemy._max_hp)
 		_on_kill_special_effects(enemy)
 

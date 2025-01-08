@@ -75,23 +75,25 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b2q20"]
-size = Vector2(14.5, 41.2043)
+size = Vector2(24, 41.2043)
 
 [node name="doomsday_proj" type="Node2D"]
 script = ExtResource("1_c76y7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 z_index = 10
+position = Vector2(-4.76837e-07, -2)
 scale = Vector2(4, 4.65)
 sprite_frames = SubResource("SpriteFrames_4oaq5")
 animation = &"shoot"
 autoplay = "shoot"
 frame = 15
 frame_progress = 1.0
-offset = Vector2(0, -46)
+offset = Vector2(-7, -46)
 
 [node name="HitboxArea" type="Area2D" parent="AnimatedSprite2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/HitboxArea"]
-position = Vector2(5.96046e-08, -20.6882)
+position = Vector2(0, -20.2151)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_b2q20")
