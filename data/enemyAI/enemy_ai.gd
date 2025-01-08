@@ -29,12 +29,14 @@ func _ready() -> void:
 		1: 
 			behavior = Level1AIBehavior.new()
 		2: 
-			enemy_gold *= 2
-			enemy_gold_gen += 1
+			enemy_gold += int(fmod(GameState.total_game_time, 60))
+			enemy_gold_gen = max(5, floor(GameState.total_game_time) / 60 + 1)
+			if enemy_gold_gen > 10: enemy_gold_gen = 10
 			behavior = Level2AIBehavior.new()
 		3: 
-			enemy_gold *= 3
-			enemy_gold_gen += 2
+			enemy_gold += int(fmod(GameState.total_game_time, 60)) + int(max(0, GameState.total_game_time - 600))
+			enemy_gold_gen = max(5, floor(GameState.total_game_time) / 60 + 1)
+			if enemy_gold_gen > 10: enemy_gold_gen = 10
 			behavior = Level3AIBehavior.new()
 		_: behavior = Level1AIBehavior.new()
 	behavior.init(self)

@@ -52,7 +52,7 @@ func decide_what_to_do() -> int:
 	if !ai._check_if_affordable(u1cost):
 		w1 = 0
 	
-	if ai.enemy_gold > u4cost * 1.25:
+	if ai.enemy_gold > u4cost * 1.2:
 		w4 *= 5
 	
 	if ai.critical_2_flag:

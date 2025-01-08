@@ -45,6 +45,7 @@ func _berserk() -> void:
 				slow_timer.stop()
 				_on_slow_timeout("slow_timer")
 		
+		_is_cc_immune = true
 		_atk_spd = 0.1
 		_attack_cd_timer.wait_time = _atk_spd
 		
@@ -57,7 +58,8 @@ func _berserk() -> void:
 
 func _on_berserk_timeout() -> void:
 	_during_special = false
-	_is_slow_immune = false
+	_is_slow_immune = DarknessUnits.darkknight_data.slow_immune
+	_is_cc_immune = DarknessUnits.darkknight_data.cc_immune
 	
 	_atk_spd = 4.2
 	_attack_cd_timer.wait_time = _atk_spd

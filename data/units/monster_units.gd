@@ -19,7 +19,7 @@ const slime_data = {
 	"cost": 60,
 	"move_spd": 65,
 	"max_hp": 41,
-	"atk": 60,
+	"atk": 55,
 	"atk_spd": 2.55,
 	"atk_frame": 3,
 	"spwn_wait": 0.75,
@@ -44,7 +44,7 @@ const iceworm_data = {
 const giant_data = {
 	"cc_immune": true,
 	"slow_immune": false,
-	"cost": 265,
+	"cost": 275,
 	"move_spd": 35,
 	"max_hp": 727,
 	"atk": 10,
