@@ -1,6 +1,5 @@
 extends Node
 
-const ally_base_x = 115 # ally base
 const ground_y = 530 # global ground
 const summon_offset_x = 36
 
@@ -11,6 +10,9 @@ const base_death_animation_duration = 4 # how long the base stays on fire before
 const proj_unit_dead_polling_time = 1.0
 
 const max_base_hp = 1000
+const ally_base_x = 115 # ally base
+const min_enemy_base_x = 1037
+const max_enemy_base_x = 2189
 
 enum Who { NONE, ALLY = 1, ENEMY = -1 }
 enum Animation_Type { NONE, IDLE, RUN, ATTACK, SPECIAL, DEAD, SPAWN }

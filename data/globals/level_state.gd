@@ -64,20 +64,20 @@ func _weak_reset() -> void:
 func _set_level_1() -> int:
 	_weak_reset()
 	level_number = 1
-	ally_base_pos = Vector2(Global.ally_base_x, Global.ground_y)
-	enemy_base_pos = Vector2(1037, Global.ground_y)
+	#ally_base_pos = Vector2(Global.ally_base_x, Global.ground_y)
+	#enemy_base_pos = Vector2(1037, Global.ground_y)
 	return 1
 
 func _set_level_2() -> int:
 	_weak_reset()
 	level_number = 2
-	ally_base_pos = Vector2(Global.ally_base_x, Global.ground_y)
-	enemy_base_pos = Vector2(2189, Global.ground_y)
+	#ally_base_pos = Vector2(Global.ally_base_x, Global.ground_y)
+	#enemy_base_pos = Vector2(2189, Global.ground_y)
 	return 2
 
 func _set_level_3() -> int:
 	_weak_reset()
 	level_number = 3
-	ally_base_pos = Vector2(Global.ally_base_x, Global.ground_y)
-	enemy_base_pos = Vector2(1728, Global.ground_y)
+	#ally_base_pos = Vector2(Global.ally_base_x, Global.ground_y)
+	#enemy_base_pos = Vector2(1728, Global.ground_y)
 	return 3

@@ -11,6 +11,8 @@ var _camera_offset: int = 0
 
 var _bottom_margin_for_mouse = 530
 
+# TODO: Clamp camera with enemy base locaiton
+
 func _ready() -> void:
 	_restrict_player_camera()
 	_viewport_size = get_viewport().get_visible_rect().size

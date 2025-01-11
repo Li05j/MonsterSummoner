@@ -13,6 +13,7 @@ const HELP_MENU = MENUS + "help_menu/"
 const FACTION_SELECT_MENU = MENUS + "faction_select_menu/"
 const GAME_OVER_MENU = MENUS + "game_over_menu/"
 
+const BASE = UNITS + "base/"
 const MONSTER = UNITS + "monster/"
 const DARKNESS = UNITS + "darkness/"
 const UNDEAD = UNITS + "undead/"
