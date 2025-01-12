@@ -431,6 +431,7 @@ scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_7wg3o")
 
 [node name="HpBar" type="TextureProgressBar" parent="."]
+visible = false
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
