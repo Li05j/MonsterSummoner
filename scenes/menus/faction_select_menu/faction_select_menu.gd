@@ -5,17 +5,17 @@ class_name FactionSelectMenu extends Control
 func _on_monster_pressed() -> void:
 	GameState.set_playing_as(Global.Faction.MONSTER)
 	LevelState._set_level_1()
-	get_tree().change_scene_to_file(Paths.LEVELS + "level1.tscn")
+	get_tree().change_scene_to_file(Paths.LEVELS + "level.tscn")
 
 func _on_darkness_pressed() -> void:
 	GameState.set_playing_as(Global.Faction.DARKNESS)
 	LevelState._set_level_1()
-	get_tree().change_scene_to_file(Paths.LEVELS + "level1.tscn")
+	get_tree().change_scene_to_file(Paths.LEVELS + "level.tscn")
 
 func _on_undead_pressed() -> void:
 	GameState.set_playing_as(Global.Faction.UNDEAD)
 	LevelState._set_level_1()
-	get_tree().change_scene_to_file(Paths.LEVELS + "level1.tscn")
+	get_tree().change_scene_to_file(Paths.LEVELS + "level.tscn")
 
 func _on_back_pressed() -> void:
 	get_tree().change_scene_to_file(Paths.MAIN_MENU + "main_menu.tscn")

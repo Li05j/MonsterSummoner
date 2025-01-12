@@ -59,9 +59,9 @@ func _on_resume_button_pressed() -> void:
 func _on_restart_pressed() -> void:
 	close()
 	var level = GameState.restart()
-	if level == 1: get_tree().change_scene_to_file(Paths.LEVELS + "level1.tscn")
-	elif level == 2: get_tree().change_scene_to_file(Paths.LEVELS + "level2.tscn")
-	elif level == 3: get_tree().change_scene_to_file(Paths.LEVELS + "level3.tscn")
+	if level == 1: get_tree().change_scene_to_file(Paths.LEVELS + "level.tscn")
+	elif level == 2: get_tree().change_scene_to_file(Paths.LEVELS + "level.tscn")
+	elif level == 3: get_tree().change_scene_to_file(Paths.LEVELS + "level.tscn")
 
 func _on_quit_button_pressed() -> void:
 	if visible:

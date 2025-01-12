@@ -11,8 +11,8 @@ class_name Level extends Node
 var _enemy_ai: EnemyAI
 var _game_time_update_steps = 0 # we let game time update visually every 11 steps
 
-#var _ally_base: AllyBase
-#var _enemy_base: EnemyBase
+var _ally_base: AllyBase
+var _enemy_base: EnemyBase
 
 func _ready() -> void:
 	_init_level()
@@ -21,7 +21,7 @@ func _ready() -> void:
 ###### CHEAT #####
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("cheat"):
-		get_node("Enemy_base")._take_dmg(9999)
+		_enemy_base._take_dmg(9999)
 ###############################################
 		
 func _process(delta: float) -> void:
@@ -40,14 +40,18 @@ func _init_level() -> void:
 	LevelState.enemy_ai = _enemy_ai
 	
 	# Base locations
-	var ally_base = ally_base_scene.instantiate()
-	var enemy_base = enemy_base_scene.instantiate()
-	ally_base.global_position = _decide_ally_base_location()
-	enemy_base.global_position = _decide_enemy_base_location()
-	LevelState.ally_base_pos = ally_base.global_position
-	LevelState.enemy_base_pos = enemy_base.global_position
-	add_child(ally_base)
-	add_child(enemy_base)
+	_ally_base = ally_base_scene.instantiate()
+	_enemy_base = enemy_base_scene.instantiate()
+	_ally_base.global_position = _decide_ally_base_location()
+	_enemy_base.global_position = _decide_enemy_base_location()
+	LevelState.ally_base_pos = _ally_base.global_position
+	LevelState.enemy_base_pos = _enemy_base.global_position
+	print(LevelState.enemy_base_pos)
+	add_child(_ally_base)
+	add_child(_enemy_base)
+	
+	# Restrict camera based on base location
+	$Camera2D._restrict_player_camera()
 	
 	# Set a faction
 	var enemy_faction: Global.Faction = _decide_enemy_faction()

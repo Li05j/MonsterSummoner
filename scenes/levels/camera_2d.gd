@@ -9,12 +9,9 @@ var _viewport_size
 var _dir = 0
 var _camera_offset: int = 0
 
-var _bottom_margin_for_mouse = 530
-
-# TODO: Clamp camera with enemy base locaiton
+var _bottom_margin_for_mouse = Global.ground_y
 
 func _ready() -> void:
-	_restrict_player_camera()
 	_viewport_size = get_viewport().get_visible_rect().size
 
 func _process(delta: float) -> void:
@@ -55,7 +52,8 @@ func _restrict_player_camera() -> void:
 	var rect: Rect2 = Utils.get_global_bounds(_map)
 	var left = rect.position.x
 	var top = rect.position.y
-	var right = rect.position.x + rect.size.x
+	#var right = rect.position.x + rect.size.x
+	var right = LevelState.enemy_base_pos.x + Global.ally_base_x
 	var bottom = rect.position.y + rect.size.y
 	_set_camera_limit(top, bottom, left, right)
 

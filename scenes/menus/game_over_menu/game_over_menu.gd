@@ -26,19 +26,13 @@ func _ready() -> void:
 	_total_time.text = "Total Time: " + Utils.format_time(GameState.total_game_time)
 	_restarts.text = "Restarts this level: " + str(LevelState.restarts) + ", Total Restarts: " + str(GameState.total_restarts)
 
-#func _change_scene(scene_path: String) -> void:
-	#get_tree().change_scene_to_file(scene_path)
-
 func _on_next_level_pressed() -> void:
 	var level = LevelState.next_level()
-	if level == 2: get_tree().change_scene_to_file(Paths.LEVELS + "level2.tscn")
-	elif level == 3: get_tree().change_scene_to_file(Paths.LEVELS + "level3.tscn")
+	get_tree().change_scene_to_file(Paths.LEVELS + "level.tscn")
 
 func _on_restart_pressed() -> void:
 	var level = GameState.restart()
-	if level == 1: get_tree().change_scene_to_file(Paths.LEVELS + "level1.tscn")
-	elif level == 2: get_tree().change_scene_to_file(Paths.LEVELS + "level2.tscn")
-	elif level == 3: get_tree().change_scene_to_file(Paths.LEVELS + "level3.tscn")
+	get_tree().change_scene_to_file(Paths.LEVELS + "level.tscn")
 
 func _on_back_pressed() -> void:
 	GameState.reset_game_state()

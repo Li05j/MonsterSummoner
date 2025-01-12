@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://lje4hyrmdli5"]
+[gd_scene load_steps=8 format=3 uid="uid://xstnsrsku6li"]
 
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_045de"]
 [ext_resource type="Texture2D" uid="uid://xy8k70jj73lh" path="res://addons/Sprites/pixel-art-cloud-background [photoutils.com].png" id="1_tfwfj"]
