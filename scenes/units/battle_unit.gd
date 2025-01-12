@@ -31,6 +31,9 @@ func _init_misc() -> void:
 func _hurt_reaction() -> void:
 	_hp_bar.value = _current_hp
 
+func _counter(other) -> void:
+	pass
+
 ###########################################################
 
 func _final_heal(amount: int) -> int:
@@ -55,10 +58,11 @@ func heal(amount: int) -> void:
 		_current_hp = _max_hp
 
 # true if dead
-func _take_dmg(damage: int) -> bool:
+func _take_dmg(damage: int, attacker = null) -> bool:
 	if _not_interactable || _is_invincible || _is_dead:
 		return false # they don't take damage
 	
+	_counter(attacker)
 	_current_hp -= _final_damage(damage)
 	_hurt_reaction()
 	if _current_hp <= 0:

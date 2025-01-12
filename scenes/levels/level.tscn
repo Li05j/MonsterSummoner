@@ -6,7 +6,7 @@
 [ext_resource type="Theme" uid="uid://6shp5ck1tnja" path="res://addons/Themes/FlatUI4/kenneyUI.tres" id="6_6k0nn"]
 [ext_resource type="Script" path="res://scenes/levels/camera_2d.gd" id="7_26ion"]
 
-[node name="Level1" type="Node"]
+[node name="Level" type="Node"]
 script = ExtResource("1_p370s")
 
 [node name="Bg" type="Control" parent="."]
