@@ -174,8 +174,9 @@ func _on_kill_special_effects(enemy) -> void:
 	pass
 
 func _counter(other) -> void:
-	if is_instance_valid(other) and other is not Projectile:
-		_deal_dmg(other)
+	pass
+	#if is_instance_valid(other) and other is not Projectile:
+		#_deal_dmg(other)
 
 # if rate = -1 it resets - there is no reason for spd scale to be negative
 func _modify_spd_scale(rate: float, revert: bool) -> void:

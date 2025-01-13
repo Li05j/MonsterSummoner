@@ -464,7 +464,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("45_yoqre")
 }],
-"loop": true,
+"loop": false,
 "name": &"special",
 "speed": 9.0
 }]
@@ -490,11 +490,11 @@ autoplay = "spawn"
 offset = Vector2(0, -35)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(2.4, 2.4)
+scale = Vector2(2.55, 2.55)
 sprite_frames = SubResource("SpriteFrames_onkip")
-animation = &"attack"
+animation = &"special"
 autoplay = "idle"
-frame = 16
+frame = 9
 frame_progress = 1.0
 offset = Vector2(0, -65)
 

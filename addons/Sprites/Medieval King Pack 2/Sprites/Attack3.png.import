@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dg7xup82bmdow"
-path="res://.godot/imported/Take Hit.png-d9ac9f7bceb9cd5369bb4dd5325de015.ctex"
+uid="uid://bwhbarq0axjh2"
+path="res://.godot/imported/Attack3.png-e76c18ea70edeac3b086690be92e7786.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/Sprites/Martial Hero/Sprites/Take Hit.png"
-dest_files=["res://.godot/imported/Take Hit.png-d9ac9f7bceb9cd5369bb4dd5325de015.ctex"]
+source_file="res://addons/Sprites/Medieval King Pack 2/Sprites/Attack3.png"
+dest_files=["res://.godot/imported/Attack3.png-e76c18ea70edeac3b086690be92e7786.ctex"]
 
 [params]
 

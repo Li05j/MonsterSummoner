@@ -6,25 +6,28 @@ const forestmage_data = {
 	"cost": 45,
 	"move_spd": 65,
 	"max_hp": 107,
-	"atk": 3,
-	"atk_spd": 3.4,
+	"atk": 4,
+	"atk_spd": 2.7,
 	"atk_frame": 4,
 	"spwn_wait": 0.75,
-	"targets": 1,
+	"targets": -1,
 	"description": "Heal all allies in range.\nSlow (0.5) on hit.",
+	
+	"slow_time": 0.5,
 }
+
 const ranger_data = {
 	"cc_immune": false,
 	"slow_immune": false,
-	"cost": 75,
+	"cost": 80,
 	"move_spd": 90,
 	"max_hp": 57,
-	"atk": 9,
+	"atk": 7,
 	"atk_spd": 0.65,
 	"atk_frame": 4,
 	"spwn_wait": 0.75,
 	"targets": 1,
-	"description": "Deals 5x damage every 5th attack on the same target.",
+	"description": "Deals 5x damage every 5th attack.",
 }
 
 const protector_data = {
@@ -33,24 +36,29 @@ const protector_data = {
 	"cost": 130,
 	"move_spd": 55,
 	"max_hp": 150,
-	"atk": 10,
+	"atk": 4,
 	"atk_spd": 2.5,
 	"atk_frame": 4,
 	"spwn_wait": 1.5,
 	"targets": -1,
-	"description": "Takes 50% less damage from projectiles.\nKnockback (0.5) on hit.",
+	"description": "Creates an obsticle instead of dying on death.\nKnockback (0.5) on hit.",
+	
+	"knockback_time": 0.5,
 }
 
 const highelf_data = {
 	"cc_immune": false,
 	"slow_immune": false,
 	"cost": 230,
-	"move_spd": 60,
+	"move_spd": 80,
 	"max_hp": 165,
-	"atk": 12,
+	"atk": 5,
 	"atk_spd": 2.0,
 	"atk_frame": 9,
 	"spwn_wait": 3.0,
 	"targets": -1,
-	"description": "Closest target takes 3x damage.\nDodge every 10 seconds.\nStun (0.5) on hit.",
+	"description": "Closest target takes 5x damage.\nDodge every 20 seconds.\nKnockback (0.5) on hit.",
+	
+	"knockback_time": 0.5,
+	"dodge_cd": 20,
 }

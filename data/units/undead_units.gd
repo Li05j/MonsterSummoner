@@ -51,7 +51,7 @@ const reaper_data = {
 	"slow_immune": false,
 	"cost": 250,
 	"move_spd": 105,
-	"max_hp": 225,
+	"max_hp": 195,
 	"atk": 15,
 	"atk_spd": 3.3,
 	"atk_frame": 1,

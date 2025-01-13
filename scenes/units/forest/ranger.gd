@@ -1,5 +1,8 @@
 class_name Ranger extends ProjTroops
 
+const crit_shots = 5
+var shots = 0
+
 func _init_stats() -> void:
 	_not_interactable = true
 	_is_invincible = true
@@ -20,8 +23,12 @@ func _init_stats() -> void:
 	_targets = ForestUnits.ranger_data.targets
 	
 	#####
-	_projectile_scene = preload(Paths.PROJ + "shadowarcher_proj.tscn")
+	_projectile_scene = preload(Paths.PROJ + "ranger_proj.tscn")
 	
 func _init_proj_max_range() -> void:
-	_max_travel_range = 1.1 * _atk_detect_box.get_child(0).shape.size.x * _sprite.scale.x
+	_max_travel_range = 1.2 * _atk_detect_box.get_child(0).shape.size.x * _sprite.scale.x
 	_proj_range = _max_travel_range
+
+func _resolve_attack() -> void:
+	super()
+	shots += 1

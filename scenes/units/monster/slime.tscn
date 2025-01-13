@@ -313,10 +313,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h0dtu"]
-size = Vector2(69.2309, 14.784)
+size = Vector2(69.2309, 17.3079)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7wg3o"]
-size = Vector2(18.0289, 14.7837)
+size = Vector2(18.0289, 17.3076)
 
 [node name="Slime" type="Node2D"]
 script = ExtResource("1_j6uyy")
@@ -342,7 +342,8 @@ offset = Vector2(0, -17)
 [node name="AtkDetectBoxArea" type="Area2D" parent="AnimatedSprite2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/AtkDetectBoxArea"]
-position = Vector2(34.6154, -7.39184)
+position = Vector2(34.6154, -8.65378)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_h0dtu")
 debug_color = Color(0.719562, 0.326995, 0.88156, 0.42)
 
@@ -350,7 +351,8 @@ debug_color = Color(0.719562, 0.326995, 0.88156, 0.42)
 monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/HitboxArea"]
-position = Vector2(0, -7.392)
+position = Vector2(0, -8.65393)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_7wg3o")
 
 [node name="HpBar" type="TextureProgressBar" parent="."]

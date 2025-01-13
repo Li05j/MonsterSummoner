@@ -1,6 +1,6 @@
 extends Node
 
-const MAX_LVL_NUMBER = 3
+const MAX_LVL_NUMBER = 4
 
 var who_wins: Global.Who = Global.Who.NONE
 
@@ -53,6 +53,7 @@ func _weak_reset() -> void:
 	game_time = 0
 	player_gold = GameState.player_initial_gold
 	player_gold_gen = GameState.player_initial_gold_gen
+	#player_gold_gen = 50
 
 func set_level(lvl: int):
 	_weak_reset()

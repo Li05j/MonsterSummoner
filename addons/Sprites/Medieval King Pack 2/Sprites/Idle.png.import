@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bvysckkyxgdmf"
-path="res://.godot/imported/Death.png-86e16ea29f1c60cf8c92416859e9f7fb.ctex"
+uid="uid://dorn6jdt0veye"
+path="res://.godot/imported/Idle.png-9d1d8bacac948bc559500b364d3ae359.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/Sprites/Martial Hero/Sprites/Death.png"
-dest_files=["res://.godot/imported/Death.png-86e16ea29f1c60cf8c92416859e9f7fb.ctex"]
+source_file="res://addons/Sprites/Medieval King Pack 2/Sprites/Idle.png"
+dest_files=["res://.godot/imported/Idle.png-9d1d8bacac948bc559500b364d3ae359.ctex"]
 
 [params]
 

@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://tqlw50cb2edn"]
+
+[ext_resource type="Script" path="res://scenes/units/projectile/ranger_proj.gd" id="1_g0140"]
+[ext_resource type="Texture2D" uid="uid://c1j3hkavnlkbx" path="res://addons/Sprites/Huntress 2/Sprites/Arrow/Move.png" id="2_ing3i"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qngk7"]
+atlas = ExtResource("2_ing3i")
+region = Rect2(0, 0, 24, 5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6w56d"]
+atlas = ExtResource("2_ing3i")
+region = Rect2(24, 0, 24, 5)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4oaq5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qngk7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6w56d")
+}],
+"loop": true,
+"name": &"shoot",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b2q20"]
+size = Vector2(24.3529, 8.88889)
+
+[node name="ranger_proj" type="Node2D"]
+z_index = 10
+script = ExtResource("1_g0140")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(1.8, 1.8)
+sprite_frames = SubResource("SpriteFrames_4oaq5")
+animation = &"shoot"
+autoplay = "shoot"
+frame_progress = 0.450555
+
+[node name="HitboxArea" type="Area2D" parent="AnimatedSprite2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/HitboxArea"]
+position = Vector2(0.17647, 0)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_b2q20")

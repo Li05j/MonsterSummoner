@@ -31,7 +31,6 @@ func _physics_process(delta: float) -> void:
 		if global_position.y < Global.ground_y:
 			_v_y += Global.gravity * delta
 		else:
-			#_v_y = 0
 			global_position.y = Global.ground_y
 		_move(delta)
 

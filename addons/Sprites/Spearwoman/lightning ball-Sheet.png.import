@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://o821wiff07uu"
-path="res://.godot/imported/Attack1.png-7d370ccc8acb896103ca0c7df8c9f54d.ctex"
+uid="uid://ddqlq6w3qfhrn"
+path="res://.godot/imported/lightning ball-Sheet.png-f7fdac081f42905ed32ace26e8cef31d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/Sprites/Martial Hero/Sprites/Attack1.png"
-dest_files=["res://.godot/imported/Attack1.png-7d370ccc8acb896103ca0c7df8c9f54d.ctex"]
+source_file="res://addons/Sprites/Spearwoman/lightning ball-Sheet.png"
+dest_files=["res://.godot/imported/lightning ball-Sheet.png-f7fdac081f42905ed32ace26e8cef31d.ctex"]
 
 [params]
 

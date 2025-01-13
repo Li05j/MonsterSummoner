@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://2hgy5qoednrj"
-path="res://.godot/imported/Idle.png-2aad51beac3cf615cb5fb7eb86965441.ctex"
+uid="uid://cok3m0tyfbgnd"
+path="res://.godot/imported/Jump.png-7b0e7e98de4b292a826de9163da3a999.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/Sprites/Martial Hero/Sprites/Idle.png"
-dest_files=["res://.godot/imported/Idle.png-2aad51beac3cf615cb5fb7eb86965441.ctex"]
+source_file="res://addons/Sprites/Medieval King Pack 2/Sprites/Jump.png"
+dest_files=["res://.godot/imported/Jump.png-7b0e7e98de4b292a826de9163da3a999.ctex"]
 
 [params]
 

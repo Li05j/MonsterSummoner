@@ -18,3 +18,28 @@ func _init_stats() -> void:
 	_spwn_wait = ForestUnits.forestmage_data.spwn_wait
 	
 	_targets = ForestUnits.forestmage_data.targets
+
+func _set_ally() -> void:
+	super()
+	_atk_dmg_box.collision_mask |= Global.Collision.PLAYER_UNIT
+
+func _set_enemy() -> void:
+	super()
+	_atk_dmg_box.collision_mask |= Global.Collision.ENEMY_UNIT
+
+func _resolve_attack() -> void:
+	var valid_enemies = _get_enemies_in_box(_atk_dmg_box)
+	if valid_enemies.size() == 0:
+		return
+	
+	# Hit multiple enemies
+	if _targets == -1:
+		for target in valid_enemies:
+			if is_instance_valid(target) and target._is_valid():
+				if _who == target._who:
+					target.heal(_atk * 1.5)
+				else:
+					_deal_dmg(target)
+
+func _attack_special_effects(enemy) -> void:
+	enemy.slow(ForestUnits.forestmage_data.slow_time) # slow for x seconds

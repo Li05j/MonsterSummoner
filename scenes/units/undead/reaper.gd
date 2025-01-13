@@ -45,7 +45,7 @@ func _resolve_attack() -> void:
 				return a.global_position.x > b.global_position.x # sort from right to left
 			)
 	
-	# 1st target takes 2x damage
+	# 1st target takes 3x damage
 	var target = valid_enemies[0]
 	if is_instance_valid(target) and target._is_valid():
 		_deal_dmg(target, 3.0, 0, self)

@@ -11,8 +11,8 @@ var unit3_scene: PackedScene
 var unit4_scene: PackedScene
 
 var enemy_base: EnemyBase
-var enemy_gold: int = 35
-var enemy_gold_gen: int = 5
+var enemy_gold: int = 50
+var enemy_gold_gen: int = 4
 
 var gold_gen_timer: Timer
 var gold_gen_increase_timer: Timer
@@ -26,19 +26,8 @@ var critical_2_flag: bool = false
 
 func _ready() -> void:
 	match LevelState.level_number:
-		1: 
-			behavior = Level1AIBehavior.new()
-		2: 
-			enemy_gold += int(fmod(GameState.total_game_time, 60))
-			enemy_gold_gen = max(5, floor(GameState.total_game_time) / 60 + 1)
-			if enemy_gold_gen > 10: enemy_gold_gen = 10
-			behavior = Level2AIBehavior.new()
-		3: 
-			enemy_gold += int(fmod(GameState.total_game_time, 60)) + int(max(0, GameState.total_game_time - 600))
-			enemy_gold_gen = max(5, floor(GameState.total_game_time) / 60 + 1)
-			if enemy_gold_gen > 10: enemy_gold_gen = 10
-			behavior = Level3AIBehavior.new()
-		_: behavior = Level1AIBehavior.new()
+		1: behavior = Level1AIBehavior.new()
+		_: behavior = NormalBehavior.new()
 	behavior.init(self)
 
 	EventBus.unit_died.connect(_on_unit_died)

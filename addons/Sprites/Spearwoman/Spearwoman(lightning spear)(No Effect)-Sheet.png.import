@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ckw8570lhiamu"
-path="res://.godot/imported/Fall.png-e246ff59ef08fc572fa426da4a9b9893.ctex"
+uid="uid://d3bva2fm56eqw"
+path="res://.godot/imported/Spearwoman(lightning spear)(No Effect)-Sheet.png-c170963eb1a856b57546a0d5bcba0201.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/Sprites/Martial Hero/Sprites/Fall.png"
-dest_files=["res://.godot/imported/Fall.png-e246ff59ef08fc572fa426da4a9b9893.ctex"]
+source_file="res://addons/Sprites/Spearwoman/Spearwoman(lightning spear)(No Effect)-Sheet.png"
+dest_files=["res://.godot/imported/Spearwoman(lightning spear)(No Effect)-Sheet.png-c170963eb1a856b57546a0d5bcba0201.ctex"]
 
 [params]
 

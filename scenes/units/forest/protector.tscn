@@ -1,6 +1,6 @@
 [gd_scene load_steps=55 format=3 uid="uid://cq0owyjan0ush"]
 
-[ext_resource type="Script" path="res://scenes/units/monster/giant.gd" id="1_mayjp"]
+[ext_resource type="Script" path="res://scenes/units/forest/protector.gd" id="1_g8j8s"]
 [ext_resource type="Texture2D" uid="uid://cnq1hc8pwsi37" path="res://addons/Sprites/Gravity-Sheet.png" id="2_dfbbh"]
 [ext_resource type="Texture2D" uid="uid://cc5a8kfu36jko" path="res://addons/Sprites/Mecha-stone Golem 0.1/PNG sheet/Character_sheet.png" id="3_0yfre"]
 [ext_resource type="Texture2D" uid="uid://cdnio0nq3mnr6" path="res://addons/Sprites/HpBar/no health bar.png" id="4_nkc3q"]
@@ -174,38 +174,6 @@ region = Rect2(300, 200, 100, 100)
 atlas = ExtResource("3_0yfre")
 region = Rect2(400, 200, 100, 100)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ktl5m"]
-atlas = ExtResource("3_0yfre")
-region = Rect2(300, 700, 100, 100)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_goawr"]
-atlas = ExtResource("3_0yfre")
-region = Rect2(400, 700, 100, 100)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_28cyr"]
-atlas = ExtResource("3_0yfre")
-region = Rect2(500, 700, 100, 100)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ksnwv"]
-atlas = ExtResource("3_0yfre")
-region = Rect2(600, 700, 100, 100)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7on5r"]
-atlas = ExtResource("3_0yfre")
-region = Rect2(700, 700, 100, 100)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_od7bq"]
-atlas = ExtResource("3_0yfre")
-region = Rect2(800, 700, 100, 100)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_75q14"]
-atlas = ExtResource("3_0yfre")
-region = Rect2(900, 700, 100, 100)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nfu6q"]
-atlas = ExtResource("3_0yfre")
-region = Rect2(0, 800, 100, 100)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_kxnho"]
 atlas = ExtResource("3_0yfre")
 region = Rect2(100, 800, 100, 100)
@@ -250,6 +218,38 @@ region = Rect2(200, 0, 100, 100)
 atlas = ExtResource("3_0yfre")
 region = Rect2(300, 0, 100, 100)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ktl5m"]
+atlas = ExtResource("3_0yfre")
+region = Rect2(300, 700, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_goawr"]
+atlas = ExtResource("3_0yfre")
+region = Rect2(400, 700, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_28cyr"]
+atlas = ExtResource("3_0yfre")
+region = Rect2(500, 700, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ksnwv"]
+atlas = ExtResource("3_0yfre")
+region = Rect2(600, 700, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7on5r"]
+atlas = ExtResource("3_0yfre")
+region = Rect2(700, 700, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_od7bq"]
+atlas = ExtResource("3_0yfre")
+region = Rect2(800, 700, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_75q14"]
+atlas = ExtResource("3_0yfre")
+region = Rect2(900, 700, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nfu6q"]
+atlas = ExtResource("3_0yfre")
+region = Rect2(0, 800, 100, 100)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_onkip"]
 animations = [{
 "frames": [{
@@ -276,30 +276,6 @@ animations = [{
 "speed": 12.0
 }, {
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ktl5m")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_goawr")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_28cyr")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ksnwv")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7on5r")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_od7bq")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_75q14")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nfu6q")
-}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_kxnho")
 }, {
@@ -347,23 +323,56 @@ animations = [{
 "name": &"run",
 "speed": 6.0
 }, {
-"frames": [],
-"loop": true,
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ktl5m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_goawr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_28cyr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ksnwv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7on5r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_od7bq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_75q14")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nfu6q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kxnho")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5w1pm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_18xre")
+}],
+"loop": false,
 "name": &"special",
-"speed": 5.0
+"speed": 12.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_krj4l"]
-size = Vector2(64, 63.75)
+size = Vector2(25.6, 63.75)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7wg3o"]
 size = Vector2(29.0909, 64)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vahyi"]
-size = Vector2(64, 64)
+size = Vector2(41.6, 64)
 
 [node name="Protector" type="Node2D"]
-script = ExtResource("1_mayjp")
+script = ExtResource("1_g8j8s")
 
 [node name="SpawnAnimation" type="AnimatedSprite2D" parent="."]
 visible = false
@@ -386,7 +395,8 @@ offset = Vector2(0, -42)
 [node name="AtkDetectBoxArea" type="Area2D" parent="AnimatedSprite2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/AtkDetectBoxArea"]
-position = Vector2(32, -32.125)
+position = Vector2(12.8, -32.125)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_krj4l")
 debug_color = Color(0.717647, 0.32549, 0.882353, 0.419608)
 
@@ -402,7 +412,8 @@ monitoring = false
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/AtkDmgBoxArea"]
-position = Vector2(32, -32)
+position = Vector2(20.8, -32)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_vahyi")
 debug_color = Color(0.467372, 0.586243, 0.223272, 0.42)
 

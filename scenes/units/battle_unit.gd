@@ -54,6 +54,7 @@ func heal(amount: int) -> void:
 		return
 		
 	_current_hp += _final_heal(amount)
+	_hurt_reaction()
 	if _current_hp > _max_hp:
 		_current_hp = _max_hp
 
