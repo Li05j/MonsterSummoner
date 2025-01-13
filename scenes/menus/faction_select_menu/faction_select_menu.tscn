@@ -117,5 +117,4 @@ flat = true
 [connection signal="pressed" from="GridContainer/monster" to="." method="_on_monster_pressed"]
 [connection signal="pressed" from="GridContainer/void" to="." method="_on_darkness_pressed"]
 [connection signal="pressed" from="GridContainer/undead" to="." method="_on_undead_pressed"]
-[connection signal="pressed" from="GridContainer/forest" to="." method="_on_monster_pressed"]
-[connection signal="pressed" from="GridContainer/human" to="." method="_on_darkness_pressed"]
+[connection signal="pressed" from="GridContainer/forest" to="." method="_on_forest_pressed"]

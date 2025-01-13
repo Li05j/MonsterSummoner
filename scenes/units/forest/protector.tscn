@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://cq0owyjan0ush"]
+[gd_scene load_steps=55 format=3 uid="uid://cq0owyjan0ush"]
 
 [ext_resource type="Script" path="res://scenes/units/monster/giant.gd" id="1_mayjp"]
 [ext_resource type="Texture2D" uid="uid://cnq1hc8pwsi37" path="res://addons/Sprites/Gravity-Sheet.png" id="2_dfbbh"]
@@ -154,37 +154,25 @@ animations = [{
 "speed": 16.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_j366j"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_05n1b"]
 atlas = ExtResource("3_0yfre")
-region = Rect2(0, 300, 100, 100)
+region = Rect2(0, 200, 100, 100)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_p4ija"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_a4tlp"]
 atlas = ExtResource("3_0yfre")
-region = Rect2(100, 300, 100, 100)
+region = Rect2(100, 200, 100, 100)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_k7ryn"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_aoju0"]
 atlas = ExtResource("3_0yfre")
-region = Rect2(200, 300, 100, 100)
+region = Rect2(200, 200, 100, 100)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3wp1s"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_277cs"]
 atlas = ExtResource("3_0yfre")
-region = Rect2(300, 300, 100, 100)
+region = Rect2(300, 200, 100, 100)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0lf8p"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_m1bk8"]
 atlas = ExtResource("3_0yfre")
-region = Rect2(400, 300, 100, 100)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7h5l2"]
-atlas = ExtResource("3_0yfre")
-region = Rect2(500, 300, 100, 100)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_y44g5"]
-atlas = ExtResource("3_0yfre")
-region = Rect2(600, 300, 100, 100)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qey6d"]
-atlas = ExtResource("3_0yfre")
-region = Rect2(700, 300, 100, 100)
+region = Rect2(400, 200, 100, 100)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ktl5m"]
 atlas = ExtResource("3_0yfre")
@@ -265,29 +253,23 @@ region = Rect2(300, 0, 100, 100)
 [sub_resource type="SpriteFrames" id="SpriteFrames_onkip"]
 animations = [{
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_j366j")
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_05n1b")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_a4tlp")
+}, {
+"duration": 0.25,
+"texture": SubResource("AtlasTexture_aoju0")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_p4ija")
+"texture": SubResource("AtlasTexture_277cs")
 }, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_k7ryn")
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_m1bk8")
 }, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3wp1s")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0lf8p")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7h5l2")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_y44g5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qey6d")
+"duration": 0.25,
+"texture": SubResource("AtlasTexture_aoju0")
 }],
 "loop": false,
 "name": &"attack",
@@ -385,7 +367,7 @@ script = ExtResource("1_mayjp")
 
 [node name="SpawnAnimation" type="AnimatedSprite2D" parent="."]
 visible = false
-scale = Vector2(2.6, 2.6)
+scale = Vector2(1.775, 1.775)
 sprite_frames = SubResource("SpriteFrames_6fjhv")
 animation = &"spawn"
 autoplay = "spawn"
@@ -393,11 +375,11 @@ frame_progress = 0.591573
 offset = Vector2(0, -35)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(3.3, 3.3)
+scale = Vector2(2.5, 2.5)
 sprite_frames = SubResource("SpriteFrames_onkip")
 animation = &"attack"
 autoplay = "idle"
-frame = 7
+frame = 5
 frame_progress = 1.0
 offset = Vector2(0, -42)
 

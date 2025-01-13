@@ -28,6 +28,8 @@ func get_command_panel_scene() -> PackedScene:
 			return preload(Paths.COMMAND_PANEL + "darkness/darkness_panel.tscn")
 		Global.Faction.UNDEAD:
 			return preload(Paths.COMMAND_PANEL + "undead/undead_panel.tscn")
+		Global.Faction.FOREST:
+			return preload(Paths.COMMAND_PANEL + "forest/forest_panel.tscn")
 		_:
 			return null
 

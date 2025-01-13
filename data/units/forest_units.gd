@@ -28,17 +28,17 @@ const ranger_data = {
 }
 
 const protector_data = {
-	"cc_immune": true,
+	"cc_immune": false,
 	"slow_immune": false,
-	"cost": 135,
+	"cost": 130,
 	"move_spd": 55,
-	"max_hp": 180,
-	"atk": 3,
+	"max_hp": 150,
+	"atk": 10,
 	"atk_spd": 2.5,
 	"atk_frame": 4,
 	"spwn_wait": 1.5,
 	"targets": -1,
-	"description": "Immune to Control.\nTakes 50% less damage on defence stance.",
+	"description": "Takes 50% less damage from projectiles.\nKnockback (0.5) on hit.",
 }
 
 const highelf_data = {
@@ -52,5 +52,5 @@ const highelf_data = {
 	"atk_frame": 9,
 	"spwn_wait": 3.0,
 	"targets": -1,
-	"description": "Closest target takes 3x damage.\nDodge every 10 seconds.\nStun (1) on hit.",
+	"description": "Closest target takes 3x damage.\nDodge every 10 seconds.\nStun (0.5) on hit.",
 }

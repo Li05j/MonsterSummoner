@@ -1,14 +1,52 @@
-[gd_scene load_steps=79 format=3 uid="uid://c627eb72or1o7"]
+[gd_scene load_steps=90 format=3 uid="uid://c627eb72or1o7"]
 
 [ext_resource type="Script" path="res://scenes/units/forest/highelf.gd" id="1_pb515"]
 [ext_resource type="Texture2D" uid="uid://cnq1hc8pwsi37" path="res://addons/Sprites/Gravity-Sheet.png" id="2_s1mxr"]
 [ext_resource type="Texture2D" uid="uid://dlix5qhk1xnal" path="res://addons/Sprites/Elementals_Leaf_ranger_Free_v1.0/animations/spritesheets/Elementals_leaf_ranger_288x128_SpriteSheet.png" id="3_r1kf0"]
-[ext_resource type="Texture2D" uid="uid://bup046iywo5jb" path="res://addons/Sprites/Huntress 2/Sprites/Character/Death.png" id="4_qmbqw"]
-[ext_resource type="Texture2D" uid="uid://breksclyamc4u" path="res://addons/Sprites/Huntress 2/Sprites/Character/Idle.png" id="5_yte3e"]
-[ext_resource type="Texture2D" uid="uid://cdy8mcjpor5tv" path="res://addons/Sprites/Huntress 2/Sprites/Character/Run.png" id="6_q78w2"]
-[ext_resource type="Texture2D" uid="uid://vvp7ujtjiqfn" path="res://addons/Sprites/Elementals_Leaf_ranger_Free_v1.0/animations/spritesheets/projectiles_and_effects_256x128_SpriteSheet.png" id="7_8lvdw"]
+[ext_resource type="Texture2D" uid="uid://b0bgoolsarrkl" path="res://addons/Sprites/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/death/death_1.png" id="4_ojo4k"]
+[ext_resource type="Texture2D" uid="uid://dv16urq52hg2n" path="res://addons/Sprites/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/death/death_2.png" id="5_hiypx"]
+[ext_resource type="Texture2D" uid="uid://c3gjxvr3iek1l" path="res://addons/Sprites/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/death/death_3.png" id="6_thnkt"]
+[ext_resource type="Texture2D" uid="uid://djg4jpixg3q47" path="res://addons/Sprites/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/death/death_4.png" id="7_1iwpt"]
 [ext_resource type="Texture2D" uid="uid://cdnio0nq3mnr6" path="res://addons/Sprites/HpBar/no health bar.png" id="7_rlpib"]
+[ext_resource type="Texture2D" uid="uid://dxbxl8o1db73c" path="res://addons/Sprites/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/death/death_5.png" id="8_1si5o"]
 [ext_resource type="Texture2D" uid="uid://c4637ntjulp63" path="res://addons/Sprites/HpBar/health.png" id="8_b438m"]
+[ext_resource type="Texture2D" uid="uid://dvgw660vvcf1v" path="res://addons/Sprites/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/death/death_6.png" id="9_nwxfv"]
+[ext_resource type="Texture2D" uid="uid://fir5pep1ow4q" path="res://addons/Sprites/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/death/death_7.png" id="10_gvjdt"]
+[ext_resource type="Texture2D" uid="uid://byhsrcnioxbia" path="res://addons/Sprites/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/death/death_8.png" id="11_26mub"]
+[ext_resource type="Texture2D" uid="uid://cxxmsk0qlhxpn" path="res://addons/Sprites/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/death/death_9.png" id="12_j038s"]
+[ext_resource type="Texture2D" uid="uid://bql3wkup6nxhf" path="res://addons/Sprites/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/death/death_10.png" id="13_rsao0"]
+[ext_resource type="Texture2D" uid="uid://dg7ufh32li05p" path="res://addons/Sprites/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/idle/idle_1.png" id="14_glbxf"]
+[ext_resource type="Texture2D" uid="uid://cf4oabde4l27i" path="res://addons/Sprites/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/idle/idle_2.png" id="15_q8w7o"]
+[ext_resource type="Texture2D" uid="uid://clkonhitpagbd" path="res://addons/Sprites/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/idle/idle_3.png" id="16_tp7vp"]
+[ext_resource type="Texture2D" uid="uid://bcee44sfxhaer" path="res://addons/Sprites/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/idle/idle_4.png" id="17_ir4jr"]
+[ext_resource type="Texture2D" uid="uid://fv2mj0ip7cuy" path="res://addons/Sprites/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/idle/idle_5.png" id="18_7ghv4"]
+[ext_resource type="Texture2D" uid="uid://ynyc8hwvq4c" path="res://addons/Sprites/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/idle/idle_6.png" id="19_5r0jc"]
+[ext_resource type="Texture2D" uid="uid://d37t5eupejc04" path="res://addons/Sprites/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/idle/idle_7.png" id="20_2acyn"]
+[ext_resource type="Texture2D" uid="uid://bqdrv7mej0o8v" path="res://addons/Sprites/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/idle/idle_8.png" id="21_qt47g"]
+[ext_resource type="Texture2D" uid="uid://016v2h4hw7ny" path="res://addons/Sprites/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/idle/idle_9.png" id="22_rmmgq"]
+[ext_resource type="Texture2D" uid="uid://btn6kpwd425h3" path="res://addons/Sprites/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/idle/idle_10.png" id="23_3em1b"]
+[ext_resource type="Texture2D" uid="uid://cgqlk26m463bv" path="res://addons/Sprites/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/idle/idle_11.png" id="24_5xir0"]
+[ext_resource type="Texture2D" uid="uid://bkdxxw685wawq" path="res://addons/Sprites/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/idle/idle_12.png" id="25_mc4li"]
+[ext_resource type="Texture2D" uid="uid://c87ma6op1quvp" path="res://addons/Sprites/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/run/run_1.png" id="26_x0bwh"]
+[ext_resource type="Texture2D" uid="uid://y2blem5jms02" path="res://addons/Sprites/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/run/run_2.png" id="27_n687i"]
+[ext_resource type="Texture2D" uid="uid://duylonkhs6jdg" path="res://addons/Sprites/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/run/run_3.png" id="28_6k0sa"]
+[ext_resource type="Texture2D" uid="uid://dp363a1kbupwc" path="res://addons/Sprites/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/run/run_4.png" id="29_tf422"]
+[ext_resource type="Texture2D" uid="uid://q4j5udsl2q14" path="res://addons/Sprites/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/run/run_5.png" id="30_blwsf"]
+[ext_resource type="Texture2D" uid="uid://bda0sa85n6oy3" path="res://addons/Sprites/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/run/run_6.png" id="31_bp2t1"]
+[ext_resource type="Texture2D" uid="uid://cd6gixwiimxbr" path="res://addons/Sprites/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/run/run_7.png" id="32_lybyj"]
+[ext_resource type="Texture2D" uid="uid://b0gnvgt81icow" path="res://addons/Sprites/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/run/run_8.png" id="33_8cyps"]
+[ext_resource type="Texture2D" uid="uid://jhm21vv256tf" path="res://addons/Sprites/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/run/run_9.png" id="34_hh787"]
+[ext_resource type="Texture2D" uid="uid://8406qxr1tg3b" path="res://addons/Sprites/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/run/run_10.png" id="35_hen8i"]
+[ext_resource type="Texture2D" uid="uid://c0orw0c65ouck" path="res://addons/Sprites/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/take_hit/take_hit_1.png" id="36_tadop"]
+[ext_resource type="Texture2D" uid="uid://bav7kuuya3odk" path="res://addons/Sprites/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/take_hit/take_hit_2.png" id="37_nsvlk"]
+[ext_resource type="Texture2D" uid="uid://dvvi0p5b78h5w" path="res://addons/Sprites/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/roll/roll_3.png" id="38_87bl4"]
+[ext_resource type="Texture2D" uid="uid://dc0fu0yo7fkmr" path="res://addons/Sprites/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/roll/roll_4.png" id="39_uji6b"]
+[ext_resource type="Texture2D" uid="uid://tn0kralu68x5" path="res://addons/Sprites/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/roll/roll_5.png" id="40_4t83k"]
+[ext_resource type="Texture2D" uid="uid://d1b02php6ejkk" path="res://addons/Sprites/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/roll/roll_6.png" id="41_16hdp"]
+[ext_resource type="Texture2D" uid="uid://c4b2q2nqwjl1b" path="res://addons/Sprites/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/roll/roll_7.png" id="42_lx3uo"]
+[ext_resource type="Texture2D" uid="uid://ctcn02ojmgub0" path="res://addons/Sprites/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/roll/roll_8.png" id="43_wthon"]
+[ext_resource type="Texture2D" uid="uid://jd27ctkyfw05" path="res://addons/Sprites/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/roll/roll_2.png" id="44_qfjxb"]
+[ext_resource type="Texture2D" uid="uid://c0xn0oq7yong4" path="res://addons/Sprites/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/roll/roll_1.png" id="45_yoqre"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jfpg8"]
 atlas = ExtResource("2_s1mxr")
@@ -226,114 +264,6 @@ region = Rect2(4320, 1664, 288, 128)
 atlas = ExtResource("3_r1kf0")
 region = Rect2(4608, 1664, 288, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vmqxn"]
-atlas = ExtResource("4_qmbqw")
-region = Rect2(0, 0, 100, 100)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_34mdg"]
-atlas = ExtResource("4_qmbqw")
-region = Rect2(100, 0, 100, 100)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_cxpw8"]
-atlas = ExtResource("4_qmbqw")
-region = Rect2(200, 0, 100, 100)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3xjnc"]
-atlas = ExtResource("4_qmbqw")
-region = Rect2(300, 0, 100, 100)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_oddqw"]
-atlas = ExtResource("4_qmbqw")
-region = Rect2(400, 0, 100, 100)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_p5an8"]
-atlas = ExtResource("5_yte3e")
-region = Rect2(0, 0, 100, 100)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_botd1"]
-atlas = ExtResource("5_yte3e")
-region = Rect2(100, 0, 100, 100)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_cg6i8"]
-atlas = ExtResource("5_yte3e")
-region = Rect2(200, 0, 100, 100)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xp0ht"]
-atlas = ExtResource("5_yte3e")
-region = Rect2(300, 0, 100, 100)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xjau7"]
-atlas = ExtResource("5_yte3e")
-region = Rect2(400, 0, 100, 100)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_taoav"]
-atlas = ExtResource("5_yte3e")
-region = Rect2(500, 0, 100, 100)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4itmh"]
-atlas = ExtResource("5_yte3e")
-region = Rect2(600, 0, 100, 100)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_iw3qq"]
-atlas = ExtResource("5_yte3e")
-region = Rect2(700, 0, 100, 100)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_263yq"]
-atlas = ExtResource("5_yte3e")
-region = Rect2(800, 0, 100, 100)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bop28"]
-atlas = ExtResource("5_yte3e")
-region = Rect2(900, 0, 100, 100)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bwnfr"]
-atlas = ExtResource("6_q78w2")
-region = Rect2(0, 0, 100, 100)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wmf8n"]
-atlas = ExtResource("6_q78w2")
-region = Rect2(100, 0, 100, 100)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_prn3y"]
-atlas = ExtResource("6_q78w2")
-region = Rect2(200, 0, 100, 100)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_e2cya"]
-atlas = ExtResource("6_q78w2")
-region = Rect2(300, 0, 100, 100)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lemvm"]
-atlas = ExtResource("6_q78w2")
-region = Rect2(400, 0, 100, 100)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lqjlm"]
-atlas = ExtResource("6_q78w2")
-region = Rect2(500, 0, 100, 100)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ie2cd"]
-atlas = ExtResource("6_q78w2")
-region = Rect2(600, 0, 100, 100)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ou3kp"]
-atlas = ExtResource("6_q78w2")
-region = Rect2(700, 0, 100, 100)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ggfsu"]
-atlas = ExtResource("7_8lvdw")
-region = Rect2(0, 1024, 256, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_m5rq7"]
-atlas = ExtResource("7_8lvdw")
-region = Rect2(256, 1024, 256, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_igumw"]
-atlas = ExtResource("7_8lvdw")
-region = Rect2(512, 1024, 256, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_i0ygf"]
-atlas = ExtResource("7_8lvdw")
-region = Rect2(768, 1024, 256, 128)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_onkip"]
 animations = [{
 "frames": [{
@@ -394,19 +324,34 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_vmqxn")
+"texture": ExtResource("4_ojo4k")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_34mdg")
+"texture": ExtResource("5_hiypx")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_cxpw8")
+"texture": ExtResource("6_thnkt")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3xjnc")
+"texture": ExtResource("7_1iwpt")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_oddqw")
+"texture": ExtResource("8_1si5o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_nwxfv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_gvjdt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_26mub")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_j038s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_rsao0")
 }],
 "loop": false,
 "name": &"dead",
@@ -414,34 +359,40 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_p5an8")
+"texture": ExtResource("14_glbxf")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_botd1")
+"texture": ExtResource("15_q8w7o")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_cg6i8")
+"texture": ExtResource("16_tp7vp")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_xp0ht")
+"texture": ExtResource("17_ir4jr")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_xjau7")
+"texture": ExtResource("18_7ghv4")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_taoav")
+"texture": ExtResource("19_5r0jc")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_4itmh")
+"texture": ExtResource("20_2acyn")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_iw3qq")
+"texture": ExtResource("21_qt47g")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_263yq")
+"texture": ExtResource("22_rmmgq")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_bop28")
+"texture": ExtResource("23_3em1b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_5xir0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_mc4li")
 }],
 "loop": true,
 "name": &"idle",
@@ -449,49 +400,73 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_bwnfr")
+"texture": ExtResource("26_x0bwh")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_wmf8n")
+"texture": ExtResource("27_n687i")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_prn3y")
+"texture": ExtResource("28_6k0sa")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_e2cya")
+"texture": ExtResource("29_tf422")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_lemvm")
+"texture": ExtResource("30_blwsf")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_lqjlm")
+"texture": ExtResource("31_bp2t1")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ie2cd")
+"texture": ExtResource("32_lybyj")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ou3kp")
+"texture": ExtResource("33_8cyps")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_hh787")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_hen8i")
 }],
 "loop": true,
 "name": &"run",
-"speed": 9.0
+"speed": 7.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ggfsu")
+"texture": ExtResource("36_tadop")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_m5rq7")
+"texture": ExtResource("37_nsvlk")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_igumw")
+"texture": ExtResource("38_87bl4")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_i0ygf")
+"texture": ExtResource("39_uji6b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_4t83k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_16hdp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_lx3uo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_wthon")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_qfjxb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_yoqre")
 }],
 "loop": true,
 "name": &"special",
-"speed": 5.0
+"speed": 9.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h0dtu"]
@@ -508,14 +483,14 @@ script = ExtResource("1_pb515")
 
 [node name="SpawnAnimation" type="AnimatedSprite2D" parent="."]
 visible = false
-scale = Vector2(1.775, 1.775)
+scale = Vector2(2.6, 2.6)
 sprite_frames = SubResource("SpriteFrames_6fjhv")
 animation = &"spawn"
 autoplay = "spawn"
 offset = Vector2(0, -35)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(2.1, 2.1)
+scale = Vector2(2.4, 2.4)
 sprite_frames = SubResource("SpriteFrames_onkip")
 animation = &"attack"
 autoplay = "idle"
@@ -527,7 +502,6 @@ offset = Vector2(0, -65)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/AtkDetectBoxArea"]
 position = Vector2(51.4287, -22.8572)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_h0dtu")
 debug_color = Color(0.719562, 0.326995, 0.88156, 0.42)
 
@@ -536,7 +510,6 @@ monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/HitboxArea"]
 position = Vector2(-2.27065e-07, -22.8574)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_7wg3o")
 
 [node name="AtkDmgBoxArea" type="Area2D" parent="AnimatedSprite2D"]
@@ -545,7 +518,6 @@ monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/AtkDmgBoxArea"]
 position = Vector2(72.5, -22.8572)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_asvgr")
 debug_color = Color(0.466667, 0.584314, 0.223529, 0.419608)
 

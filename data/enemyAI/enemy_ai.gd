@@ -87,6 +87,16 @@ func init_scenes(faction: Global.Faction) -> void:
 			unit2_scene = preload(Paths.UNDEAD + "ghost.tscn")
 			unit3_scene = preload(Paths.UNDEAD + "undeadwitch.tscn")
 			unit4_scene = preload(Paths.UNDEAD + "reaper.tscn")
+		Global.Faction.FOREST:
+			unit1_data = ForestUnits.forestmage_data
+			unit2_data = ForestUnits.ranger_data
+			unit3_data = ForestUnits.protector_data
+			unit4_data = ForestUnits.highelf_data
+	
+			unit1_scene = preload(Paths.FOREST + "forestmage.tscn")
+			unit2_scene = preload(Paths.FOREST + "ranger.tscn")
+			unit3_scene = preload(Paths.FOREST + "protector.tscn")
+			unit4_scene = preload(Paths.FOREST + "highelf.tscn")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
