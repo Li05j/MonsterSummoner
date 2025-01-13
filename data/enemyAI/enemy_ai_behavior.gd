@@ -4,7 +4,7 @@ var ai: EnemyAI
 
 #var enemy_base_hp = 500
 
-var _critical_hp_rate = 0.27
+var _critical_hp_gold_rate = 0.27
 
 var _min_pot = 50
 var _max_pot = _min_pot + 50
@@ -33,7 +33,7 @@ func init(enemy_ai: EnemyAI) -> void:
 	_min_pot *= _current_level
 	_max_pot = _min_pot + 50
 	
-	_critical_hp_rate += _current_level * 0.4
+	_critical_hp_gold_rate += _current_level * 0.04
 	_pot_of_gold_rate += _current_level * 0.4
 	
 	#enemy_base_hp *= _current_level
@@ -47,9 +47,9 @@ func set_ai(enemy_ai: EnemyAI) -> void:
 
 func get_pot_of_gold_value(critical: int) -> int:
 	if critical == 1:
-		return max(_min_pot, floor((GameState.total_game_time + LevelState.game_time) * _critical_hp_rate))
+		return max(_min_pot, floor((GameState.total_game_time + LevelState.game_time) * _critical_hp_gold_rate))
 	if critical == 2:
-		return max(_max_pot, floor((GameState.total_game_time + LevelState.game_time) * _critical_hp_rate))
+		return max(_max_pot, floor((GameState.total_game_time + LevelState.game_time) * _critical_hp_gold_rate))
 	return ai.enemy_gold_gen * _pot_of_gold_rate
 
 func generate_decision_wait_time() -> float:
@@ -73,7 +73,7 @@ func decide_what_to_do() -> int:
 		w1 = 0
 	
 	if ai.enemy_gold > u4cost * 1.2:
-		w4 *= 5
+		w4 *= 4
 	
 	if ai.critical_2_flag:
 		nan /= 2

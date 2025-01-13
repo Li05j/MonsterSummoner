@@ -1,6 +1,6 @@
 class_name Ranger extends ProjTroops
 
-const crit_shots = 5
+const crit_shots = 4
 var shots = 0
 
 func _init_stats() -> void:

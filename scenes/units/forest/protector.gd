@@ -31,14 +31,14 @@ func _change_to_form_two() -> void:
 	
 	_form_two = true
 	_sprite.frame_changed.disconnect(_on_sprite_attack_frame_change)
-	_atk_detect_box.queue_free()
-	_atk_dmg_box.queue_free()
 	
 	_is_cc_immune = true
 	_is_slow_immune = true
 	_move_spd = 0
-	_attack_cd_timer.queue_free()
 	_current_hp = _max_hp # restore back to full
+	
+	_is_invincible = true
+	_invincible_timer.start(1)
 
 func _move(delta: float) -> void:
 	if _form_two:

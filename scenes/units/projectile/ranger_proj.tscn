@@ -37,7 +37,7 @@ scale = Vector2(1.8, 1.8)
 sprite_frames = SubResource("SpriteFrames_4oaq5")
 animation = &"shoot"
 autoplay = "shoot"
-frame_progress = 0.450555
+frame_progress = 0.316703
 
 [node name="HitboxArea" type="Area2D" parent="AnimatedSprite2D"]
 

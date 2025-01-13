@@ -51,6 +51,14 @@ func _move(delta: float) -> void:
 func _is_valid() -> bool:
 	return !(_not_interactable or _is_dead or _during_special)
 
+func _set_ally() -> void:
+	super()
+	_atk_dmg_box.collision_mask |= Global.Collision.PLAYER_UNIT
+
+func _set_enemy() -> void:
+	super()
+	_atk_dmg_box.collision_mask |= Global.Collision.ENEMY_UNIT
+
 func _attack_special_effects(enemy) -> void:
 	enemy.knockback(ForestUnits.highelf_data.knockback_time)
 
@@ -68,16 +76,24 @@ func _resolve_attack() -> void:
 				return a.global_position.x > b.global_position.x # sort from right to left
 			)
 	
-	# 1st target takes 3x damage
-	var target = valid_enemies[0]
-	if is_instance_valid(target) and target._is_valid():
-		_deal_dmg(target, 5.0, 0, self)
+	# 1st target takes 5x damage
+	var extra_dmg_done = false
 	
-	var idx = 1
+	#if is_instance_valid(target) and target._is_valid():
+		#_deal_dmg(target, 5.0, 0, self)
+	var target
+	var idx = 0
 	while idx >= 0 and idx < valid_enemies.size():
 		target = valid_enemies[idx]
 		if is_instance_valid(target) and target._is_valid():
-			_deal_dmg(target, 1.0, 0, self)
+			if _who == target._who:
+				target.heal(_atk * 2)
+			else:
+				if !extra_dmg_done:
+					_deal_dmg(target, 5.0)
+					extra_dmg_done = true
+				else:
+					_deal_dmg(target)
 		idx += 1
 
 func _take_dmg(damage: int, attacker = null) -> bool:

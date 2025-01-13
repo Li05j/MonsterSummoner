@@ -16,11 +16,7 @@ func _resolve_contact(other: Area2D) -> void:
 			var rate = 1
 			if _proj_owner.shots >= _proj_owner.crit_shots:
 				_proj_owner.shots -= _proj_owner.crit_shots
-				rate = 5
+				rate = 4
 			_proj_owner._deal_dmg(enemy, rate)
 			
-			#if _max_target_count != -1:
-				#_curr_target_count += 1
-				#if _curr_target_count >= _max_target_count:
-					#_dead()
 			_dead()

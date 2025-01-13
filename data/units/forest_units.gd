@@ -22,12 +22,12 @@ const ranger_data = {
 	"cost": 80,
 	"move_spd": 90,
 	"max_hp": 57,
-	"atk": 7,
-	"atk_spd": 0.65,
+	"atk": 9,
+	"atk_spd": 0.8,
 	"atk_frame": 4,
 	"spwn_wait": 0.75,
 	"targets": 1,
-	"description": "Deals 5x damage every 5th attack.",
+	"description": "Deals 4x damage every 4th attack.",
 }
 
 const protector_data = {
@@ -35,7 +35,7 @@ const protector_data = {
 	"slow_immune": false,
 	"cost": 130,
 	"move_spd": 55,
-	"max_hp": 150,
+	"max_hp": 220,
 	"atk": 4,
 	"atk_spd": 2.5,
 	"atk_frame": 4,
@@ -52,7 +52,7 @@ const highelf_data = {
 	"cost": 230,
 	"move_spd": 80,
 	"max_hp": 165,
-	"atk": 5,
+	"atk": 6,
 	"atk_spd": 2.0,
 	"atk_frame": 9,
 	"spwn_wait": 3.0,
