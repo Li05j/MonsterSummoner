@@ -27,11 +27,11 @@ func _ready() -> void:
 	_restarts.text = "Restarts this level: " + str(LevelState.restarts) + ", Total Restarts: " + str(GameState.total_restarts)
 
 func _on_next_level_pressed() -> void:
-	var level = LevelState.next_level()
+	LevelState.next_level()
 	get_tree().change_scene_to_file(Paths.LEVELS + "level.tscn")
 
 func _on_restart_pressed() -> void:
-	var level = GameState.restart()
+	GameState.restart()
 	get_tree().change_scene_to_file(Paths.LEVELS + "level.tscn")
 
 func _on_back_pressed() -> void:

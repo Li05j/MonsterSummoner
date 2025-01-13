@@ -38,9 +38,9 @@ func save_upgrades(b1: int = 0, b2: int = 0, b3: int = 0, b4: int = 0):
 func remove_enemy_faction(faction: Global.Faction) -> void:
 	enemy_factions_left.erase(faction)
 
-func restart() -> int:
+func restart() -> void:
 	total_restarts += 1
-	return LevelState.restart_level()
+	LevelState.restart_level()
 
 func reset_without_changing_faction() -> void:
 	LevelState.reset_level_state()

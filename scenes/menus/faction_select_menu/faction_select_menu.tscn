@@ -38,39 +38,6 @@ theme_type_variation = &"GraphFrameTitleLabel"
 theme_override_font_sizes/font_size = 60
 text = "Select a Faction"
 
-[node name="Buttons" type="HBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -448.0
-offset_top = -69.0
-offset_right = 448.0
-offset_bottom = 69.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 100
-
-[node name="monster" type="Button" parent="Buttons"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme = ExtResource("3_mx87t")
-text = "Monster"
-
-[node name="darkness" type="Button" parent="Buttons"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme = ExtResource("3_mx87t")
-text = "Darkness"
-
-[node name="undead" type="Button" parent="Buttons"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme = ExtResource("3_mx87t")
-text = "Undead"
-
 [node name="Back" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = 2
@@ -83,7 +50,72 @@ size_flags_vertical = 3
 theme = ExtResource("3_mx87t")
 text = "Back to Main Menu"
 
-[connection signal="pressed" from="Buttons/monster" to="." method="_on_monster_pressed"]
-[connection signal="pressed" from="Buttons/darkness" to="." method="_on_darkness_pressed"]
-[connection signal="pressed" from="Buttons/undead" to="." method="_on_undead_pressed"]
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -316.0
+offset_top = -123.5
+offset_right = 316.0
+offset_bottom = 123.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 40
+theme_override_constants/v_separation = 40
+columns = 3
+
+[node name="monster" type="Button" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("3_mx87t")
+text = "Monster"
+
+[node name="void" type="Button" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("3_mx87t")
+text = "Void"
+
+[node name="undead" type="Button" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("3_mx87t")
+text = "Undead"
+
+[node name="forest" type="Button" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("3_mx87t")
+text = "Forest"
+
+[node name="human" type="Button" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("3_mx87t")
+text = "Human"
+
+[node name="none" type="Button" parent="GridContainer"]
+self_modulate = Color(0.408329, 0.408329, 0.408329, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("3_mx87t")
+disabled = true
+button_mask = 0
+text = "Coming Soon"
+flat = true
+
 [connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="GridContainer/monster" to="." method="_on_monster_pressed"]
+[connection signal="pressed" from="GridContainer/void" to="." method="_on_darkness_pressed"]
+[connection signal="pressed" from="GridContainer/undead" to="." method="_on_undead_pressed"]
+[connection signal="pressed" from="GridContainer/forest" to="." method="_on_monster_pressed"]
+[connection signal="pressed" from="GridContainer/human" to="." method="_on_darkness_pressed"]

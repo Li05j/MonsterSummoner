@@ -40,20 +40,13 @@ func reset_level_state() -> void:
 	
 	restarts = 0
 
-func restart_level() -> int:
+func restart_level() -> void:
 	restarts += 1
-	match level_number:
-		1: return _set_level_1()
-		2: return _set_level_2()
-		3: return _set_level_3()
-		_: return _set_level_1()
+	set_level(level_number)
 
-func next_level() -> int:
+func next_level() -> void:
 	restarts = 0
-	match level_number:
-		1: return _set_level_2()
-		2: return _set_level_3()
-		_: return _set_level_1()
+	set_level(level_number + 1)
 
 func _weak_reset() -> void:
 	who_wins = Global.Who.NONE
@@ -61,23 +54,6 @@ func _weak_reset() -> void:
 	player_gold = GameState.player_initial_gold
 	player_gold_gen = GameState.player_initial_gold_gen
 
-func _set_level_1() -> int:
+func set_level(lvl: int):
 	_weak_reset()
-	level_number = 1
-	#ally_base_pos = Vector2(Global.ally_base_x, Global.ground_y)
-	#enemy_base_pos = Vector2(1037, Global.ground_y)
-	return 1
-
-func _set_level_2() -> int:
-	_weak_reset()
-	level_number = 2
-	#ally_base_pos = Vector2(Global.ally_base_x, Global.ground_y)
-	#enemy_base_pos = Vector2(2189, Global.ground_y)
-	return 2
-
-func _set_level_3() -> int:
-	_weak_reset()
-	level_number = 3
-	#ally_base_pos = Vector2(Global.ally_base_x, Global.ground_y)
-	#enemy_base_pos = Vector2(1728, Global.ground_y)
-	return 3
+	level_number = lvl

@@ -17,5 +17,7 @@ const BASE = UNITS + "base/"
 const MONSTER = UNITS + "monster/"
 const DARKNESS = UNITS + "darkness/"
 const UNDEAD = UNITS + "undead/"
+const FOREST = UNITS + "forest/"
+const HUMAN = UNITS + "human/"
 
 const PROJ = UNITS + "projectile/"
