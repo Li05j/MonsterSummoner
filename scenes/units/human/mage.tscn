@@ -1,8 +1,8 @@
-[gd_scene load_steps=65 format=3 uid="uid://6325d2uehbry"]
+[gd_scene load_steps=59 format=3 uid="uid://6325d2uehbry"]
 
 [ext_resource type="Script" path="res://scenes/units/human/mage.gd" id="1_1l6l0"]
 [ext_resource type="Texture2D" uid="uid://cnq1hc8pwsi37" path="res://addons/Sprites/Gravity-Sheet.png" id="2_ba6ho"]
-[ext_resource type="Texture2D" uid="uid://cbuwyk5o0s00i" path="res://addons/Sprites/free-wizard-sprite-sheets-pixel-art/Lightning Mage/Light_charge.png" id="3_c7hja"]
+[ext_resource type="Texture2D" uid="uid://ddxutu60j6rhx" path="res://addons/Sprites/free-wizard-sprite-sheets-pixel-art/Lightning Mage/Light_ball.png" id="3_itjnw"]
 [ext_resource type="Texture2D" uid="uid://d3kqbbhxnmreb" path="res://addons/Sprites/free-wizard-sprite-sheets-pixel-art/Lightning Mage/Dead.png" id="4_2srts"]
 [ext_resource type="Texture2D" uid="uid://d35qkqgr1jjv6" path="res://addons/Sprites/free-wizard-sprite-sheets-pixel-art/Lightning Mage/Idle.png" id="5_bnjof"]
 [ext_resource type="Texture2D" uid="uid://c3b5cqok8hlv2" path="res://addons/Sprites/free-wizard-sprite-sheets-pixel-art/Lightning Mage/Walk.png" id="6_oy75a"]
@@ -157,53 +157,33 @@ animations = [{
 "speed": 16.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ag7ws"]
-atlas = ExtResource("3_c7hja")
+[sub_resource type="AtlasTexture" id="AtlasTexture_4yfyg"]
+atlas = ExtResource("3_itjnw")
 region = Rect2(0, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_o872j"]
-atlas = ExtResource("3_c7hja")
+[sub_resource type="AtlasTexture" id="AtlasTexture_nplxh"]
+atlas = ExtResource("3_itjnw")
 region = Rect2(128, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_65fc8"]
-atlas = ExtResource("3_c7hja")
+[sub_resource type="AtlasTexture" id="AtlasTexture_gaqok"]
+atlas = ExtResource("3_itjnw")
 region = Rect2(256, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_v2n8w"]
-atlas = ExtResource("3_c7hja")
+[sub_resource type="AtlasTexture" id="AtlasTexture_sdinv"]
+atlas = ExtResource("3_itjnw")
 region = Rect2(384, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_31o8n"]
-atlas = ExtResource("3_c7hja")
+[sub_resource type="AtlasTexture" id="AtlasTexture_13af3"]
+atlas = ExtResource("3_itjnw")
 region = Rect2(512, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1bmj7"]
-atlas = ExtResource("3_c7hja")
+[sub_resource type="AtlasTexture" id="AtlasTexture_1o0cc"]
+atlas = ExtResource("3_itjnw")
 region = Rect2(640, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_hbohw"]
-atlas = ExtResource("3_c7hja")
+[sub_resource type="AtlasTexture" id="AtlasTexture_kcx0g"]
+atlas = ExtResource("3_itjnw")
 region = Rect2(768, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jmb8d"]
-atlas = ExtResource("3_c7hja")
-region = Rect2(896, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bp76a"]
-atlas = ExtResource("3_c7hja")
-region = Rect2(1024, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_43e3c"]
-atlas = ExtResource("3_c7hja")
-region = Rect2(1152, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1j4jn"]
-atlas = ExtResource("3_c7hja")
-region = Rect2(1280, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_m2ips"]
-atlas = ExtResource("3_c7hja")
-region = Rect2(1408, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3vdr0"]
 atlas = ExtResource("4_2srts")
@@ -285,44 +265,29 @@ region = Rect2(768, 0, 128, 128)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ag7ws")
+"texture": SubResource("AtlasTexture_4yfyg")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_o872j")
+"texture": SubResource("AtlasTexture_nplxh")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_65fc8")
+"texture": SubResource("AtlasTexture_gaqok")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_v2n8w")
+"texture": SubResource("AtlasTexture_sdinv")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_31o8n")
+"texture": SubResource("AtlasTexture_13af3")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_1bmj7")
+"texture": SubResource("AtlasTexture_1o0cc")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_hbohw")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jmb8d")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_bp76a")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_43e3c")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1j4jn")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_m2ips")
+"texture": SubResource("AtlasTexture_kcx0g")
 }],
 "loop": false,
 "name": &"attack",
-"speed": 8.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -403,13 +368,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7wg3o"]
-size = Vector2(51.2, 64)
+size = Vector2(128, 64)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l7tju"]
 size = Vector2(25.6, 64)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vahyi"]
-size = Vector2(102.4, 64)
 
 [node name="Mage" type="Node2D"]
 script = ExtResource("1_1l6l0")
@@ -426,15 +388,16 @@ offset = Vector2(0, -35)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(1.25, 1.25)
 sprite_frames = SubResource("SpriteFrames_onkip")
-animation = &"run"
+animation = &"attack"
 autoplay = "idle"
-frame_progress = 0.0861441
-offset = Vector2(40, -64)
+frame = 6
+frame_progress = 1.0
+offset = Vector2(5, -64)
 
 [node name="AtkDetectBoxArea" type="Area2D" parent="AnimatedSprite2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/AtkDetectBoxArea"]
-position = Vector2(25.6, -32)
+position = Vector2(64, -32)
 scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_7wg3o")
 debug_color = Color(0.717647, 0.32549, 0.882353, 0.419608)
@@ -446,16 +409,6 @@ monitoring = false
 position = Vector2(-3.8147e-07, -32)
 scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_l7tju")
-
-[node name="AtkDmgBoxArea" type="Area2D" parent="AnimatedSprite2D"]
-monitoring = false
-monitorable = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/AtkDmgBoxArea"]
-position = Vector2(51.2, -32)
-scale = Vector2(1, 1)
-shape = SubResource("RectangleShape2D_vahyi")
-debug_color = Color(0.467372, 0.586243, 0.223272, 0.42)
 
 [node name="HpBar" type="TextureProgressBar" parent="."]
 visible = false

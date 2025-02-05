@@ -1,0 +1,94 @@
+[gd_scene load_steps=14 format=3 uid="uid://c8qhsq1lquoje"]
+
+[ext_resource type="Script" path="res://scenes/units/projectile/mage_proj.gd" id="1_2dhm4"]
+[ext_resource type="Texture2D" uid="uid://c4jml1ru81lke" path="res://addons/Sprites/free-wizard-sprite-sheets-pixel-art/Lightning Mage/Charge.png" id="2_sq74h"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k25p6"]
+atlas = ExtResource("2_sq74h")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ca1e0"]
+atlas = ExtResource("2_sq74h")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a2wmb"]
+atlas = ExtResource("2_sq74h")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a7ke4"]
+atlas = ExtResource("2_sq74h")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3bl6q"]
+atlas = ExtResource("2_sq74h")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xgpgf"]
+atlas = ExtResource("2_sq74h")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mqd6t"]
+atlas = ExtResource("2_sq74h")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_27272"]
+atlas = ExtResource("2_sq74h")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7qs1c"]
+atlas = ExtResource("2_sq74h")
+region = Rect2(512, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4oaq5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k25p6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ca1e0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a2wmb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a7ke4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3bl6q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xgpgf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mqd6t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_27272")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7qs1c")
+}],
+"loop": true,
+"name": &"shoot",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b2q20"]
+size = Vector2(24, 24)
+
+[node name="mage_proj" type="Node2D"]
+z_index = 10
+script = ExtResource("1_2dhm4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_4oaq5")
+animation = &"shoot"
+autoplay = "shoot"
+frame_progress = 0.85361
+
+[node name="HitboxArea" type="Area2D" parent="AnimatedSprite2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/HitboxArea"]
+shape = SubResource("RectangleShape2D_b2q20")

@@ -85,6 +85,8 @@ func _dash() -> void:
 	_dash_coord_x = global_position.x
 	for target in valid_enemies:
 		if is_instance_valid(target) and target._is_valid():
+			if target is AllyBase or target is EnemyBase: # Do not jump on base
+				continue
 			if _who == Global.Who.ALLY and target.global_position.x > _dash_coord_x:
 				_dash_coord_x = target.global_position.x
 			elif _who == Global.Who.ENEMY and target.global_position.x < _dash_coord_x:
@@ -126,4 +128,4 @@ func _on_sprite_attack_frame_change() -> void:
 			for target in valid_enemies:
 				if is_instance_valid(target) and target._is_valid():
 					target.stun(HumanUnits.guardian_data.stun_time)
-					_deal_dmg(target)
+					_deal_dmg(target, 2.0)

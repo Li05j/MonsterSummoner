@@ -49,3 +49,11 @@ func _on_spawn_animation_done(timer_name: String) -> void:
 	for target in allies:
 		if is_instance_valid(target) and target._is_valid():
 			target.heal(HumanUnits.king_data.heal_amount)
+
+func _on_sprite_attack_frame_change() -> void:
+	# Deal damage on a specific attack animation frame
+	_atk_dmg_box.monitoring = true
+	if _is_valid() and _sprite.animation == "attack":
+		if _sprite.frame == _atk_frame1 or _sprite.frame == _atk_frame2:
+			_resolve_attack()
+			_atk_dmg_box.monitoring = false

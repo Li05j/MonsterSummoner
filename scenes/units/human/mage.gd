@@ -1,4 +1,4 @@
-class_name Mage extends MeleeTroops
+class_name Mage extends ProjTroops
 
 func _init_stats() -> void:
 	_not_interactable = true
@@ -18,6 +18,13 @@ func _init_stats() -> void:
 	_spwn_wait = HumanUnits.mage_data.spwn_wait
 	
 	_targets = HumanUnits.mage_data.targets
+	
+	#####
+	_projectile_scene = preload(Paths.PROJ + "mage_proj.tscn")
+
+func _init_proj_max_range() -> void:
+	_max_travel_range = 1.25 * _atk_detect_box.get_child(0).shape.size.x * _sprite.scale.x
+	_proj_range = _max_travel_range
 
 func _attack_special_effects(enemy) -> void:
 	enemy.stun(HumanUnits.mage_data.stun_time)
