@@ -1,6 +1,6 @@
 extends Node
 
-const MAX_LVL_NUMBER = 4
+const MAX_LVL_NUMBER = 5
 
 var who_wins: Global.Who = Global.Who.NONE
 

@@ -120,6 +120,7 @@ func _hurt_reaction() -> void:
 func _on_sprite_animation_finished() -> void:
 	super()
 	if _sprite.animation == "special":
+		_sprite.play("idle")
 		_v_x = _dir * _move_spd
 		_during_special = false
 		_dodge_cd_timer.start()

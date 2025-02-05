@@ -1,0 +1,5 @@
+factions are not exhausted before game over
+enemy income is not increased wrt game time
+king is too strong
+highelf dodge animation stops - need to resume running animation after dodge
+highelf fucking sucks for some reason

@@ -68,7 +68,7 @@ func _add_cc(cc: bool) -> void:
 		_attack_cd_timer.set_paused(true)
 		_sprite.play("idle")
 		if _sprite.scale > _original_scale:
-			_sprite.scale /= 1.5
+			_sprite.scale = _original_scale
 	if !cc:
 		_cc_count -= 1
 		if _cc_count == 0:

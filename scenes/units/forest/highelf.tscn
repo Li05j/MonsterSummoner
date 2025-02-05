@@ -466,13 +466,13 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h0dtu"]
-size = Vector2(102.857, 45.7143)
+size = Vector2(103.529, 45.7143)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7wg3o"]
 size = Vector2(22.8571, 45.7139)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_asvgr"]
-size = Vector2(144.524, 45.7143)
+size = Vector2(147.213, 45.7143)
 
 [node name="HighElf" type="Node2D"]
 script = ExtResource("1_pb515")
@@ -497,7 +497,8 @@ offset = Vector2(0, -65)
 [node name="AtkDetectBoxArea" type="Area2D" parent="AnimatedSprite2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/AtkDetectBoxArea"]
-position = Vector2(51.4287, -22.8572)
+position = Vector2(51.7648, -22.8572)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_h0dtu")
 debug_color = Color(0.719562, 0.326995, 0.88156, 0.42)
 
@@ -513,7 +514,8 @@ monitoring = false
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/AtkDmgBoxArea"]
-position = Vector2(72.5, -22.8572)
+position = Vector2(73.8445, -22.8572)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_asvgr")
 debug_color = Color(0.466667, 0.584314, 0.223529, 0.419608)
 
