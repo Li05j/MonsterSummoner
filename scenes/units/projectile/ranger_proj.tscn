@@ -43,5 +43,4 @@ frame_progress = 0.316703
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/HitboxArea"]
 position = Vector2(0.17647, 0)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_b2q20")

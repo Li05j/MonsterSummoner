@@ -22,11 +22,16 @@ func _init_stats() -> void:
 	_spwn_wait = ForestUnits.protector_data.spwn_wait
 	
 	_targets = ForestUnits.protector_data.targets
-	
+
+func _init_misc() -> void:
+	super()
+	a_summon = true
+
 func _attack_special_effects(enemy) -> void:
 	enemy.knockback(ForestUnits.protector_data.knockback_time)
 
 func _change_to_form_two() -> void:
+	a_summon = false
 	_sprite.play("special")
 	
 	_form_two = true

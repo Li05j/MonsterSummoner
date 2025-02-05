@@ -10,7 +10,7 @@ func _ready() -> void:
 
 func _init_stats() -> void:
 	# So that the enemy base max hp scales with level
-	_max_hp = (Global.max_base_hp / 2) * LevelState.level_number
+	_max_hp = Global.max_base_hp * LevelState.level_number
 
 func _init_collisions() -> void:
 	_hitbox.collision_layer = Global.Collision.ENEMY_BASE

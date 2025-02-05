@@ -26,6 +26,7 @@ MonsterUnits="*res://data/units/monster_units.gd"
 DarknessUnits="*res://data/units/darkness_units.gd"
 UndeadUnits="*res://data/units/undead_units.gd"
 ForestUnits="*res://data/units/forest_units.gd"
+HumanUnits="*res://data/units/human_units.gd"
 BuildingsData="*res://data/globals/buildings_data.gd"
 
 [display]

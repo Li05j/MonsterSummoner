@@ -75,12 +75,16 @@ func _add_cc(cc: bool) -> void:
 			_attack_cd_timer.set_paused(false)
 
 func _on_kill_special_effects(enemy) -> void:
-	if enemy is not BaseTroops or enemy.a_summon:
+	if enemy is not BaseTroops:
 		return
 	var skull = _skull_animation_scene.instantiate()
 	skull.global_position = Vector2(enemy.global_position.x, enemy.global_position.y + _skull_y_offset)
 	LevelState.current_level.add_child(skull)
 	
+	# Do not spawn bat if the enemy is a summon
+	if enemy.a_summon:
+		return
+		
 	var bat = _bat_scene.instantiate()
 	LevelState.current_level.add_child(bat)
 	bat.set_who(_who)
