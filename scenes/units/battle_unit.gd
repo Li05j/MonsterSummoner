@@ -31,6 +31,9 @@ func _init_misc() -> void:
 func _hurt_reaction() -> void:
 	_hp_bar.value = _current_hp
 
+func _heal_reaction() -> void:
+	_hp_bar.value = _current_hp
+
 func _counter(other) -> void:
 	pass
 
@@ -54,7 +57,7 @@ func heal(amount: int) -> void:
 		return
 		
 	_current_hp += _final_heal(amount)
-	_hurt_reaction()
+	_heal_reaction()
 	if _current_hp > _max_hp:
 		_current_hp = _max_hp
 

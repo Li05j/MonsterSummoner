@@ -1,4 +1,4 @@
-[gd_scene load_steps=90 format=3 uid="uid://c627eb72or1o7"]
+[gd_scene load_steps=89 format=3 uid="uid://c627eb72or1o7"]
 
 [ext_resource type="Script" path="res://scenes/units/forest/highelf.gd" id="1_pb515"]
 [ext_resource type="Texture2D" uid="uid://cnq1hc8pwsi37" path="res://addons/Sprites/Gravity-Sheet.png" id="2_s1mxr"]
@@ -46,7 +46,6 @@
 [ext_resource type="Texture2D" uid="uid://c4b2q2nqwjl1b" path="res://addons/Sprites/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/roll/roll_7.png" id="42_lx3uo"]
 [ext_resource type="Texture2D" uid="uid://ctcn02ojmgub0" path="res://addons/Sprites/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/roll/roll_8.png" id="43_wthon"]
 [ext_resource type="Texture2D" uid="uid://jd27ctkyfw05" path="res://addons/Sprites/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/roll/roll_2.png" id="44_qfjxb"]
-[ext_resource type="Texture2D" uid="uid://c0xn0oq7yong4" path="res://addons/Sprites/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/roll/roll_1.png" id="45_yoqre"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jfpg8"]
 atlas = ExtResource("2_s1mxr")
@@ -460,13 +459,10 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("44_qfjxb")
-}, {
-"duration": 1.0,
-"texture": ExtResource("45_yoqre")
 }],
 "loop": false,
 "name": &"special",
-"speed": 9.0
+"speed": 15.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h0dtu"]
@@ -494,7 +490,7 @@ scale = Vector2(2.55, 2.55)
 sprite_frames = SubResource("SpriteFrames_onkip")
 animation = &"special"
 autoplay = "idle"
-frame = 9
+frame = 8
 frame_progress = 1.0
 offset = Vector2(0, -65)
 
