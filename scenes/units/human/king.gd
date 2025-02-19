@@ -39,16 +39,18 @@ func _enlarge() -> void:
 
 func _on_spawn_animation_done(timer_name: String) -> void:
 	super(timer_name)
-	var allies
+	var enemies
 	if _who == Global.Who.ALLY:
-		allies = get_tree().get_nodes_in_group("ally_unit")
+		enemies = get_tree().get_nodes_in_group("enemy_unit")
 	elif _who == Global.Who.ENEMY:
-		allies = get_tree().get_nodes_in_group("enemy_unit")
-	if allies.size() == 0:
+		enemies = get_tree().get_nodes_in_group("ally_unit")
+	if enemies.size() == 0:
 		return
-	for target in allies:
+	for target in enemies:
 		if is_instance_valid(target) and target._is_valid():
-			target.heal(HumanUnits.king_data.heal_amount)
+			if (target is AllyBase) or (target is EnemyBase):
+				continue
+			_deal_dmg(target, 2.0, 0, self)
 
 func _on_sprite_attack_frame_change() -> void:
 	# Deal damage on a specific attack animation frame

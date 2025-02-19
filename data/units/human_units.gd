@@ -58,13 +58,12 @@ const king_data = {
 	"move_spd": 75,
 	"max_hp": 195,
 	"atk": 13,
-	"atk_spd": 1.35,
+	"atk_spd": 1.4,
 	"atk_frame1": 2,
 	"atk_frame2": 6,
 	"spwn_wait": 3.0,
 	"targets": -1,
-	"description": "Immune to slow.\nHeals all allies on spawn.\nBecomes bigger when HP < 50%.",
+	"description": "Immune to slow.\nDamages all enemies on spawn.\nBecomes bigger when HP < 50%.",
 	
-	"heal_amount": 50,
 	"threshold": 0.5,
 }

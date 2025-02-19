@@ -36,4 +36,37 @@ size_flags_vertical = 3
 theme = ExtResource("3_1m42e")
 text = "Back to Main Menu"
 
+[node name="Help1" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.01
+anchor_top = 0.01
+anchor_right = 0.1
+anchor_bottom = 0.01
+offset_right = 40.0
+offset_bottom = 23.0
+theme_type_variation = &"HeaderLarge"
+text = "1, 2, 3, 4 - Summon Unit
+9, 0 - Upgrade Economy
+A, D - Move camera
+Hover over the buttons to see detailed description of Units!"
+
+[node name="Help2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.01
+anchor_top = 0.5
+anchor_right = 0.01
+anchor_bottom = 0.5
+offset_top = -61.5
+offset_right = 318.0
+offset_bottom = 61.5
+grow_vertical = 2
+theme_type_variation = &"HeaderLarge"
+text = "Choose your faction and destroy the enemy Base before they destroy yours!
+Battle through 5 levels, facing all 5 factions in random order.
+Your Base HP and Economy carry over to the next level—manage them wisely!
+Upgrade your Economy without risking your Base’s survival.
+The longer the fight, the stronger the enemy—finish them fast!"
+
 [connection signal="pressed" from="Back" to="." method="_on_back_btn_pressed"]

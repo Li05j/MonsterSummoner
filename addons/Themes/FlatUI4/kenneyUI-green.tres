@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=34 format=3 uid="uid://bnhngmri4tfgr"]
+[gd_resource type="Theme" load_steps=35 format=3 uid="uid://bnhngmri4tfgr"]
 
 [ext_resource type="Texture2D" uid="uid://d00ws7wljnit4" path="res://addons/Themes/FlatUI4/UIpack_vector.svg" id="1"]
 [ext_resource type="FontFile" uid="uid://b0mws8gku83oo" path="res://addons/Themes/FlatUI4/kenvector_future.ttf" id="2"]
@@ -186,8 +186,10 @@ texture_margin_right = 1.0
 texture_margin_bottom = 1.0
 region_rect = Rect2(1051, 318, 4, 99)
 
+[sub_resource type="SystemFont" id="SystemFont_6wky0"]
+
 [resource]
-default_font = SubResource("31")
+default_font = SubResource("SystemFont_6wky0")
 Button/colors/font_color = Color(0, 0, 0, 1)
 Button/colors/font_disabled_color = Color(0.9, 0.9, 0.9, 0.2)
 Button/colors/font_hover_color = Color(0.34902, 0.34902, 0.34902, 1)

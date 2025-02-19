@@ -430,7 +430,6 @@ offset = Vector2(-3, -50)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/AtkDetectBoxArea"]
 position = Vector2(22.8571, -27.2678)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_krj4l")
 debug_color = Color(0.717647, 0.32549, 0.882353, 0.419608)
 
@@ -439,7 +438,6 @@ monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/HitboxArea"]
 position = Vector2(-4.33488e-07, -27.1429)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_7wg3o")
 
 [node name="AtkDmgBoxArea" type="Area2D" parent="AnimatedSprite2D"]
@@ -448,7 +446,6 @@ monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/AtkDmgBoxArea"]
 position = Vector2(38.5714, -27.1429)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_vahyi")
 debug_color = Color(0.467372, 0.586243, 0.223272, 0.42)
 
