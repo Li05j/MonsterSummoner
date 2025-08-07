@@ -1,6 +1,6 @@
-# [Monster Summoner]
+# Monster Summoner
 
-[A simple game where you deploy troops strategically to see them demolish the enemy!]
+A simple game where you deploy troops strategically to see them demolish the enemy!
 
 ## Features
 
