@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bs0hb43yigydd"]
 
-[ext_resource type="Script" path="res://scenes/menus/main_menu/main_menu.gd" id="1_hnupo"]
+[ext_resource type="Script" uid="uid://dsojusrjpvdig" path="res://scenes/menus/main_menu/main_menu.gd" id="1_hnupo"]
 [ext_resource type="Texture2D" uid="uid://xy8k70jj73lh" path="res://addons/Sprites/pixel-art-cloud-background [photoutils.com].png" id="1_xc1xa"]
 [ext_resource type="Theme" uid="uid://6shp5ck1tnja" path="res://addons/Themes/FlatUI4/kenneyUI.tres" id="2_da73p"]
 

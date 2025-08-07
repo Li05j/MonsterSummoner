@@ -1,6 +1,6 @@
 [gd_scene load_steps=37 format=3 uid="uid://c530l6142474t"]
 
-[ext_resource type="Script" path="res://scenes/units/base/ally_base.gd" id="1_d7ah5"]
+[ext_resource type="Script" uid="uid://8pfcgr8u1id5" path="res://scenes/units/base/ally_base.gd" id="1_d7ah5"]
 [ext_resource type="Texture2D" uid="uid://b2wg1nlfkwg6q" path="res://addons/Sprites/FireSparks.png" id="2_6si53"]
 [ext_resource type="Texture2D" uid="uid://clbr4qgfekv3g" path="res://addons/Sprites/Base/Good_Guy_Tower.png" id="3_8c47g"]
 [ext_resource type="Texture2D" uid="uid://cdnio0nq3mnr6" path="res://addons/Sprites/HpBar/no health bar.png" id="4_nyjp2"]

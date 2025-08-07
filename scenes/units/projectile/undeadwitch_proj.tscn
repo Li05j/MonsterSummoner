@@ -1,6 +1,6 @@
 [gd_scene load_steps=18 format=3 uid="uid://dh5jihfjh1bwr"]
 
-[ext_resource type="Script" path="res://scenes/units/projectile/undeadwitch_proj.gd" id="1_5kkgd"]
+[ext_resource type="Script" uid="uid://ia8pyftuidk0" path="res://scenes/units/projectile/undeadwitch_proj.gd" id="1_5kkgd"]
 [ext_resource type="Texture2D" uid="uid://bfll2yy70hkm1" path="res://addons/Sprites/Evil Wizard 3/Sprites/Projectile/Explode.png" id="2_2v2js"]
 [ext_resource type="Texture2D" uid="uid://15t3urbjkfn5" path="res://addons/Sprites/Evil Wizard 3/Sprites/Projectile/Moving.png" id="2_5tjmv"]
 

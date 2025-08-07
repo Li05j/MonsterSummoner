@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://c8qhsq1lquoje"]
 
-[ext_resource type="Script" path="res://scenes/units/projectile/mage_proj.gd" id="1_2dhm4"]
+[ext_resource type="Script" uid="uid://f0eu6vrtnk6e" path="res://scenes/units/projectile/mage_proj.gd" id="1_2dhm4"]
 [ext_resource type="Texture2D" uid="uid://c4jml1ru81lke" path="res://addons/Sprites/free-wizard-sprite-sheets-pixel-art/Lightning Mage/Charge.png" id="2_sq74h"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k25p6"]

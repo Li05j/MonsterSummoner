@@ -1,6 +1,6 @@
 [gd_scene load_steps=52 format=3 uid="uid://c4w28rdec4ywe"]
 
-[ext_resource type="Script" path="res://scenes/units/darkness/darkknight.gd" id="1_72yh3"]
+[ext_resource type="Script" uid="uid://dfb4x6l1npjux" path="res://scenes/units/darkness/darkknight.gd" id="1_72yh3"]
 [ext_resource type="Texture2D" uid="uid://cnq1hc8pwsi37" path="res://addons/Sprites/Gravity-Sheet.png" id="2_veypa"]
 [ext_resource type="Texture2D" uid="uid://cxakjf5q8xx1t" path="res://addons/Sprites/fantasydarkknight/PNG/Knight-Attack-Sheet.png" id="3_c46eh"]
 [ext_resource type="Texture2D" uid="uid://cm2bf0isj7osv" path="res://addons/Sprites/fantasydarkknight/PNG/Knight-Idle-Sheet.png" id="5_4pti7"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=37 format=3 uid="uid://dtcecri4xg6mt"]
 
-[ext_resource type="Script" path="res://scenes/units/base/enemy_base.gd" id="1_kid43"]
+[ext_resource type="Script" uid="uid://cgm4j4ea42e84" path="res://scenes/units/base/enemy_base.gd" id="1_kid43"]
 [ext_resource type="Texture2D" uid="uid://b2wg1nlfkwg6q" path="res://addons/Sprites/FireSparks.png" id="2_vuq3o"]
 [ext_resource type="Texture2D" uid="uid://djv81g1me7vp1" path="res://addons/Sprites/Base/Bad_Guy_Tower.png" id="3_73e1v"]
 [ext_resource type="Texture2D" uid="uid://cdnio0nq3mnr6" path="res://addons/Sprites/HpBar/no health bar.png" id="4_vo1p0"]

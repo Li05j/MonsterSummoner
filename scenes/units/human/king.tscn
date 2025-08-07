@@ -1,6 +1,6 @@
 [gd_scene load_steps=65 format=3 uid="uid://cgkt1y6pc68lr"]
 
-[ext_resource type="Script" path="res://scenes/units/human/king.gd" id="1_o33f8"]
+[ext_resource type="Script" uid="uid://cinr72nbcpcie" path="res://scenes/units/human/king.gd" id="1_o33f8"]
 [ext_resource type="Texture2D" uid="uid://cnq1hc8pwsi37" path="res://addons/Sprites/Gravity-Sheet.png" id="2_dbgg0"]
 [ext_resource type="Texture2D" uid="uid://2poddt7atwg3" path="res://addons/Sprites/Medieval King Pack 2/Sprites/Attack1.png" id="3_1weqq"]
 [ext_resource type="Texture2D" uid="uid://di6kveuchnsp4" path="res://addons/Sprites/Medieval King Pack 2/Sprites/Attack2.png" id="4_xr41b"]

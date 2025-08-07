@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://tqlw50cb2edn"]
 
-[ext_resource type="Script" path="res://scenes/units/projectile/ranger_proj.gd" id="1_g0140"]
+[ext_resource type="Script" uid="uid://lsc223ybfys3" path="res://scenes/units/projectile/ranger_proj.gd" id="1_g0140"]
 [ext_resource type="Texture2D" uid="uid://c1j3hkavnlkbx" path="res://addons/Sprites/Huntress 2/Sprites/Arrow/Move.png" id="2_ing3i"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qngk7"]

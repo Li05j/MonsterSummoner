@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://dn7pqi8dbn3ka"]
 
-[ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_p370s"]
+[ext_resource type="Script" uid="uid://tc2gigrroh2i" path="res://scenes/levels/level.gd" id="1_p370s"]
 [ext_resource type="Texture2D" uid="uid://xy8k70jj73lh" path="res://addons/Sprites/pixel-art-cloud-background [photoutils.com].png" id="2_rht4k"]
 [ext_resource type="PackedScene" uid="uid://comfh2g0i6lwu" path="res://scenes/menus/pause_menu/pause_menu.tscn" id="5_o1hnx"]
 [ext_resource type="Theme" uid="uid://6shp5ck1tnja" path="res://addons/Themes/FlatUI4/kenneyUI.tres" id="6_6k0nn"]
-[ext_resource type="Script" path="res://scenes/levels/camera_2d.gd" id="7_26ion"]
+[ext_resource type="Script" uid="uid://txkx2f6jwful" path="res://scenes/levels/camera_2d.gd" id="7_26ion"]
 
 [node name="Level" type="Node"]
 script = ExtResource("1_p370s")

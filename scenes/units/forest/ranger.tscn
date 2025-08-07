@@ -1,6 +1,6 @@
 [gd_scene load_steps=62 format=3 uid="uid://c2a13whm057b6"]
 
-[ext_resource type="Script" path="res://scenes/units/forest/ranger.gd" id="1_4etmi"]
+[ext_resource type="Script" uid="uid://qqccqhq36bfv" path="res://scenes/units/forest/ranger.gd" id="1_4etmi"]
 [ext_resource type="Texture2D" uid="uid://cnq1hc8pwsi37" path="res://addons/Sprites/Gravity-Sheet.png" id="2_rlro3"]
 [ext_resource type="Texture2D" uid="uid://dkhi4dyexn875" path="res://addons/Sprites/Huntress 2/Sprites/Character/Attack.png" id="3_3d1s4"]
 [ext_resource type="Texture2D" uid="uid://bup046iywo5jb" path="res://addons/Sprites/Huntress 2/Sprites/Character/Death.png" id="4_7x6i6"]

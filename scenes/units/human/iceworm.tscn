@@ -1,6 +1,6 @@
 [gd_scene load_steps=70 format=3 uid="uid://dqg12w5cuvr03"]
 
-[ext_resource type="Script" path="res://scenes/units/monster/iceworm.gd" id="1_o1ul2"]
+[ext_resource type="Script" uid="uid://d0blxttydsh0v" path="res://scenes/units/monster/iceworm.gd" id="1_o1ul2"]
 [ext_resource type="Texture2D" uid="uid://cnq1hc8pwsi37" path="res://addons/Sprites/Gravity-Sheet.png" id="2_rtkyg"]
 [ext_resource type="Texture2D" uid="uid://b5wgctgws15qw" path="res://addons/Sprites/BlueWorm/Attack.png" id="3_bg4i8"]
 [ext_resource type="Texture2D" uid="uid://ddew6lbkeky75" path="res://addons/Sprites/BlueWorm/Get Hit.png" id="4_2s7vl"]

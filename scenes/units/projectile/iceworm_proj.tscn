@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://c2b8blbbqyplj"]
 
-[ext_resource type="Script" path="res://scenes/units/projectile/iceworm_proj.gd" id="1_bfmam"]
+[ext_resource type="Script" uid="uid://dfobomukxiqui" path="res://scenes/units/projectile/iceworm_proj.gd" id="1_bfmam"]
 [ext_resource type="Texture2D" uid="uid://b00cx7tctdvxj" path="res://addons/Sprites/BlueWorm/Move.png" id="2_qtx56"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pmsnb"]

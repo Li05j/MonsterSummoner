@@ -1,6 +1,6 @@
 [gd_scene load_steps=49 format=3 uid="uid://bbsugrnjli7ev"]
 
-[ext_resource type="Script" path="res://scenes/units/monster/slime.gd" id="1_j6uyy"]
+[ext_resource type="Script" uid="uid://brwfv5pbknbk1" path="res://scenes/units/monster/slime.gd" id="1_j6uyy"]
 [ext_resource type="Texture2D" uid="uid://cnq1hc8pwsi37" path="res://addons/Sprites/Gravity-Sheet.png" id="2_c40lu"]
 [ext_resource type="Texture2D" uid="uid://dn2sqexdjdgoh" path="res://addons/Sprites/Slime/Slime_Throw.png" id="3_b3q8r"]
 [ext_resource type="Texture2D" uid="uid://o7loxxx148qt" path="res://addons/Sprites/Slime/Slime_Hurt.png" id="4_qke3v"]

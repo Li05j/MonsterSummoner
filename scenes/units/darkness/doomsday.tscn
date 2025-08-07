@@ -1,6 +1,6 @@
 [gd_scene load_steps=77 format=3 uid="uid://locqnsstgyy1"]
 
-[ext_resource type="Script" path="res://scenes/units/darkness/doomsday.gd" id="1_7d6t5"]
+[ext_resource type="Script" uid="uid://be0j0b1311cf8" path="res://scenes/units/darkness/doomsday.gd" id="1_7d6t5"]
 [ext_resource type="Texture2D" uid="uid://cnq1hc8pwsi37" path="res://addons/Sprites/Gravity-Sheet.png" id="2_e75vl"]
 [ext_resource type="Texture2D" uid="uid://bpy776l2s4oif" path="res://addons/Sprites/Bringer-Of-Death/Individual Sprite/Attack/Bringer-of-Death_Attack_1.png" id="3_iwkcr"]
 [ext_resource type="Texture2D" uid="uid://b2g25ij1w1vx0" path="res://addons/Sprites/Bringer-Of-Death/Individual Sprite/Attack/Bringer-of-Death_Attack_2.png" id="4_7bhfu"]

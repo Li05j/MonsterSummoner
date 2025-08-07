@@ -1,6 +1,6 @@
 [gd_scene load_steps=58 format=3 uid="uid://b0j4ihy5nb5f5"]
 
-[ext_resource type="Script" path="res://scenes/units/monster/goblin.gd" id="1_q1idu"]
+[ext_resource type="Script" uid="uid://dwv0u5p88va0l" path="res://scenes/units/monster/goblin.gd" id="1_q1idu"]
 [ext_resource type="Texture2D" uid="uid://l1d7j0v1wxmd" path="res://addons/Sprites/Goblin/Attack.png" id="2_6xxpn"]
 [ext_resource type="Texture2D" uid="uid://b063limwrhvyo" path="res://addons/Sprites/Goblin/Idle.png" id="2_31b7g"]
 [ext_resource type="Texture2D" uid="uid://cnq1hc8pwsi37" path="res://addons/Sprites/Gravity-Sheet.png" id="2_ub21f"]

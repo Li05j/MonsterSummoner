@@ -1,6 +1,6 @@
 [gd_scene load_steps=55 format=3 uid="uid://cq0owyjan0ush"]
 
-[ext_resource type="Script" path="res://scenes/units/forest/protector.gd" id="1_g8j8s"]
+[ext_resource type="Script" uid="uid://bkmd88vht1mxp" path="res://scenes/units/forest/protector.gd" id="1_g8j8s"]
 [ext_resource type="Texture2D" uid="uid://cnq1hc8pwsi37" path="res://addons/Sprites/Gravity-Sheet.png" id="2_dfbbh"]
 [ext_resource type="Texture2D" uid="uid://cc5a8kfu36jko" path="res://addons/Sprites/Mecha-stone Golem 0.1/PNG sheet/Character_sheet.png" id="3_0yfre"]
 [ext_resource type="Texture2D" uid="uid://cdnio0nq3mnr6" path="res://addons/Sprites/HpBar/no health bar.png" id="4_nkc3q"]

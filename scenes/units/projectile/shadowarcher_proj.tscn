@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://b0u587yocck4e"]
 
-[ext_resource type="Script" path="res://scenes/units/projectile/shadowarcher_proj.gd" id="1_236b7"]
+[ext_resource type="Script" uid="uid://cti5wd3p0dsqq" path="res://scenes/units/projectile/shadowarcher_proj.gd" id="1_236b7"]
 [ext_resource type="Texture2D" uid="uid://yqin2cepdkg7" path="res://addons/Sprites/Arcane archer/projectile.png" id="2_nx0py"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l717g"]

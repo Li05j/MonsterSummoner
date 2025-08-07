@@ -1,6 +1,6 @@
 [gd_scene load_steps=57 format=3 uid="uid://bw046k0qt65kv"]
 
-[ext_resource type="Script" path="res://scenes/units/darkness/shadowarcher.gd" id="1_coiby"]
+[ext_resource type="Script" uid="uid://ir64u2k6hv6v" path="res://scenes/units/darkness/shadowarcher.gd" id="1_coiby"]
 [ext_resource type="Texture2D" uid="uid://cnq1hc8pwsi37" path="res://addons/Sprites/Gravity-Sheet.png" id="2_yw3qs"]
 [ext_resource type="Texture2D" uid="uid://dty35m1wmob8f" path="res://addons/Sprites/Arcane archer/spritesheet.png" id="3_0o345"]
 [ext_resource type="Texture2D" uid="uid://cdnio0nq3mnr6" path="res://addons/Sprites/HpBar/no health bar.png" id="6_iniqj"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=20 format=3 uid="uid://wtxfkgjjx42s"]
 
-[ext_resource type="Script" path="res://scenes/units/projectile/doomsday_proj.gd" id="1_c76y7"]
+[ext_resource type="Script" uid="uid://bdjqnfvxvd0yr" path="res://scenes/units/projectile/doomsday_proj.gd" id="1_c76y7"]
 [ext_resource type="Texture2D" uid="uid://clw5eu8iqlovj" path="res://addons/Sprites/Bringer-Of-Death/Individual Sprite/Spell/Bringer-of-Death_Spell_1.png" id="2_xra2k"]
 [ext_resource type="Texture2D" uid="uid://eieeav047wpi" path="res://addons/Sprites/Bringer-Of-Death/Individual Sprite/Spell/Bringer-of-Death_Spell_2.png" id="3_koudf"]
 [ext_resource type="Texture2D" uid="uid://bw0y7lsqypeu0" path="res://addons/Sprites/Bringer-Of-Death/Individual Sprite/Spell/Bringer-of-Death_Spell_3.png" id="4_ml4yg"]

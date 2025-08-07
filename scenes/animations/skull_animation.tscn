@@ -1,6 +1,6 @@
 [gd_scene load_steps=19 format=3 uid="uid://fh0al41erdqh"]
 
-[ext_resource type="Script" path="res://scenes/animations/skull_animation.gd" id="1_bdcsl"]
+[ext_resource type="Script" uid="uid://b1s0oyu06vr3s" path="res://scenes/animations/skull_animation.gd" id="1_bdcsl"]
 [ext_resource type="Texture2D" uid="uid://bgiimlmx4paf0" path="res://addons/Animation/skill animations/Part 13/633.png" id="1_cqilv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7f24g"]

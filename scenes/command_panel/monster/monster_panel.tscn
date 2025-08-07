@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://br8ea3ube8q8i"]
 
-[ext_resource type="Script" path="res://scenes/command_panel/monster/monster_panel.gd" id="1_5qkhy"]
+[ext_resource type="Script" uid="uid://be3s8ww7vmayv" path="res://scenes/command_panel/monster/monster_panel.gd" id="1_5qkhy"]
 [ext_resource type="Theme" uid="uid://bnhngmri4tfgr" path="res://addons/Themes/FlatUI4/kenneyUI-green.tres" id="1_gnueo"]
 [ext_resource type="Texture2D" uid="uid://dtdoxa1pck4mq" path="res://addons/Sprites/Goblin/goblin.png" id="2_2clx1"]
 [ext_resource type="Theme" uid="uid://6shp5ck1tnja" path="res://addons/Themes/FlatUI4/kenneyUI.tres" id="3_68wak"]

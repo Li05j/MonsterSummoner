@@ -1,6 +1,6 @@
 [gd_scene load_steps=52 format=3 uid="uid://d1bhjfev4voue"]
 
-[ext_resource type="Script" path="res://scenes/units/forest/forestmage.gd" id="1_whj1k"]
+[ext_resource type="Script" uid="uid://clu7sqvkb0t0y" path="res://scenes/units/forest/forestmage.gd" id="1_whj1k"]
 [ext_resource type="Texture2D" uid="uid://cnq1hc8pwsi37" path="res://addons/Sprites/Gravity-Sheet.png" id="2_iredk"]
 [ext_resource type="Texture2D" uid="uid://dekglwi7do0xx" path="res://addons/Sprites/forrest mage/forrest_mage_thorns.png" id="3_bk5v0"]
 [ext_resource type="Texture2D" uid="uid://pv8tipxuisvg" path="res://addons/Sprites/forrest mage/forrest_mage_death.png" id="4_0oxrw"]

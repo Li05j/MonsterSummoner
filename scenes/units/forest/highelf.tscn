@@ -1,6 +1,6 @@
 [gd_scene load_steps=89 format=3 uid="uid://c627eb72or1o7"]
 
-[ext_resource type="Script" path="res://scenes/units/forest/highelf.gd" id="1_pb515"]
+[ext_resource type="Script" uid="uid://uhbclluwbkyw" path="res://scenes/units/forest/highelf.gd" id="1_pb515"]
 [ext_resource type="Texture2D" uid="uid://cnq1hc8pwsi37" path="res://addons/Sprites/Gravity-Sheet.png" id="2_s1mxr"]
 [ext_resource type="Texture2D" uid="uid://dlix5qhk1xnal" path="res://addons/Sprites/Elementals_Leaf_ranger_Free_v1.0/animations/spritesheets/Elementals_leaf_ranger_288x128_SpriteSheet.png" id="3_r1kf0"]
 [ext_resource type="Texture2D" uid="uid://b0bgoolsarrkl" path="res://addons/Sprites/Elementals_Leaf_ranger_Free_v1.0/animations/PNG/death/death_1.png" id="4_ojo4k"]

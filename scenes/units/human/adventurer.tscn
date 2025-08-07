@@ -1,6 +1,6 @@
 [gd_scene load_steps=65 format=3 uid="uid://r6ss1bgq8vh"]
 
-[ext_resource type="Script" path="res://scenes/units/human/adventurer.gd" id="1_s2p1d"]
+[ext_resource type="Script" uid="uid://cv6632nu2wf6v" path="res://scenes/units/human/adventurer.gd" id="1_s2p1d"]
 [ext_resource type="Texture2D" uid="uid://cnq1hc8pwsi37" path="res://addons/Sprites/Gravity-Sheet.png" id="2_lfgq4"]
 [ext_resource type="Texture2D" uid="uid://f47mjr3dvlvr" path="res://addons/Sprites/Adventurer-1.5/adventurer-v1.5-Sheet.png" id="3_rt2bl"]
 [ext_resource type="Texture2D" uid="uid://bkj2k4mbpe0er" path="res://addons/Sprites/Adventurer-1.5/Individual Sprites/adventurer-die-00.png" id="4_omujv"]

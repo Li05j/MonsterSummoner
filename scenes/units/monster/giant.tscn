@@ -1,6 +1,6 @@
 [gd_scene load_steps=50 format=3 uid="uid://li5qajqht7c"]
 
-[ext_resource type="Script" path="res://scenes/units/monster/giant.gd" id="1_wjyje"]
+[ext_resource type="Script" uid="uid://ce87017g3qahm" path="res://scenes/units/monster/giant.gd" id="1_wjyje"]
 [ext_resource type="Texture2D" uid="uid://cnq1hc8pwsi37" path="res://addons/Sprites/Gravity-Sheet.png" id="2_4mxg6"]
 [ext_resource type="Texture2D" uid="uid://coiw64qaaltnj" path="res://addons/Sprites/Troll/Troll-Sheet.png" id="3_r8fyx"]
 [ext_resource type="Texture2D" uid="uid://cdnio0nq3mnr6" path="res://addons/Sprites/HpBar/no health bar.png" id="7_lxw3p"]

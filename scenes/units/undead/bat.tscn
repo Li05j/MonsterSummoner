@@ -1,6 +1,6 @@
 [gd_scene load_steps=50 format=3 uid="uid://clrslk08tfwl1"]
 
-[ext_resource type="Script" path="res://scenes/units/undead/bat.gd" id="1_7bysd"]
+[ext_resource type="Script" uid="uid://dbk77k8spjois" path="res://scenes/units/undead/bat.gd" id="1_7bysd"]
 [ext_resource type="Texture2D" uid="uid://cnq1hc8pwsi37" path="res://addons/Sprites/Gravity-Sheet.png" id="2_yftdh"]
 [ext_resource type="Texture2D" uid="uid://esua18yrhpw8" path="res://addons/Sprites/Flying eye/Attack.png" id="3_xkp1n"]
 [ext_resource type="Texture2D" uid="uid://buewcdyskykn6" path="res://addons/Sprites/Flying eye/Death.png" id="4_4e0lx"]

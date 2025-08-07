@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://bgydpewafa05f"]
 
-[ext_resource type="Script" path="res://scenes/units/projectile/slime_proj.gd" id="1_eaj83"]
+[ext_resource type="Script" uid="uid://cxkk1kav8b637" path="res://scenes/units/projectile/slime_proj.gd" id="1_eaj83"]
 [ext_resource type="Texture2D" uid="uid://cegru882cyngf" path="res://addons/Sprites/Slime/bolt1_strip.png" id="2_lkral"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_anwsp"]

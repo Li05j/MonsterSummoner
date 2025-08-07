@@ -1,6 +1,6 @@
 [gd_scene load_steps=21 format=3 uid="uid://dnp3j51llfr7e"]
 
-[ext_resource type="Script" path="res://scenes/units/projectile/ghost_proj.gd" id="1_5i0a8"]
+[ext_resource type="Script" uid="uid://bkfxdcbq7sygg" path="res://scenes/units/projectile/ghost_proj.gd" id="1_5i0a8"]
 [ext_resource type="Texture2D" uid="uid://prrojsl7hkkp" path="res://addons/Sprites/2023.10.6 dark fantasy big boss free/dark fantasy big boss attack 2a.png" id="2_v33e7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5xv3n"]
